@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="goHome" access="private" >
+    <Code><![CDATA[begin
+  if !bHome
+    resetMotion()
+    pCurrent=here(date:tTCP,date:fWorkTable)
+    //判断是否在打磨区域
+    if pCurrent.trsf.z<100
+      movel(appro(pCurrent,{0,0,-50,0,0,0}),date:tTCP,date:mNomSpeed)
+    endIf
+    movej(date:jHome,date:tTCP,date:mNomSpeed)
+    waitEndMove()
+    call massage("到达零位")
+  endIf
+
+end]]></Code>
+  </Program>
+</Programs>

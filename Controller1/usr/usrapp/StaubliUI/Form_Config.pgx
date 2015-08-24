@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_Config" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nNum" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nPointIndex" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sBuff" type="string" xsi:type="array" size="2" />
+      <Local name="l_sVersion" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为lasman3.0配置
+  //主要是配置界面
+  
+  
+  l_sBuff[0]="关"
+  l_sBuff[1]="开"
+  //轮询
+  resize(sBuff,1,40)
+  
+  sBuff[0]="工具(Tool)X  :"+toString(".3",  x_nNum[0])
+  sBuff[1]="工具(Tool)Y  :"+toString(".3",x_nNum[1])
+  sBuff[2]="工具(Tool)Z  :"+toString(".3",x_nNum[2])
+  sBuff[3]="工具(Tool)RX :"+toString(".3",x_nNum[3])
+  sBuff[4]="工具(Tool)RY :"+toString(".3",x_nNum[4])
+  sBuff[5]="工具(Tool)RZ :"+toString(".3",x_nNum[5])
+  
+  
+  sBuff[6]="回零速度(m/min):"+toString(".3",x_nNum[6])
+  sBuff[7]="不拆工具示教 :"+l_sBuff[x_nNum[7]]
+  sBuff[8]="示教回退(启动:"+l_sBuff[x_nNum[8]]
+  
+  sBuff[9]="PWM频率高(HZ):"+toString(".3",x_nNum[9])
+  sBuff[10]="PWM频率低(HZ):"+toString(".3",x_nNum[10])
+  sBuff[11]="模拟量系数   :"+toString(".3",x_nNum[11])
+  sBuff[12]="速度匹配(s)  :"+toString(".3",x_nNum[12])
+  sBuff[13]="光斑补偿(mm) :"+toString(".3",x_nNum[13])
+  
+  
+  sBuff[14]="开气延时(s)  :"+toString(".3",x_nNum[14])
+  sBuff[15]="随动延时(s)  :"+toString(".3",x_nNum[15])
+  sBuff[16]="工位延时(s)  :"+toString(".3",x_nNum[16]) 
+  
+  sBuff[17]="快捷速度(mm/s):"+toString("",x_nNum[17])
+  sBuff[18]="快捷加速度(%):"+toString("",x_nNum[18])
+  sBuff[19]="快捷Blend(mm):"+toString(".3",x_nNum[19])
+  sBuff[20]="快捷工艺     :"+toString("",x_nNum[20])
+  
+  
+  sBuff[21]="异步7轴(启动):"+l_sBuff[x_nNum[21]]
+  sBuff[22]="7轴home点(mm):"+toString(".3",x_nNum[22])
+  sBuff[23]="7轴分度      :"+toString(".3",x_nNum[23])
+  sBuff[24]="7轴安全点速度:"+toString("",x_nNum[24])
+  
+  
+  
+  sBuff[25]="焊接(启动)   :"+l_sBuff[x_nNum[25]]
+  sBuff[26]="焊接回退长度 :"+toString("",x_nNum[26])
+  //sBuff[27]="步进(启动)   :"+l_sBuff[x_nNum[27]]
+  sBuff[28]="步进距离(mm) :"+toString(".3",x_nNum[28])
+  sBuff[29]="远程生产密码 :"+toString(".3",x_nNum[29])
+  sBuff[30]="同工位多产品 :"+l_sBuff[x_nNum[30]]
+  sBuff[27]="报警延时触发 :"+toString(".3",x_nNum[27])
+  sBuff[31]="拐角速度自适 :"+l_sBuff[x_nNum[31]]
+  
+  
+  sBuff[32]="异步8轴(启动):"+l_sBuff[x_nNum[32]]
+  sBuff[33]="8轴home点(mm):"+toString(".3",x_nNum[33])
+  sBuff[34]="8轴分度      :"+toString(".3",x_nNum[34])
+  sBuff[35]="8轴安全点速度:"+toString("",x_nNum[35])
+  
+  sBuff[36]="工位完成IO输出:"+l_sBuff[x_nNum[36]]
+  sBuff[37]="PLC控制外部轴:"+l_sBuff[x_nNum[37]]
+  sBuff[38]="切割厚板模式 :"+l_sBuff[x_nNum[38]]
+  
+  
+  call Control_LeftS(",,,,,上传,保存,退出,")
+  call Control_PanelS("选项",17,0,20,10)
+  call Control_BottomS(",,,,,上传,保存,退出,")
+  call Control_List(sBuff,x_nPointIndex)
+  
+
+end]]></Code>
+  </Program>
+</Programs>

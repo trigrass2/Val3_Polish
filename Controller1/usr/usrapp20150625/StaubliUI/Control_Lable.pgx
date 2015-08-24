@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Lable" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sMess" type="string" xsi:type="element" />
+      <Parameter name="Value" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nTextMode" type="num" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+ //在屏幕中进行显示 
+  
+  
+  
+setTextMode(0)
+gotoxy(0,0)
+put(x_sMess)
+gotoxy(getDisplayLen(x_sMess),0)
+x_nTextMode=min(max(0,x_nTextMode),3)
+setTextMode(x_nTextMode)
+//序号加1
+put(left(toString("",Value+1)+"            ",max(8,nPanelLTopX-getDisplayLen(x_sMess)-len(toString("",Value)))))
+setTextMode(0)
+end]]></Code>
+  </Program>
+</Programs>

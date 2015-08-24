@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Align">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_tTool" type="tool" xsi:type="element" />
+      <Parameter name="x_bOK" type="bool" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_pPoint" type="point" xsi:type="array" size="1" />
+      <Local name="l_pPoint1" type="point" xsi:type="array" size="1" />
+      <Local name="l_bSame" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  工具对齐
+  //Input parameters
+  //  tool x_tTool:工具值
+  //Output paramaters
+  //  bool x_bOK:是否对齐
+  //Example
+  //  call Align(tool,bOK)
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  resetMotion()
+  x_bOK=false
+  link(l_pPoint,world)
+  link(l_pPoint1,world)
+  l_pPoint=here(x_tTool,world)
+  l_pPoint1.trsf=align(l_pPoint.trsf,world.trsf)
+  call ComparePoint(l_pPoint,l_pPoint1,l_bSame)
+  if !l_bSame
+    movej(l_pPoint1,x_tTool,mNomSpeed)
+    waitEndMove()
+    delay(0.1)
+    l_pPoint=here(x_tTool,world)
+    call ComparePoint(l_pPoint,l_pPoint1,l_bSame)
+    if l_bSame
+      x_bOK=true
+    else
+      x_bOK=false
+    endIf
+  else
+    x_bOK=true
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

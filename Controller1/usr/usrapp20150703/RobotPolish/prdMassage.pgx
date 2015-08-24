@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="prdMassage" access="private" >
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  do
+
+    //call $rotAngle()
+    //生产中,数据读取中
+    if read:bCycle and !read:bWriteEnd
+      //路径加载中
+      if roundDown(read:nMoveID)>read:nWritePtr+read:nThousandWrite*1000
+        call massage("等待路径加载...")
+      else
+        if bPause
+          if bInterVal
+            call massage("间断恢复:"+toString(".1",nPauseTime-(clock()-nTimeBuff))+"秒")
+          else
+            call massage("暂停中,按F3继续生产")
+          endIf
+        else
+          call massage("生产中,等待生产结束")
+        endIf
+      endIf
+      //生产中,数据读取结束
+    elseIf read:bCycle and read:bWriteEnd
+      if bPause
+        if bInterVal
+          call massage("间断恢复:"+toString(".1",nPauseTime-(clock()-nTimeBuff))+"秒")
+        else
+          call massage("暂停中,按F3继续生产")
+        endIf
+      else
+        call massage("生产中,等待生产结束")
+      endIf
+      //生产结束
+    elseIf read:bCycle==false and read:bCycleEnd==true
+      call massage("生产结束")
+    endIf
+    delay(0)
+  until read:bCycle==false and read:bCycleEnd==true
+  call massage("生产结束")
+end]]></Code>
+  </Program>
+</Programs>

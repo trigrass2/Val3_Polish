@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_Prod" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sBottomList" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //欢迎界面，显示日期和时间
+ userPage()
+cls()
+ call Control_PanelMd("RobotPolish软件生产界面")
+ 
+
+ 
+//     for l_nIndex=0 to min(7,size(x_sBottomList)-1)  
+//    gotoxy(1+l_nIndex*5,13)
+//    if size(x_sBottomList)>l_nIndex and x_sBottomList[l_nIndex]!=""
+//      put(x_sBottomList[l_nIndex])
+//    endIf
+//    endFor
+ call Control_Bottom(x_sBottomList)
+end]]></Code>
+  </Program>
+</Programs>

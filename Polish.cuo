@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CellUserOptions>
+  <Controller Name="Controller1">
+    <Application>Disk://RobotPolish/RobotPolish.pjx</Application>
+    <Application>Disk://readText/readText.pjx</Application>
+    <Application>Disk://CircleCenter/CircleCenter.pjx</Application>
+    <Application>Disk://CircleCenter/MotionPage/MotionPage.pjx</Application>
+    <Application>Disk://StaubliCalTool7/StaubliCalTool7.pjx</Application>
+  </Controller>
+  <Option Name="SynchronizerMode">
+    <Synchronizers>
+      <Synchronizer Controller="Controller1" Mode="Emulator" />
+    </Synchronizers>
+  </Option>
+  <Option Name="3DView">
+    <_3DView Visible="false" />
+  </Option>
+  <Option Name="DataTreeView">
+    <Nodes>
+      <Node Path="Polish" IsExpanded="true" />
+      <Node Path="Polish\Controller1" IsExpanded="true" />
+    </Nodes>
+  </Option>
+  <Option Name="CellExplorer">
+    <Nodes>
+      <Node Path="Polish" IsExpanded="true" />
+      <Node Path="Polish\Controller1" IsExpanded="true" />
+      <Node Path="Polish\Controller1\readText" IsExpanded="true" />
+      <Node Path="Polish\Controller1\readText\getJointDate" IsExpanded="true" />
+      <Node Path="Polish\Controller1\RobotPolish" IsExpanded="true" />
+      <Node Path="Polish\Controller1\RobotPolish\Poll" IsExpanded="true" />
+      <Node Path="Polish\Controller1\RobotPolish\Poll\Locals" IsExpanded="true" />
+    </Nodes>
+  </Option>
+  <Option Name="GeometryView">
+    <Nodes>
+      <Node Path="Polish" IsExpanded="true" />
+    </Nodes>
+  </Option>
+</CellUserOptions>

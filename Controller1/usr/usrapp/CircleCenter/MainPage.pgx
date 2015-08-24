@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="MainPage">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_trTrsfOut" type="trsf" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nSelected" type="num" xsi:type="array" size="1" />
+      <Local name="l_nItem" type="num" xsi:type="array" size="1" />
+      <Local name="l_nView" type="num" xsi:type="array" size="1" />
+      <Local name="l_sItem" type="string" xsi:type="array" size="1" />
+      <Local name="l_i" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  示教坐标系界面
+  //Input parameters
+  //
+  //Output paramaters
+  //  frame x_fFrame:参考坐标系
+  //  trsf  x_trTrsfOut:新建坐标系trsf值
+  //Example
+  //  call MainPage(frame,trTrsfOut)
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  resetMotion()
+  userPage()
+  cls()
+  title("RobotPolish->产品坐标系示教")
+  nFrame1Err=-1
+  call ShowOffset()
+  call list("Frame参数",0,1,14,8,sOffSet)
+  sThreeOffset[0]=sEmptyOrNotC[0]+"第1点(圆周上)"
+  sThreeOffset[1]=sEmptyOrNotC[1]+"第2点(圆周上)"
+  sThreeOffset[2]=sEmptyOrNotC[2]+"第3点(圆周上)"
+  call user:setSizeList(20,1,18,8)
+  call user:listcreate("参考点")
+  call user:listadd(sThreeOffset)
+  call user:selectNewField(l_nSelected,l_nItem,l_nView)
+  call user:typeLen(0,13,"记录",4)
+  call user:typeLen(5,13,"对齐",4)
+  call user:typeLen(10,13,"计算",4)
+  call user:typeLen(15,13,"保存",4)
+  call user:typeLen(35,13,"返回",4)
+  gotoxy(0,13)
+  bSame=true
+  nSelectedPt=0
+  if taskStatus("Move")!=-1
+    taskKill("Move")
+    wait(taskStatus("Move")==-1)
+  endIf
+  taskCreate "Move",30,Move()
+  do
+    
+    if (l_nKey>=270 and l_nKey<=278) or !bSame
+      call list("Frame参数",0,0,14,8,sOffSet)
+      call user:setSizeList(20,1,18,8)
+      call user:listcreate("参考点")
+      call user:listadd(sThreeOffset)
+      call user:selectNewField(l_nSelected,l_nItem,l_nView)
+      call user:typeLen(0,13,"记录",4)
+      call user:typeLen(5,13,"对齐",4)
+      call user:typeLen(10,13,"计算",4)
+      call user:typeLen(15,13,"保存",4)
+      call user:typeLen(35,13,"返回",4)
+    endIf
+    l_nKey=getKey()
+    if (l_nKey>=270 and l_nKey<=278) or l_nKey==261 or l_nKey==266
+      call user:listevent(l_nKey,l_nItem,l_sItem)
+      l_nSelected=l_nItem
+      nSelectedPt=l_nItem
+      switch l_nKey
+        //编辑点
+        case 270
+          user:nParaAdjustType=3
+          for l_i=0 to 5
+            nMin[l_i]=0
+            nMax[l_i]=0
+          endFor
+          //对要修改的值进行赋值
+          sItem[0]="x"
+          sItem[1]="y"
+          sItem[2]="z"
+          sItem[3]="rx"
+          sItem[4]="ry"
+          sItem[5]="rz"
+          nItem[0]=pFrameRefPt[l_nItem].trsf.x
+          nItem[1]=pFrameRefPt[l_nItem].trsf.y
+          nItem[2]=pFrameRefPt[l_nItem].trsf.z
+          nItem[3]=pFrameRefPt[l_nItem].trsf.rx
+          nItem[4]=pFrameRefPt[l_nItem].trsf.ry
+          nItem[5]=pFrameRefPt[l_nItem].trsf.rz
+          call user:editNumField("点参数-"+toString("",l_nItem+1),sItem,nItem,nMin,nMax)
+          pFrameRefPt[l_nItem].trsf.x=nItem[0]
+          pFrameRefPt[l_nItem].trsf.y=nItem[1]
+          pFrameRefPt[l_nItem].trsf.z=nItem[2]
+          pFrameRefPt[l_nItem].trsf.rx=nItem[3]
+          pFrameRefPt[l_nItem].trsf.ry=nItem[4]
+          pFrameRefPt[l_nItem].trsf.rz=nItem[5]
+        break
+        //记录
+        case 271
+          sButton="是"
+          sButton[1]="否"
+          call user:questionDialog("是否记录？",sButton,l_i)
+          if l_i==0 or l_i==1
+            pFrameRefPt[l_nItem]=here(tTool,world)
+            libSave()
+          endIf
+        break
+        
+        //对齐
+        case 272
+          taskSuspend("Move")
+          taskSuspend("CheckModeFrame")
+          call MotionPage:AlignPage(tTool)
+          taskResume("Move",0)
+          taskResume("CheckModeFrame",0)
+        break
+        //计算
+        case 273
+          call Circle3point(pPointCenter,nDia,tTool,bOk)
+          if bOk
+            bFrameTeach=true
+            bFrameSave=false
+            
+            fFrame1.trsf=pPointCenter.trsf
+            trOffset=fFrame1.trsf
+            
+            //2015.02.03
+            //需要在程序中进行修改
+            //如何判断一个坐标系与世界坐标系Z轴相同。
+            
+            setFrame(pPointCenter,pFrameRefPt[0],pFrameRefPt[1],fFrame1)
+            trOffset=fFrame1.trsf
+            nAngle=$rotAngle(trOffset)
+            if cos(trOffset.rx)*cos(trOffset.ry)>=0
+              call ShowOffset()
+              popUpMsg("坐标系计算完成")
+            else
+              popUpMsg("请重新示教第二点,不符合右手定则")
+            endIf
+            
+            //************************
+          endIf
+          
+        break
+          
+        //保存
+        
+        //2015.02.03
+        //x_trTrsfOut 算出的frame的trsf
+        
+      
+        case 274
+          sButton="是"
+          sButton[1]="否"
+          if nFrame1Err==0
+            call user:questionDialog("是否保存？",sButton,l_i)
+            if l_i==0 or l_i==1
+              bFrameSave=true
+              //                x_trTrsfOut.x=trOffset.x
+              //                x_trTrsfOut.y=trOffset.y
+              //                x_trTrsfOut.z=trOffset.z
+              x_trTrsfOut=trOffset
+              date:bCenterPoint=true
+              date:nPrdRadius=nDia
+              date:libSave()
+              popUpMsg("数据保存完成")
+            endIf
+          else
+            popUpMsg("数据未修改")
+          endIf
+        break
+        case 278
+          if bFrameTeach==true and bFrameSave==false
+            //退出
+            sButton[0]="是"
+            sButton[1]="否"
+            call user:questionDialog("未保存修改数据,是否返回?",sButton,l_i)
+            if l_i==0 or l_i==1
+              bExit=true
+            endIf
+          else
+            bExit=true
+          endIf
+        break
+      endSwitch
+    endIf
+    //刷新点状态
+    sThreeOffset[0]=sEmptyOrNotC[0]+"第1点(圆周上)"
+    sThreeOffset[1]=sEmptyOrNotC[1]+"第2点(圆周上)"
+    sThreeOffset[2]=sEmptyOrNotC[2]+"第3点(圆周上)"
+    if (l_nKey>=270 and l_nKey<=278)
+      cls()
+    endIf
+    delay(0)
+  until bExit
+  
+end
+    ]]></Code>
+  </Program>
+</Programs>

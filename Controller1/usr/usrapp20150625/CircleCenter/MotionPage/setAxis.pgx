@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="setAxis" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nAxisNum" type="num" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+  switch x_nAxisNum
+    case 6
+      nAxisNum=6
+    break
+    case 4
+      nAxisNum=4
+    break
+    default
+      popUpMsg("请输入正确的关节数目!")
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

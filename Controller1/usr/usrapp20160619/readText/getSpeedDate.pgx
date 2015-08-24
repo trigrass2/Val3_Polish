@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="getSpeedDate">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sSText" type="string" xsi:type="element" />
+      <Parameter name="x_mMdesc" type="mdesc" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sString" type="string" xsi:type="array" size="3" />
+      <Local name="l_bBool" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //获取速度参数
+  call split(x_sSText,",",l_sString)
+  //TXT文件会提供两个数值,前一个为加速度百分比，后一个为tvel
+  //赋值
+  //
+  l_sString[0]=toNum(l_sString[0],x_mMdesc.accel,l_bBool)
+  // x_mMdesc.decel=x_mMdesc.vel*x_mMdesc.accel
+  x_mMdesc.decel=x_mMdesc.accel
+  l_sString[1]=toNum(l_sString[1],x_mMdesc.tvel,l_bBool)
+  
+  
+  //2015.02.04
+  x_mMdesc.leave=0
+  if l_sString[2]!=""
+    toNum(l_sString[2],l_nNum,l_bBool)
+    if l_bBool and l_nNum>0
+      x_mMdesc.leave=l_nNum
+    endIf
+  endIf
+  
+  
+end
+  
+  ]]></Code>
+  </Program>
+</Programs>

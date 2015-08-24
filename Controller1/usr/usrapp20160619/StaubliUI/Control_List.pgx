@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_List" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sItemName" type="string" xsi:type="array" use="reference" />
+      <Parameter name="x_nSelectItem" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nFrist" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_bBlack" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bBlank" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nCount" type="num" xsi:type="array" size="1" />
+      <Local name="l_sBuff" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //说明：
+  //函数功能：在划定的框内，把选中项给显示出来
+  //l_nFirst  在列表中第一个显示的项的序号
+  //x_nSelectItem  被选中的项的序号
+  //l_nCount 合法列表项的项总数，如何数组中间为空，则可能被截断
+  
+  
+  //1.参数初始化
+  l_nFrist=0
+  l_nCount=0
+  
+  //2.参数合法化判断，得到合法项的总数
+  for l_nIndex=0 to size(x_sItemName)-1
+    if x_sItemName[l_nIndex]==""
+      l_nIndex=size(x_sItemName)
+    else
+      l_nCount=l_nCount+1
+    endIf
+  endFor
+  
+  //3.如果选中项大于列表长度
+  x_nSelectItem=min(max(0,x_nSelectItem),l_nCount-1)
+  if x_nSelectItem>=nPanelLengthY
+    l_nFrist=x_nSelectItem-nPanelLengthY+1
+  endIf
+  
+  
+  //4.把列表给画出来
+  for l_nIndex=0 to min(nPanelLengthY-1,l_nCount-l_nFrist-1)
+    gotoxy(nPanelLTopX+1,nPanelLTopY+l_nIndex+1)
+    setTextMode(sel(l_nIndex+l_nFrist==x_nSelectItem,1,0))
+    //l_nNum=max(nPanelWidthX-getDisplayLen(x_sItemName[l_nIndex+l_nFrist])+len(x_sItemName[l_nIndex+l_nFrist]),nPanelWidthX)
+   l_sBuff=left(x_sItemName[l_nIndex+l_nFrist]+"                                  ",nPanelWidthX)
+   while getDisplayLen(l_sBuff)>nPanelWidthX
+  l_sBuff=left(l_sBuff,len(l_sBuff)-1) 
+  endWhile
+  put(l_sBuff)
+//   left(x_sItemName[x_sItemName[l_nIndex+l_nFrist]],nPanelWidthX-)
+//    put(left(x_sItemName[l_nIndex+l_nFrist]+"                            ",l_nNum))
+
+
+
+
+
+  endFor
+  
+  
+  //5.对剩下的进行补空
+  setTextMode(0)
+  while l_nIndex< nPanelLengthY
+    gotoxy(nPanelLTopX+1,nPanelLTopY+l_nIndex+1)
+    put(left("                               ",nPanelWidthX-2))
+    l_nIndex=l_nIndex+1
+  endWhile
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

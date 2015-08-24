@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Key_ListBase">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_bRefresh" type="bool" xsi:type="element" use="reference" />
+      <Parameter name="x_nKeyValue" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nSelectItem" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  x_bRefresh=true
+  x_nKeyValue=getKey()
+    switch x_nKeyValue
+    //向上
+    case 261
+      x_nSelectItem=x_nSelectItem-1
+    break
+    //向下
+    case 266
+      x_nSelectItem=x_nSelectItem+1
+    break
+    
+    default
+      x_bRefresh=false
+    break
+    
+    endSwitch
+ 
+end]]></Code>
+  </Program>
+</Programs>

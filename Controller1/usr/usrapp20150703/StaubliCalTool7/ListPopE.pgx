@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="ListPopE" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sS" type="string" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  switch x_sS
+    case "OffsetDone"
+      popUpMsg("Setting Offset is Ok")
+    break
+    case "Offset"
+      popUpMsg("Fill the deviation and Press Enter to confirm")
+    break
+    case "Floor"
+      popUpMsg(" Set floor is Ok ")
+    break
+    case "Ceiling"
+      popUpMsg(" Set ceiling is Ok")
+    break
+    case "First"
+      popUpMsg("Record 1st point is Ok")
+    break
+    case "Second"
+      popUpMsg("Record 2nd point is Ok")
+    break
+    case "Third"
+      popUpMsg("Record 3rd point is Ok")
+    break
+    case "Fourth"
+      popUpMsg("Record 4th point is Ok")
+    break
+    case "FRP"
+      popUpMsg("First record points")
+    break
+    case "CantSwitchTool2"
+      popUpMsg("Can't switch tTool2!First Calibrate Tool1!")
+    break
+    case "CantSwitchTool3"
+      popUpMsg("Can't switch tTool3!First Calibrate Tool2!")
+    break
+
+    case "DeviationIsTooLarge"
+      popUpMsg("Deviation is too large!Re-record 4 points!")
+    break
+    case "SaveInTool1"
+      popUpMsg("Tool parameters are saved in tTool1")
+    break
+    case "SaveInTool2"
+      popUpMsg("Tool parameters are saved in tTool2")
+    break
+    case "SaveInTool3"
+      popUpMsg("Tool parameters are saved in tTool3")
+    break
+    case "SetMounting"
+      popUpMsg("First set the robot mounting")
+    break
+    case "PressMoveHoldToAlign"
+      popUpMsg("Press Move/Hold to align")
+    break
+    case "PressMoveHoldToGoBack"
+      popUpMsg("Press Move/Hold to goback")
+    break
+    case "PressMoveHoldToMove"
+      popUpMsg("Press Move/Hold to move")
+    break
+    case "CompletedAlign"
+      popUpMsg("Alignment is ok")
+    break
+    case "CompletedGoBack"
+      popUpMsg("GoBack is ok")
+    break
+    case "CompletedMove"
+      popUpMsg("Motion is ok")
+    break
+    case "CantMove"
+      popUpMsg("Can't Reach！Re-record 1st point!")
+    break
+    case "CantGoBack"
+      popUpMsg("Can't GoBack！First record 1st point!")
+    break
+    case "CompletedUpLoad"
+      popUpMsg("Upload Tool parameters is Ok")
+    break
+    case "EndOfProgram"
+      popUpMsg("Welcome to use the Staubli software")
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

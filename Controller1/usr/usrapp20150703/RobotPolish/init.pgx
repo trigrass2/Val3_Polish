@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="init" access="private" >
+    <Locals>
+      <Local name="l_nLink" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //variables
+  bPause=false
+  bExit=false
+  bForceError=false
+  bTableAlm=false
+  bSuspend=false
+  bUpload=false
+
+  bInterVal=false
+  for l_nNum=0 to 5
+    bRefreshMsg[l_nNum]=true
+  endFor
+  //
+  read:bCycle=false
+  //转台转动与否
+  date:bWorTbMoving=false
+  //IO
+  call io:init()
+  call io:tableSpeed(nTabSpeed)
+  //init ATI
+  call ati:initialize("io:sAtiFs",l_nLink)
+end]]></Code>
+  </Program>
+</Programs>

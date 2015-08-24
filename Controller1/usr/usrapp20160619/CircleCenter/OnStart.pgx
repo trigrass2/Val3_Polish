@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="OnStart" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_tTool" type="tool" xsi:type="element" use="reference" />
+      <Parameter name="x_trFrameOut" type="trsf" xsi:type="element" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  
+  //Input parameters
+  //  tool x_tTool:工具
+  //  frame x_fFrame:参考坐标系
+
+  //Output paramaters
+  //  trsf x_trOffSetOut:新建坐标系的trsf值
+  //
+  //Example
+  //  call OnStart(tool,frame,trTrsfSetOut)
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  call init(x_tTool)
+  if taskStatus("CheckModeFrame")!=-1
+    taskKill("CheckModeFrame")
+    wait(taskStatus("CheckModeFrame")==-1)
+  endIf
+  taskCreate "CheckModeFrame",15,CheckMode()
+  call MainPage(x_trFrameOut)
+end]]></Code>
+  </Program>
+</Programs>

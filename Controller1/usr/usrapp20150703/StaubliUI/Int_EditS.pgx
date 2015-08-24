@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Int_EditS">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nData" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nX" type="num" xsi:type="element" />
+      <Parameter name="x_nY" type="num" xsi:type="element" />
+      <Parameter name="x_sMess" type="string" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nOri" type="num" xsi:type="array" size="1" />
+      <Local name="l_bBNum" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //参数判断
+  x_nX=min(max(0,x_nX),39) 
+  x_nY=min(max(0,x_nY),13)
+  //x_nLength=min(max(1,x_nLength),39) 
+
+  //把字符串给打印出来
+  gotoxy(x_nX,x_nY) 
+  setTextMode(0)
+  put(x_sMess)
+  
+  //数值限定
+  l_nNum=0
+  for l_nKey=0 to nPanelWidthX-x_nX+nPanelLTopX+1-1
+      l_nNum=l_nNum*10+9*l_nKey
+  endFor
+  
+  l_nOri=x_nData
+  l_bBNum=false
+   l_nKey=0
+  while l_nKey!=270 and l_nKey!=255
+ //数值进行刷新，
+ gotoxy(x_nX,x_nY) 
+ setTextMode(0)
+ 
+ put(left("                ",nPanelWidthX-x_nX+nPanelLTopX+1-getDisplayLen(x_sMess)))
+ 
+ 
+ //让其在编辑状态时 为白字黑底闪烁
+   setTextMode(3)
+   
+//对按键进行判断
+    l_nKey=getKey()
+    switch l_nKey
+      //从0～9进行编辑
+      case 48,49,50,51,52,53,54,55,56,57
+        if  !l_bBNum
+          x_nData=0
+          l_bBNum=true
+        endIf
+        if x_nData<l_nNum and x_nData>l_nNum*-1
+          x_nData=x_nData*10+l_nKey-48
+        endIf
+      break
+       
+      
+      //ESC
+      case 255
+        x_nData=l_nOri
+        setTextMode(0)
+      break
+            //回车
+      case 270
+        setTextMode(0)
+      break
+      
+      //UP
+      case 261
+        if !l_bBNum
+          x_nData=x_nData+1
+        endIf
+      break
+       //Down
+      case 266
+        if !l_bBNum
+          x_nData=max(x_nData-1,0)
+        endIf
+      break
+
+      //bp  
+      case 263
+        l_bBNum=false
+        x_nData=0
+      break
+    endSwitch
+    x_nData=round(x_nData)
+      
+    
+    
+    //把数值给打印出来
+    gotoxy(x_nX+getDisplayLen(x_sMess),x_nY) 
+    put(toString("",x_nData))
+    delay(0)
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

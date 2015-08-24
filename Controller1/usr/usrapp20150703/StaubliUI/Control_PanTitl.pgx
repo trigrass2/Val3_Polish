@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_PanTitl">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_sS" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //画框函数
+  
+  
+  
+  
+  setTextMode(0)
+  
+  //方框进行重画
+  
+  //画上边
+  gotoxy(nPanelLTopX,nPanelLTopY)
+  l_sS="┌"+left("───────────────────────────────────",nPanelWidthX)
+  
+  //写标题 
+  
+  //2是两个标志符
+  if x_sTitle!=""
+    x_sTitle=left(x_sTitle,min(getDisplayLen(x_sTitle),nPanelWidthX)-getDisplayLen(x_sTitle)+len(x_sTitle))
+    x_sTitle="┤"+x_sTitle+"├┐"
+    l_sS=left(l_sS,nPanelWidthX-getDisplayLen(x_sTitle)+2)+x_sTitle
+  else
+    l_sS=l_sS+"┐"
+  endIf
+  put(l_sS)
+  
+//  //画下边
+//  gotoxy(nPanelLTopX,nPanelLTopY+nPanelLengthY+1)
+//  put("└"+left("─────────────────────────────────────────",nPanelWidthX)+"┘")
+//  
+//  //重画两边
+//  for l_nIndex=1 to nPanelLengthY
+//    gotoxy(nPanelLTopX,nPanelLTopY+l_nIndex)
+//    // put("│")
+//    put("│")
+//    gotoxy(nPanelLTopX+nPanelWidthX+1,nPanelLTopY+l_nIndex)
+//    put("│")
+//  endFor
+  
+end
+]]></Code>
+  </Program>
+</Programs>

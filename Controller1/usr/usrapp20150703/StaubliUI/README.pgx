@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="ReadMe">
+    <Code><![CDATA[begin
+  //D是default的意思，使用这个标志符一般使用四个默认方框参数  
+  //B 是两的意思
+  //S 是字符串的意思,对于String类型，对于list中分开的不需要超过20个项
+  //Md 是中间的意思
+  //1 表示数值加1
+  
+  //上面的标志符可以相互重合
+  //lable 表示标签
+  //List ；列表,没有外边框
+  //Panel  矩形框
+  //Form  表示一个整体框架，里面可以对8个功能键进行设置
+  //Str_  字符串处理
+  //Num_   数值处理
+  
+  
+//参数说明
+//Title 表示标题
+//MC  表示是否是MC的数组
+//Key  按键相应的基本函数
+//Str_SplitComma  用来分隔以","作为分隔的分隔符
+//x_nSelectitem  选中项的项数，
+//nText 文本显示格式，0 白底黑字 1 黑底白字 2白底黑字闪烁 3 黑底白字闪烁
+//x_sLeftList 是整体框架中对8个功能键的定义
+//
+  
+ //Panel 参数设置
+ //nPanelLengthY   框的长度
+ //nPanelWidthX    框的宽度
+ //nPanelLTopX     宽的左上角的X值
+ //nPanelLTopY     宽的左上角的Y值
+ //   ┤     nPanelWidthX             ├    
+ //lt┌———————————————————————————————┐
+ //  │                               │
+ //  │                               │
+ //  │                               │
+ //  │                               │
+ //  │                               │
+ //  │                               │
+ //  │                               │
+ //  │                               │
+ //  └———————————————————————————————┘
+ //
+ //在框里面的list的宽度不能超过nPanelWidthX
+ 
+ 
+ 
+ //gotoxy(x,y)
+ //x 从0～39  一共是40列
+ //y 从0～13  一共是14列
+ //put 如果超过光标
+ 
+ //利用填充空格符来实现输出固定格式的长度
+ //put(left(l_sStr+"                                      "),length)
+ //使用max,min来对输入参数合法性判断
+ //max(min(0,nData),39)
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

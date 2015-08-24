@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Str_SplitChar">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_bRes" type="bool" xsi:type="element" use="reference" />
+      <Parameter name="x_sStrIn" type="string" xsi:type="element" />
+      <Parameter name="x_sChar" type="string" xsi:type="element" />
+      <Parameter name="x_sOut" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nLen" type="num" xsi:type="array" size="1" />
+      <Local name="l_nCharLen" type="num" xsi:type="array" size="1" />
+      <Local name="l_nStrIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //****************************************************************
+  //***************************************************************
+  //函数名称：SplitChar
+  //用途：  用于解析字符
+  //创建日期：
+  //作者：
+  //联系方式：
+  //备注：传入的数组个数决定了其中的分配
+  //版本修改说明：
+  //****************************************************************
+  //*****************************************************************
+  //1.参数定义
+  //对传入的x_sout进行初始化
+    for l_nIndex=0 to size(x_sOut)-1
+      x_sOut[l_nIndex]=""
+    endFor
+    
+  l_nIndex=0
+  l_nLen=0
+  x_bRes=false
+  
+  //2.条件判断
+  if x_sStrIn=="" or x_sChar==""
+    return
+  endIf
+  
+  l_nCharLen=len(x_sChar)
+  //3.分割字符串
+  while find(x_sStrIn,x_sChar)>=0 and l_nIndex<size(x_sOut)-1
+    l_nStrIndex=find(x_sStrIn,x_sChar)
+    l_nLen=l_nCharLen+l_nStrIndex
+    x_sOut[l_nIndex]=left(x_sStrIn,l_nStrIndex)
+    x_sStrIn=delete(x_sStrIn,l_nLen,0)
+    l_nIndex=l_nIndex+1
+  endWhile
+    x_sOut[l_nIndex]=x_sStrIn
+  
+  //4.返回值
+ x_bRes=true
+end]]></Code>
+  </Program>
+</Programs>

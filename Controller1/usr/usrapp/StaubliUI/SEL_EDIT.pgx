@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Sel_Edit" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nData" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nX" type="num" xsi:type="element" />
+      <Parameter name="x_nY" type="num" xsi:type="element" />
+      <Parameter name="x_sMess" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nBuff" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //说明
+  //函数功能：上下进行选择
+  //x_nData 被选中的字符串数组序号
+  //x_sMess  可选字符串数组
+  //x_nX x_nY 被选中的起始点
+  
+  
+  
+  
+  //参数判断
+  x_nX=min(max(0,x_nX),39) 
+  x_nY=min(max(0,x_nY),nPanelLTopY+nPanelLengthY)
+  x_nData=max(min(x_nData,size(x_sMess)-1),0)
+  
+  l_nNum=x_nData
+  l_nKey=0
+  l_nBuff=l_nNum-100
+  
+  
+  //按键选择
+  while l_nKey!=270 and l_nKey!=255
+    
+    //对按键进行判断
+    l_nKey=getKey()
+    switch l_nKey
+      //向下
+      case 261
+        l_nNum=l_nNum-1
+        if l_nNum<=-1
+          l_nNum=size(x_sMess)-1
+        endIf
+      break
+      
+      //向上
+      case 266
+        l_nNum=l_nNum+1
+        if l_nNum>=size(x_sMess)
+          l_nNum=0
+        endIf
+      break
+      //回车
+      case 270
+        x_nData=l_nNum
+        return
+      break
+    endSwitch
+    
+    //重新刷新界面
+    if l_nBuff!=l_nNum
+      l_nBuff=l_nNum
+      gotoxy(x_nX,x_nY) 
+      setTextMode(0)
+      put(left(x_sMess[l_nNum]+"           ",nPanelWidthX-x_nX+nPanelLTopX))
+    endIf
+    
+    
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

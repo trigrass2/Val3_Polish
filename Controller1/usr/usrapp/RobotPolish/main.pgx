@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="main">
+    <Code><![CDATA[begin
+
+  //初始化
+  call DeleteTxt()
+  call init()
+  //创建同步任务,机器人实时读取ATI传感器数据
+  //2015.06.29
+  //taskCreateSync "readAtiForce",0.05,bOverRun,readForce()
+ // taskCreate "readAtiForce",80,readForce()
+  //创建任务,实时扫描输入输出信号
+  //当date:bPLC变量为true时,调用真实机器人联机调试程序;
+  //当date:bPLC变量为false时,调用PC模拟程序;
+  if date:bPLC
+    taskCreate "Input",96,checkIn()
+    taskCreate "Output",98,checkOut()
+  else
+    taskCreate "PC_IO",98,check_PC()
+  endIf
+  //创建任务,用户操作界面
+  taskCreate "HMI",85,userInterface()
+
+
+
+end]]></Code>
+  </Program>
+</Programs>

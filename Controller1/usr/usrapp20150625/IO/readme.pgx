@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="readme">
+    <Code><![CDATA[begin
+
+  //IO定义说明
+  
+  //  Input
+  //  diB_0_UPS:通常情况为true,当UPS应急电源掉电后,其值为false
+  //  diB_1_tableAlm:通常情况为false,转台故障、急停信号
+  //  diB_2_tableOn:转台工作信号
+  //  diB_3_toolAlm:正常情况为false,工具故障、报警信号
+  //  diB_4_tSpeedOk:工具到达给定转速后，信号置为true
+  //  diB_5-diB_15:备用
+  
+  //  Output
+  //  当前使用6个bit组合用于发送转台的速度代码（仅限0-35）
+  //  doB_0_speed:6个bit之一,低位
+  //  doB_1_speed:6个bit之一
+  //  doB_2_speed:6个bit之一
+  //  doB_3_speed:6个bit之一
+  //  doB_4_speed:6个bit之一
+  //  doB_5_speed:6个bit之一,高位
+  //  doB_6_toolPower:用于主轴上下电,true时上电,false时下电
+  //  doB_7_toolOnOff:用于控制主轴的启停
+  //  doB_8_toolOn:备用
+  //  doB_9_tableOn:转台开/关,true时为开，false时为关
+  //  doB_10_robotAlm:机器人报警信号
+
+end]]></Code>
+  </Program>
+</Programs>

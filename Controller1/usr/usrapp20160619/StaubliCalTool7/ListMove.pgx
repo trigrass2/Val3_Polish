@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="ListMove" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sM" type="string" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bA" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bB" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bEqual" type="bool" xsi:type="array" size="1" />
+      <Local name="l_fFrame" type="frame" xsi:type="array" size="1" />
+      <Local name="l_jJoint" type="joint" xsi:type="array" size="1" />
+      <Local name="l_trR" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  switch x_sM
+    case "align"
+      resetMotion()
+      call ListPop("PressMoveHoldToAlign")
+      pA.trsf={0,0,0,0,0,0}
+      pA=here(tTool,world)
+      pA.trsf=align(pA.trsf,world.trsf)
+      movel(pA,tTool,mSpeed)
+      waitEndMove()
+      resetMotion()
+      call ListPop("CompletedAlign")
+    break
+    case "GoBackP2_2_1"
+      if p2_2_1.trsf!={0,0,0,0,0,0}
+        resetMotion()
+        call CheckPosEqual(p2_2_1,l_bEqual)
+        if l_bEqual==false
+          call ListPop("PressMoveHoldToGoBack")
+          call interpolatePos(here(tTool,world),p2_2_1)
+          call ListPop("CompletedGoBack")
+        endIf
+      else
+        call ListPop("CantGoBack")
+      endIf
+    break
+    case "Rz+180P2_2_1"
+      resetMotion()
+      pA.trsf={0,0,0,0,0,0}
+      pB.trsf={0,0,0,0,0,0}
+      l_trR={0,0,0,0,0,90}
+      pA.trsf=p2_2_1.trsf*l_trR
+      pA.config=cConfigSame
+      pB.trsf=pA.trsf*l_trR
+      pB.config=cConfigSame
+      call CheckTraj(p2_2_1,pA,l_bA)
+      call CheckTraj(pA,pB,l_bB)
+      if l_bA==true and l_bB==true
+        movel(pA,tTool,mSpeed)
+        movel(pB,tTool,mSpeed)
+
+
+        waitEndMove()
+        call ListPop("CompletedMove")
+      endIf
+    break
+    case "Rz-180P2_2_1"
+      resetMotion()
+      pA.trsf={0,0,0,0,0,0}
+      pB.trsf={0,0,0,0,0,0}
+      l_trR={0,0,0,0,0,-90}
+      pA.trsf=p2_2_1.trsf*l_trR
+      pA.config=cConfigSame
+      pB.trsf=pA.trsf*l_trR
+      pB.config=cConfigSame
+      call CheckTraj(p2_2_1,pA,l_bA)
+      call CheckTraj(pA,pB,l_bB)
+      if l_bA==true and l_bB==true
+        movel(pA,tTool,mSpeed)
+        movel(pB,tTool,mSpeed)
+        waitEndMove()
+        call ListPop("CompletedMove")
+      endIf
+    break
+    case "GoBackP2_3_1"
+      if p2_3_1.trsf!={0,0,0,0,0,0}
+        resetMotion()
+        call CheckPosEqual(p2_2_1,l_bEqual)
+        if l_bEqual==false
+          call ListPop("PressMoveHoldToGoBack")
+          call interpolatePos(here(tTool,world),p2_3_1)
+          call ListPop("CompletedGoBack")
+        endIf
+      else
+        call ListPop("CantGoBack")
+      endIf
+    break
+    case "Rz+60P2_3_1"
+      resetMotion()
+      call ListPop("PressMoveHoldToMove")
+      pA.trsf={0,0,0,0,0,0}
+      l_trR={0,0,0,0,0,60}
+      pA.trsf=p2_3_1.trsf*l_trR
+      pA.config=cConfigSame
+      call CheckTraj(p2_3_1,pA,l_bA)
+      if l_bA==true
+        movel(pA,tTool,mSpeed)
+        waitEndMove()
+        call ListPop("CompletedMove")
+      endIf
+    break
+    case "Rz-60P2_3_1"
+      resetMotion()
+      call ListPop("PressMoveHoldToMove")
+      pA.trsf={0,0,0,0,0,0}
+      l_trR={0,0,0,0,0,-60}
+      pA.trsf=p2_3_1.trsf*l_trR
+      pA.config=cConfigSame
+      call CheckTraj(p2_3_1,pA,l_bA)
+      if l_bA==true
+        movel(pA,tTool,mSpeed)
+        waitEndMove()
+        call ListPop("CompletedMove")
+      endIf
+    break
+    case "GoBackP3_1"
+      if p3_1.trsf!={0,0,0,0,0,0}
+        resetMotion()
+        call CheckPosEqual(p3_1,l_bEqual)
+        if l_bEqual==false
+          call ListPop("PressMoveHoldToGoBack")
+          pB=appro(p3_1,{0,0,-10,0,0,0})
+          movel(pB,tTool,mSpeed)
+          movel(p3_1,tTool,mSlow)
+          call ListPop("CompletedGoBack")
+        endIf
+      else
+        call ListPop("CantGoBack")
+      endIf
+    break
+
+    case "Rx+60P3_1"
+      resetMotion()
+      call ListPop("PressMoveHoldToMove")
+      pA.trsf={0,0,0,0,0,0}
+      l_fFrame.trsf={p3_1.trsf.x,p3_1.trsf.y,p3_1.trsf.z,0,0,0}
+      l_trR={0,0,0,60,0,0}
+      pA.trsf=l_fFrame.trsf*l_trR*!l_fFrame.trsf*p3_1.trsf
+      pB=appro(p3_1,{0,0,-10,0,0,0})
+      pA.config=cConfigSame
+      pB.config=cConfigSame
+      call CheckTraj(p3_1,pB,l_bA)
+      call CheckTraj(pB,pA,l_bB)
+      if l_bA==true and l_bB==true
+        movel(pB,tTool,mSpeed)
+        movel(pA,tTool,mSpeed)
+        waitEndMove()
+        call ListPop("CompletedMove")
+      endIf
+    break
+    case "Ry+60P3_1"
+      resetMotion()
+      call ListPop("PressMoveHoldToMove")
+      pA.trsf={0,0,0,0,0,0}
+      l_fFrame.trsf={p3_1.trsf.x,p3_1.trsf.y,p3_1.trsf.z,0,0,0}
+      l_trR={0,0,0,0,60,0}
+      pA.trsf=l_fFrame.trsf*l_trR*!l_fFrame.trsf*p3_1.trsf
+      pB=appro(p3_1,{0,0,-10,0,0,0})
+      pA.config=cConfigSame
+      pB.config=cConfigSame
+      call CheckTraj(p3_1,pB,l_bA)
+      call CheckTraj(pB,pA,l_bB)
+      if l_bA==true and l_bB==true
+        movel(pB,tTool,mSpeed)
+        movel(pA,tTool,mSpeed)
+        waitEndMove()
+        call ListPop("CompletedMove")
+      endIf
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

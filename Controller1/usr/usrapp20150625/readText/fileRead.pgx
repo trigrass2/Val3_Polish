@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="fileRead" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTxtName" type="string" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bReadHead" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nRead" type="num" xsi:type="array" size="1" />
+      <Local name="l_sRead" type="string" xsi:type="array" size="1" />
+      <Local name="l_sSign" type="string" xsi:type="array" size="2" />
+      <Local name="l_sDate" type="string" xsi:type="array" size="2" />
+      <Local name="i" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call init()
+  bCycle=true
+  //打开文件
+  sFileName="Disk://txt/"+x_sTxtName
+  if $fileExists(sFileName)==false
+    popUpMsg(sFileName+"文件不存在")
+    bCycle=false
+    bCycleEnd=true
+    bResumeCycle=false
+    return
+  endIf
+  
+  
+  //读取文件头
+  nFileId=$fileOpen(sFileName,"r")
+  call ReadHead(nFileId,l_bReadHead,sPrdID,tPrdTool,jPrdHome,fPrdFrame,trPrdFrmOffset,nTotalTrajs)
+  $fileClose(nFileId)
+  //判断头文件是否正确
+  if l_bReadHead==false
+    popUpMsg("头文件格式或内容错误")
+    return
+  endIf
+  //关键数据核对检查
+  // libSave()
+  
+  
+  
+  
+  
+  
+  bTxtHeadOk=true
+  l_sSign[0]=""
+  l_sSign[1]=""
+  //
+  nFileId=$fileOpen(sFileName,"r")
+  //文件内容读取
+  //从"BYPASS=FALSE"标示符开始采集数据
+  do
+    l_nRead=$fileGet(nFileId,l_sRead,1)
+    call getStrSign(l_sRead,l_sSign)
+    //路径结束标志
+    if l_sSign[1]=="END"
+      if nCurrentTraj<nTotalTrajs
+        nCurrentTraj=nCurrentTraj+1
+      endIf
+    endIf
+  until l_sSign[0]=="BYPASS" and l_sSign[1]=="FALSE"
+  bBYPASS=false
+  do
+    //等待读取信息
+    while (nReadPtr+nThousandRead*1000+900<nThousandWrite*1000+nWritePtr or nReadJnt+nHundredRead*100+50<nWriteJnt+nHundredWrite*100) and !bResumeCycle
+      delay(0)
+    endWhile
+    l_nRead=$fileGet(nFileId,l_sRead,1)
+    call getStrSign(l_sRead,l_sSign)
+    //路径是否过滤
+    if l_sSign=="BYPASS" and l_sSign[1]=="TRUE"
+      bBYPASS=true
+    endIf
+    if l_sSign=="BYPASS" and l_sSign[1]=="FALSE"
+      bBYPASS=false
+    endIf
+    if !bBYPASS
+      //获取是否从TXT获得速度信息
+//      if !bGetSpeed
+//        if l_sSign=="GETSPEED" and l_sSign[1]=="TRUE"
+//          bGetSpeed=true
+//          date:libSave()
+//        endIf
+//      endIf
+      //获取转台信息,判断模式
+      if date:bWorTbMoving==false
+        if l_sSign=="WORKTABLEMODE" and l_sSign[1]=="TRUE"
+          date:bWorTbMoving=true
+          //2015.06.23
+          //date:libSave()
+        endIf
+      endIf
+      //MOVEJ情形
+      if l_sSign=="MOVEJ"
+        call getStrDate(l_sSign[1],l_sDate)
+        sMoveMode[nWritePtr]="MOVEJ"
+        call getJointDate(l_sDate[0],jJointRead[nWriteJnt])
+        //2015.02.05
+        call getSpeedDate(l_sDate[1],mSpdOfJnt[nWriteJnt])
+        nWriteJnt=nWriteJnt+1
+        if nWriteJnt>99
+          nWriteJnt=0
+          nHundredWrite=nHundredWrite+1
+        endIf
+        nWritePtr=nWritePtr+1
+        if nWritePtr>999
+          nWritePtr=0
+          nThousandWrite=nThousandWrite+1
+        endIf
+      endIf
+      //MOVEL情形
+      if l_sSign=="MOVEL"
+        call getStrDate(l_sSign[1],l_sDate)
+        sMoveMode[nWritePtr]="MOVEL"
+        link(pPointRead[nWritePtr],fPrdFrame)
+        call getPointDate(l_sDate[0],pPointRead[nWritePtr])
+        //从TXT中获得机器人速度参数
+        if bGetSpeed
+          call getSpeedDate(l_sDate[1],mSpdOfPt[nWritePtr])
+        endIf
+        //          //转台转动情形
+        //          if date:bWorTbMoving==true
+        //            nDistToOrign=sqrt(pPointRead[nWritePtr].trsf.x*pPointRead[nWritePtr].trsf.x+pPointRead[nWritePtr].trsf.y*pPointRead[nWritePtr].trsf.y)
+        //            //
+        //            //修改机器人移动速度：速度关系式v=v(1-k*d/r)
+        //            mSpdOfPt[nWritePtr].tvel=mSpdOfPt[nWritePtr].tvel*(1-0.5*nDistToOrign/nPrdRadius)
+        //            //
+        //          endIf
+        nWritePtr=nWritePtr+1
+        if nWritePtr>999
+          nWritePtr=0
+          nThousandWrite=nThousandWrite+1
+        endIf
+      endIf
+    endIf
+    //路径结束标志
+    if l_sSign[1]=="END"
+      if nCurrentTraj<nTotalTrajs
+        if size(nPtOfTraj)<nCurrentTraj+1
+          $dins(nPtOfTraj,size(nPtOfTraj)-1)
+        endIf
+        nPtOfTraj[nCurrentTraj]=nThousandWrite*1000+nWritePtr
+        nCurrentTraj=nCurrentTraj+1
+        l_sSign[1]=""
+      endIf
+    endIf
+    delay(0)
+  until nCurrentTraj==nTotalTrajs
+  bWriteEnd=true
+  $fileClose(nFileId)
+  
+  
+  //libSave()
+end
+]]></Code>
+  </Program>
+</Programs>

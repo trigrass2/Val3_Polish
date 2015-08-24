@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_PattenD" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+  call Form_PattenS(x_sTitle,"插入,删除,,,,,,,,,退出,,,","F1,F2,F3,F4,F5,F6,F7,F8")
+  call Control_PanelD()
+  
+end]]></Code>
+  </Program>
+</Programs>

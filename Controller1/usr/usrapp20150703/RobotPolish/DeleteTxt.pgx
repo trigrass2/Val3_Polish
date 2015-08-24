@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="DeleteTxt">
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+
+
+  if libList("Disk://txt",sStrFileName)==false
+    return
+  endIf
+
+  l_nNum=size(sStrFileName)
+  if l_nNum<1
+    return
+  endIf
+
+  for l_nNum=0 to size(sStrFileName)-1
+    if find(sStrFileName[l_nNum],".txt")>0
+      $delete("Disk://txt/"+sStrFileName[l_nNum])
+    endIf
+
+
+  endFor
+
+
+
+
+
+  $fileClose(0)
+  $fileClose(1)
+  $fileClose(2)
+  $fileClose(3)
+  $fileClose(4)
+  $fileClose(5)
+  $fileClose(6)
+  $fileClose(7)
+  $fileClose(8)
+  $fileClose(9)
+
+
+
+
+
+
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="speedCase0_15" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_nNum" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  switch x_nNum
+    case 0
+      dioSet(doB_0_speed,0)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 1
+      dioSet(doB_0_speed,1)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 2
+      dioSet(doB_1_speed,1)
+      dioSet(doB_0_speed,0)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 3
+      dioSet(doB_0_speed,1)
+      dioSet(doB_1_speed,1)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 4
+      dioSet(doB_2_speed,1)
+      dioSet(doB_0_speed,0)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 5
+      dioSet(doB_0_speed,1)
+      dioSet(doB_2_speed,1)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 6
+      dioSet(doB_1_speed,1)
+      dioSet(doB_2_speed,1)
+      dioSet(doB_0_speed,0)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 7
+      dioSet(doB_0_speed,1)
+      dioSet(doB_1_speed,1)
+      dioSet(doB_2_speed,1)
+      dioSet(doB_3_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+
+    case 8
+      dioSet(doB_3_speed,1)
+      dioSet(doB_0_speed,0)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 9
+      dioSet(doB_0_speed,1)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_3_speed,1)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 10
+      dioSet(doB_1_speed,1)
+      dioSet(doB_0_speed,0)
+      dioSet(doB_3_speed,1)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 11
+      dioSet(doB_0_speed,1)
+      dioSet(doB_1_speed,1)
+      dioSet(doB_3_speed,1)
+      dioSet(doB_2_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 12
+      dioSet(doB_2_speed,1)
+      dioSet(doB_3_speed,1)
+      dioSet(doB_0_speed,0)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 13
+      dioSet(doB_0_speed,1)
+      dioSet(doB_2_speed,1)
+      dioSet(doB_3_speed,1)
+      dioSet(doB_1_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 14
+      dioSet(doB_1_speed,1)
+      dioSet(doB_2_speed,1)
+      dioSet(doB_3_speed,1)
+      dioSet(doB_0_speed,0)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+    case 15
+      dioSet(doB_0_speed,1)
+      dioSet(doB_1_speed,1)
+      dioSet(doB_2_speed,1)
+      dioSet(doB_3_speed,1)
+      dioSet(doB_4_speed,0)
+      dioSet(doB_5_speed,0)
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

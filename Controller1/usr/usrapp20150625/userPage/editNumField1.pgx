@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="editNumField1" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sItemName" type="string" xsi:type="array" use="reference" />
+      <Parameter name="x_nItem" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nMin" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nMax" type="num" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="j" type="num" xsi:type="array" size="1" />
+      <Local name="l_nSize" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_sEvent" type="string" xsi:type="array" size="1" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nField" type="num" xsi:type="array" size="1" />
+      <Local name="l_sItem" type="string" xsi:type="array" size="1" />
+      <Local name="i" type="num" xsi:type="array" size="1" />
+      <Local name="l_sEmpty" type="string" xsi:type="array" size="2" />
+      <Local name="l_sString1" type="string" xsi:type="array" size="1" />
+      <Local name="l_nFollow" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  Modify numerical values of a list of Items.
+  //  When you use this program it creates automatically the list of x_sItemName. 
+  //  You can navigate and select the Item that you want to modify the value.
+  //  If you press on ESC you quit this list and all values that you have entered 
+  //  will not be saved.
+  //  You can use an array for the parameters min and max to add limits
+  //  for every Items.
+  //  If the parameters min and max are equal there are no limits.
+  //
+  //Input parameters
+  //  string x_sTitle :
+  //    role : Title of the list
+  //
+  //Output parameters
+  //  string x_sItemName :
+  //    role : array of Items that you want to edit the numerical values
+  //  num x_nItem :
+  //    role : array of values corresponding of the Items
+  //  num x_nMin :
+  //    role : minimum limit for x_nItem values 
+  //  num x_nMax
+  //    role : maximum limit for x_nItem values
+  //
+  //Example
+  //  call editNumField("Menu",sItem,nItem,nMin,nMax) 
+  //
+  //History
+  //  Creation : 28-04-08 - f.Rob
+  //Header end
+  //-----------------------------------------------------------------------
+
+  //  nView=nFirst=0
+  //  //Copy all the values x_nItem 
+  //  call numCopy(x_nItem,nOldValue)
+  //  l_nSize=size(x_nItem)-1
+  //  //Create the LIST
+  //  call setSizeList(20,3,15,6)
+  //  call listcreate(x_sTitle)
+  //  //Insert Items
+  //  for j=0 to l_nSize
+  //    l_sItem=x_sItemName[j]
+  //    call strlength(l_sItem,3)
+  //    call listadd(l_sItem+": "+toString(".2",x_nItem[j]))
+  //  endFor
+  //  call listupdate(0)
+  do
+    //    call clear(0,13)
+    //    call typeMenu(7,"ESC")
+    //    call typeMenu(8,"OK")
+    l_nKey=get()
+    call listevent(l_nKey,l_nIndex,l_sEvent)
+    //On Enter Key
+    if l_nKey==270
+      call listcursor(nView,false)
+      if size(x_nMin)==size(x_nItem)
+        //Use min and max
+        call changeValue(x_nItem[l_nIndex],x_nMin[l_nIndex],x_nMax[l_nIndex],15,nView+nTopY+1,l_sEmpty)
+      else
+        call changeValue(x_nItem[l_nIndex],0,0,15,nView+nTopY+1,l_sEmpty)
+      endIf
+      //UPDATE
+      call listdel(l_nIndex)
+      l_sItem=x_sItemName[l_nIndex]
+      call strlength(l_sItem,5)
+      l_sItem=l_sItem+": "+toString(".2",x_nItem[l_nIndex])
+      call listins(l_sItem,l_nIndex)
+      call listupdate(l_nIndex-nView)
+    endIf
+    delay(0)
+  until l_nKey==278 or l_nKey==255
+  //Escape use????
+  if l_nKey==255
+    bUseEscape=true
+    call numCopy(nOldValue,x_nItem)
+  else
+    bUseEscape=false
+  endIf
+  //Exit
+  call nullKey(l_nKey)
+end]]></Code>
+  </Program>
+</Programs>

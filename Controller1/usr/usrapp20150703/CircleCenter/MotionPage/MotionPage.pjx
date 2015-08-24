@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+  <Parameters version="s7.1.3" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="Align.pgx" />
+    <Program file="AlignPage.pgx" />
+    <Program file="BackHome.pgx" />
+    <Program file="BackHomePage.pgx" />
+    <Program file="CompareJoint.pgx" />
+    <Program file="ComparePoint.pgx" />
+    <Program file="setAxis.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+  </Programs>
+  <Database>
+    <Data file="MotionPage.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="user" path="Disk://userPage/userPage.pjx" />
+  </Libraries>
+</Project>

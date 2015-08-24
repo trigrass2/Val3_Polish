@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="production">
+    <Code><![CDATA[begin
+  if taskStatus("txtLoad")!=-1
+    taskKill("txtLoad")
+    wait(taskStatus("txtLoad")==-1)
+  endIf
+  if taskStatus("motion")!=-1
+    taskKill("motion")
+    wait(taskStatus("motion")==-1)
+  endIf
+  // taskCreateSync "txtLoad",0.004,bTxtLoad,read:fileRead(sTxtSelected)
+  taskCreate "txtLoad",98,read:fileRead(sTxtSelected)
+  delay(1)
+  taskCreate "motion",98,read:trajGrind()
+  if taskStatus("prdMassage")==-1
+    taskCreate "prdMassage",80,prdMassage()
+  endIf
+end
+  ]]></Code>
+  </Program>
+</Programs>

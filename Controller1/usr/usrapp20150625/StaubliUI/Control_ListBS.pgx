@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_ListBS" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sItemName" type="string" xsi:type="element" />
+      <Parameter name="x_sItemValue" type="string" xsi:type="element" />
+      <Parameter name="x_nSelectItem" type="num" xsi:type="element" />
+      <Parameter name="x_nText" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sBuff" type="string" xsi:type="array" size="10" />
+      <Local name="l_sValue" type="string" xsi:type="array" size="10" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+    //说明：
+  //函数功能：在划定的框内，把选中项给显示出来
+  //l_nFirst  在列表中第一个显示的项的序号
+  //x_nSelectItem  被选中的项的序号
+  //l_nCount 合法列表项的项总数，如何数组中间为空，则可能被截断
+  
+   // 赋初值
+   for l_nIndex=0 to size(l_sBuff)-1
+    l_sBuff[l_nIndex]=""
+  endFor
+  
+  //把项的名字给解析出来
+  call  Str_SplitComma(l_bRes,x_sItemName,l_sBuff)
+  if !l_bRes
+    return
+  endIf
+  
+    call  Str_SplitComma(l_bRes,x_sItemValue,l_sValue)
+  if !l_bRes
+    return
+  endIf
+  
+  call Control_PanelXY(nPanelLTopX,nPanelLTopY,nPanelWidthX/2,nPanelLengthY)
+  call Control_List(l_sBuff,x_nSelectItem)  
+  call Control_PanelXY(nPanelLTopX+nPanelWidthX/2,nPanelLTopY,nPanelWidthX/2,nPanelLengthY)
+  call Control_List(l_sValue,x_nSelectItem)  
+   
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="prdStatusList">
+    <Locals>
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+      <Local name="l_sSBuff" type="string" xsi:type="array" size="1" />
+      <Local name="l_bBool" type="bool" xsi:type="array" size="1" />
+      <Local name="l_sItems" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //生产状态栏
+  
+  //2015.02.02
+  call use:setSizeList(20,0,18,10)
+  call use:listcreate("状态列表")
+  
+  sPrdStatus[0]="Txt文件:"
+  if len(sTxtSelected)==0
+    sPrdStatus[1]="未选择"
+  else
+    sPrdStatus[1]=sTxtSelected
+  endIf
+  if read:bCycle==false
+    if bSuspend
+      sPrdStatus[2]="生产状态:"+"等待复位"
+    else
+      sPrdStatus[2]="生产状态:"+"无生产"
+    endIf
+  elseIf bPause==true
+    sPrdStatus[2]="生产状态:"+"暂停中"
+  else
+    sPrdStatus[2]="生产状态:"+"生产中"
+  endIf
+  if nWorkModeStatus==2
+    sPrdStatus[3]="运动状态:"+"Hold"
+  else
+    sPrdStatus[3]="运动状态:"+"Move"
+  endIf
+  
+  
+  read:nMoveID=getMoveId()
+  read:nSpdOfTCP=getSpeed(read:tPrdTool)
+  sPrdStatus[4]="总路径个数:"+toString("6.0",read:nTotalTrajs)
+  sPrdStatus[5]="当前路径  :"+toString("6.0",read:nTrajofRead+1)
+  sPrdStatus[6]="写入点个数:"+toString("6.0",read:nReadCount)
+  sPrdStatus[7]="读取点个数:"+toString("6.0",read:nMoveCount)
+  sPrdStatus[8]="当前MoveID:"+toString("6.1",read:nMoveID)
+  sPrdStatus[9]="瞬时速度  :"+toString("6.1",read:nSpdOfTCP)
+  
+  //2015.02.02
+  call use:listadd(sPrdStatus)
+  call use:listupdate1(0)
+  
+  if l_sSBuff!=sPrdStatus[2]
+    
+    //  call UI:Control_PanelMd(sPrdStatus[2])
+    l_sSBuff=sPrdStatus
+    if bPause
+      l_sItems=",启动,继续,停止,,回零,,退出"
+    else
+      l_sItems=",启动,暂停,停止,,回零,,退出"
+    endIf
+    call use:stringToArray(l_sItems,sItems)
+    call use:setMenu(sItems,true,3)
+    // call UI:Form_Prod(sItems)
+    //call UI:Control_Bottom(sItems)
+  endIf
+  
+  //  if l_bBool!=bPause
+  //
+  //    // call UI:Control_PanelMd(sPrdStatus[2])
+  //    l_bBool=bPause
+  //  endIf
+  
+  gotoxy(0,11)
+  //put("间断时长:"+toString(".1",nPauseTime)+"秒")
+  
+  
+end
+  ]]></Code>
+  </Program>
+</Programs>

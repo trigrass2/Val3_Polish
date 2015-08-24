@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Joint" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_jJ" type="jointRx" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="6" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="6" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //修改点位的 joint
+  
+  
+  
+  l_nData[0]=x_jJ.j1
+  l_nData[1]=x_jJ.j2
+  l_nData[2]=x_jJ.j3
+  l_nData[3]=x_jJ.j4
+  l_nData[4]=x_jJ.j5
+  l_nData[5]=x_jJ.j6
+  
+  for l_nNum=0 to 5
+    l_sItem[l_nNum]="j"+toString("",l_nNum+1)+"   :"+toString(".3",l_nData[l_nNum])
+  endFor
+  
+  call Control_BottomS(",,,,,,取消,确定")
+  call Control_PanelXY(8,0,15,6)
+  call Control_Panel("Joint值")
+  call Control_List(l_sItem,l_nSelectIndex)
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      case 266
+        l_nSelectIndex=min(l_nSelectIndex+1,5)
+      break
+      
+      case 278
+        x_jJ.j1=l_nData[0]
+        x_jJ.j2=l_nData[1]
+        x_jJ.j3=l_nData[2]
+        x_jJ.j4=l_nData[3]
+        x_jJ.j5=l_nData[4]
+        x_jJ.j6=l_nData[5]
+        return
+      break
+      
+      
+      case 277,255
+        return
+      break
+      
+      case 270
+        call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+7,l_nSelectIndex+nPanelLTopY+1)
+      break
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      for l_nNum=0 to 5
+        l_sItem[l_nNum]="j"+toString("",l_nNum+1)+"   :"+toString(".3",l_nData[l_nNum])
+      endFor
+      call Control_List(l_sItem,l_nSelectIndex)
+      
+    endIf
+    
+    
+    
+    
+    
+    
+  endWhile
+  
+  
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

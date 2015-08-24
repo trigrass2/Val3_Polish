@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Para" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_trTrsf" type="trsf" xsi:type="array" use="reference" />
+      <Parameter name="x_bRes" type="bool" xsi:type="array" use="reference" />
+      <Parameter name="x_bCut" type="bool" xsi:type="element" />
+      <Parameter name="x_nTrajType" type="num" xsi:type="element" />
+      <Parameter name="x_nId" type="num" xsi:type="element" />
+      <Parameter name="x_trExtAxis" type="trsf" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="8" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="8" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_bFrist" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nFid" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为lasman3.0进行配置
+  //修改点位的参数
+  
+  
+  l_nFid=x_nId
+  
+  call Control_BottomS(",,,,,,退出,修改")
+  if x_bCut
+    if x_nTrajType!=10 and x_nTrajType!=20
+      call Control_PanelXY(8,0,18,5)
+    else
+      if x_nTrajType==10
+        call Control_PanelXY(8,0,18,6)
+      else
+        call Control_PanelXY(8,0,18,8)
+      endIf
+    endIf
+  else
+    if x_nTrajType==20
+      call Control_PanelXY(8,0,17,5)
+    else
+      call Control_PanelXY(8,0,17,3)
+    endIf
+  endIf
+  
+  call Control_Panel("参数")
+  call Control_List(l_sItem,l_nSelectIndex)
+  
+  
+  //按键响应
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      case 264
+        x_nId=max(0,x_nId-1)
+      break
+      
+      
+      case 268
+        x_nId=min(size(x_trTrsf)-1,x_nId+1)
+      break
+      
+      case 266
+        if x_bCut
+          if x_nTrajType==10 
+            l_nSelectIndex=min(l_nSelectIndex+1,5)
+          else
+            if x_nTrajType==20
+              l_nSelectIndex=min(l_nSelectIndex+1,7)
+            else
+              l_nSelectIndex=min(l_nSelectIndex+1,4)
+            endIf
+          endIf
+        else
+          if x_nTrajType==20
+            l_nSelectIndex=min(l_nSelectIndex+1,4)
+          else
+            l_nSelectIndex=min(l_nSelectIndex+1,2)
+          endIf
+          
+        endIf
+      break
+      
+      case 278
+        if l_nFid!=x_nId and x_bRes[x_nId]!=(l_nNum==1)
+          popUpMsg("运动类型需在当前位置点修改")
+        else
+          x_trTrsf[x_nId].x=l_nData[3]
+          x_trTrsf[x_nId].y=l_nData[4]
+          x_trTrsf[x_nId].z=l_nData[0]
+          x_trTrsf[x_nId].rx=l_nData[1]
+          
+          x_trTrsf[x_nId].ry=l_nData[2]
+          x_trTrsf[x_nId].rz=l_nData[5]
+          if x_bCut
+            x_trExtAxis[x_nId].x=l_nData[6]
+            x_trExtAxis[x_nId].y=l_nData[7]
+          else
+            x_trExtAxis[x_nId].x=l_nData[3]
+            x_trExtAxis[x_nId].y=l_nData[4]
+          endIf
+          x_bRes[x_nId]=(l_nNum==1)
+          gotoxy(0,13)
+          put(toString("",x_nId+1)+":参数已修改")
+        endIf
+      break
+      
+      
+      case 277,255
+        cls()
+        return
+      break
+      
+      
+      
+      case 270
+        if (l_nSelectIndex==2 and !x_bCut) or (l_nSelectIndex==5 and x_bCut)
+          call Sel_Edit(l_nNum,nPanelLTopX+11,l_nSelectIndex+nPanelLTopY+1,sData)
+          
+        else
+          call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+11,l_nSelectIndex+nPanelLTopY+1)
+        endIf
+      break
+      
+    endSwitch
+    
+    if l_nKey!=-1 or !l_bFrist
+      //      if x_bCut
+      //        
+      //        sData[0]="直线"
+      //        sData[1]="圆弧"
+      //        l_sItem[0]="速度(mm/s:"+toString(".3",l_nData[0])
+      //        l_sItem[1]="加速度(%):"+toString(".3",l_nData[1])
+      //        l_sItem[2]="BLend(mm):"+toString(".3",l_nData[2])
+      //        l_sItem[3]="工艺     :"+toString(".3",l_nData[3])
+      //        l_sItem[4]="动作     :"+toString(".3",l_nData[4])
+      //        l_sItem[5]="圆弧/直线:"+sData[l_nNum]
+      //        
+      //      else
+      //        sData[0]="MoveJ"
+      //        sData[1]="MoveL"
+      //        l_sItem[0]="速度(mm/s:"+toString(".3",l_nData[0])
+      //        l_sItem[1]="加速度(%):"+toString(".3",l_nData[1])
+      //        l_sItem[2]="关节/直线:"+sData[l_nNum]
+      //        
+      //      endIf
+      
+      //通过局部变量来实现内部存储
+      if !l_bFrist or l_nKey==264  or l_nKey==268
+        l_bFrist=true
+        if x_bCut
+          l_nData[3]=x_trTrsf[x_nId].x
+          l_nData[4]=x_trTrsf[x_nId].y
+          l_nData[0]=x_trTrsf[x_nId].z
+          l_nData[1]=x_trTrsf[x_nId].rx
+          
+          l_nData[2]=x_trTrsf[x_nId].ry
+          l_nData[5]=x_trTrsf[x_nId].rz
+          
+          
+          l_nData[6]=x_trExtAxis[x_nId].x
+          l_nData[7]=x_trExtAxis[x_nId].y
+        else
+          l_nData[0]=x_trTrsf[x_nId].z
+          l_nData[1]=x_trTrsf[x_nId].rx
+          
+          l_nData[3]=x_trExtAxis[x_nId].x
+          l_nData[4]=x_trExtAxis[x_nId].y
+          
+          
+        endIf
+        
+        l_nNum=sel(x_bRes[x_nId],1,0)
+        
+        //界面初始化
+        resize(sData,1,2)
+        call Control_PanTitl(toString("",x_nId+1)+":参数")
+      endIf
+      if x_bCut
+        
+        sData[0]="直线"
+        sData[1]="圆弧"
+        l_sItem[0]="速度(mm/s:"+toString(".3",l_nData[0])
+        l_sItem[1]="加速度(%):"+toString(".3",l_nData[1])
+        l_sItem[2]="BLend(mm):"+toString(".3",l_nData[2])
+        l_sItem[3]="工艺     :"+toString(".3",l_nData[3])
+        l_sItem[4]="动作     :"+toString(".3",l_nData[4])
+        l_sItem[5]="圆弧/直线:"+sData[l_nNum]
+        l_sItem[6]="同步七轴 :"+toString(".3",l_nData[6])
+        l_sItem[7]="同步八轴 :"+toString(".3",l_nData[7])
+        
+      else
+        sData[0]="MoveJ"
+        sData[1]="MoveL"
+        l_sItem[0]="速度(mm/s:"+toString(".3",l_nData[0])
+        l_sItem[1]="加速度(%):"+toString(".3",l_nData[1])
+        l_sItem[2]="关节/直线:"+sData[l_nNum]
+        l_sItem[3]="同步七轴 :"+toString(".3",l_nData[3])
+        l_sItem[4]="同步八轴 :"+toString(".3",l_nData[4])
+        
+      endIf
+      
+      
+      
+      call Control_List(l_sItem,l_nSelectIndex)
+      
+    endIf
+    
+    
+    
+    
+    
+    
+  endWhile
+  
+end
+
+        
+        
+  
+]]></Code>
+  </Program>
+</Programs>

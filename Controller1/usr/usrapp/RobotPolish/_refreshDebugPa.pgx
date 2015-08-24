@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="_refreshDebugPa" access="private" >
+    <Locals>
+      <Local name="l_bRefresh" type="bool" xsi:type="array" size="6" />
+    </Locals>
+    <Code><![CDATA[begin
+  while nPage==1
+    if dioGet(io:doB_6_toolPower)==0 and l_bRefresh[0]
+      gotoxy(15,3)
+      put("    ")
+      gotoxy(15,3)
+      put("[关]")
+      l_bRefresh[0]=false
+    else
+      l_bRefresh[0]=true
+    endIf
+    if dioGet(io:doB_6_toolPower)==1 and l_bRefresh[1]
+      gotoxy(15,3)
+      put("    ")
+      gotoxy(15,3)
+      put("[开]")
+      l_bRefresh[1]=false
+    else
+      l_bRefresh[1]=true
+    endIf
+
+    if dioGet(io:doB_7_toolOn)==0 and l_bRefresh[2]
+      gotoxy(13,4)
+      put("    ")
+      gotoxy(13,4)
+      put("[关]")
+      l_bRefresh[2]=false
+    else
+      l_bRefresh[2]=true
+    endIf
+    if dioGet(io:doB_7_toolOn)==1 and l_bRefresh[3]
+      gotoxy(13,4)
+      put("    ")
+      gotoxy(13,4)
+      put("[开]")
+      l_bRefresh[3]=false
+    else
+      l_bRefresh[3]=true
+    endIf
+    if dioGet(io:doB_9_tableOn)==0 and l_bRefresh[4]
+      gotoxy(13,5)
+      put("    ")
+      gotoxy(13,5)
+      put("[关]")
+      l_bRefresh[4]=false
+    else
+      l_bRefresh[4]=true
+    endIf
+    if dioGet(io:doB_9_tableOn)==1 and l_bRefresh[5]
+      gotoxy(13,5)
+      put("    ")
+      gotoxy(13,5)
+      put("[开]")
+      call io:tableSpeed(nTabSpeed)
+      l_bRefresh[5]=false
+    else
+      l_bRefresh[5]=true
+    endIf
+    delay(0)
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

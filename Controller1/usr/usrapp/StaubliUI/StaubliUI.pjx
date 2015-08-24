@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+  <Parameters version="s7.3" stackSize="15000" millimeterUnit="true" />
+  <Programs>
+    <Program file="Bool_Edit.pgx" />
+    <Program file="BoolMess_Edit.pgx" />
+    <Program file="Control_Action.pgx" />
+    <Program file="Control_AxisPar.pgx" />
+    <Program file="Control_BatPara.pgx" />
+    <Program file="Control_BatPrt.pgx" />
+    <Program file="Control_BatSpd.pgx" />
+    <Program file="Control_Bottom.pgx" />
+    <Program file="Control_BottomS.pgx" />
+    <Program file="Control_CPreset.pgx" />
+    <Program file="Control_Joint.pgx" />
+    <Program file="Control_Lable.pgx" />
+    <Program file="Control_Left.pgx" />
+    <Program file="Control_LeftCut.pgx" />
+    <Program file="Control_LeftS.pgx" />
+    <Program file="Control_List.pgx" />
+    <Program file="Control_List1S.pgx" />
+    <Program file="Control_ListBS.pgx" />
+    <Program file="Control_ListCls.pgx" />
+    <Program file="Control_ListMC.pgx" />
+    <Program file="Control_ListMCD.pgx" />
+    <Program file="Control_ListS.pgx" />
+    <Program file="Control_Loffset.pgx" />
+    <Program file="Control_MCShow.pgx" />
+    <Program file="Control_Mess.pgx" />
+    <Program file="Control_Panel.pgx" />
+    <Program file="Control_PanelB.pgx" />
+    <Program file="Control_PanelD.pgx" />
+    <Program file="Control_PanelMd.pgx" />
+    <Program file="Control_PanelS.pgx" />
+    <Program file="Control_PanelXY.pgx" />
+    <Program file="Control_PanTitl.pgx" />
+    <Program file="Control_Para.pgx" />
+    <Program file="Control_Para1.pgx" />
+    <Program file="Control_PatMove.pgx" />
+    <Program file="Control_Point.pgx" />
+    <Program file="Control_Preset.pgx" />
+    <Program file="Control_Recipe.pgx" />
+    <Program file="Control_Remote.pgx" />
+    <Program file="Control_Scara.pgx" />
+    <Program file="Control_Timer.pgx" />
+    <Program file="Control_Traj.pgx" />
+    <Program file="Control_YesNO.pgx" />
+    <Program file="Float_Edit.pgx" />
+    <Program file="Form_4jHome.pgx" />
+    <Program file="Form_6jHome.pgx" />
+    <Program file="Form_Action.pgx" />
+    <Program file="Form_Bye.pgx" />
+    <Program file="Form_Config.pgx" />
+    <Program file="Form_LabelList.pgx" />
+    <Program file="Form_Main.pgx" />
+    <Program file="Form_MainS.pgx" />
+    <Program file="Form_Panel.pgx" />
+    <Program file="Form_Panel4P.pgx" />
+    <Program file="Form_PanelBool.pgx" />
+    <Program file="Form_PanelJoint.pgx" />
+    <Program file="Form_PanelList.pgx" />
+    <Program file="Form_PanelPoint.pgx" />
+    <Program file="Form_PanelStr.pgx" />
+    <Program file="Form_Patten.pgx" />
+    <Program file="Form_PattenD.pgx" />
+    <Program file="Form_PattenS.pgx" />
+    <Program file="Form_Prod.pgx" />
+    <Program file="Form_Product.pgx" />
+    <Program file="Form_ScaraRobot.pgx" />
+    <Program file="Form_SelSharp.pgx" />
+    <Program file="Form_Simulation.pgx" />
+    <Program file="Form_Welcome.pgx" />
+    <Program file="Int_Edit.pgx" />
+    <Program file="Int_EditS.pgx" />
+    <Program file="Key_ListBase.pgx" />
+    <Program file="Key_ListMC.pgx" />
+    <Program file="ReadMe.pgx" />
+    <Program file="Sel_Edit.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+    <Program file="Str_Edit.pgx" />
+    <Program file="Str_SplitChar.pgx" />
+    <Program file="Str_SplitComma.pgx" />
+  </Programs>
+  <Database>
+    <Data file="StaubliUI.dtx" />
+  </Database>
+  <Libraries />
+</Project>

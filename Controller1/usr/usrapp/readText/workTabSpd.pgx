@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="workTabSpd" access="private" >
+    <Locals>
+      <Local name="l_pCurrent" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //K：num of worktable speed code
+  do
+    l_pCurrent=here(tPrdTool,fPrdFrame)
+    nCurtRadius=sqrt(l_pCurrent.trsf.x*l_pCurrent.trsf.x+l_pCurrent.trsf.y*l_pCurrent.trsf.y)
+    //速度分段
+    nTabSpdCode=K-roundDown(K*nCurtRadius/nPrdRadius)
+    call io:tableSpeed(nTabSpdCode)
+  until dioGet(io:doB_9_tableOn)==0 or bCycle==false or date:bWorTbMoving==false
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="readme">
+    <Code><![CDATA[begin
+  //TITLE             : ATI force sensor
+  //General desription: reads values from ATI force sensor with TCP/IP Socket interface
+  //Hardware Required : ATI Force Sensor
+  //Library Version   : 7.3.1
+  //Public Variables  : bZero nForce nStatus 
+  //Public Program    : initialize() loopReadForce()
+  //Included Libraries: None
+  //Miscellaneous     : Requires a TCP/IP Client socket
+  //Keywords          : ATI Force Sensor
+end]]></Code>
+  </Program>
+</Programs>

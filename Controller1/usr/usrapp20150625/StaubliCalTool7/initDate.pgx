@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="InitDate" access="public" >
+    <Locals>
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  setTextMode(0)
+  $jogPage(false)
+  $jogContext(flange,world,0)
+  sLanguge="Chinese"
+  bUpLoad=false
+  sTool="flange"
+  sMount="floor"
+  nMount=1
+  //
+  nOffsetX=0
+  nOffsetY=0
+  nOffsetZ=0
+  nOffsetRx=0
+  nOffsetRy=0
+  nOffsetRz=0
+  //
+  mNomSpeed.blend=Cartesian
+  mNomSpeed.leave=50
+  mNomSpeed.reach=50
+  mSpeed.blend=Cartesian
+  mSpeed.leave=0
+  mSpeed.reach=0
+  mSlow.blend=Cartesian
+  mSlow.leave=0
+  mSlow.reach=0
+  mSlow.vel=2
+  //  
+  //  tTool.trsf={0,0,0,0,0,0}
+  //  tTool1.trsf={0,0,0,0,0,0}
+  //  tTool2.trsf={0,0,0,0,0,0}
+  //  tTool3.trsf={0,0,0,0,0,0}
+  //
+  p1_1.trsf={0,0,0,0,0,0}
+  p1_1.config={ssame,esame,wsame}
+  p1_2.trsf={0,0,0,0,0,0}
+  p1_2.config={ssame,esame,wsame}
+  p1_3.trsf={0,0,0,0,0,0}
+  p1_3.config={ssame,esame,wsame}
+  p1_4.trsf={0,0,0,0,0,0}
+  p1_4.config={ssame,esame,wsame}
+  p2_2_1.trsf={0,0,0,0,0,0}
+  p2_2_1.config={ssame,esame,wsame}
+  p2_2_2.trsf={0,0,0,0,0,0}
+  p2_2_2.config={ssame,esame,wsame}
+  p2_3_1.trsf={0,0,0,0,0,0}
+  p2_3_1.config={ssame,esame,wsame}
+  p2_3_2.trsf={0,0,0,0,0,0}
+  p2_3_2.config={ssame,esame,wsame}
+  p2_3_3.trsf={0,0,0,0,0,0}
+  p2_3_3.config={ssame,esame,wsame}
+  p3_1.trsf={0,0,0,0,0,0}
+  p3_1.config={ssame,esame,wsame}
+  p3_2.trsf={0,0,0,0,0,0}
+  p3_2.config={ssame,esame,wsame}
+  //
+  bTeach1_1=false
+  bTeach1_2=false
+  bTeach1_3=false
+  bTeach1_4=false
+  bTeach2_2_1=false
+  bTeach2_2_2=false
+  bTeach2_3_1=false
+  bTeach2_3_2=false
+  bTeach2_3_3=false
+  bTeach3_1=false
+  bTeach3_2=false
+  //
+  nScX=nScY=nScZ=0
+  for l_nI=0 to 3
+    nS1[l_nI]=nS2[l_nI]=nS3[l_nI]=nS4[l_nI]=0
+  endFor
+end]]></Code>
+  </Program>
+</Programs>

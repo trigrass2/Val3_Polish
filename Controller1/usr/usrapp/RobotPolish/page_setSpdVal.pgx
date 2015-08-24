@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="page_setSpdVal">
+    <Locals>
+      <Local name="i" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_sString" type="string" xsi:type="array" size="7" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="7" />
+      <Local name="l_sStr" type="string" xsi:type="array" size="1" />
+      <Local name="nMspdList" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  title("RobotPolish-设定速度参数默认值")
+  cls()
+  l_sString[0]="加速度(%)"
+  l_sString[1]="速度(%)"
+  l_sString[2]="减速度(%)"
+  l_sString[3]="Tvel(mm/s)"
+  l_sString[4]="转速(deg/s)"
+  l_sString[5]="Leave(mm)"
+  l_sString[6]="Reach(mm)"
+  l_nNum[0]=date:mGrindingSpd.accel
+  l_nNum[1]=date:mGrindingSpd.vel
+  l_nNum[2]=date:mGrindingSpd.decel
+  l_nNum[3]=date:mGrindingSpd.tvel
+  l_nNum[4]=date:mGrindingSpd.rvel
+  l_nNum[5]=date:mGrindingSpd.leave
+  l_nNum[6]=date:mGrindingSpd.reach
+  //Create the LIST
+  call use:setSizeList(10,3,20,7)
+  call use:listcreate("Set_mPointSpeed")
+  //Insert Items
+  for i=0 to 6
+    call use:strlength(l_sString[i],11)
+    l_sString[i]=l_sString[i]+":"+toString("8.3",l_nNum[i])
+    call use:listadd(l_sString[i])
+  endFor
+  call use:typeMenu(6,"上传")
+  call use:typeMenu(8,"返回")
+  call use:listupdate(0)
+  call use:listcursor(nMspdList,true)
+  do
+    l_nKey=getKey()
+    switch l_nKey
+      case 261
+        if nMspdList>0
+          call use:listcursor(nMspdList,false)
+          nMspdList=nMspdList-1
+          call use:listcursor(nMspdList,true)
+        elseIf nMspdList==0
+          call use:listcursor(nMspdList,false)
+          nMspdList=6
+          call use:listcursor(nMspdList,true)
+        endIf
+      break
+      case 266
+        if nMspdList<6
+          call use:listcursor(nMspdList,false)
+          nMspdList=nMspdList+1
+          call use:listcursor(nMspdList,true)
+        elseIf nMspdList==6
+          call use:listcursor(nMspdList,false)
+          nMspdList=0
+          call use:listcursor(nMspdList,true)
+        endIf
+      break
+      case 270
+        call use:changeValue(l_nNum[nMspdList],0,99999,23,4+nMspdList,l_sStr)
+        date:mGrindingSpd.accel=l_nNum[0]
+        date:mGrindingSpd.vel=l_nNum[1]
+        date:mGrindingSpd.decel=l_nNum[2]
+        date:mGrindingSpd.tvel=l_nNum[3]
+        date:mGrindingSpd.rvel=l_nNum[4]
+        date:mGrindingSpd.leave=l_nNum[5]
+        date:mGrindingSpd.reach=l_nNum[6]
+        //Create the LIST
+        call use:setSizeList(10,3,20,7)
+        call use:listcreate("Set_mPointSpeed")
+        //Insert Items
+        for i=0 to 6
+          call use:strlength(l_sString[i],11)
+          l_sString[i]=l_sString[i]+":"+toString("8.3",l_nNum[i])
+          call use:listadd(l_sString[i])
+        endFor
+        call use:listupdate(0)
+        call use:listcursor(nMspdList,true)
+        date:libSave()
+      break
+      case 276
+        //Joint类型速度参数定义
+        for l_nNum=0 to size(read:mSpdOfJnt)-1
+          read:mSpdOfJnt[l_nNum].accel=16
+          read:mSpdOfJnt[l_nNum].vel=40
+          read:mSpdOfJnt[l_nNum].decel=16
+          read:mSpdOfJnt[l_nNum].tvel=200
+          read:mSpdOfJnt[l_nNum].rvel=1000
+          read:mSpdOfJnt[l_nNum].blend=Cartesian
+          read:mSpdOfJnt[l_nNum].leave=2
+          read:mSpdOfJnt[l_nNum].reach=2
+        endFor
+        for i=0 to size(read:mSpdOfPt)-1
+          read:mSpdOfPt[i].vel=date:mGrindingSpd.vel
+          read:mSpdOfPt[i].accel=date:mGrindingSpd.accel
+          read:mSpdOfPt[i].decel=date:mGrindingSpd.decel
+          read:mSpdOfPt[i].leave=date:mGrindingSpd.leave
+          read:mSpdOfPt[i].reach=date:mGrindingSpd.reach
+          read:mSpdOfPt[i].tvel=date:mGrindingSpd.tvel
+          read:mSpdOfPt[i].rvel=date:mGrindingSpd.rvel
+          read:mSpdOfPt[i].blend=date:mGrindingSpd.blend
+        endFor
+        read:libSave()
+        call massage("数据上传完成!")
+      break
+    endSwitch
+    delay(0)
+  until l_nKey==278 or l_nKey==255
+  call page_main()
+end]]></Code>
+  </Program>
+</Programs>

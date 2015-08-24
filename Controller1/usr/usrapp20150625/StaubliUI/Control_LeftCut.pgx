@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_LeftCut" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nIndex" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //在屏幕左边进行显示
+  //左边的x_sLeftList 是显示的字符串数组
+  
+  setTextMode(0)
+  if x_nIndex==2
+    gotoxy(1,4)
+    put("p    ->全局")
+    gotoxy(1,5)
+    put("w    ->局部偏差")
+    gotoxy(1,6)
+    put("s    ->局部模拟")
+    gotoxy(1,7)
+    put("e    ->批处理参数")
+    gotoxy(1,8)
+    put("q    ->快捷设置")
+    gotoxy(1,9)
+    put("z/Z  ->步进开/关")
+    gotoxy(1,10)
+    //put("Enter->点位")
+    put("x    ->工艺设置")
+    gotoxy(1,11)
+    put("<-/->->Movec点位选择")
+  endIf
+  
+  
+  if x_nIndex==0
+    gotoxy(1,4)
+    put("               ")
+    gotoxy(1,5)
+    put("               ")
+    gotoxy(1,6)
+    put("               ")
+    gotoxy(1,7)
+    put("               ")
+    gotoxy(1,8)
+    put("               ")
+    
+    gotoxy(1,9)
+    put("q    ->整体模拟 ")
+    gotoxy(1,10)
+    put("p    ->产品参数")
+    gotoxy(1,11)
+    put("               ")
+  endIf
+  
+  
+  
+  
+  //左边栏进行显示
+  //  for l_nIndex=0 to min(7,size(x_sLeftList)-1)
+  //    gotoxy(1,l_nIndex+4)
+  //    if size(x_sLeftList)>l_nIndex and x_sLeftList[l_nIndex]!=""
+  //      put("F"+toString("",l_nIndex+1)+"->"+x_sLeftList[l_nIndex])
+  //    endIf
+  //  endFor
+end
+
+
+
+
+  
+  
+]]></Code>
+  </Program>
+</Programs>

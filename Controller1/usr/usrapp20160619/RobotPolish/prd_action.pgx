@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="prd_action">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sString" type="string" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+  switch x_sString
+    //启动生产
+    case "启动生产"
+      call production()
+    break
+    //暂停生产
+    case "暂停生产"
+      bPause=true
+      stopMove()
+      dioSet(io:doB_7_toolOn,0)
+      if dioGet(io:doB_9_tableOn)==1
+        dioSet(io:doB_9_tableOn,0)
+      endIf
+    break
+    //停止生产
+    case "停止生产"
+      stopMove()
+      dioSet(io:doB_7_toolOn,0)
+      dioSet(io:doB_9_tableOn,0)
+      bSuspend=false
+      read:bCycle=false
+      if taskStatus("txtLoad")!=-1
+        taskKill("txtLoad")
+        wait(taskStatus("txtLoad")==-1)
+      endIf
+      if taskStatus("motion")!=-1
+        taskKill("motion")
+        wait(taskStatus("motion")==-1)
+      endIf
+    break
+    //急停处理
+    case "急停处理"
+      stopMove()
+      if dioGet(io:doB_7_toolOn)==1
+        dioSet(io:doB_7_toolOn,0)
+      endIf
+      if dioGet(io:doB_9_tableOn)==1
+        dioSet(io:doB_9_tableOn,0)
+      endIf
+      bSuspend=true
+      if bPause==true
+        bPause=false
+      endIf
+      read:bCycle=false
+      //2015.06.23
+    //  read:libSave()
+      if taskStatus("txtLoad")!=-1
+        taskKill("txtLoad")
+        wait(taskStatus("txtLoad")==-1)
+      endIf
+      if taskStatus("motion")!=-1
+        taskKill("motion")
+        wait(taskStatus("motion")==-1)
+      endIf
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

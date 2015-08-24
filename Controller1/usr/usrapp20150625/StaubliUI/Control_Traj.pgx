@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Traj" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_trFrame" type="trsf" xsi:type="element" use="reference" />
+      <Parameter name="x_trOffset" type="trsf" xsi:type="element" use="reference" />
+      <Parameter name="x_trArray" type="trsf" xsi:type="element" use="reference" />
+      <Parameter name="x_trDownLead" type="trsf" xsi:type="element" use="reference" />
+      <Parameter name="x_trWorkPlace" type="trsf" xsi:type="element" use="reference" />
+      <Parameter name="x_bInerCut" type="bool" xsi:type="element" use="reference" />
+      <Parameter name="x_nDelay" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nLength" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_bWeld" type="bool" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="40" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_bFirst" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //修改点位的 joint
+  
+  
+  // x_trDownLead.rz只能是大于10
+  //圆弧度
+  l_nData[10]=x_trFrame.x
+  l_nData[11]=x_trFrame.y
+  l_nData[12]=x_trFrame.z
+  l_nData[13]=x_trFrame.rx
+  l_nData[14]=x_trFrame.ry
+  l_nData[15]=x_trFrame.rz
+  
+  l_nData[16]=x_trOffset.x
+  l_nData[17]=x_trOffset.y
+  l_nData[18]=x_trOffset.z
+  l_nData[19]=x_trOffset.rx
+  l_nData[20]=x_trOffset.ry
+  l_nData[21]=x_trOffset.rz
+  
+  l_nData[2]=x_trArray.x
+  l_nData[3]=x_trArray.y
+  l_nData[4]=x_trArray.z
+  l_nData[5]=x_trArray.rx
+  
+  l_nData[6]=x_trDownLead.x
+  l_nData[7]=x_trDownLead.y
+  l_nData[8]=x_trDownLead.z
+  l_nData[9]=x_trDownLead.rx
+  
+  l_nData[0]=x_trDownLead.ry
+  //圆弧度
+  l_nData[1]=x_trDownLead.rz*10
+  
+  l_nData[22]=x_trWorkPlace.x
+  l_nData[23]=x_trWorkPlace.y
+  
+  
+  
+  l_nData[24]=sel(x_bInerCut,0,1)
+  l_nData[25]=x_nDelay[0]
+  l_nData[26]=x_nDelay[1]
+  l_nData[27]=x_nLength[0]
+  l_nData[28]=x_nLength[1]
+  l_nData[29]=x_trWorkPlace.ry
+  l_nData[30]=x_trWorkPlace.rz
+  
+    l_nData[31]=x_trWorkPlace.z
+  l_nData[32]=x_trWorkPlace.rx
+//  resize(sData,1,3)
+//  sData[0]="无"
+//  sData[1]="直线"
+//  sData[2]="圆弧"
+//  
+//  resize(sBuff,1,31)
+//  sBuff[0]="圆直径    :"+toString(".3",l_nData[0])
+//  sBuff[1]="圆弧度(焊):"+toString(".3",l_nData[1])
+//  
+//  sBuff[2]="X方向个数 :"+toString("",l_nData[2])
+//  sBuff[3]="X方向距离 :"+toString(".3",l_nData[3])
+//  sBuff[4]="Y方向个数 :"+toString("",l_nData[4])
+//  sBuff[5]="Y方向距离 :"+toString(".3",l_nData[5])
+//  
+//  sBuff[6]="引入类型  :"+sData[l_nData[6]]
+//  sBuff[7]="引入比例  :"+toString(".3",l_nData[7])
+//  sBuff[8]="引出类型  :"+sData[l_nData[8]]
+//  sBuff[9]="引出比例  :"+toString(".3",l_nData[9])
+//  
+//  
+//  
+//  sBuff[10]="坐标系X   :"+toString(".3",l_nData[10])
+//  sBuff[11]="坐标系Y   :"+toString(".3",l_nData[11])
+//  sBuff[12]="坐标系Z   :"+toString(".3",l_nData[12])
+//  sBuff[13]="坐标系RX  :"+toString(".3",l_nData[13])
+//  sBuff[14]="坐标系RY  :"+toString(".3",l_nData[14])
+//  sBuff[15]="坐标系RZ  :"+toString(".3",l_nData[15])
+//  
+//  
+//  sBuff[16]="路径偏差X :"+toString(".3",l_nData[16])
+//  sBuff[17]="路径偏差Y :"+toString(".3",l_nData[17])
+//  sBuff[18]="路径偏差Z :"+toString(".3",l_nData[18])
+//  sBuff[19]="路径偏差RX:"+toString(".3",l_nData[19])
+//  sBuff[20]="路径偏差RY:"+toString(".3",l_nData[20])
+//  sBuff[21]="路径偏差RZ:"+toString(".3",l_nData[21])
+//  
+//  
+//  sBuff[22]="七轴距离  :"+toString(".3",l_nData[22])
+//  sBuff[23]="七轴速度  :"+toString(".3",l_nData[23])
+//  sBuff[25]="激光开延时:"+toString(".3",l_nData[25])
+//  sBuff[26]="激光关延时:"+toString(".3",l_nData[26])
+//  sBuff[27]="边长1     :"+toString(".3",l_nData[27])
+//  sBuff[28]="边长2     :"+toString(".3",l_nData[28])
+//  sBuff[29]="收弧时间  :"+toString(".3",l_nData[29])
+//  resize(sData,1,2)
+//  if !x_bWeld
+//    sData[0]="内切" 
+//    sData[1]="外切"
+//    sBuff[24]="类型      :"+sData[l_nData[24]]
+//  else
+//    sData[0]="开" 
+//    sData[1]="关"
+//    sBuff[24]="使用动作  :"+sData[l_nData[24]]
+//    
+//  endIf
+//  
+//  sBuff[24]="类型      :"+sData[l_nData[24]]
+//  if !x_bWeld
+//    sBuff[30]="穿孔工艺:"+toString(".3",l_nData[30])
+//  else
+//    sBuff[30]="激光程序号:"+toString(".3",l_nData[30])
+//  endIf
+  
+  
+  call Control_BottomS(",,,,,,取消,确定")
+  call Control_PanelXY(8,0,17,11)
+  call Control_Panel("路径参数")
+  call Control_List(sBuff,l_nSelectIndex)
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        //        l_nSelectIndex=max(0,l_nSelectIndex-1)
+        
+        l_nSelectIndex=l_nSelectIndex-1
+        if l_nSelectIndex<=-1
+          l_nSelectIndex=size(sBuff)-1
+        endIf
+        
+      break 
+      
+      case 266
+        l_nSelectIndex=l_nSelectIndex+1
+        if l_nSelectIndex>=size(sBuff)
+          l_nSelectIndex=0
+        endIf
+        //l_nSelectIndex=min(l_nSelectIndex+1,size(sBuff)-1)
+      break
+      
+      case 278
+        x_trFrame.x=l_nData[10]
+        x_trFrame.y =l_nData[11]
+        x_trFrame.z=l_nData[12]
+        x_trFrame.rx =l_nData[13]
+        x_trFrame.ry =l_nData[14]
+        x_trFrame.rz =l_nData[15]
+        
+        x_trOffset.x=l_nData[16]
+        x_trOffset.y =l_nData[17]
+        x_trOffset.z =l_nData[18]
+        x_trOffset.rx =l_nData[19]
+        x_trOffset.ry =l_nData[20]
+        x_trOffset.rz =l_nData[21]
+        
+        x_trArray.x=l_nData[2]
+        x_trArray.y= l_nData[3]
+        x_trArray.z= l_nData[4]
+        x_trArray.rx= l_nData[5]
+        
+        x_trDownLead.x= l_nData[6]
+        x_trDownLead.y= l_nData[7]
+        x_trDownLead.z= l_nData[8]
+        x_trDownLead.rx= l_nData[9]
+        x_trDownLead.ry= l_nData[0]
+        x_trDownLead.rz= l_nData[1]/10
+        
+        x_trWorkPlace.x= l_nData[22]
+        x_trWorkPlace.y= l_nData[23]
+        x_bInerCut=l_nData[24]==0
+        x_nDelay[0]=l_nData[25]
+        x_nDelay[1]=l_nData[26]
+        x_nLength[0]=l_nData[27]
+        x_nLength[1]=l_nData[28]
+        x_trWorkPlace.ry=l_nData[29]
+        x_trWorkPlace.rz=min(50,max(l_nData[30],1))
+             x_trWorkPlace.z= l_nData[31]
+        x_trWorkPlace.rx= l_nData[32]
+        cls()
+        return
+      break
+      
+      
+      case 277,255
+        cls()
+        return
+      break
+      
+      case 270
+        switch l_nSelectIndex
+          case 4,30
+            call Int_Edit(l_nData[l_nSelectIndex],nPanelLTopX+12,sel(l_nSelectIndex>=10,10,l_nSelectIndex)+nPanelLTopY+1)
+          break
+          
+          case 0,1,2,3,5,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,25,26,27,28,29,31,32
+            call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+12,sel(l_nSelectIndex>=10,10,l_nSelectIndex)+nPanelLTopY+1)
+          break
+          case 6,8,24
+            if l_nSelectIndex>9
+              resize(sData,1,2)
+              if !x_bWeld
+                sData[0]="内切"
+                sData[1]="外切"
+              else
+                sData[0]="开" 
+                sData[1]="关"
+              endIf
+            else
+              resize(sData,1,3)
+              sData[0]="无"
+              sData[1]="直线"
+              sData[2]="圆弧"
+            endIf
+            call Sel_Edit(l_nData[l_nSelectIndex],nPanelLTopX+12,sel(l_nSelectIndex>=10,10,l_nSelectIndex)+nPanelLTopY+1,sData)
+            
+          break
+          
+          
+          
+        endSwitch
+      break
+      
+      
+    endSwitch
+    
+    if l_nKey!=-1 or !l_bFirst
+      l_bFirst=true
+      resize(sData,1,3)
+      sData[0]="无"
+      sData[1]="直线"
+      sData[2]="圆弧"
+      
+      resize(sBuff,1,33)
+      sBuff[0]="圆直径    :"+toString(".3",l_nData[0])
+      sBuff[1]="圆弧度(焊):"+toString(".3",l_nData[1])
+      
+      sBuff[2]="X方向个数 :"+toString("",l_nData[2])
+      sBuff[3]="X方向距离 :"+toString(".3",l_nData[3])
+      sBuff[4]="Y方向个数 :"+toString("",l_nData[4])
+      sBuff[5]="Y方向距离 :"+toString(".3",l_nData[5])
+      
+      sBuff[6]="引入类型  :"+sData[l_nData[6]]
+      sBuff[7]="引入比例  :"+toString(".3",l_nData[7])
+      sBuff[8]="引出类型  :"+sData[l_nData[8]]
+      sBuff[9]="引出比例  :"+toString(".3",l_nData[9])
+      
+      
+      
+      sBuff[10]="坐标系X   :"+toString(".3",l_nData[10])
+      sBuff[11]="坐标系Y   :"+toString(".3",l_nData[11])
+      sBuff[12]="坐标系Z   :"+toString(".3",l_nData[12])
+      sBuff[13]="坐标系RX  :"+toString(".3",l_nData[13])
+      sBuff[14]="坐标系RY  :"+toString(".3",l_nData[14])
+      sBuff[15]="坐标系RZ  :"+toString(".3",l_nData[15])
+      
+      
+      sBuff[16]="路径偏差X :"+toString(".3",l_nData[16])
+      sBuff[17]="路径偏差Y :"+toString(".3",l_nData[17])
+      sBuff[18]="路径偏差Z :"+toString(".3",l_nData[18])
+      sBuff[19]="路径偏差RX:"+toString(".3",l_nData[19])
+      sBuff[20]="路径偏差RY:"+toString(".3",l_nData[20])
+      sBuff[21]="路径偏差RZ:"+toString(".3",l_nData[21])
+      
+      
+      sBuff[22]="七轴距离  :"+toString(".3",l_nData[22])
+      sBuff[23]="七轴速度  :"+toString(".3",l_nData[23])
+      sBuff[25]="激光开延时:"+toString(".3",l_nData[25])
+      sBuff[26]="激光关延时:"+toString(".3",l_nData[26])
+      sBuff[27]="边长1     :"+toString(".3",l_nData[27])
+      sBuff[28]="边长2     :"+toString(".3",l_nData[28])
+      sBuff[29]="收弧长(焊 :"+toString(".3",l_nData[29])
+      resize(sData,1,2)
+      //  sData[0]="内切" 
+      //  sData[1]="外切"
+      //  sBuff[24]="类型      :"+sData[l_nData[24]]
+      if !x_bWeld
+        sData[0]="内切" 
+        sData[1]="外切"
+        sBuff[24]="类型      :"+sData[l_nData[24]]
+      else
+        sData[0]="开" 
+        sData[1]="关"
+        sBuff[24]="动作焊接  :"+sData[l_nData[24]]
+        
+      endIf
+      //  sBuff[30]="穿孔工艺  :"+toString(".3",l_nData[30])
+      //      
+      //      
+      if !x_bWeld
+        sBuff[30]="穿孔工艺  :"+toString(".3",l_nData[30])
+      else
+        sBuff[30]="激光程序号:"+toString(".3",l_nData[30])
+      endIf
+      sBuff[31]="八轴距离  :"+toString(".3",l_nData[31])
+      sBuff[32]="八轴速度  :"+toString(".3",l_nData[32])
+      
+      call Control_List(sBuff,l_nSelectIndex)
+      
+    endIf
+    
+  endWhile
+  
+  
+  
+  
+end
+]]></Code>
+  </Program>
+</Programs>

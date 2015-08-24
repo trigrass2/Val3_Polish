@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Data/2">
+  <Datas>
+    <Data name="bClear" access="private" xsi:type="array" type="bool" size="1" />
+    <Data name="bOverRun" access="private" xsi:type="array" type="bool" size="1" />
+    <Data name="bZero" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="mNomSpeed" access="private" xsi:type="array" type="mdesc" size="1" />
+    <Data name="nForce" access="public" xsi:type="array" type="num" size="6" />
+    <Data name="nHeader" access="private" xsi:type="array" type="num" size="2" />
+    <Data name="nMonitor" access="private" xsi:type="array" type="num" size="2" />
+    <Data name="nPort" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="49151" />
+    </Data>
+    <Data name="nRec" access="private" xsi:type="array" type="num" size="16" />
+    <Data name="nReceived" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="-1" />
+    </Data>
+    <Data name="nScaleForce" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="6104" />
+    </Data>
+    <Data name="nScaleTorque" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="153" />
+    </Data>
+    <Data name="nSend" access="private" xsi:type="array" type="num" size="20" />
+    <Data name="nSent" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="-1" />
+    </Data>
+    <Data name="nSioTimeOut" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="5" />
+    </Data>
+    <Data name="nStatus" access="public" xsi:type="array" type="num" size="1" />
+    <Data name="nVecForce" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="sFs" access="private" xsi:type="array" type="sio" size="1">
+      <Value key="0" link="Socket\sAtiFs" />
+    </Data>
+    <Data name="nCountPerFs" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nCountPerTq" access="private" xsi:type="array" type="num" size="1" />
+  </Datas>
+</Database>

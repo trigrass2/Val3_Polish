@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Remote" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nMode" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nCycleCount" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="2" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="2" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_sSMess" type="string" xsi:type="array" size="6" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //为lasman3.0进行配置
+  //主要是远程选择界面
+  
+  
+  
+  l_nData[0]=max(round(x_nMode),0)
+  l_nData[1]=max(round(x_nCycleCount),0)
+  
+  l_sSMess[0]="按钮触发单工位"
+  l_sSMess[1]="按钮触发单周期"
+  l_sSMess[2]="按钮触发多周期"
+  l_sSMess[3]="无需按钮触发"
+  l_sSMess[4]="按钮触发排队"
+  l_sSMess[5]="用户自定义触发"
+  
+  
+  l_sItem[0]="生产模式:"+l_sSMess[l_nData[0]]
+  l_sItem[1]="周期次数:"+toString("",l_nData[1])
+  
+  
+  call Control_BottomS(",,,,,,取消,确定")
+  call Control_PanelXY(8,0,25,2)
+  call Control_ListCls()
+  call Control_Panel("生产配置")
+  call Control_List(l_sItem,l_nSelectIndex)
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+        //        l_nSelectIndex=l_nSelectIndex-1
+        //        if l_nSelectIndex<=-1
+        //          l_nSelectIndex=5
+        //        endIf
+        
+      break 
+      
+      case 266
+        l_nSelectIndex=min(l_nSelectIndex+1,1)
+        //       l_nSelectIndex=l_nSelectIndex+1
+        //       if l_nSelectIndex>=6
+        //        l_nSelectIndex=0
+        //      endIf
+      break
+      
+      case 278
+        x_nMode=l_nData[0]
+        x_nCycleCount=l_nData[1]
+        
+        return
+      break
+      
+      
+      case 277
+        return
+      break
+      
+      case 270
+        if l_nSelectIndex==0
+          call Sel_Edit(l_nData[0],nPanelLTopX+10,nPanelLTopY+1,l_sSMess) 
+        else
+          call Float_Edit(l_nData[1],nPanelLTopX+10,nPanelLTopY+2)
+          
+        endIf
+        
+        
+        
+        l_nData[l_nSelectIndex]=max(round(l_nData[l_nSelectIndex]),0)
+      break
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      l_sItem[0]="生产模式:"+l_sSMess[l_nData[0]]
+      l_sItem[1]="周期次数:"+toString("",l_nData[1])
+      call Control_List(l_sItem,l_nSelectIndex)
+      
+    endIf
+    
+    
+    
+    
+    
+    
+  endWhile
+  
+  
+  
+  
+  
+end
+      ]]></Code>
+  </Program>
+</Programs>

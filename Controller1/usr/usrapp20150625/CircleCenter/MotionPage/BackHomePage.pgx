@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="BackHomePage" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_jHome" type="joint" xsi:type="element" />
+      <Parameter name="x_tTool" type="tool" xsi:type="element" />
+      <Parameter name="x_mHome" type="mdesc" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_sButton" type="string" xsi:type="array" size="2" />
+      <Local name="l_i" type="num" xsi:type="array" size="1" />
+      <Local name="l_bHomeDone" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bExit" type="bool" xsi:type="array" size="1" />
+      <Local name="l_sYesNo" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  手臂回零页面
+  //  F1:终止回零
+  //Input parameters
+  //
+  //Output paramaters
+  //Example
+  //  call BackHomePage()
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  cls()
+  bHomeDone=false
+  l_bExit=false
+  taskCreate "BackHome",30,BackHome(x_jHome,x_tTool,x_mHome,bHomeDone)
+  delay(0.004)
+  while !bHomeDone and !l_bExit
+      call user:timerDialog("机器人正回Home点，按住Move/Hold键",0)
+      call user:typeLen(1,13,"终止",4)
+      l_nKey=getKey()
+      switch l_nKey
+        case 271
+          //终止
+          l_sButton[0]="是"
+          l_sButton[1]="否"
+          call user:questionDialog("是否终止回零?",l_sButton,l_i)
+          if l_i==0 or l_i==1
+            resetMotion()
+            stopMove()
+            taskKill("BackHome")
+            l_bExit=true
+          else
+            cls()
+            call user:timerDialog("机器人正回Home点，按住Move/Hold键",0)
+          endIf
+        break
+      endSwitch
+      delay(0)
+    endWhile
+  if bHomeDone
+    l_sYesNo="确定"
+    call user:yes("手臂回零完成!",l_sYesNo)
+  else
+    l_sYesNo="确定"
+    call user:yes("手臂回零未完成!",l_sYesNo)
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

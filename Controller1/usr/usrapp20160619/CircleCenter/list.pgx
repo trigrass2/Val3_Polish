@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="list" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="pTitle" type="string" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="pX" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="pY" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="pDx" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="pDy" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="sName" type="string" use="reference" xsi:type="array" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="lDx" type="num" xsi:type="array" size="1" />
+      <Local name="lDy" type="num" xsi:type="array" size="1" />
+      <Local name="lI" type="num" xsi:type="array" size="1" />
+      <Local name="lJ" type="num" xsi:type="array" size="1" />
+      <Local name="lStr" type="string" xsi:type="array" size="1" />
+      <Local name="lStrLine" type="string" xsi:type="array" size="1" />
+      <Local name="lValue" type="num" xsi:type="array" size="1" />
+      <Local name="l_nsize" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  在列pX和行pY处创建宽pDx，高pDy的列表；列表名称pTitle；列表内容为sName
+  //Input parameters
+  //  string pTitle:列表名
+  //  num pX: 列表左上角列位置
+  //  num PY: 列表左上角行位置
+  //  num pDx: 列表宽
+  //  num pDy：列表高
+  //  string sName:列表显示内容
+  //Output paramaters
+  //
+  //Example
+  //  call list("list1",10,0,20,20)
+  //Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  //
+  lStrLine="─────────────────────────────────────────"
+  lDx=pDx
+  lDy=pDy
+  l_nsize=size(sName)
+  //Top
+  lStr="┌"+mid(lStrLine,lDx,0)+"┐"
+  gotoxy(pX,pY)
+  put(lStr)
+  lValue=pX+2
+  //Title
+  if pTitle!=""
+    call leftPos("┤"+pTitle+"├",lDx,pTitle)
+    gotoxy(pX+lDx-getDisplayLen(pTitle)+1,pY)
+    put(pTitle)
+  endIf
+  //Containt
+  for lJ=1 to lDy
+    lValue=pY+lJ
+    lStr="│"
+    gotoxy(pX,lValue)
+    put(lStr)
+    if lJ<=l_nsize
+      if sName[lJ-1]!=""
+        put(sName[lJ-1])
+      endIf
+    endIf
+    gotoxy(pX+lDx+1,lValue)
+    put(lStr)
+  endFor
+  //Bottom
+  lValue=pY+lJ
+  lStr="└"+mid(lStrLine,lDx,0)+"┘"
+  gotoxy(pX,lValue)
+  put(lStr)
+end]]></Code>
+  </Program>
+</Programs>

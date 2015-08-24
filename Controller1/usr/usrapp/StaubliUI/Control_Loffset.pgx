@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Loffset" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nFrom" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nTo" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="2" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="6" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //为lasman3.0配置
+  //局部偏差
+l_nData[0]=x_nFrom
+l_nData[1]=x_nTo
+  
+  l_sItem[0]="开始    :"+toString("",l_nData[0])
+  l_sItem[1]="停止    :"+toString("",l_nData[1])
+  call Control_BottomS(",,,,,,取消,确定")
+  call Control_PanelXY(8,0,15,6)
+  call Control_Panel("局部偏差值")
+  call Control_List(l_sItem,l_nSelectIndex)
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      case 266
+        l_nSelectIndex=min(l_nSelectIndex+1,1)
+      break
+      
+      case 278
+          x_nFrom=l_nData[0]
+          x_nTo=l_nData[1]
+         cls()
+        return
+      break
+      
+      
+      case 277,255
+  
+        cls()
+        return
+      break
+      
+      case 270
+        call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+7,l_nSelectIndex+nPanelLTopY+1)
+      break
+      
+    endSwitch
+    
+    if l_nKey!=-1
+  l_sItem[0]="开始    :"+toString("",l_nData[0])
+  l_sItem[1]="停止    :"+toString("",l_nData[1])
+      call Control_List(l_sItem,l_nSelectIndex)
+      
+    endIf
+    
+    
+    
+    
+    
+    
+  endWhile
+  
+  
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

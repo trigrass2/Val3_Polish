@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="SetTool" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_tTool" type="tool" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_sTool" type="string" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  $jogContext(x_tTool,world,0)
+  if sLanguge=="Chinese"
+    popUpMsg("切换当前工具已成"+x_sTool)
+  else
+    popUpMsg("Swtich the current tool to "+x_sTool)
+  endIf
+  tTool=x_tTool
+  sTool=x_sTool
+end]]></Code>
+  </Program>
+</Programs>

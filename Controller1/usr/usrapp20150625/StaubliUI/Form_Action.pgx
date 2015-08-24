@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_Action" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sPanelTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sList" type="string" xsi:type="array" use="reference" />
+      <Parameter name="x_nSelectIndex" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_bIO" type="bool" xsi:type="array" use="reference" />
+      <Parameter name="x_nPresetIndex" type="num" xsi:type="element" />
+      <Parameter name="x_sLable" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为lasman3.0进行配置界面
+ // cls() 
+  x_nSelectIndex=round(x_nSelectIndex)%500
+  x_nPresetIndex=x_nPresetIndex%50
+  title(x_sTitle)
+   gotoxy(0,0)
+  put("动作执行需上电!")
+  gotoxy(0,2)
+  put("动作参数:")
+  
+
+    
+
+ 
+  call Control_PanelXY(22,0,15,10)
+    for l_nNum=0 to size(x_sLable)-1
+    gotoxy(0,l_nNum+3)
+    put(left(x_sLable[l_nNum]+"                            ",nPanelLTopX-1))
+    endFor
+  call Control_Panel(x_sPanelTitle)
+  setTextMode(sel(x_bIO[0],1,0))
+  gotoxy(1,13)
+  put("执行")
+ 
+ setTextMode(0)
+    
+        gotoxy(21,13)
+    put("上传") 
+    gotoxy(31,13)
+    put("保存") 
+    
+    gotoxy(26,13)
+    put("修改") 
+    gotoxy(31,13)
+    put("保存") 
+    
+    gotoxy(36,13)
+    put("退出") 
+
+
+  call Control_List(x_sList,x_nSelectIndex)
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="CheckPosEqual" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_pA" type="pointRx" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_bPos" type="bool" use="reference" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_pHere" type="pointRx" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  l_pHere=here(tTool,world)
+  if power(x_pA.trsf.x-l_pHere.trsf.x,2)+power(x_pA.trsf.y-l_pHere.trsf.y,2)+power(x_pA.trsf.z-l_pHere.trsf.z,2)+power(x_pA.trsf.rx-l_pHere.trsf.rx,2)+power(x_pA.trsf.ry-l_pHere.trsf.ry,2)+power(x_pA.trsf.rz-l_pHere.trsf.rz,2)<0.2
+    x_bPos=true
+  else
+    x_bPos=false
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

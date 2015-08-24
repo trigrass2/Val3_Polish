@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_ScaraRobot" access="public">
+    <Code><![CDATA[begin
+  //为Scara机器人主界面  
+  //选择示教产品的类型
+  
+  
+ call Form_PattenS("Scara1.0:主界面","示教Home,示教TCP,示教码垛,产品编辑,,选项,高级,退出","F1,F2,F3,F4,F5,F6,F7,F8")
+ call Control_Scara()
+  
+end]]></Code>
+  </Program>
+</Programs>

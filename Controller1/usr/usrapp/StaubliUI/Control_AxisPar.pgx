@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_AxisPar" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nPos" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nSpeed" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nPrecent" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nJogSpeed" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_bTraj" type="bool" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="6" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="6" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为lasman3.0进行配置
+  //修改点位的参数
+  
+  
+  //通过局部变量来实现内部存储
+  
+  
+  l_nData[0]=x_nPos
+  l_nData[1]=x_nSpeed
+  l_nData[2]=x_nPrecent
+  l_nData[3]=x_nJogSpeed
+  
+  l_sItem[0]="位置mm   :"+toString(".3",l_nData[0])
+  l_sItem[1]="速度m/min:"+toString(".3",l_nData[1])
+  l_sItem[2]="比例分度 :"+toString(".3",l_nData[2])
+  l_sItem[3]="点动速度 :"+toString(".3",l_nData[3])
+  call Control_BottomS(",,,,,,取消,确定")
+  
+  call Control_PanelXY(8,0,17,4)
+  call Control_Panel("参数")
+  call Control_List(l_sItem,l_nSelectIndex)
+  
+  
+  //按键响应
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      case 266
+        if x_bTraj
+          l_nSelectIndex=min(1,l_nSelectIndex+1)
+        else
+           l_nSelectIndex=min(3,l_nSelectIndex+1)
+        endIf
+        
+      break
+      
+      case 278
+        
+        x_nPos=l_nData[0]
+        x_nSpeed=l_nData[1]
+        x_nPrecent=l_nData[2]
+        x_nJogSpeed=l_nData[3]
+        cls()
+        return
+      break
+      
+      
+      case 277,255
+        cls()
+        return
+      break
+      
+      
+      
+      case 270
+        
+        call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+11,l_nSelectIndex+nPanelLTopY+1)
+        
+        
+        l_nData[l_nSelectIndex]=max(0,l_nData[l_nSelectIndex])
+        l_nData[3]=min(100,max(0,l_nData[3]))
+      break
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      l_sItem[0]="位置mm   :"+toString(".3",l_nData[0])
+      l_sItem[1]="速度m/min:"+toString(".3",l_nData[1])
+      l_sItem[2]="比例分度 :"+toString(".3",l_nData[2])
+      l_sItem[3]="点动速度 :"+toString(".3",l_nData[3])
+      call Control_List(l_sItem,l_nSelectIndex)
+      
+    endIf
+    
+    
+    
+    
+    
+    
+  endWhile
+  
+end
+
+    
+  
+]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="AdjustOffset" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_tTool" type="tool" use="reference" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bEnter" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bOut" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nGet" type="num" xsi:type="array" size="1" />
+      <Local name="l_nGetKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nLen" type="num" xsi:type="array" size="1" />
+      <Local name="l_nY" type="num" xsi:type="array" size="1" />
+      <Local name="l_trOffset" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call ListPop("Offset")
+  nOffsetX=0
+  nOffsetY=0
+  nOffsetZ=0
+  nOffsetRx=0
+  nOffsetRy=0
+  nOffsetRz=0
+  l_nY=1
+  while !l_bOut
+    l_nKey=0
+    l_bEnter=false
+    l_nGetKey=getKey()
+    //
+    if l_nGetKey!=-1
+      switch l_nGetKey
+        case 266
+          //Down
+          l_nY=l_nY+1
+          l_nY=max(1,min(6,l_nY))
+        break
+        case 261
+          //Up
+          l_nY=l_nY-1
+          l_nY=max(1,min(6,l_nY))
+        break
+        case 270
+          l_bEnter=true
+        break
+      endSwitch
+      //
+      //
+      call ListMsg(false,"Offset")
+      //
+      //
+      switch l_nY
+        case 1
+          call xyPut(23,1,"OffsetX:")
+          gotoxy(31,1)
+          setTextMode(1)
+          put(nOffsetX)
+        break
+        case 2
+          call xyPut(23,2,"OffsetY:")
+          gotoxy(31,2)
+          setTextMode(1)
+          put(nOffsetY)
+        break
+        case 3
+          call xyPut(23,3,"OffsetZ:")
+          gotoxy(31,3)
+          setTextMode(1)
+          put(nOffsetZ)
+        break
+        case 4
+          call xyPut(23,4,"OffsetRx:")
+          gotoxy(32,4)
+          setTextMode(1)
+          put(nOffsetRx)
+        break
+        case 5
+          call xyPut(23,5,"OffsetRy:")
+          gotoxy(32,5)
+          setTextMode(1)
+          put(nOffsetRy)
+        break
+        case 6
+          call xyPut(23,6,"OffsetRz:")
+          gotoxy(32,6)
+          setTextMode(1)
+          put(nOffsetRz)
+        break
+      endSwitch
+      setTextMode(0)
+      //
+      //
+      if l_bEnter==true
+        switch l_nY
+          case 1
+            gotoxy(31,1)
+            l_nLen=len(toString(".3",nOffsetX))
+            for l_nI=1 to l_nLen
+              put(" ")
+            endFor
+            gotoxy(31,1)
+            l_nGet=get(l_nKey)
+            if l_nGet!=255
+              nOffsetX=l_nKey
+            endIf
+            put(nOffsetX)
+          break
+          case 2
+            gotoxy(31,2)
+            l_nLen=len(toString(".3",nOffsetY))
+            for l_nI=1 to l_nLen
+              put(" ")
+            endFor
+            gotoxy(31,2)
+            l_nGet=get(l_nKey)
+            if l_nGet!=255
+              nOffsetY=l_nKey
+            endIf
+            put(nOffsetY)
+          break
+          case 3
+            gotoxy(31,3)
+            l_nLen=len(toString(".3",nOffsetZ))
+            for l_nI=1 to l_nLen
+              put(" ")
+            endFor
+            gotoxy(31,3)
+            l_nGet=get(l_nKey)
+            if l_nGet!=255
+              nOffsetZ=l_nKey
+            endIf
+            put(nOffsetZ)
+          break
+          case 4
+            gotoxy(32,4)
+            l_nLen=len(toString(".3",nOffsetRx))
+            for l_nI=1 to l_nLen
+              put(" ")
+            endFor
+            gotoxy(32,4)
+            l_nGet=get(l_nKey)
+            if l_nGet!=255
+              nOffsetRx=l_nKey
+            endIf
+            put(nOffsetRx)
+          break
+          case 5
+            gotoxy(32,5)
+            l_nLen=len(toString(".3",nOffsetRy))
+            for l_nI=1 to l_nLen
+              put(" ")
+            endFor
+            gotoxy(32,5)
+            l_nGet=get(l_nKey)
+            if l_nGet!=255
+              nOffsetRy=l_nKey
+            endIf
+            put(nOffsetRy)
+          break
+          case 6
+            gotoxy(32,6)
+            l_nLen=len(toString(".3",nOffsetRz))
+            for l_nI=1 to l_nLen
+              put(" ")
+            endFor
+            gotoxy(32,6)
+            l_nGet=get(l_nKey)
+            if l_nGet!=255
+              nOffsetRz=l_nKey
+            endIf
+            put(nOffsetRz)
+          break
+        endSwitch
+        l_bOut=true
+      endIf
+    endIf
+  endWhile
+
+  setTextMode(0)
+  call ListPop("OffsetDone")
+  l_trOffset={nOffsetX,nOffsetY,nOffsetZ,nOffsetRx,nOffsetRy,nOffsetRz}
+  x_tTool.trsf=x_tTool.trsf*l_trOffset
+  call ListMsg(false,"HMITool")
+  $jogContext(x_tTool,world,0)
+end]]></Code>
+  </Program>
+</Programs>

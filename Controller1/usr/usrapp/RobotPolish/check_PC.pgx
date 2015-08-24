@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="check_PC" access="private" >
+    <Locals>
+      <Local name="l_jCurrent" type="jointRx" xsi:type="array" size="1" />
+      <Local name="l_bRefresh" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  while !bExit
+
+    //工厂断电报警
+    if bDebug_PC[0]==false
+      call logandpopMsg(sErrorMsg[0],bRefreshMsg[0])
+      if read:bCycle
+        call alarm_action()
+      endIf
+      if workingMode()==4
+        disablePower()
+      endIf
+    else
+      bRefreshMsg[0]=true
+    endIf
+
+    //check
+    call Poll()
+    //
+
+    //转台故障信号
+    //    if dioGet(io:doB_9_tableOn)==1
+    //      if dioGet(io:doB_0_speed)==1 or dioGet(io:doB_1_speed)==1 or dioGet(io:doB_2_speed)==1 or dioGet(io:doB_3_speed)==1 or dioGet(io:doB_4_speed)==1 or dioGet(io:doB_5_speed)==1
+    //        bTableAlm=!watch(dioGet(io:diB_2_tableOn)==1,2)
+    //        if !bTableAlm
+    //          bRefreshMsg[1]=true
+    //        else
+    //          call logandpopMsg(sErrorMsg[1],bRefreshMsg[1])
+    //          if read:bCycle
+    //            call alarm_action()
+    //          endIf
+    //        endIf
+    //      else
+    //        bTableAlm=false
+    //      endIf
+    //    else
+    //      bTableAlm=false
+    //    endIf
+    //工具报警信号
+    if bDebug_PC[2]==true
+      call logandpopMsg(sErrorMsg[2],bRefreshMsg[2])
+      if read:bCycle
+        call alarm_action()
+      endIf
+    else
+      bRefreshMsg[2]=true
+    endIf
+    //ATI通讯状态检测
+    if bDebug_PC[3]==true
+      call logandpopMsg(sErrorMsg[3],bRefreshMsg[3])
+      if read:bCycle
+        call alarm_action()
+      endIf
+    else
+      bRefreshMsg[3]=true
+    endIf
+    //传感器力/扭矩上限检测
+    //需要根据测试结果设置力及力矩上限
+    if bDebug_PC[4]==true
+      bForceError=true
+      call logandpopMsg(sErrorMsg[4],bRefreshMsg[4])
+      if read:bCycle
+        call alarm_action()
+      endIf
+    else
+      bForceError=false
+      bRefreshMsg[4]=true
+    endIf
+    //急停处理
+    if esStatus()==2
+      call logandpopMsg(sErrorMsg[5],bRefreshMsg[5])
+      call prd_action("急停处理")
+    else
+      bRefreshMsg[5]=true
+    endIf
+    //远程上电
+    if workingMode(nWorkModeStatus)==4 and dioGet(io:diB_0_UPS)==0
+      if dioGet(io:doB_10_systeAlm)==0
+        enablePower()
+        dioSet(io:doB_6_toolPower,1)
+      else
+        dioSet(io:doB_6_toolPower,0)
+      endIf
+    endIf
+    //零位判断
+    l_jCurrent=herej()
+    if abs(l_jCurrent.j1-date:jHome.j1)<1 and abs(l_jCurrent.j2-date:jHome.j2)<1 and abs(l_jCurrent.j3-date:jHome.j3)<1 and abs(l_jCurrent.j4-date:jHome.j4)<2 and abs(l_jCurrent.j5-date:jHome.j5)<2 and abs(l_jCurrent.j6-date:jHome.j6)<2
+      bHome=true
+    else
+      bHome=false
+    endIf
+    //系统报警信号判断
+    if !bDebug_PC[0] or bTableAlm or bDebug_PC[2] or bDebug_PC[3] or bDebug_PC[4] or bDebug_PC[5]
+      dioSet(io:doB_10_systeAlm,1)
+    else
+      dioSet(io:doB_10_systeAlm,0)
+    endIf
+    //报警处理
+    if dioGet(io:doB_10_systeAlm)==1
+      // 
+      call logandpopMsg("系统报警",l_bRefresh)
+      if dioGet(io:doB_7_toolOn)==1
+        dioSet(io:doB_7_toolOn,0)
+      endIf
+      if dioGet(io:doB_9_tableOn)==1
+        dioSet(io:doB_9_tableOn,0)
+      endIf
+    else
+      l_bRefresh=true
+      call use:clear(0,12)
+      delay(1)
+    endIf
+    delay(0)
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

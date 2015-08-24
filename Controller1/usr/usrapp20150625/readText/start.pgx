@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="start" access="private" >
+    <Code><![CDATA[begin
+  if taskStatus("trajManage")!=-1
+    taskKill("trajManage")
+    wait(taskStatus("trajManage")==-1)
+  endIf
+  if taskStatus("motion")!=-1
+    taskKill("motion")
+    wait(taskStatus("motion")==-1)
+  endIf
+  bCycleEnd=false
+  bCycle=true
+  bResumeCycle=true
+  taskCreate "trajManage",95,fileRead("test.txt")
+  taskCreate "motion",98,trajGrind()
+
+end]]></Code>
+  </Program>
+</Programs>

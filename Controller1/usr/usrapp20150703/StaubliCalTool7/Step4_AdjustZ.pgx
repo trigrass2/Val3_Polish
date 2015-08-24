@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="Step4_AdjustZ" access="private" >
+    <Locals>
+      <Local name="l_bA" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bOut" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nA" type="num" xsi:type="array" size="1" />
+      <Local name="l_nPage" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call SetTool(tTool2,"tTool2")
+  l_nPage=10
+  while !l_bOut
+    switch l_nPage
+      case 10
+        call ListMsg(true,"HMI3_1")
+        l_bA=false
+        while !l_bA
+          do
+            l_nA=get()-270
+          until l_nA==1 or l_nA==2 or l_nA==4 or l_nA==7 or l_nA==8 or l_nA==-15
+          taskKill("m")
+          switch l_nA
+            case 1
+              if taskStatus("m")==-1
+                taskCreate "m",100,ListMove("align")
+              endIf
+            break
+            case 2
+              bTeach3_1=true
+              p3_1=here(tTool,world)
+              call ListPop("First")
+            break
+            case 4
+              if sTool=="tTool2"
+                if tTool2.trsf!={0,0,0,0,0,0}
+                  call SetTool(tTool3,"tTool3")
+                else
+                  call ListPop("CantSwitchTool3")
+                endIf
+              elseIf sTool=="tTool3"
+                call SetTool(tTool2,"tTool2")
+              endIf
+              call ListMsg(true,"HMI3_1")
+            break
+            case 8
+              l_bA=true
+              l_nPage=20
+            break
+            case 7,-15
+              wait(getKey()==-1)
+              l_bA=true
+              l_bOut=true
+              call ListMsg(true,"HMImain")
+            break
+          endSwitch
+        endWhile
+      break
+      case 20
+        call ListMsg(true,"HMI3_2")
+        l_bA=false
+        while !l_bA
+          do
+            l_nA=get()-270
+          until l_nA==1 or l_nA==2 or l_nA==3 or l_nA==4 or l_nA==6 or l_nA==7 or l_nA==8
+          taskKill("m")
+          switch l_nA
+            case 1
+              if taskStatus("m")==-1
+                taskCreate "m",100,ListMove("GoBackP3_1")
+              endIf
+            break
+            case 2
+              bTeach3_2=true
+              p3_2=here(tTool,world)
+              call ListPop("Second")
+            break
+            case 3
+              if taskStatus("m")==-1
+                taskCreate "m",100,ListMove("Rx+60P3_1")
+              endIf
+            break
+            case 4
+              if taskStatus("m")==-1
+                taskCreate "m",100,ListMove("Ry+60P3_1")
+              endIf
+            break
+
+            case 6
+              if bTeach3_1==true and bTeach3_2==true
+                call CalTool("CalTool3")
+              else
+                call ListPop("FRP")
+              endIf
+            break
+            case 7
+              l_bA=true
+              l_nPage=10
+            break
+            case 8
+              wait(getKey()==-1)
+              l_bA=true
+              l_bOut=true
+              call ListMsg(true,"HMImain")
+              wait(getKey()==-1)
+            break
+          endSwitch
+        endWhile
+      break
+    endSwitch
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

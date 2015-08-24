@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="init" access="public" >
+    <Code><![CDATA[begin
+  //主轴工具:停止
+  dioSet(doB_7_toolOn,0)
+  //转台:停止
+  dioSet(doB_9_tableOn,0)
+
+end]]></Code>
+  </Program>
+</Programs>

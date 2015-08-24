@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="ShowOffset" access="private" >
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  以字符串的形式保存trsf变量的6个分量
+  //Input parameters
+  //
+  //Output paramaters
+  //
+  //Example
+  //  call ShowOffset()
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  if nFrame1Err==0
+    sOffSet[0]="X:  "+toString(".2",trOffset.x)
+    sOffSet[1]="Y:  "+toString(".2",trOffset.y)
+    sOffSet[2]="Z:  "+toString(".2",trOffset.z)
+    sOffSet[3]="Rx: "+toString(".2",trOffset.rx)
+    sOffSet[4]="Ry: "+toString(".2",trOffset.ry)
+    sOffSet[5]="Rz: "+toString(".2",trOffset.rz)
+  else
+    if date:bCenterPoint==true
+      sOffSet[0]="X:  "+toString(".2",date:fWorkTable.trsf.x)
+      sOffSet[1]="Y:  "+toString(".2",date:fWorkTable.trsf.y)
+      sOffSet[2]="Z:  "+toString(".2",date:fWorkTable.trsf.z)
+      sOffSet[3]="Rx: "+toString(".2",date:fWorkTable.trsf.rx)
+      sOffSet[4]="Ry: "+toString(".2",date:fWorkTable.trsf.ry)
+      sOffSet[5]="Rz: "+toString(".2",date:fWorkTable.trsf.rz)
+    else
+      sOffSet[0]="X:  "+"Null"
+      sOffSet[1]="Y:  "+"Null"
+      sOffSet[2]="Z:  "+"Null"
+      sOffSet[3]="Rx: "+"Null"
+      sOffSet[4]="Ry: "+"Null"
+      sOffSet[5]="Rz: "+"Null"
+    endIf
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

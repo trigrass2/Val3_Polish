@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="Language" access="private" >
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  userPage()
+  cls()
+  call xyPut(5,3,"Please Choose Your Language")
+  call xyPut(5,5,"F1. Chinese")
+  call xyPut(5,6,"F2. English")
+
+
+  // while true
+  //   l_nKey=getKey()
+  //  switch l_nKey
+  //    case 271
+  //      sLanguge="Chinese"
+  //      return
+  //    break
+  //    case 272
+  //      sLanguge="English"
+  //      return
+  //    break
+  //  endSwitch
+  //delay(0)
+  //endWhile
+  sLanguge="Chinese"
+end]]></Code>
+  </Program>
+</Programs>

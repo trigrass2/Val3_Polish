@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="AlignPage" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_tTool" type="tool" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_sButton" type="string" xsi:type="array" size="2" />
+      <Local name="l_i" type="num" xsi:type="array" size="1" />
+      <Local name="l_bAlignDone" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bExit" type="bool" xsi:type="array" size="1" />
+      <Local name="l_sYesNo" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  工具对齐界面
+  //  F1:终止
+  //Input parameters
+  //  tool x_tTool:工具值
+  //Output paramaters
+  //Example
+  //  call Align(tool)
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  cls()
+  bAlignDone=false
+  l_bExit=false
+  taskCreate "Align",30,Align(x_tTool,bAlignDone)
+  delay(0.1)
+  while !bAlignDone and !l_bExit
+      call user:timerDialog("机器人工具头正在对齐，请按住Move/Hold键",0)
+      call user:typeLen(1,13,"终止",4)
+      l_nKey=getKey()
+      switch l_nKey
+        case 271
+          //终止
+          cls()
+          l_sButton[0]="是"
+          l_sButton[1]="否"
+          call user:questionDialog("是否终止对齐?",l_sButton,l_i)
+          if l_i==0 or l_i==1
+            resetMotion()
+            stopMove()
+            taskKill("Align")
+            l_bExit=true
+          else
+            cls()
+          endIf
+        break
+      endSwitch
+      delay(0)
+  endWhile
+  if bAlignDone
+    l_sYesNo="确定"
+    call user:yes("对齐完毕!",l_sYesNo)
+  else
+    l_sYesNo="确定"
+    call user:yes("对齐未完成!",l_sYesNo)
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

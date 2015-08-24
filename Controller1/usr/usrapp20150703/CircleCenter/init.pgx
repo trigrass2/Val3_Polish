@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="init" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_tTool" type="tool" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  库变量初始
+  //Input parameters
+  //
+  //Output paramaters
+  //
+  //Example
+  //  call init(tool,frame,trTrsfOut)
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+
+  link(fFrame1,world)
+  tTool=x_tTool
+  //pFrameRefPt[0]:原点
+  //pFrameRefPt[1]:X方向点
+  //pFrameRefPt[2]:Y方向点
+  //  pFrameRefPt[0]=here(tTool,world)
+  //  pFrameRefPt[1]=here(tTool,world)
+  //  pFrameRefPt[2]=here(tTool,world)
+  bFrameTeach=false
+  //  bFrameSave=false
+  bExit=false
+end]]></Code>
+  </Program>
+</Programs>

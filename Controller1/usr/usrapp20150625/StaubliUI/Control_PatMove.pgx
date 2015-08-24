@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_PatMove" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nStart" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nEnd" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="6" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="6" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为lasman3.0进行配置
+  //中途进行模拟点
+  
+  l_nData[0]=x_nStart
+  l_nData[1]=x_nEnd
+  
+  
+  l_sItem[0]="开始模拟点:"+toString(".3",l_nData[0])
+  l_sItem[1]="结束模拟点:"+toString(".3",l_nData[1])
+  
+  
+  call Control_BottomS(",,,,,,,确定")
+  call Control_PanelXY(8,0,15,2)
+  call Control_Panel("切割点局部模拟")
+  call Control_List(l_sItem,l_nSelectIndex)
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      case 266
+        l_nSelectIndex=min(l_nSelectIndex+1,1)
+      break
+      
+      case 278
+        x_nStart=l_nData[0]
+        x_nEnd=l_nData[1]
+        cls()
+        return
+      break
+      
+      
+      //      case 277,255
+      //  
+      //        cls()
+      //        return
+      //      break
+      
+      case 270
+        call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+12,l_nSelectIndex+nPanelLTopY+1)
+      break
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      l_sItem[0]="开始模拟点:"+toString(".3",l_nData[0])
+      l_sItem[1]="结束模拟点:"+toString(".3",l_nData[1])
+      
+      call Control_List(l_sItem,l_nSelectIndex)
+      
+    endIf
+    
+    
+    
+    
+    
+    
+  endWhile
+  
+  
+  
+  
+  
+end
+    ]]></Code>
+  </Program>
+</Programs>

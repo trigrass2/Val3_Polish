@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="getJointDate">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sText" type="string" xsi:type="element" />
+      <Parameter name="x_jJoint" type="jointRx" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sJntDate" type="string" xsi:type="array" size="6" />
+      <Local name="l_bBool" type="bool" xsi:type="array" size="1" />
+      <Local name="l_pP" type="pointRx" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call split(x_sText,",",l_sJntDate)
+  if !bMatlab
+    l_sJntDate[0]=toNum(l_sJntDate[0],x_jJoint.j1,l_bBool)
+    l_sJntDate[1]=toNum(l_sJntDate[1],x_jJoint.j2,l_bBool)
+    l_sJntDate[2]=toNum(l_sJntDate[2],x_jJoint.j3,l_bBool)
+    l_sJntDate[3]=toNum(l_sJntDate[3],x_jJoint.j4,l_bBool)
+    l_sJntDate[4]=toNum(l_sJntDate[4],x_jJoint.j5,l_bBool)
+    l_sJntDate[5]=toNum(l_sJntDate[5],x_jJoint.j6,l_bBool)
+  else
+    
+    
+    //2015.02.05
+    //point转为joint
+    toNum(l_sJntDate[0],l_pP.trsf.x,l_bBool)
+    toNum(l_sJntDate[1],l_pP.trsf.y,l_bBool)
+    toNum(l_sJntDate[2],l_pP.trsf.z,l_bBool)
+    toNum(l_sJntDate[3],l_pP.trsf.rx,l_bBool)
+    toNum(l_sJntDate[4],l_pP.trsf.ry,l_bBool)
+    toNum(l_sJntDate[5],l_pP.trsf.rz,l_bBool)
+    call NCVetor(fPrdFrame.trsf,l_pP.trsf)
+    link(l_pP,fPrdFrame)
+    if pointToJoint(tPrdTool,herej(),l_pP,x_jJoint)==false
+      logMsg("关节转换出错"+toString(".3",l_pP.trsf.rx)+"  "+toString(".3",l_pP.trsf.ry)+"  "+toString(".3",l_pP.trsf.rz))
+      popUpMsg("关节转换出错")
+    endIf
+  endIf
+  
+end
+  ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="editNumField" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sItemName" type="string" xsi:type="array" use="reference" />
+      <Parameter name="x_nItem" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nMin" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nMax" type="num" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="j" type="num" xsi:type="array" size="1" />
+      <Local name="l_nSize" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_sEvent" type="string" xsi:type="array" size="1" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nField" type="num" xsi:type="array" size="1" />
+      <Local name="l_sItem" type="string" xsi:type="array" size="1" />
+      <Local name="i" type="num" xsi:type="array" size="1" />
+      <Local name="l_sEmpty" type="string" xsi:type="array" size="2" />
+      <Local name="l_sString1" type="string" xsi:type="array" size="1" />
+      <Local name="l_nFollow" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //clear & copy
+  nView=nFirst=0
+  call listempty()
+  call numCopy(x_nItem,nOldValue)
+  call numCopy(x_nItem,nOffSet)
+  for j=0 to size(nOffSet)-1
+    nOffSet[j]=0
+  endFor
+  // take the size
+  l_nSize=size(x_sItemName)-1
+  // create the LIST
+  call setSizeList(2,max((6-l_nSize/2)-2,2)-2,24,min((l_nSize+1),11))
+  call listcreate(x_sTitle)
+  //
+  // insert items
+  //
+  if nParaAdjustType==1
+    for j=0 to l_nSize
+      l_sItem=x_sItemName[j]
+      if l_sItem!=""
+        if j==9
+          call strlength(l_sItem,nBottomX/2)
+          if x_nItem[j]==0
+           l_sItem=l_sItem+": "+"关"
+            call listadd(l_sItem)
+          else
+           l_sItem=l_sItem+": "+"开"
+            call listadd(l_sItem)
+          endIf
+        else
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+toString(".3",x_nItem[j])
+          call listadd(l_sItem)
+        endIf
+        nOffSet[j]=nOffSet[max(j-1,0)]
+      else
+        nOffSet[j]=nOffSet[max(j-1,0)]+1
+      endIf
+    endFor
+  endIf
+  if nParaAdjustType==2
+    for j=0 to l_nSize
+      l_sItem=x_sItemName[j]
+      if l_sItem!=""
+        if j==7
+          call strlength(l_sItem,nBottomX/2)
+          if x_nItem[j]==0
+            l_sItem=l_sItem+": "+"关"
+            call listadd(l_sItem)
+          else
+            l_sItem=l_sItem+": "+"关"
+            call listadd(l_sItem)
+          endIf
+        else
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+toString(".3",x_nItem[j])
+          call listadd(l_sItem)
+        endIf
+        nOffSet[j]=nOffSet[max(j-1,0)]
+      else
+        nOffSet[j]=nOffSet[max(j-1,0)]+1
+      endIf
+    endFor
+  endIf
+  if nParaAdjustType==3
+    for j=0 to l_nSize
+      l_sItem=x_sItemName[j]
+      if l_sItem!=""
+        call strlength(l_sItem,nBottomX/2)
+        l_sItem=l_sItem+": "+toString(".3",x_nItem[j])
+        call listadd(l_sItem)
+        nOffSet[j-nOffSet[max(j-1,0)]]=nOffSet[max(j-1,0)]
+        nOffSet[j]=nOffSet[max(j-1,0)]
+      else
+        nOffSet[j]=nOffSet[max(j-1,0)]+1
+      endIf
+    endFor
+  endIf
+  if nParaAdjustType==4
+    for j=0 to l_nSize
+      l_sItem=x_sItemName[j]
+      if l_sItem!=""
+        if j==10
+          call strlength(l_sItem,nBottomX/2)
+          if x_nItem[j]==0
+            l_sItem=l_sItem+": "+"直线"
+            call listadd(l_sItem)
+          else
+            l_sItem=l_sItem+": "+"圆弧"
+            call listadd(l_sItem)
+          endIf
+        else
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+toString(".3",x_nItem[j])
+          call listadd(l_sItem)
+        endIf
+        nOffSet[j]=nOffSet[max(j-1,0)]
+      else
+        nOffSet[j]=nOffSet[max(j-1,0)]+1
+      endIf
+    endFor
+  endIf
+
+
+  // update the list
+  call listupdate(0)
+  do
+    call clear(0,13)
+    call typeMenu(8,"OK")
+    l_nKey=get()
+    call listevent(l_nKey,l_nIndex,l_sEvent)
+    // use the offset
+    i=l_nIndex+nOffSet[max(l_nIndex,0)]
+    // on Enter Key
+    if nParaAdjustType==1
+      if l_nKey==270
+        if l_nIndex==9
+          call listcursor(l_nIndex,false)
+          if size(x_nMin)==size(x_nItem)
+            // use min and max
+            l_sEmpty[0]="关"
+            l_sEmpty[1]="开"
+            call changeValue(x_nItem[l_nIndex],x_nMin[l_nIndex],x_nMax[l_nIndex],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          else
+            l_sEmpty[0]="关"
+            l_sEmpty[1]="开"
+            call changeValue(x_nItem[l_nIndex],x_nMin[l_nIndex],x_nMax[l_nIndex],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          endIf
+          // UPDATE
+          call listdel(l_nIndex)
+          l_sItem=x_sItemName[l_nIndex]
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+l_sEmpty[x_nItem[l_nIndex]]
+          call listins(l_sItem,l_nIndex)
+          call listupdate(l_nIndex-nView)
+        else
+          if l_nIndex>nView
+            call listcursor(nView,false)
+          else
+            call listcursor(l_nIndex,false)
+          endIf
+          if size(x_nMin)==size(x_nItem)
+            // use min and max
+            l_sEmpty[0]=""
+            l_sEmpty[1]=""
+            call changeValue(x_nItem[i],x_nMin[i],x_nMax[i],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          else
+            call changeValue(x_nItem[i],x_nMin,x_nMax,nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          endIf
+          // UPDATE
+          call listdel(l_nIndex)
+          l_sItem=x_sItemName[i]
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+toString(".3",x_nItem[i])
+          call listins(l_sItem,l_nIndex)
+          call listupdate(l_nIndex-nView)
+        endIf
+      endIf
+    endIf
+    if nParaAdjustType==2
+      if l_nKey==270
+        if l_nIndex==7
+          call listcursor(l_nIndex,false)
+          if size(x_nMin)==size(x_nItem)
+            // use min and max
+            l_sEmpty[0]="关"
+            l_sEmpty[1]="开"
+            call changeValue(x_nItem[l_nIndex],x_nMin[l_nIndex],x_nMax[l_nIndex],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          else
+            l_sEmpty[0]="关"
+            l_sEmpty[1]="开"
+            call changeValue(x_nItem[l_nIndex],x_nMin[l_nIndex],x_nMax[l_nIndex],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          endIf
+          //UPDATE
+          call listdel(l_nIndex)
+          l_sItem=x_sItemName[l_nIndex]
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+l_sEmpty[x_nItem[l_nIndex]]
+          call listins(l_sItem,l_nIndex)
+          call listupdate(l_nIndex-nView)
+        else
+          if l_nIndex>nView
+            call listcursor(nView,false)
+          else
+            call listcursor(l_nIndex,false)
+          endIf
+          if size(x_nMin)==size(x_nItem)
+            // use min and max
+            l_sEmpty[0]=""
+            l_sEmpty[1]=""
+            call changeValue(x_nItem[i],x_nMin[i],x_nMax[i],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          else
+            call changeValue(x_nItem[i],x_nMin,x_nMax,nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          endIf
+          // UPDATE
+          call listdel(l_nIndex)
+          l_sItem=x_sItemName[i]
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+toString(".3",x_nItem[i])
+          call listins(l_sItem,l_nIndex)
+          call listupdate(l_nIndex-nView)
+        endIf
+      endIf
+    endIf
+    if nParaAdjustType==3
+      if l_nKey==270
+        if l_nIndex>nView
+          call listcursor(nView,false)
+        else
+          call listcursor(l_nIndex,false)
+        endIf
+        if size(x_nMin)==size(x_nItem)
+          // use min and max
+          l_sEmpty[0]=""
+          l_sEmpty[1]=""
+          call changeValue(x_nItem[i],x_nMin[i],x_nMax[i],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+        else
+          call changeValue(x_nItem[i],x_nMin,x_nMax,nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+
+        endIf
+        // UPDATE
+        call listdel(l_nIndex)
+        l_sItem=x_sItemName[i]
+        call strlength(l_sItem,nBottomX/2)
+        l_sItem=l_sItem+": "+toString(".3",x_nItem[i])
+        call listins(l_sItem,l_nIndex)
+        call listupdate(l_nIndex-nView)
+        //      endIf 
+      endIf
+    endIf
+    if nParaAdjustType==4
+      if l_nKey==270
+        if l_nIndex==9
+          call listcursor(l_nIndex,false)
+          if size(x_nMin)==size(x_nItem)
+            // use min and max
+            l_sEmpty[0]="直线"
+            l_sEmpty[1]="圆弧"
+            call changeValue(x_nItem[l_nIndex],x_nMin[l_nIndex],x_nMax[l_nIndex],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          else
+            l_sEmpty[0]="直线"
+            l_sEmpty[1]="圆弧"
+            call changeValue(x_nItem[l_nIndex],x_nMin[l_nIndex],x_nMax[l_nIndex],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          endIf
+          // UPDATE
+          call listdel(l_nIndex)
+          l_sItem=x_sItemName[l_nIndex]
+          call strlength(l_sItem,nBottomX/2)
+         
+          l_sItem=l_sItem+": "+l_sEmpty[x_nItem[l_nIndex]]
+          call listins(l_sItem,l_nIndex)
+          call listupdate(l_nIndex-nView)
+        else
+          if l_nIndex>nView
+            call listcursor(nView,false)
+          else
+            call listcursor(l_nIndex,false)
+          endIf
+          if size(x_nMin)==size(x_nItem)
+            // use min and max
+            l_sEmpty[0]=""
+            l_sEmpty[1]=""
+            call changeValue(x_nItem[i],x_nMin[i],x_nMax[i],nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          else
+            call changeValue(x_nItem[i],x_nMin,x_nMax,nTopX+nBottomX/2+3,nView+nTopY+1,l_sEmpty)
+          endIf
+          // UPDATE
+          call listdel(l_nIndex)
+          l_sItem=x_sItemName[i]
+          call strlength(l_sItem,nBottomX/2)
+          l_sItem=l_sItem+": "+toString(".3",x_nItem[i])
+          call listins(l_sItem,l_nIndex)
+          call listupdate(l_nIndex-nView)
+        endIf
+      endIf
+    endIf
+    delay(0)
+  until l_nKey==278 or l_nKey==255
+  // escape use????
+  if l_nKey==255
+    bUseEscape=true
+    call numCopy(nOldValue,x_nItem)
+  else
+    bUseEscape=false
+  endIf
+  // exit
+  call nullKey(l_nKey)
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+  <Parameters version="s7.6.4" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="AdjustOffset.pgx" />
+    <Program file="calSphereCenter.pgx" />
+    <Program file="calTool.pgx" />
+    <Program file="CheckPosEqual.pgx" />
+    <Program file="CheckTraj.pgx" />
+    <Program file="ClsPage.pgx" />
+    <Program file="Control_YesNo.pgx" />
+    <Program file="InitData.pgx" />
+    <Program file="interpolatePos.pgx" />
+    <Program file="Language.pgx" />
+    <Program file="ListMove.pgx" />
+    <Program file="ListMsg.pgx" />
+    <Program file="ListMsgC.pgx" />
+    <Program file="ListMsgE.pgx" />
+    <Program file="ListPop.pgx" />
+    <Program file="ListPopC.pgx" />
+    <Program file="ListPopE.pgx" />
+    <Program file="Main.pgx" />
+    <Program file="ReadMe.pgx" />
+    <Program file="setTool.pgx" />
+    <Program file="splitUp.pgx" />
+    <Program file="start.pgx" />
+    <Program file="Step1_Mount.pgx" />
+    <Program file="Step2_Teach.pgx" />
+    <Program file="Step3_AdjustXY.pgx" />
+    <Program file="Step4_AdjustZ.pgx" />
+    <Program file="Step5_Test.pgx" />
+    <Program file="stop.pgx" />
+    <Program file="Version20141125.pgx" />
+    <Program file="xyPut.pgx" />
+  </Programs>
+  <Database>
+    <Data file="StaubliCalTool7.dtx" />
+  </Database>
+  <Libraries />
+</Project>

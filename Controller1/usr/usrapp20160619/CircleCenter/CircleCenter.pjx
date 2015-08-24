@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3" >
+  <Parameters version="s7.3" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="CheckMode.pgx" />
+    <Program file="Circle3point.pgx" />
+    <Program file="ComThOffset.pgx" />
+    <Program file="MainPage.pgx" />
+    <Program file="Move.pgx" />
+    <Program file="OnStart.pgx" />
+    <Program file="ShowOffset.pgx" />
+    <Program file="init.pgx" />
+    <Program file="leftPos.pgx" />
+    <Program file="list.pgx" />
+    <Program file="readme.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+  </Programs>
+  <Database>
+    <Data file="CircleCenter.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="user" path="Disk://userPage/userPage.pjx" autoload="true" password="" />
+    <Library alias="MotionPage" path="./MotionPage/MotionPage.pjx" autoload="true" password="" />
+    <Library alias="date" path="Disk://dateBase/dateBase.pjx" autoload="true" password="" />
+  </Libraries>
+  <Types>
+  </Types>
+</Project>

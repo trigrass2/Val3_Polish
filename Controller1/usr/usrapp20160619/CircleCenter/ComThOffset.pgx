@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="ComThOffset" access="private" >
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  计算坐标系值
+  //Input parameters
+  //
+  //Output paramaters
+  //
+  //Example
+  //  call ComputeThOffset()
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+
+  nFrame1Err=setFrame(pFrameRefPt[0],pFrameRefPt[1],pFrameRefPt[2],fFrame1)
+  if nFrame1Err==-1
+    popUpMsg("X方向点离原点太近")
+  endIf
+  if nFrame1Err==-2
+    popUpMsg("Y方向点离原点太近")
+  endIf
+  if nFrame1Err==0
+    trOffset=fFrame1.trsf
+  else
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

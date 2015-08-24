@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="checkOut" access="private" >
+    <Locals>
+      <Local name="l_jCurrent" type="joint" xsi:type="array" size="1" />
+      <Local name="l_bRefresh" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  while !bExit
+    //远程模式下,若UPS供电正常且系统无异常报警,则程序指令自动给手臂和打磨头上电
+    if workingMode(nWorkModeStatus)==4 and dioGet(io:diB_0_UPS)==1
+      if dioGet(io:doB_10_systeAlm)==0
+        enablePower()
+        dioSet(io:doB_6_toolPower,1)
+      else
+        dioSet(io:doB_6_toolPower,0)
+      endIf
+    endIf
+
+    //check
+    call Poll()
+
+    //
+
+
+
+    //
+
+    //零位判断
+    l_jCurrent=herej()
+    if abs(l_jCurrent.j1-date:jHome.j1)<2 and abs(l_jCurrent.j2-date:jHome.j2)<2 and abs(l_jCurrent.j3-date:jHome.j3)<2 and abs(l_jCurrent.j4-date:jHome.j4)<2 and abs(l_jCurrent.j5-date:jHome.j5)<2 and abs(l_jCurrent.j6-date:jHome.j6)<2
+      bHome=true
+    else
+      bHome=false
+    endIf
+    //系统报警信号判断
+    if dioGet(io:diB_0_UPS)==0 or bTableAlm or dioGet(io:diB_3_toolAlm)==1 or ati:nStatus!=0 or bForceError==true or esStatus()==2
+      dioSet(io:doB_10_systeAlm,1)
+    else
+      dioSet(io:doB_10_systeAlm,0)
+    endIf
+    //报警处理
+    if dioGet(io:doB_10_systeAlm)==1
+      //
+      call logandpopMsg("系统报警",l_bRefresh)
+      if dioGet(io:doB_7_toolOn)==1
+        dioSet(io:doB_7_toolOn,0)
+      endIf
+      if dioGet(io:doB_9_tableOn)==1
+        dioSet(io:doB_9_tableOn,0)
+      endIf
+    else
+      l_bRefresh=true
+      call use:clear(0,12)
+      delay(1)
+    endIf
+    delay(0)
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

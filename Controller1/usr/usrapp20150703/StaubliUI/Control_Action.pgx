@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Action" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nAction" type="num" xsi:type="array" use="reference" dimensions="3" />
+      <Parameter name="x_nIndex" type="num" xsi:type="element" />
+      <Parameter name="x_sIoName" type="string" xsi:type="array" use="reference" />
+      <Parameter name="x_bDigtal" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="2" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="24" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为lasman3.0 Action配置
+  
+  
+  for l_nNum=0 to 11
+    l_nData[l_nNum*2+0]=x_nAction[x_nIndex,l_nNum,0]
+    l_nData[l_nNum*2+1]=x_nAction[x_nIndex,l_nNum,1]
+  endFor
+  l_sItem[0]="关"
+  l_sItem[1]="开"
+  
+  resize(sBuff,1,24)
+  
+  
+  call Control_BottomS("置空,清空,延时,,,,取消,确定")
+  call Control_PanelXY(4,0,20,10)
+  call Control_Panel("动作值")
+  for l_nNum=0 to 11
+    
+    
+    sBuff[l_nNum*2+0]=toString("",l_nNum+1)+"名称:"+x_sIoName[l_nData[l_nNum*2+0]]
+    if x_bDigtal[l_nData[l_nNum*2]]
+      sBuff[l_nNum*2+1]="值 : "+ l_sItem[sel(l_nData[l_nNum*2+1]==0,0,1)]
+    else
+      sBuff[l_nNum*2+1]="值 : "+toString(".1",l_nData[l_nNum*2+1])
+    endIf
+    
+  endFor
+  call Control_List(sBuff,l_nSelectIndex)
+  
+  
+  //**********************************
+  //按键响应
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      //向上
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      //向下
+      case 266
+        l_nSelectIndex=min(l_nSelectIndex+1,23)
+      break
+      
+      //编辑
+      case 270
+        if l_nSelectIndex%2==1
+          if ! x_bDigtal[l_nData[l_nSelectIndex-1]]
+            call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+6,l_nSelectIndex+nPanelLTopY+1)
+          else
+            l_nData[l_nSelectIndex]=sel(l_nData[l_nSelectIndex]==1,1,0)
+            call Sel_Edit(l_nData[l_nSelectIndex],nPanelLTopX+6,l_nSelectIndex+nPanelLTopY+1,l_sItem)
+            l_nData[l_nSelectIndex]=sel(l_nData[l_nSelectIndex]==1,1,0)
+          endIf
+          
+        else
+          call Sel_Edit(l_nData[l_nSelectIndex],nPanelLTopX+7,l_nSelectIndex+nPanelLTopY+1,x_sIoName)
+        endIf
+        
+      break
+      
+      case 271
+        call Control_YesNO("确定设置为无IO信号吗?",l_bRes)
+        if l_bRes
+          
+          l_nData[sel(l_nSelectIndex%2==0,l_nSelectIndex,l_nSelectIndex-1)]=0
+          
+        endIf
+        
+      break
+      
+      
+      //全部置空
+      case 272
+        call Control_YesNO("确定全部清空吗?",l_bRes)
+        if l_bRes
+          for l_nNum=0 to 23
+            l_nData[l_nNum]=0
+          endFor
+          
+          
+        endIf
+      break
+      
+      
+      case 273
+        call Control_YesNO("确定要设置为延时吗?",l_bRes)
+        if l_bRes
+          l_nData[sel(l_nSelectIndex%2==0,l_nSelectIndex,l_nSelectIndex-1)]=165
+          
+        endIf
+      break
+      
+      
+      //退出
+      case 277
+        cls()
+        return
+        
+      break
+      
+      
+      
+      //取消
+      case 278
+        for l_nNum=0 to 11
+          x_nAction[x_nIndex,l_nNum,0]= l_nData[l_nNum*2+0]
+          x_nAction[x_nIndex,l_nNum,1]=l_nData[l_nNum*2+1]
+        endFor
+        return
+      break
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      
+      for l_nNum=0 to 11
+        sBuff[l_nNum*2+0]=toString("",l_nNum+1)+"名称:"+x_sIoName[l_nData[l_nNum*2+0]]
+        if x_bDigtal[l_nData[l_nNum*2]]
+          sBuff[l_nNum*2+1]="值 : "+ l_sItem[sel(l_nData[l_nNum*2+1]==0,0,1)]
+        else
+          sBuff[l_nNum*2+1]="值 : "+toString(".2",l_nData[l_nNum*2+1])
+        endIf
+        
+      endFor
+      
+      call Control_PanelXY(4,0,20,10)
+      call Control_Panel("动作值")
+      call Control_List(sBuff,l_nSelectIndex)
+      call Control_BottomS("置空,清空,延时,,,,取消,确定")
+    endIf
+    
+    
+  endWhile
+  
+  
+  
+  
+  
+end
+]]></Code>
+  </Program>
+</Programs>

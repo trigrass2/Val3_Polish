@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="user" access="private" >
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Header begin
+  //Description of Program
+  // Output page for test
+  //
+  //Input parameters
+  // none
+  //
+  //Output parameters
+  // none
+  //
+  //Examples
+  // taskCreate "user",100,user()
+  //
+  //History
+  // Creation: 10-Jul-2009, J Cook
+  // Modification: 28-Feb-2013, yeyonglong
+  //  description continued
+  //
+  //Header end
+  userPage()
+  do
+    cls()
+    put("status: ")
+    putln(nStatus)
+    put("fX: ")
+    putln(nForce[0])
+    put("fY: ")
+    putln(nForce[1])
+    put("fZ: ")
+    putln(nForce[2])
+    put("mX: ")
+    putln(nForce[3])
+    put("mY: ")
+    putln(nForce[4])
+    put("mZ: ")
+    putln(nForce[5])
+    gotoxy(0,9)
+    put("Force Vec: ")
+    put(nVecForce)
+    gotoxy(0,13)
+    put("ZERO")
+    l_nKey=getKey()
+    switch l_nKey
+      case 271
+        bZero=true
+      break
+    endSwitch
+    delay(0)
+  until false
+end]]></Code>
+  </Program>
+</Programs>

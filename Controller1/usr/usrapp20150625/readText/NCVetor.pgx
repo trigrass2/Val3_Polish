@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="NCVetor">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_trFrame" type="trsf" xsi:type="element" />
+      <Parameter name="x_trNC" type="trsf" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_trTrsf" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  
+//  x_trFrame.x=x_trFrame.y=x_trFrame.z=0
+//  
+//  //l_trTrsf=x_trFrame*{0,0,0,180,0,180}*{0,0,0,x_trNC.rx,x_trNC.ry,x_trNC.rz}
+//  //l_trTrsf=!x_trFrame*l_trTrsf
+//  
+//  l_trTrsf={0,0,0,180,0,180}*{0,0,0,x_trNC.rx,x_trNC.ry,x_trNC.rz}
+  
+  
+  
+  
+//  x_trNC.rx=l_trTrsf.rx
+//  x_trNC.ry=l_trTrsf.ry
+//  x_trNC.rz=l_trTrsf.rz
+  
+  
+end
+  ]]></Code>
+  </Program>
+</Programs>

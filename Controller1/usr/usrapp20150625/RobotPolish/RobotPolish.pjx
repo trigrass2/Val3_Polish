@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3" >
+  <Parameters version="s7.3" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="DeleteTxt.pgx" />
+    <Program file="Kill.pgx" />
+    <Program file="Poll.pgx" />
+    <Program file="_refreshDebugPa.pgx" />
+    <Program file="alarm_action.pgx" />
+    <Program file="checkIn.pgx" />
+    <Program file="checkOut.pgx" />
+    <Program file="check_PC.pgx" />
+    <Program file="goHome.pgx" />
+    <Program file="init.pgx" />
+    <Program file="logandpopMsg.pgx" />
+    <Program file="main.pgx" />
+    <Program file="massage.pgx" />
+    <Program file="page_debug.pgx" />
+    <Program file="page_main.pgx" />
+    <Program file="page_production.pgx" />
+    <Program file="page_setHome.pgx" />
+    <Program file="page_setSpdVal.pgx" />
+    <Program file="page_txtSelect.pgx" />
+    <Program file="prdMassage.pgx" />
+    <Program file="prdStatusList.pgx" />
+    <Program file="prd_action.pgx" />
+    <Program file="production.pgx" />
+    <Program file="readForce.pgx" />
+    <Program file="resumeProduct.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+    <Program file="userInterface.pgx" />
+  </Programs>
+  <Database>
+    <Data file="RobotPolish.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="read" path="Disk://readText/readText.pjx" autoload="true" password="" />
+    <Library alias="io" path="Disk://IO/IO.pjx" autoload="true" password="" />
+    <Library alias="ati" path="Disk://atiForceSen7/atiForceSen7.pjx" autoload="true" password="" />
+    <Library alias="use" path="Disk://userPage/userPage.pjx" autoload="true" password="" />
+    <Library alias="date" path="Disk://dateBase/dateBase.pjx" autoload="true" password="" />
+    <Library alias="setFrm" path="Disk://CircleCenter/CircleCenter.pjx" autoload="true" password="" />
+    <Library alias="UI" path="Disk://StaubliUI/StaubliUI.pjx" autoload="true" password="" />
+    <Library alias="CalTool" path="Disk://StaubliCalTool7/StaubliCalTool7.pjx" autoload="true" password="" />
+  </Libraries>
+  <Types>
+  </Types>
+</Project>

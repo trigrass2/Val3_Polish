@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="example" access="private" >
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nItem" type="num" xsi:type="array" size="2" />
+      <Local name="l_nView" type="num" xsi:type="array" size="2" />
+      <Local name="l_sItem" type="string" xsi:type="array" size="1" />
+      <Local name="l_sMsg" type="string" xsi:type="array" size="1" />
+      <Local name="i" type="num" xsi:type="array" size="1" />
+      <Local name="l_bLarge" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bQuit" type="bool" xsi:type="array" size="1" />
+      <Local name="l_sMenu" type="string" xsi:type="array" size="1" />
+      <Local name="l_nSeconds" type="num" xsi:type="array" size="1" />
+      <Local name="l_sHourMinSec" type="string" xsi:type="array" size="1" />
+      <Local name="l_nItemExample" type="num" xsi:type="array" size="5" />
+      <Local name="l_nMaxExample" type="num" xsi:type="array" size="5" />
+      <Local name="l_nMinExample" type="num" xsi:type="array" size="5" />
+      <Local name="l_nMenu" type="num" xsi:type="array" size="1" />
+      <Local name="l_nSelected" type="num" xsi:type="array" size="2" />
+      <Local name="l_bExit" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nFirst" type="num" xsi:type="array" size="2" />
+      <Local name="l_sButton" type="string" xsi:type="array" size="2" />
+      <Local name="l_sItemName" type="string" xsi:type="array" size="5" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This is an example for use this library.
+  //  This example performs the following actions :
+  //  - Run the fhmns program (converted of num seconds in string hour)
+  //  - add, insert, delete, and select an Item with an updating of the menu.
+  //  - change Menu (list of Items) with left and right keys
+  //  - clear the menu
+  //  - Run a simple list (no array) for just test the scrolling
+  //
+  //  The sequence is :
+  //  - Creation of 2 string arrays for the lists of items
+  //  - Start main loop
+  //  -   Creation of the menu with 2 lists
+  //  -   Reading events from the keyboard
+  //  -     case TAB           : update the width of the list (enlarge/reduce)
+  //  -     case left or right : update the item's list and change the menu
+  //  -     case Enter         : displays the Item selected
+  //  -     case F1 or ESC     : quit the program
+  //  -     case F2            : clear th list
+  //  -     case F3            : Run function wich converted seconds
+  //                              -> string Hours:Min:Sec
+  //  -     case F4            : test editNumField() function
+  //  -     case F5            : creation of an other list : simple list
+  //  -     case F6            : delete an Item
+  //  -     case F7            : add an item at the end of the list
+  //  -     case F8            : insert an item at the current position
+  //  -   Update the Item's list
+  //  -   Refresh the screen
+  //
+  //History
+  //  Creation : 28-04-08 - f.Rob
+  //Header end
+  //-----------------------------------------------------------------------
+  ////////////////  cls()
+  ////////////////  userPage()
+  ////////////////  //---------------------------------------------------
+  ////////////////  // CREATION OF 2 STRING ARRAYS FOR THE LISTS OF ITEMS
+  ////////////////  //---------------------------------------------------
+  ////////////////  //Empty the two lists
+  ////////////////  call stringCopy("",sExample1)
+  ////////////////  call stringCopy("",sExample2)
+  ////////////////  //Build the first list
+  ////////////////  for i=0 to 19
+  ////////////////    if sExample1!=""
+  ////////////////      $dins(sExample1,size(sExample1))
+  ////////////////    endIf
+  ////////////////    sExample1[i]="Program "+toString("",i)
+  ////////////////  endFor
+  ////////////////  //Build the second list
+  ////////////////  for i=0 to 14
+  ////////////////    if sExample2!=""
+  ////////////////      $dins(sExample2,size(sExample2))
+  ////////////////    endIf
+  ////////////////    sExample2[i]="Item "+toString("",i)
+  ////////////////  endFor
+  ////////////////  //----------------
+  ////////////////  // START THE LOOP
+  ////////////////  //----------------
+  ////////////////  do
+  ////////////////    //-------------------------------------
+  ////////////////    // CREATION OF THE MENU WITH TWO LISTS
+  ////////////////    //-------------------------------------
+  ////////////////    title("userPage example")
+  ////////////////    //Creation size of the list
+  ////////////////    call setSizeList(20,0,18,11)
+  ////////////////    //Enlarge/reduce the width of the list menu when tab is pressed
+  ////////////////    call setView(l_bLarge)
+  ////////////////    //Refresh the list
+  ////////////////    call listCreate("Menu "+toString("",l_nMenu+1))
+  ////////////////    switch l_nMenu
+  ////////////////      //Insert all the array into the list
+  ////////////////      case 0
+  ////////////////        call listAdd(sExample1)
+  ////////////////      break
+  ////////////////      case 1
+  ////////////////        call listAdd(sExample2)
+  ////////////////      break
+  ////////////////    endSwitch
+  ////////////////    //Refresh cursor position - selected item
+  ////////////////    call selectNewField(l_nSelected[l_nMenu],l_nItem[l_nMenu],l_nView[l_nMenu])
+  ////////////////    //Menu
+  ////////////////    l_sMenu="Exit,Clean,Conversion,Parameter,Simple list,Delete,Add,Insert"
+  ////////////////    call stringToArray(l_sMenu,sMenu)
+  ////////////////    if !l_bLarge
+  ////////////////      //Set the menu at the Y position : 3
+  ////////////////      call setMenu(sMenu,true,3)
+  ////////////////    else
+  ////////////////      //Displays the menu on the bottom side not on the left side
+  ////////////////      call setMenu(sMenu,true,-1)
+  ////////////////    endIf
+  ////////////////    //-----------------------------------
+  ////////////////    //  READING EVENTS FROM THE KEYBOARD
+  ////////////////    //-----------------------------------
+  ////////////////    l_nKey=get()
+  ////////////////    call listEvent(l_nKey,l_nItem[l_nMenu],l_sItem)
+  ////////////////    //Update the cursor position viewing on the screen
+  ////////////////    //The two lists are independent so utilisation of an array with two elements
+  ////////////////    l_nView[l_nMenu]=nView
+  ////////////////    //Update the selection of the Item
+  ////////////////    l_nSelected[l_nMenu]=l_nItem[l_nMenu]
+  ////////////////    switch (l_nKey)
+  ////////////////      //Tab
+  ////////////////      //------------------------------------------------
+  ////////////////      //  UPDATE THE WIDTH OF THE LIST (ENLARGE/REDUCE)
+  ////////////////      //------------------------------------------------
+  ////////////////      case 259
+  ////////////////        //Variable corresponding to Enlarge/Reduce the width of the list
+  ////////////////        l_bLarge=!l_bLarge
+  ////////////////      break
+  ////////////////      //Left or Right
+  ////////////////      //---------------------------------------------
+  ////////////////      //  UPDATE THE ITEM'S LIST AND CHANGE THE MENU
+  ////////////////      //---------------------------------------------
+  ////////////////      case 264,268
+  ////////////////        switch l_nMenu
+  ////////////////          case 0
+  ////////////////            call stringCopy(sItems,sExample1)
+  ////////////////          break
+  ////////////////          case 1
+  ////////////////            call stringCopy(sItems,sExample2)
+  ////////////////          break
+  ////////////////        endSwitch
+  ////////////////        //Update l_nMenu
+  ////////////////        if l_nKey==264
+  ////////////////          //Right
+  ////////////////          //Increment l_nMenu
+  ////////////////          l_nMenu=abs(l_nMenu-1)%2
+  ////////////////        else
+  ////////////////          //Left
+  ////////////////          //Decrement l_nMenu
+  ////////////////          l_nMenu=abs(l_nMenu+1)%2
+  ////////////////        endIf
+  ////////////////        //Update the selected item
+  ////////////////        l_nSelected[l_nMenu]=l_nItem[l_nMenu]
+  ////////////////      break
+  ////////////////      //Enter
+  ////////////////      //-----------------------------
+  ////////////////      //  DISPLAYS THE ITEM SELECTED
+  ////////////////      //-----------------------------
+  ////////////////      case 270
+  ////////////////        //No action just displays a message, it's an example
+  ////////////////        call timerDialog("Selected item: "+l_sItem,1)
+  ////////////////      break
+  ////////////////      //F1
+  ////////////////      //-------------------
+  //  QUIT THE PROGRAM
+  //-------------------
+  ////////////////      case 271
+  ////////////////        //Creation of two buttons functions
+  ////////////////        //l_sButton    : F8
+  ////////////////        //l_sButton[1] : F7
+  ////////////////        l_sButton="Yes"
+  ////////////////        l_sButton[1]="No"
+  ////////////////        call questionDialog("Do you want to quit ?",l_sButton,l_nKey)
+  ////////////////        //"Enter" or "F8" pressed
+  ////////////////        if l_nKey==0 or l_nKey==1
+  ////////////////          l_bQuit=true
+  ////////////////        endIf
+  ////////////////        cls()
+  ////////////////      break
+  //F2
+  //-----------------
+  //  CLEAR THE LIST
+  //-----------------
+  //////////////////      case 272
+  //////////////////        //Creation of two buttons functions
+  //////////////////        //l_sButton    : F8
+  //////////////////        //l_sButton[1] : F7
+  //////////////////        l_sButton="Yes"
+  //////////////////        l_sButton[1]="No"
+  //////////////////        call questionDialog("Do you want to clear the list ?",l_sButton,i)
+  //////////////////        if i==0 or i==1
+  //////////////////          call listEmpty()
+  //////////////////        endIf
+  //////////////////      break
+  //F3
+  //--------------------------------------------------------------
+  //  RUN FUNCTION WICH CONVERTED SECONDS -> STRING HOURS:MIN:SEC
+  //--------------------------------------------------------------
+  ////////////////      case 273
+  ////////////////        cls()
+  ////////////////        call insertDialog("Number of seconds that you want to convert in Hour:min:sec : #",l_nSeconds,0,0)
+  ////////////////        call fhmns(l_nSeconds,l_sHourMinSec)
+  ////////////////        popUpMsg("Conversion : "+l_sHourMinSec)
+  ////////////////      break
+  //F4
+  //---------------------------------
+  //  TEST " EDITNUMFIELD " FUNCTION
+  //---------------------------------
+  ////////////////      case 274
+  ////////////////        //Test editNumField function
+  ////////////////        for i=0 to size(l_sItemName)-1
+  ////////////////          l_sItemName[i]="Item "+toString("",i)
+  ////////////////          //No Limits for all
+  ////////////////          l_nMinExample[i]=0
+  ////////////////          l_nMaxExample[i]=0
+  ////////////////        endFor
+  ////////////////        call editNumField("Change Parameter",l_sItemName,l_nItemExample,l_nMinExample,l_nMaxExample)
+  ////////////////      break
+  // F5
+  //------------------------------------------
+  //  CREATION OF AN OTHER LIST : SIMPLE LIST
+  //------------------------------------------
+  ////////////////      case 275
+  ////////////////        //Simple list for test the scrolling
+  ////////////////        cls()
+  ////////////////        do
+  ////////////////          l_bExit=false
+  ////////////////          //Size of the list
+  ////////////////          call setSizeList(20,0,18,11)
+  ////////////////          //Creation of the list with the title "Simple list"
+  ////////////////          call listCreate("Simple list")
+  ////////////////          //Add Items in the list
+  ////////////////          call listAdd("Item 1")
+  ////////////////          call listAdd("Item 2")
+  ////////////////          call listAdd("Item 3")
+  ////////////////          call listAdd("Item 4")
+  ////////////////          //Update the list
+  ////////////////          call listUpdate(0)
+  ////////////////          call typeMenu(1,"Quit simple list")
+  ////////////////          i=get()
+  ////////////////          call listEvent(i,0,"")
+  ////////////////          switch i
+  ////////////////            case 271,255
+  ////////////////              l_sButton="Yes"
+  ////////////////              l_sButton[1]="No"
+  ////////////////              call questionDialog("Do you want to quit this program ?",l_sButton,i)
+  ////////////////              //"Enter" or "F8" pressed
+  ////////////////              if i==0 or i==1
+  ////////////////                l_bExit=true
+  ////////////////              else
+  ////////////////                cls()
+  ////////////////              endIf
+  ////////////////            break
+  ////////////////          endSwitch
+  ////////////////        until l_bExit
+  ////////////////      break
+  //F6
+  //-----------------
+  //  DELETE AN ITEM
+  //-----------------
+  ////////////////      case 276
+  ////////////////        //Delete
+  ////////////////        l_sButton="Yes"
+  ////////////////        l_sButton[1]="No"
+  ////////////////        call questionDialog("Do you want to delete "+l_sItem+" ?",l_sButton,i)
+  ////////////////        if i==0 or i==1
+  ////////////////          call listDel(l_nItem[l_nMenu])
+  ////////////////        endIf
+  ////////////////      break
+  //F7
+  //---------------------------------
+  //  ADD AN ITEM AT END OF THE LIST
+  //---------------------------------
+  ////////////////      case 277
+  ////////////////        call timerDialog("Add One element #",0)
+  ////////////////        l_sItem="new Item"
+  ////////////////        //Read one string from the keyboard and write it on the
+  ////////////////        //15 column and 7 line.
+  ////////////////        call read(15,7,l_sItem,10,false)
+  ////////////////        if !bUseEscape
+  ////////////////          call listAdd(l_sItem)
+  ////////////////        endIf
+  ////////////////        switch l_nMenu
+  ////////////////          case 0
+  ////////////////            l_nSelected=size(sExample1)
+  ////////////////          break
+  ////////////////          case 1
+  ////////////////            l_nSelected=size(sExample2)
+  ////////////////          break
+  ////////////////        endSwitch
+  ////////////////      break
+  //F8
+  //-----------------------------------------
+  //  INSERT AN ITEM AT THE CURRENT POSITION
+  //-----------------------------------------
+  //////////////      case 278
+  //////////////        //Insert at the current position
+  //////////////        call timerDialog("Insert One element #",0)
+  //////////////        l_sItem="new Item"
+  //////////////        call read(15,7,l_sItem,10,false)
+  //////////////        if !isKeyPressed(255) and l_sItem!="new Item"
+  //////////////          call listIns(l_sItem,l_nItem[l_nMenu])
+  //////////////        endIf
+  //////////////      break
+  //////////////    endSwitch
+  //-------------------------
+  //  UPDATE THE ITEM'S LIST
+  //-------------------------
+  //Update the list
+  ////////////    switch l_nKey
+  ////////////      case 272,276,277,278
+  ////////////        //Update the item's list with the global variable
+  ////////////        switch l_nMenu
+  ////////////          case 0
+  ////////////            call stringCopy(sItems,sExample1)
+  ////////////          break
+  ////////////          case 1
+  ////////////            call stringCopy(sItems,sExample2)
+  ////////////          break
+  ////////////        endSwitch
+  ////////////      break
+  ////////////    endSwitch
+  //-------------------
+  //REFRESH THE SCREEN
+  //-------------------
+  ////////////    if l_nKey>=270 and l_nKey<=278 or l_nKey==259
+  ////////////      cls()
+  ////////////    endIf
+  ////////////    delay(0)
+  ////////////  until l_bQuit 
+end]]></Code>
+  </Program>
+</Programs>

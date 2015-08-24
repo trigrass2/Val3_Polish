@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Circle3point" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_pPointCenter" type="pointRx" xsi:type="element" use="reference" />
+      <Parameter name="x_nDia" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_tTool" type="tool" xsi:type="element" />
+      <Parameter name="x_bOK" type="bool" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_ni" type="num" xsi:type="array" size="1" />
+      <Local name="x1" type="num" xsi:type="array" size="1" />
+      <Local name="x2" type="num" xsi:type="array" size="1" />
+      <Local name="x3" type="num" xsi:type="array" size="1" />
+      <Local name="y1" type="num" xsi:type="array" size="1" />
+      <Local name="y2" type="num" xsi:type="array" size="1" />
+      <Local name="y3" type="num" xsi:type="array" size="1" />
+      <Local name="l_nError" type="num" xsi:type="array" size="1" />
+      <Local name="l_pPoint" type="point" xsi:type="array" size="3" />
+      <Local name="l_pCenter" type="point" xsi:type="array" size="1" />
+      <Local name="l_fFrame" type="frame" xsi:type="array" size="1" />
+      <Local name="l_nErr" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //三点法-圆
+  nFrame1Err=setFrame(pFrameRefPt[0],pFrameRefPt[1],pFrameRefPt[2],fFrame1)
+  if nFrame1Err==-1
+    popUpMsg("X方向点离原点太近")
+  endIf
+  if nFrame1Err==-2
+    popUpMsg("Y方向点离原点太近")
+  endIf
+  //  l_nErr=setFrame(x_pt[0],x_pt[1],x_pt[2],fFrame)
+  if nFrame1Err==0
+    l_pCenter=here(x_tTool,fFrame1)
+    l_pCenter.trsf=position(pFrameRefPt[0],fFrame1)
+    for l_ni=0 to 2 step 1
+      l_pPoint[l_ni].trsf=position(pFrameRefPt[l_ni],fFrame1)
+    endFor
+    x1=l_pPoint[0].trsf.x
+    x2=l_pPoint[1].trsf.x
+    x3=l_pPoint[2].trsf.x
+    y1=l_pPoint[0].trsf.y
+    y2=l_pPoint[1].trsf.y
+    y3=l_pPoint[2].trsf.y
+    if ((x3-x1)*(y2-y1)-(x2-x1)*(y3-y1))!=0
+      l_pCenter.trsf.x=((y2-y1)*(y3*y3-y1*y1+x3*x3-x1*x1)-(y3-y1)*(y2*y2-y1*y1+x2*x2-x1*x1))/(2*(x3-x1)*(y2-y1)-2*(x2-x1)*(y3-y1))
+      l_pCenter.trsf.y=((x2-x1)*(x3*x3-x1*x1+y3*y3-y1*y1)-(x3-x1)*(x2*x2-x1*x1+y2*y2-y1*y1))/(2*(y3-y1)*(x2-x1)-2*(y2-y1)*(x3-x1))
+      x_pPointCenter.trsf=position(l_pCenter,world)
+      //修改
+      x_pPointCenter.trsf.rx=fFrame1.trsf.rx
+      x_pPointCenter.trsf.ry=fFrame1.trsf.ry
+      x_pPointCenter.trsf.rz=fFrame1.trsf.rz
+      //
+      x_nDia=2*sqrt((l_pPoint[0].trsf.x-l_pCenter.trsf.x)*(l_pPoint[0].trsf.x-l_pCenter.trsf.x)+(l_pPoint[0].trsf.y-l_pCenter.trsf.y)*(l_pPoint[0].trsf.y-l_pCenter.trsf.y))
+      x_bOK=true
+    else
+      x_bOK=false
+      x_nDia=0
+    endIf
+  else
+    x_bOK=false
+    x_nDia=0
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

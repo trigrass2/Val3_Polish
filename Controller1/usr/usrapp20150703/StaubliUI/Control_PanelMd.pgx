@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_PanelMd" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sMess" type="string" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+   
+ 
+  //在屏幕中间画框，并且提示信息
+  call Control_PanelS("",2,3,34,4)
+  call Control_ListCls()
+  x_sMess=left(x_sMess,min(getDisplayLen(x_sMess),nPanelWidthX))
+  gotoxy(nPanelLTopX+ (nPanelWidthX-getDisplayLen(x_sMess))/2,nPanelLTopY+nPanelLengthY/2+1)
+  put( x_sMess)
+
+  
+end]]></Code>
+  </Program>
+</Programs>

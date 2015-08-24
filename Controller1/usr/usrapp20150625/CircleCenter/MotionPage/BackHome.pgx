@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="BackHome">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_jJoint" type="joint" xsi:type="element" />
+      <Parameter name="x_tTool" type="tool" xsi:type="element" />
+      <Parameter name="x_mMdesc" type="mdesc" xsi:type="element" />
+      <Parameter name="x_bOK" type="bool" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bHomeOK" type="bool" xsi:type="array" size="1" />
+      <Local name="l_jJoint" type="jointRx" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  手臂回零，手动模式有效
+  //Input parameters
+  //  joint  x_jJoint:关节位置；
+  //  tool  x_tTool:工具值；
+  //  Mdesc x_mMdesc:速度；
+  //  
+  //Output paramaters
+  //  bool x_bOK:手臂是否到达零位
+  //Example
+  //  call AlignPage(tool)
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  resetMotion()
+  x_bOK=false
+  if !isPowered()
+    popUpMsg("机器人没有上电")
+  endIf
+  if workingMode()!=1
+    popUpMsg("切换到手动模式,并上电")
+  endIf
+  wait(isPowered() and workingMode()==1)
+  l_jJoint=herej()
+  if nAxisNum==4 or nAxisNum==6
+    call CompareJoint(x_jJoint,l_jJoint,l_bHomeOK,nAxisNum)
+    if !l_bHomeOK
+      if abs(x_jJoint)<{0.1,0.1,0.1,0.1,0.1,0.1}
+        popUpMsg("关节点太接近手臂零点!")
+        return
+      else
+        movej(x_jJoint,x_tTool,x_mMdesc)
+        waitEndMove()
+        l_jJoint=herej()
+        call CompareJoint(x_jJoint,l_jJoint,l_bHomeOK,nAxisNum)
+        if l_bHomeOK
+          x_bOK=true
+        endIf
+      endIf
+    else
+      x_bOK=true
+    endIf
+  else
+    popUpMsg("请输入正确的关节数目!")
+    x_bOK=false
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

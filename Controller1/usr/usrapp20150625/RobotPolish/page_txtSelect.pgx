@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="page_txtSelect" access="private" >
+    <Code><![CDATA[begin
+  cls()
+  nPage=3
+  title("RobotPolish-生产页面-.Txt选择")
+  libList("Disk://txt",sTxtLists)
+  call use:setSizeList(2,0,36,10)
+  call use:listcreate("Txt Lists")
+  call use:listadd(sTxtLists)
+  if size(sTxtLists)<=10
+    call use:listupdate(0)
+  else
+    if nTxtSelseted>9
+      call use:listupdate(nTxtSelseted-9)
+    else
+      call use:listupdate(0)
+    endIf
+  endIf
+  call massage("提示：上下键选择Txt文件")
+  call use:typeMenu(8,"OK")
+end]]></Code>
+  </Program>
+</Programs>

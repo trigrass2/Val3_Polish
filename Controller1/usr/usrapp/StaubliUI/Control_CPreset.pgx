@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_CPreset" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nPreset" type="num" xsi:type="array" use="reference" dimensions="2" />
+      <Parameter name="x_trCut" type="trsf" xsi:type="array" use="reference" />
+      <Parameter name="x_nMax" type="num" xsi:type="element" />
+      <Parameter name="x_nIndex" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="6" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="5" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nBuff" type="num" xsi:type="array" size="1" />
+      <Local name="l_bFirst" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //为lasman3.0进行定制
+  //修改工艺参数
+  
+  
+  //  //把传入参数临时存储
+  //  l_nIndex=x_trCut[x_nIndex].x
+  //  for l_nNum=0 to 4
+  //    l_nData[l_nNum]=x_nPreset[l_nIndex,l_nNum]
+  //  endFor
+  //  
+  //  //界面初始化
+  //      l_sItem[0]="工艺号  :"+toString("",l_nIndex)
+  //      l_sItem[1]="激光功率  :"+toString("",l_nData[0])
+  //      l_sItem[2]="气体压力  :"+toString("",l_nData[1])
+  //      l_sItem[3]="占空比频率:"+toString("",l_nData[2])
+  //      l_sItem[4]="激光占空比:"+toString("",l_nData[3])
+  //      l_sItem[5]="随动高度  :"+toString("",l_nData[4])
+  //      call Control_List(l_sItem,l_nBuff)
+   l_nIndex=x_trCut[x_nIndex].x
+  call Control_BottomS(",,,,,,退出,应用")
+  call Control_PanelXY(8,0,15,6)
+  call Control_Panel(toString("",x_nIndex)+":工艺值")
+  call Control_List(l_sItem,l_nBuff)
+  //按键响应
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nIndex=max(1,l_nIndex-1)
+        //l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      case 266
+        l_nIndex=min(50,l_nIndex+1)
+        // l_nSelectIndex=min(l_nSelectIndex+1,5)
+      break
+      
+      case 264
+        x_nIndex=max(0,x_nIndex-1)
+        
+        
+      break
+      
+      
+      
+      case 268
+        x_nIndex=min(x_nMax-1,x_nIndex+1)
+         l_nIndex=x_trCut[x_nIndex].x
+      break
+      
+      
+      
+      
+      
+      case 278
+        //        for l_nNum=0 to 4
+        //          x_nPreset[x_nIndex,l_nNum]=min(max(l_nData[l_nNum],0),100)
+        //      x.x=l_nIndex
+        x_trCut[x_nIndex].x=l_nIndex
+     //   return
+      l_nIndex=x_trCut[x_nIndex].x
+      break
+      
+      
+      case 277
+        return
+      break
+      
+      //      case 270
+      //        call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+12,l_nSelectIndex+nPanelLTopY+1)
+      //        l_nData[l_nSelectIndex]=min(max(l_nData[l_nSelectIndex],0),100)
+      //      break
+      
+    endSwitch
+    
+    if l_nKey!=-1 or !l_bFirst
+      l_bFirst=true
+     
+      for l_nNum=0 to 4
+        l_nData[l_nNum]=x_nPreset[l_nIndex,l_nNum]
+      endFor
+      for l_nNum=0 to 4
+        l_nData[l_nNum]=x_nPreset[l_nIndex,l_nNum]
+      endFor
+         call Control_PanTitl(toString("",x_nIndex+1)+"点:工艺值")
+      l_sItem[0]="工艺号    :"+toString("",l_nIndex)
+      l_sItem[1]="激光功率  :"+toString("",l_nData[0])
+      l_sItem[2]="气体压力  :"+toString("",l_nData[1])
+      l_sItem[3]="占空比频率:"+toString("",l_nData[2])
+      l_sItem[4]="激光占空比:"+toString("",l_nData[3])
+      l_sItem[5]="随动高度  :"+toString("",l_nData[4])
+      call Control_List(l_sItem,l_nBuff)
+      
+    endIf
+    
+    
+    
+    
+    
+    
+    
+  endWhile
+  
+  
+  
+  
+  
+end
+      
+  ]]></Code>
+  </Program>
+</Programs>

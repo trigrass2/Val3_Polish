@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_MCShow" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nIndex" type="num" xsi:type="element" />
+      <Parameter name="x_nMoveType" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sS" type="string" xsi:type="array" size="3" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //lasman3.0
+  //为圆弧进行配置
+  
+  if x_nMoveType>2 or x_nMoveType<1
+    return
+  endIf
+  l_sS[0]=toString("",x_nIndex+1)+"."+"MoveC "
+  l_sS[1]=toString("",1)+" "
+  l_sS[2]=left(" "+toString("",2)+"       ",nPanelWidthX-len(l_sS[0])-len(l_sS[1]))
+  setTextMode(0)
+  gotoxy(nPanelLTopX+1,min(nPanelLengthY,x_nIndex+1))
+  put(l_sS[0])
+  setTextMode(sel(x_nMoveType==1,1,0))
+  put(l_sS[1])
+  setTextMode(sel(x_nMoveType==1,0,1))
+  put(l_sS[2])
+  
+  
+  setTextMode(0)
+  
+end
+
+]]></Code>
+  </Program>
+</Programs>

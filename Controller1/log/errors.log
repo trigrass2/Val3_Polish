@@ -1,0 +1,2220 @@
+﻿[01/19/15 15:53:04]: -----------------------------------------------
+[01/19/15 15:53:04]: Logger started
+[01/19/15 15:53:09]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/19/15 15:53:09]: <0x0003> Cycle time set to 0.004s
+[01/19/15 15:53:09]: <0x0003> Simulation cycle time set to 0.1s
+[01/19/15 15:53:09]: <0x0002> Controller IP address could not be updated
+[01/19/15 15:53:09]: <0x0002> Default user payload used.
+[01/19/15 15:53:09]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/19/15 15:53:09]: <0x2401> Power hour count = 0:01:58
+[01/19/15 15:53:09]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[01/19/15 15:53:09]: <0x3407> Internal error MCP-NoAnswer: char 1
+[01/19/15 15:53:09]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/19/15 15:53:09]: <0x1602> End of arm power shutdown phase.
+[01/19/15 15:53:09]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/19/15 15:53:09]: <0x2401> Configuration Version: c1.026 
+[01/19/15 15:53:09]: <0x2401> CPU: TEKNOR 
+[01/19/15 15:53:09]: <0x2401> Option testMode: enabled 
+[01/19/15 15:53:09]: <0x2401> Option VAL 3: enabled 
+[01/19/15 15:53:09]: <0x2401> Machine Number: ? 
+[01/19/15 15:53:09]: <0x2401> Arm: tx200-S3-R3 floor
+[01/19/15 15:53:09]: <0x2401> Arm serial number: ? 
+[01/19/15 15:53:09]: <0x2401> Robot name:  
+[01/19/15 15:53:09]: <0x2401> EP: s7.7 Jul 23 2014
+[01/19/15 15:53:09]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/19/15 15:53:09]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/19/15 15:53:09]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/19/15 15:53:09]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/19/15 15:53:09]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/19/15 15:53:09]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/19/15 15:53:09]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/19/15 15:53:09]: <0x2201> New profile : default
+[01/19/15 15:53:09]: <0x2401> End of controller initialization
+[01/19/15 15:53:09]: <0x2402> COM-PC: create session 127.0.0.1 on port 9017 id=#10948360
+[01/19/15 15:53:14]: <0x2401> Saving controller context...
+[01/19/15 15:53:14]: <0x2402> Controller temperature: 28°C
+[01/19/15 15:53:14]: <0x2402> CPU temperature: 28°C
+[01/19/15 15:53:16]: <0x2402> MCP communication disconnected
+[01/19/15 15:53:17]: <0x2402> Mcp = TSimulated
+[01/19/15 15:53:17]: <0x340A> Mcp communication established
+[01/19/15 15:53:17]: <0x1802> Working mode:manual.
+[01/19/15 15:53:22]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 9017 id=#10948360
+[01/19/15 15:53:32]: <0x5402> RobotPolish application started
+[01/19/15 15:53:32]: <0x5404> ERR 123 IO not linked to a hardware input-output.. RobotPolish~. 
+[01/19/15 15:53:37]: <0x2402> MCP communication disconnected
+[01/19/15 15:54:00]: -----------------------------------------------
+[01/19/15 15:54:00]: Logger started
+[01/19/15 15:54:04]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/19/15 15:54:04]: <0x0003> Cycle time set to 0.004s
+[01/19/15 15:54:04]: <0x0003> Simulation cycle time set to 0.1s
+[01/19/15 15:54:04]: <0x0002> Controller IP address could not be updated
+[01/19/15 15:54:04]: <0x0003> Mcp = TSimulated
+[01/19/15 15:54:04]: <0x0002> Default user payload used.
+[01/19/15 15:54:04]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/19/15 15:54:04]: <0x340A> Mcp communication established
+[01/19/15 15:54:04]: <0x2401> Power hour count = 0:01:58
+[01/19/15 15:54:04]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[01/19/15 15:54:04]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/19/15 15:54:04]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/19/15 15:54:04]: <0x2401> Configuration Version: c1.026 
+[01/19/15 15:54:04]: <0x2401> CPU: TEKNOR 
+[01/19/15 15:54:04]: <0x2401> Option testMode: enabled 
+[01/19/15 15:54:04]: <0x2401> Option VAL 3: enabled 
+[01/19/15 15:54:04]: <0x2401> Machine Number: ? 
+[01/19/15 15:54:04]: <0x2401> Arm: tx200-S3-R3 floor
+[01/19/15 15:54:04]: <0x2401> Arm serial number: ? 
+[01/19/15 15:54:04]: <0x2401> Robot name:  
+[01/19/15 15:54:04]: <0x2401> EP: s7.7 Jul 23 2014
+[01/19/15 15:54:04]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/19/15 15:54:04]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/19/15 15:54:04]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/19/15 15:54:04]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/19/15 15:54:04]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/19/15 15:54:04]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/19/15 15:54:04]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/19/15 15:54:04]: <0x2201> New profile : default
+[01/19/15 15:54:04]: <0x2401> End of controller initialization
+[01/19/15 15:54:05]: <0x1802> Working mode:manual.
+[01/19/15 15:54:05]: <0x1602> End of arm power shutdown phase.
+[01/19/15 15:54:15]: <0x5402> RobotPolish application started
+[01/22/15 11:18:32]: -----------------------------------------------
+[01/22/15 11:18:32]: Logger started
+[01/22/15 11:18:39]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/22/15 11:18:39]: <0x0003> Cycle time set to 0.004s
+[01/22/15 11:18:39]: <0x0003> Simulation cycle time set to 0.1s
+[01/22/15 11:18:39]: <0x0002> Controller IP address could not be updated
+[01/22/15 11:18:39]: <0x0002> Default user payload used.
+[01/22/15 11:18:39]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/22/15 11:18:39]: <0x2401> Power hour count = 0:01:58
+[01/22/15 11:18:39]: <0x2401> Mac Address = d4-be-d9-28-c0-27
+[01/22/15 11:18:39]: <0x1602> End of arm power shutdown phase.
+[01/22/15 11:18:39]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/22/15 11:18:39]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/22/15 11:18:39]: <0x2401> Configuration Version: c1.026 
+[01/22/15 11:18:39]: <0x2401> CPU: TEKNOR 
+[01/22/15 11:18:39]: <0x2401> Option testMode: enabled 
+[01/22/15 11:18:39]: <0x2401> Option VAL 3: enabled 
+[01/22/15 11:18:39]: <0x2401> Machine Number: ? 
+[01/22/15 11:18:39]: <0x2401> Arm: tx200-S3-R3 floor
+[01/22/15 11:18:39]: <0x2401> Arm serial number: ? 
+[01/22/15 11:18:39]: <0x2401> Robot name:  
+[01/22/15 11:18:39]: <0x2401> EP: s7.7 Jul 23 2014
+[01/22/15 11:18:39]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/22/15 11:18:39]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/22/15 11:18:39]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/22/15 11:18:39]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/22/15 11:18:39]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/22/15 11:18:39]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/22/15 11:18:39]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/22/15 11:18:39]: <0x2201> New profile : default
+[01/22/15 11:18:39]: <0x2401> End of controller initialization
+[01/22/15 11:18:39]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[01/22/15 11:18:39]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 9 events lost.
+[01/22/15 11:18:39]: <0x2402> COM-PC: create session 127.0.0.1 on port 5844 id=#23144744
+[01/22/15 11:18:40]: <0x3407> Internal error MCP-NoAnswer: char 1
+[01/22/15 11:18:44]: <0x2401> Saving controller context...
+[01/22/15 11:18:44]: <0x2402> Controller temperature: 28°C
+[01/22/15 11:18:44]: <0x2402> CPU temperature: 28°C
+[01/22/15 11:18:47]: <0x2402> MCP communication disconnected
+[01/22/15 11:18:49]: <0x2402> Mcp = TSimulated
+[01/22/15 11:18:49]: <0x340A> Mcp communication established
+[01/22/15 11:18:49]: <0x1802> Working mode:manual.
+[01/22/15 11:18:53]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 5844 id=#23144744
+[01/22/15 11:35:32]: <0x2402> MCP communication disconnected
+[01/27/15 18:53:08]: -----------------------------------------------
+[01/27/15 18:53:08]: Logger started
+[01/27/15 18:53:15]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/27/15 18:53:15]: <0x0003> Cycle time set to 0.004s
+[01/27/15 18:53:15]: <0x0003> Simulation cycle time set to 0.1s
+[01/27/15 18:53:15]: <0x0002> Controller IP address could not be updated
+[01/27/15 18:53:15]: <0x0002> Default user payload used.
+[01/27/15 18:53:15]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/27/15 18:53:15]: <0x2401> Power hour count = 6:33:59
+[01/27/15 18:53:15]: <0x2401> Mac Address = error
+[01/27/15 18:53:15]: <0x2401> Network error: invalid MAC address.
+[01/27/15 18:53:15]: <0x160B> Internal error ROBOT-Power-HPE1_DELAYon
+[01/27/15 18:53:15]: <0x160B> Internal error ROBOT-Power-HPE2_DELAYon
+[01/27/15 18:53:15]: <0x1750> Internal error SAFETY-SHORTRoff
+[01/27/15 18:53:15]: <0x1602> End of arm power shutdown phase.
+[01/27/15 18:53:15]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/27/15 18:53:15]: <0x3407> Internal error MCP-NoAnswer: char 1
+[01/27/15 18:53:15]: <0x2402> COM-PC: create session 127.0.0.1 on port 12361 id=#8597416
+[01/27/15 18:53:15]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/27/15 18:53:15]: <0x2401> Configuration Version: c1.026 
+[01/27/15 18:53:15]: <0x2401> CPU: TEKNOR 
+[01/27/15 18:53:15]: <0x2401> Option testMode: enabled 
+[01/27/15 18:53:15]: <0x2401> Option VAL 3: enabled 
+[01/27/15 18:53:15]: <0x2401> Machine Number: ? 
+[01/27/15 18:53:15]: <0x2401> Arm: tx200-S3-R3 floor
+[01/27/15 18:53:15]: <0x2401> Arm serial number: ? 
+[01/27/15 18:53:15]: <0x2401> Robot name:  
+[01/27/15 18:53:15]: <0x2401> EP: s7.7 Jul 23 2014
+[01/27/15 18:53:15]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/27/15 18:53:15]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/27/15 18:53:15]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/27/15 18:53:15]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/27/15 18:53:15]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/27/15 18:53:15]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/27/15 18:53:15]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/27/15 18:53:15]: <0x2201> New profile : default
+[01/27/15 18:53:15]: <0x2401> End of controller initialization
+[01/27/15 18:53:18]: <0x2402> COM-PC: create session 127.0.0.1 on port 12363 id=#8595440
+[01/27/15 18:53:20]: <0x2401> Saving controller context...
+[01/27/15 18:53:20]: <0x2402> Controller temperature: 28°C
+[01/27/15 18:53:20]: <0x2402> CPU temperature: 28°C
+[01/27/15 18:53:20]: <0x2402> MCP communication disconnected
+[01/27/15 18:53:22]: <0x2402> Mcp = TSimulated
+[01/27/15 18:53:22]: <0x340A> Mcp communication established
+[01/27/15 18:53:23]: <0x1802> Working mode:manual.
+[01/27/15 18:53:23]: <0x1750> Internal error SAFETY-SHORTRoff
+[01/27/15 18:53:28]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 12361 id=#8597416
+[01/27/15 18:53:54]: <0x5402> RobotPolish application started
+[01/27/15 19:13:25]: <0x2401> Saving controller context...
+[01/27/15 19:35:47]: <0x2402> COM-PC: create session 127.0.0.1 on port 62670 id=#8594400
+[01/27/15 19:36:02]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 62670 id=#8594400
+[01/28/15 14:55:38]: -----------------------------------------------
+[01/28/15 14:55:38]: Logger started
+[01/28/15 14:55:49]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/28/15 14:55:49]: <0x0003> Cycle time set to 0.004s
+[01/28/15 14:55:49]: <0x0003> Simulation cycle time set to 0.1s
+[01/28/15 14:55:49]: <0x0002> Controller IP address could not be updated
+[01/28/15 14:55:49]: <0x0002> Default user payload used.
+[01/28/15 14:55:49]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/28/15 14:55:49]: <0x2401> Power hour count = 6:33:59
+[01/28/15 14:55:49]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[01/28/15 14:55:49]: <0x2402> Mcp = TSimulated
+[01/28/15 14:55:49]: <0x340A> Mcp communication established
+[01/28/15 14:55:49]: <0x1602> End of arm power shutdown phase.
+[01/28/15 14:55:49]: <0x1805> Working mode:invalid.
+[01/28/15 14:55:49]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/28/15 14:55:49]: <0x2402> COM-PC: create session 127.0.0.1 on port 6958 id=#100458752
+[01/28/15 14:55:49]: <0x2401> Disk://RobotPolish open.
+[01/28/15 14:55:49]: <0x5402> RobotPolish application started
+[01/28/15 14:55:49]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/28/15 14:55:49]: <0x2401> Configuration Version: c1.026 
+[01/28/15 14:55:49]: <0x2401> CPU: TEKNOR 
+[01/28/15 14:55:49]: <0x2401> Option testMode: enabled 
+[01/28/15 14:55:49]: <0x2401> Option VAL 3: enabled 
+[01/28/15 14:55:49]: <0x2401> Machine Number: ? 
+[01/28/15 14:55:49]: <0x2401> Arm: tx200-S3-R3 floor
+[01/28/15 14:55:49]: <0x2401> Arm serial number: ? 
+[01/28/15 14:55:49]: <0x2401> Robot name:  
+[01/28/15 14:55:49]: <0x2401> EP: s7.7 Jul 23 2014
+[01/28/15 14:55:49]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/28/15 14:55:49]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/28/15 14:55:49]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/28/15 14:55:49]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/28/15 14:55:49]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/28/15 14:55:49]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/28/15 14:55:49]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/28/15 14:55:49]: <0x2201> New profile : default
+[01/28/15 14:55:49]: <0x2401> End of controller initialization
+[01/28/15 14:55:50]: <0x1802> Working mode:manual.
+[01/28/15 14:55:54]: <0x2401> Saving controller context...
+[01/28/15 14:55:54]: <0x2402> Controller temperature: 28°C
+[01/28/15 14:55:54]: <0x2402> CPU temperature: 28°C
+[01/28/15 14:55:57]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6958 id=#100458752
+[01/28/15 14:56:54]: <0x2402> Joint  jJHome  modified
+[01/28/15 14:56:59]: <0x5A03> Deadman validated
+[01/28/15 14:56:59]: <0x1603> Settling arm power...
+[01/28/15 14:57:00]: <0x1601> Arm power settled.
+[01/28/15 14:57:04]: <0x3F1B> Manual motion mode:Joint
+[01/28/15 14:57:14]: <0x5A01> Deadman enabled.
+[01/28/15 14:57:20]: <0x3F1B> Manual motion mode:Disabled
+[01/28/15 14:57:25]: <0x3F1B> Manual motion mode:Joint
+[01/28/15 14:57:33]: <0x3F1B> Manual motion mode:Disabled
+[01/28/15 14:58:36]: <0x2402> COM-PC: create session 127.0.0.1 on port 10503 id=#12002960
+[01/28/15 14:59:10]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 10503 id=#12002960
+[01/28/15 15:21:13]: <0x1604> Arm power shutdown...
+[01/28/15 15:21:14]: <0x1602> End of arm power shutdown phase.
+[01/28/15 15:21:14]: <0x5403> RobotPolish application stopped
+[01/28/15 15:21:18]: <0x2401> Saving controller context...
+[01/28/15 15:21:25]: <0x5402> RobotPolish application started
+[01/28/15 15:21:47]: <0x2402> COM-PC: create session 127.0.0.1 on port 39535 id=#100460312
+[01/28/15 15:58:07]: -----------------------------------------------
+[01/28/15 15:58:07]: Logger started
+[01/28/15 15:58:13]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/28/15 15:58:13]: <0x0003> Cycle time set to 0.004s
+[01/28/15 15:58:13]: <0x0003> Simulation cycle time set to 0.1s
+[01/28/15 15:58:13]: <0x0002> Controller IP address could not be updated
+[01/28/15 15:58:13]: <0x0003> Mcp = TSimulated
+[01/28/15 15:58:13]: <0x0002> Default user payload used.
+[01/28/15 15:58:13]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/28/15 15:58:13]: <0x340A> Mcp communication established
+[01/28/15 15:58:13]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[01/28/15 15:58:13]: <0x2401> Power hour count = 6:58:12
+[01/28/15 15:58:13]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[01/28/15 15:58:13]: <0x1805> Working mode:invalid.
+[01/28/15 15:58:13]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/28/15 15:58:13]: <0x2402> COM-PC: create session 127.0.0.1 on port 47671 id=#12465064
+[01/28/15 15:58:13]: <0x1602> End of arm power shutdown phase.
+[01/28/15 15:58:13]: <0x2401> Disk://RobotPolish open.
+[01/28/15 15:58:13]: <0x5402> RobotPolish application started
+[01/28/15 15:58:13]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/28/15 15:58:13]: <0x2401> Configuration Version: c1.026 
+[01/28/15 15:58:13]: <0x2401> CPU: TEKNOR 
+[01/28/15 15:58:13]: <0x2401> Option testMode: enabled 
+[01/28/15 15:58:13]: <0x2401> Option VAL 3: enabled 
+[01/28/15 15:58:13]: <0x2401> Machine Number: ? 
+[01/28/15 15:58:13]: <0x2401> Arm: tx200-S3-R3 floor
+[01/28/15 15:58:13]: <0x2401> Arm serial number: ? 
+[01/28/15 15:58:13]: <0x2401> Robot name:  
+[01/28/15 15:58:13]: <0x2401> EP: s7.7 Jul 23 2014
+[01/28/15 15:58:13]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/28/15 15:58:13]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/28/15 15:58:13]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/28/15 15:58:13]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/28/15 15:58:13]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/28/15 15:58:13]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/28/15 15:58:13]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/28/15 15:58:13]: <0x2201> New profile : default
+[01/28/15 15:58:13]: <0x2401> End of controller initialization
+[01/28/15 15:58:13]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[01/28/15 15:58:13]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 12 events lost.
+[01/28/15 15:58:13]: <0x1802> Working mode:manual.
+[01/28/15 15:58:30]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 47671 id=#12465064
+[01/28/15 16:04:12]: -----------------------------------------------
+[01/28/15 16:04:12]: Logger started
+[01/28/15 16:04:17]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/28/15 16:04:17]: <0x0003> Cycle time set to 0.004s
+[01/28/15 16:04:17]: <0x0003> Simulation cycle time set to 0.1s
+[01/28/15 16:04:17]: <0x0002> Controller IP address could not be updated
+[01/28/15 16:04:17]: <0x0002> Default user payload used.
+[01/28/15 16:04:17]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/28/15 16:04:17]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[01/28/15 16:04:17]: <0x2401> Power hour count = 6:58:12
+[01/28/15 16:04:17]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[01/28/15 16:04:17]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/28/15 16:04:17]: <0x2402> COM-PC: create session 127.0.0.1 on port 48288 id=#12660920
+[01/28/15 16:04:17]: <0x1602> End of arm power shutdown phase.
+[01/28/15 16:04:17]: <0x2401> Disk://RobotPolish open.
+[01/28/15 16:04:17]: <0x5402> RobotPolish application started
+[01/28/15 16:04:17]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/28/15 16:04:17]: <0x2401> Configuration Version: c1.026 
+[01/28/15 16:04:17]: <0x2401> CPU: TEKNOR 
+[01/28/15 16:04:17]: <0x2401> Option testMode: enabled 
+[01/28/15 16:04:17]: <0x2401> Option VAL 3: enabled 
+[01/28/15 16:04:17]: <0x2401> Machine Number: ? 
+[01/28/15 16:04:17]: <0x2401> Arm: tx200-S3-R3 floor
+[01/28/15 16:04:17]: <0x2401> Arm serial number: ? 
+[01/28/15 16:04:17]: <0x2401> Robot name:  
+[01/28/15 16:04:17]: <0x2401> EP: s7.7 Jul 23 2014
+[01/28/15 16:04:17]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/28/15 16:04:17]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/28/15 16:04:17]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/28/15 16:04:17]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/28/15 16:04:17]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/28/15 16:04:17]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/28/15 16:04:17]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/28/15 16:04:17]: <0x2201> New profile : default
+[01/28/15 16:04:17]: <0x2401> End of controller initialization
+[01/28/15 16:04:19]: <0x3407> Internal error MCP-NoAnswer: char 1
+[01/28/15 16:04:25]: <0x2402> MCP communication disconnected
+[01/28/15 16:04:25]: <0x2402> COM-PC: create session 127.0.0.1 on port 48451 id=#13213200
+[01/28/15 16:04:27]: <0x2402> Mcp = TSimulated
+[01/28/15 16:04:27]: <0x340A> Mcp communication established
+[01/28/15 16:04:27]: <0x1802> Working mode:manual.
+[01/28/15 16:04:28]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 48288 id=#12660920
+[01/28/15 16:05:43]: <0x1804> Working mode:remote.
+[01/28/15 16:05:44]: <0x5A03> Deadman validated
+[01/28/15 16:05:44]: <0x1603> Settling arm power...
+[01/28/15 16:05:44]: <0x1604> Arm power shutdown...
+[01/28/15 16:05:45]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[01/28/15 16:05:45]: <0x1602> End of arm power shutdown phase.
+[01/28/15 16:05:46]: <0x1603> Settling arm power...
+[01/28/15 16:05:46]: <0x2401> Saving controller context...
+[01/28/15 16:05:46]: <0x2402> Controller temperature: 28°C
+[01/28/15 16:05:46]: <0x2402> CPU temperature: 28°C
+[01/28/15 16:05:46]: <0x1601> Arm power settled.
+[01/28/15 16:05:56]: <0x5404> ERR 123 IO not linked to a hardware input-output.. TERMINAL. 
+[01/28/15 16:05:59]: <0x5A01> Deadman enabled.
+[01/28/15 16:06:16]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 48451 id=#13213200
+[01/28/15 16:08:15]: <0x2402> COM-PC: create session 127.0.0.1 on port 53283 id=#13213200
+[01/28/15 16:08:31]: <0x5404> ERR 123 IO not linked to a hardware input-output.. TERMINAL. 
+[01/28/15 16:08:52]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53283 id=#13213200
+[01/28/15 16:11:00]: <0x2402> COM-PC: create session 127.0.0.1 on port 56746 id=#13213408
+[01/28/15 16:12:28]: <0x5404> ERR 123 IO not linked to a hardware input-output.. TERMINAL. 
+[01/28/15 16:12:33]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 56746 id=#13213408
+[01/28/15 16:13:24]: <0x2402> COM-PC: create session 127.0.0.1 on port 59780 id=#13213408
+[01/28/15 16:13:34]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 59780 id=#13213408
+[01/28/15 16:17:18]: <0x5404> ERR 123 IO not linked to a hardware input-output.. TERMINAL. 
+[01/28/15 16:17:25]: <0x3F16> Turn off arm power or switch to manual mode . Jogging is not possible in this mode
+[01/28/15 16:18:18]: <0x1604> Arm power shutdown...
+[01/28/15 16:18:19]: <0x1602> End of arm power shutdown phase.
+[01/28/15 16:18:19]: <0x5403> RobotPolish application stopped
+[01/28/15 16:18:21]: <0x2401> Saving controller context...
+[01/28/15 16:18:37]: <0x5402> readText application started
+[01/28/15 16:20:06]: <0x2402> COM-PC: create session 127.0.0.1 on port 1478 id=#13213512
+[01/28/15 16:20:24]: <0x5A02> Deadman disabled.
+[01/28/15 16:20:24]: <0x1801> Working mode:automatic.
+[01/28/15 16:20:26]: <0x2401> Working mode:automatic. (1)
+[01/28/15 16:20:31]: <0x2401> Saving controller context...
+[01/28/15 16:20:37]: <0x5403> readText application stopped
+[01/28/15 16:20:41]: <0x5402> RobotPolish application started
+[01/28/15 16:20:52]: <0x1803> Working mode:test.
+[01/28/15 16:20:54]: <0x1804> Working mode:remote.
+[01/28/15 16:20:54]: <0x1603> Settling arm power...
+[01/28/15 16:20:55]: <0x1601> Arm power settled.
+[01/28/15 16:21:07]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[01/28/15 16:46:11]: <0x2402> COM-PC: create session 127.0.0.1 on port 5933 id=#13213720
+[01/28/15 16:46:48]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 5933 id=#13213720
+[01/28/15 16:50:59]: <0x2401> Saving controller context...
+[01/28/15 16:54:37]: <0x2402> COM-PC: create session 127.0.0.1 on port 6062 id=#13213720
+[01/28/15 16:54:45]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6062 id=#13213720
+[01/28/15 16:56:33]: <0x2402> COM-PC: create session 127.0.0.1 on port 6087 id=#13213720
+[01/28/15 16:57:01]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6087 id=#13213720
+[01/28/15 17:03:45]: <0x2402> COM-PC: create session 127.0.0.1 on port 6154 id=#13213720
+[01/28/15 17:04:15]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6154 id=#13213720
+[01/28/15 17:04:56]: <0x2402> COM-PC: create session 127.0.0.1 on port 6171 id=#13213616
+[01/28/15 17:05:42]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6171 id=#13213616
+[01/28/15 17:08:40]: <0x2402> COM-PC: create session 127.0.0.1 on port 6210 id=#13214032
+[01/28/15 17:10:39]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6210 id=#13214032
+[01/28/15 17:11:00]: <0x2402> COM-PC: create session 127.0.0.1 on port 6235 id=#13214032
+[01/28/15 17:12:26]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6235 id=#13214032
+[01/28/15 17:12:50]: <0x1627> Arm power shutdown: working mode change.
+[01/28/15 17:12:50]: <0x1604> Arm power shutdown...
+[01/28/15 17:12:50]: <0x2402> MCP communication disconnected
+[01/28/15 17:12:51]: <0x1602> End of arm power shutdown phase.
+[01/28/15 17:12:53]: <0x2401> Saving controller context...
+[01/29/15 10:14:12]: -----------------------------------------------
+[01/29/15 10:14:12]: Logger started
+[01/29/15 10:14:18]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/29/15 10:14:18]: <0x0003> Cycle time set to 0.004s
+[01/29/15 10:14:18]: <0x0003> Simulation cycle time set to 0.1s
+[01/29/15 10:14:18]: <0x0002> Controller IP address could not be updated
+[01/29/15 10:14:18]: <0x0002> Default user payload used.
+[01/29/15 10:14:18]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/29/15 10:14:18]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[01/29/15 10:14:18]: <0x2401> Power hour count = 8:02:37
+[01/29/15 10:14:18]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[01/29/15 10:14:18]: <0x1602> End of arm power shutdown phase.
+[01/29/15 10:14:18]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/29/15 10:14:18]: <0x2401> Disk://RobotPolish open.
+[01/29/15 10:14:18]: <0x5402> RobotPolish application started
+[01/29/15 10:14:18]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/29/15 10:14:18]: <0x2401> Configuration Version: c1.026 
+[01/29/15 10:14:18]: <0x2401> CPU: TEKNOR 
+[01/29/15 10:14:18]: <0x2401> Option testMode: enabled 
+[01/29/15 10:14:18]: <0x2401> Option VAL 3: enabled 
+[01/29/15 10:14:18]: <0x2401> Machine Number: ? 
+[01/29/15 10:14:18]: <0x2401> Arm: tx200-S3-R3 floor
+[01/29/15 10:14:18]: <0x2401> Arm serial number: ? 
+[01/29/15 10:14:18]: <0x2401> Robot name:  
+[01/29/15 10:14:18]: <0x2401> EP: s7.7 Jul 23 2014
+[01/29/15 10:14:18]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/29/15 10:14:18]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/29/15 10:14:18]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/29/15 10:14:18]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/29/15 10:14:18]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/29/15 10:14:18]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/29/15 10:14:18]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/29/15 10:14:18]: <0x2201> New profile : default
+[01/29/15 10:14:18]: <0x2401> End of controller initialization
+[01/29/15 10:14:20]: <0x2402> COM-PC: create session 127.0.0.1 on port 4184 id=#10234064
+[01/29/15 10:14:31]: <0x3407> Internal error MCP-NoAnswer: char 1
+[01/29/15 10:14:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 4184 id=#10234064
+[01/29/15 10:14:38]: <0x2402> MCP communication disconnected
+[01/29/15 10:14:39]: <0x2402> Mcp = TSimulated
+[01/29/15 10:14:39]: <0x340A> Mcp communication established
+[01/29/15 10:14:40]: <0x1801> Working mode:automatic.
+[01/29/15 10:15:23]: <0x2402> MCP communication disconnected
+[01/29/15 10:26:28]: -----------------------------------------------
+[01/29/15 10:26:28]: Logger started
+[01/29/15 10:26:33]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[01/29/15 10:26:33]: <0x0003> Cycle time set to 0.004s
+[01/29/15 10:26:33]: <0x0003> Simulation cycle time set to 0.1s
+[01/29/15 10:26:33]: <0x0002> Controller IP address could not be updated
+[01/29/15 10:26:33]: <0x0002> Default user payload used.
+[01/29/15 10:26:33]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[01/29/15 10:26:33]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[01/29/15 10:26:33]: <0x2401> Power hour count = 8:02:37
+[01/29/15 10:26:33]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[01/29/15 10:26:33]: <0x2402> COM-PC: server created on all interfaces [5653]
+[01/29/15 10:26:33]: <0x2401> Disk://RobotPolish open.
+[01/29/15 10:26:33]: <0x5402> RobotPolish application started
+[01/29/15 10:26:33]: <0x2401> System: s7.7.1 Sep 10 2014
+[01/29/15 10:26:33]: <0x2401> Configuration Version: c1.026 
+[01/29/15 10:26:33]: <0x2401> CPU: TEKNOR 
+[01/29/15 10:26:33]: <0x2401> Option testMode: enabled 
+[01/29/15 10:26:33]: <0x2401> Option VAL 3: enabled 
+[01/29/15 10:26:33]: <0x2401> Machine Number: ? 
+[01/29/15 10:26:33]: <0x2401> Arm: tx200-S3-R3 floor
+[01/29/15 10:26:33]: <0x2401> Arm serial number: ? 
+[01/29/15 10:26:33]: <0x2401> Robot name:  
+[01/29/15 10:26:33]: <0x2401> EP: s7.7 Jul 23 2014
+[01/29/15 10:26:33]: <0x2401> SCA: s7.7 Jul 23 2014
+[01/29/15 10:26:33]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[01/29/15 10:26:33]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[01/29/15 10:26:33]: <0x2401> Recorder: s7.7 Jul 23 2014
+[01/29/15 10:26:33]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[01/29/15 10:26:33]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[01/29/15 10:26:33]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[01/29/15 10:26:33]: <0x2201> New profile : default
+[01/29/15 10:26:33]: <0x2401> End of controller initialization
+[01/29/15 10:26:34]: <0x1602> End of arm power shutdown phase.
+[01/29/15 10:26:36]: <0x3407> Internal error MCP-NoAnswer: char 1
+[01/29/15 10:26:43]: <0x2402> MCP communication disconnected
+[01/29/15 10:26:44]: <0x2402> Mcp = TSimulated
+[01/29/15 10:26:44]: <0x340A> Mcp communication established
+[01/29/15 10:26:45]: <0x1801> Working mode:automatic.
+[02/02/15 09:56:06]: -----------------------------------------------
+[02/02/15 09:56:06]: Logger started
+[02/02/15 09:56:15]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/02/15 09:56:15]: <0x0003> Cycle time set to 0.004s
+[02/02/15 09:56:15]: <0x0003> Simulation cycle time set to 0.1s
+[02/02/15 09:56:15]: <0x0002> Controller IP address could not be updated
+[02/02/15 09:56:15]: <0x0002> Default user payload used.
+[02/02/15 09:56:15]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/02/15 09:56:15]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/02/15 09:56:15]: <0x2401> Power hour count = 8:02:37
+[02/02/15 09:56:15]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/02/15 09:56:15]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/02/15 09:56:15]: <0x1602> End of arm power shutdown phase.
+[02/02/15 09:56:15]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/02/15 09:56:15]: <0x2401> Disk://RobotPolish open.
+[02/02/15 09:56:15]: <0x5402> RobotPolish application started
+[02/02/15 09:56:15]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/02/15 09:56:15]: <0x2401> Configuration Version: c1.026 
+[02/02/15 09:56:15]: <0x2401> CPU: TEKNOR 
+[02/02/15 09:56:15]: <0x2401> Option testMode: enabled 
+[02/02/15 09:56:15]: <0x2401> Option VAL 3: enabled 
+[02/02/15 09:56:15]: <0x2401> Machine Number: ? 
+[02/02/15 09:56:15]: <0x2401> Arm: tx200-S3-R3 floor
+[02/02/15 09:56:15]: <0x2401> Arm serial number: ? 
+[02/02/15 09:56:15]: <0x2401> Robot name:  
+[02/02/15 09:56:15]: <0x2401> EP: s7.7 Jul 23 2014
+[02/02/15 09:56:15]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/02/15 09:56:15]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/02/15 09:56:15]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/02/15 09:56:15]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/02/15 09:56:15]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/02/15 09:56:15]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/02/15 09:56:15]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/02/15 09:56:15]: <0x2201> New profile : default
+[02/02/15 09:56:15]: <0x2401> End of controller initialization
+[02/02/15 09:56:15]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/02/15 09:56:15]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 9 events lost.
+[02/02/15 09:56:20]: <0x2402> MCP communication disconnected
+[02/02/15 09:56:20]: <0x2401> Saving controller context...
+[02/02/15 09:56:20]: <0x2402> Controller temperature: 28°C
+[02/02/15 09:56:20]: <0x2402> CPU temperature: 28°C
+[02/02/15 09:56:21]: <0x2402> Mcp = TSimulated
+[02/02/15 09:56:21]: <0x340A> Mcp communication established
+[02/02/15 09:56:21]: <0x1801> Working mode:automatic.
+[02/02/15 09:56:22]: <0x2402> COM-PC: create session 127.0.0.1 on port 3312 id=#22554664
+[02/02/15 09:56:39]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 3312 id=#22554664
+[02/02/15 10:40:46]: <0x5403> RobotPolish application stopped
+[02/02/15 10:40:55]: <0x5402> RobotPolish application started
+[02/02/15 10:42:09]: <0x5403> RobotPolish application stopped
+[02/02/15 10:42:18]: <0x5402> RobotPolish application started
+[02/02/15 10:53:02]: <0x5403> RobotPolish application stopped
+[02/02/15 10:53:11]: <0x5402> RobotPolish application started
+[02/02/15 11:10:16]: <0x5403> RobotPolish application stopped
+[02/02/15 11:10:25]: <0x5402> RobotPolish application started
+[02/02/15 11:11:15]: <0x5A03> Deadman validated
+[02/02/15 11:11:15]: <0x1603> Settling arm power...
+[02/02/15 11:11:15]: <0x1601> Arm power settled.
+[02/02/15 11:11:30]: <0x5A01> Deadman enabled.
+[02/02/15 11:13:22]: <0x1604> Arm power shutdown...
+[02/02/15 11:13:23]: <0x1602> End of arm power shutdown phase.
+[02/02/15 11:13:23]: <0x5403> RobotPolish application stopped
+[02/02/15 11:13:25]: <0x2401> Saving controller context...
+[02/02/15 11:13:31]: <0x5402> RobotPolish application started
+[02/02/15 11:13:55]: <0x5403> RobotPolish application stopped
+[02/02/15 11:14:03]: <0x5402> RobotPolish application started
+[02/02/15 11:14:42]: <0x5403> RobotPolish application stopped
+[02/02/15 11:14:48]: <0x5402> RobotPolish application started
+[02/02/15 11:15:02]: <0x5A02> Deadman disabled.
+[02/02/15 11:15:03]: <0x5A03> Deadman validated
+[02/02/15 11:15:03]: <0x1603> Settling arm power...
+[02/02/15 11:15:03]: <0x1601> Arm power settled.
+[02/02/15 11:15:18]: <0x5A01> Deadman enabled.
+[02/02/15 11:25:23]: <0x1604> Arm power shutdown...
+[02/02/15 11:25:24]: <0x1602> End of arm power shutdown phase.
+[02/02/15 11:25:24]: <0x5403> RobotPolish application stopped
+[02/02/15 11:25:25]: <0x2401> Saving controller context...
+[02/02/15 11:25:30]: <0x5402> RobotPolish application started
+[02/02/15 11:25:41]: <0x5A02> Deadman disabled.
+[02/02/15 11:25:41]: <0x5A03> Deadman validated
+[02/02/15 11:25:41]: <0x1603> Settling arm power...
+[02/02/15 11:25:41]: <0x1601> Arm power settled.
+[02/02/15 11:25:56]: <0x5A01> Deadman enabled.
+[02/02/15 11:26:56]: <0x5A02> Deadman disabled.
+[02/02/15 11:26:56]: <0x1627> Arm power shutdown: working mode change.
+[02/02/15 11:26:56]: <0x1604> Arm power shutdown...
+[02/02/15 11:26:57]: <0x1802> Working mode:manual.
+[02/02/15 11:26:58]: <0x1602> End of arm power shutdown phase.
+[02/02/15 11:27:01]: <0x2401> Saving controller context...
+[02/02/15 11:27:02]: <0x5A03> Deadman validated
+[02/02/15 11:27:02]: <0x1603> Settling arm power...
+[02/02/15 11:27:03]: <0x1601> Arm power settled.
+[02/02/15 11:27:14]: <0x5A02> Deadman disabled.
+[02/02/15 11:27:14]: <0x1627> Arm power shutdown: working mode change.
+[02/02/15 11:27:14]: <0x1604> Arm power shutdown...
+[02/02/15 11:27:14]: <0x1803> Working mode:test.
+[02/02/15 11:27:15]: <0x1804> Working mode:remote.
+[02/02/15 11:27:15]: <0x1602> End of arm power shutdown phase.
+[02/02/15 11:27:16]: <0x1603> Settling arm power...
+[02/02/15 11:27:16]: <0x1601> Arm power settled.
+[02/02/15 11:27:16]: <0x3F1B> Manual motion mode:Connect
+[02/02/15 11:27:17]: <0x3F1B> Manual motion mode:Disabled
+[02/02/15 11:27:17]: <0x3F10> End of connection move.
+[02/02/15 11:30:34]: <0x5404> ERR 20 Access to an array with index larger than the array's size.. txtLoad. 
+[02/02/15 11:30:59]: <0x1604> Arm power shutdown...
+[02/02/15 11:31:00]: <0x1602> End of arm power shutdown phase.
+[02/02/15 11:31:00]: <0x5403> RobotPolish application stopped
+[02/02/15 11:31:01]: <0x2401> Saving controller context...
+[02/02/15 11:31:47]: <0x5402> RobotPolish application started
+[02/02/15 11:31:47]: <0x2402> $delete : File system error
+[02/02/15 11:31:47]: <0x1603> Settling arm power...
+[02/02/15 11:31:47]: <0x1601> Arm power settled.
+[02/02/15 11:32:14]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/02/15 11:33:13]: <0x1604> Arm power shutdown...
+[02/02/15 11:33:14]: <0x1602> End of arm power shutdown phase.
+[02/02/15 11:33:14]: <0x5403> RobotPolish application stopped
+[02/02/15 11:33:18]: <0x2401> Saving controller context...
+[02/02/15 11:40:40]: <0x5A03> Deadman validated
+[02/02/15 11:40:41]: <0x4001> Arm power enable request refused: cabinet working mode is remote or invalid.
+[02/02/15 11:40:50]: <0x2402> MCP communication disconnected
+[02/02/15 14:18:57]: -----------------------------------------------
+[02/02/15 14:18:57]: Logger started
+[02/02/15 14:19:06]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/02/15 14:19:06]: <0x0003> Cycle time set to 0.004s
+[02/02/15 14:19:06]: <0x0003> Simulation cycle time set to 0.1s
+[02/02/15 14:19:06]: <0x0002> Controller IP address could not be updated
+[02/02/15 14:19:06]: <0x0002> Default user payload used.
+[02/02/15 14:19:06]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/02/15 14:19:06]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/02/15 14:19:06]: <0x2401> Power hour count = 8:21:14
+[02/02/15 14:19:06]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/02/15 14:19:06]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/02/15 14:19:06]: <0x1602> End of arm power shutdown phase.
+[02/02/15 14:19:06]: <0x2401> Disk://RobotPolish open.
+[02/02/15 14:19:06]: <0x5402> RobotPolish application started
+[02/02/15 14:19:06]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/02/15 14:19:06]: <0x2401> Configuration Version: c1.026 
+[02/02/15 14:19:06]: <0x2401> CPU: TEKNOR 
+[02/02/15 14:19:06]: <0x2401> Option testMode: enabled 
+[02/02/15 14:19:06]: <0x2401> Option VAL 3: enabled 
+[02/02/15 14:19:06]: <0x2401> Machine Number: ? 
+[02/02/15 14:19:06]: <0x2401> Arm: tx200-S3-R3 floor
+[02/02/15 14:19:06]: <0x2401> Arm serial number: ? 
+[02/02/15 14:19:06]: <0x2401> Robot name:  
+[02/02/15 14:19:06]: <0x2401> EP: s7.7 Jul 23 2014
+[02/02/15 14:19:06]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/02/15 14:19:06]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/02/15 14:19:06]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/02/15 14:19:06]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/02/15 14:19:06]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/02/15 14:19:06]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/02/15 14:19:06]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/02/15 14:19:06]: <0x2201> New profile : default
+[02/02/15 14:19:06]: <0x2401> End of controller initialization
+[02/02/15 14:19:06]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/02/15 14:19:06]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 7 events lost.
+[02/02/15 14:19:13]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/02/15 14:19:20]: <0x2402> MCP communication disconnected
+[02/02/15 14:19:21]: <0x2402> Mcp = TSimulated
+[02/02/15 14:19:21]: <0x340A> Mcp communication established
+[02/02/15 14:19:22]: <0x1804> Working mode:remote.
+[02/02/15 14:19:23]: <0x1603> Settling arm power...
+[02/02/15 14:19:23]: <0x1601> Arm power settled.
+[02/02/15 14:43:40]: <0x1604> Arm power shutdown...
+[02/02/15 14:43:41]: <0x1602> End of arm power shutdown phase.
+[02/02/15 14:43:41]: <0x5403> RobotPolish application stopped
+[02/02/15 14:43:45]: <0x2401> Saving controller context...
+[02/02/15 14:43:45]: <0x2402> Controller temperature: 28°C
+[02/02/15 14:43:45]: <0x2402> CPU temperature: 28°C
+[02/02/15 14:43:49]: <0x5402> RobotPolish application started
+[02/02/15 14:43:49]: <0x1603> Settling arm power...
+[02/02/15 14:43:49]: <0x1601> Arm power settled.
+[02/02/15 14:46:24]: <0x2402> COM-PC: create session 127.0.0.1 on port 40720 id=#9985616
+[02/02/15 14:47:22]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/02/15 15:25:18]: -----------------------------------------------
+[02/02/15 15:25:18]: Logger started
+[02/02/15 15:25:24]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/02/15 15:25:24]: <0x0003> Cycle time set to 0.004s
+[02/02/15 15:25:24]: <0x0003> Simulation cycle time set to 0.1s
+[02/02/15 15:25:24]: <0x0002> Controller IP address could not be updated
+[02/02/15 15:25:24]: <0x0002> Default user payload used.
+[02/02/15 15:25:24]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/02/15 15:25:24]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/02/15 15:25:24]: <0x2401> Power hour count = 8:45:31
+[02/02/15 15:25:24]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/02/15 15:25:24]: <0x1602> End of arm power shutdown phase.
+[02/02/15 15:25:24]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/02/15 15:25:24]: <0x2402> COM-PC: create session 127.0.0.1 on port 58692 id=#11219304
+[02/02/15 15:25:24]: <0x2401> Disk://RobotPolish open.
+[02/02/15 15:25:24]: <0x5402> RobotPolish application started
+[02/02/15 15:25:24]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/02/15 15:25:24]: <0x2401> Configuration Version: c1.026 
+[02/02/15 15:25:24]: <0x2401> CPU: TEKNOR 
+[02/02/15 15:25:24]: <0x2401> Option testMode: enabled 
+[02/02/15 15:25:24]: <0x2401> Option VAL 3: enabled 
+[02/02/15 15:25:24]: <0x2401> Machine Number: ? 
+[02/02/15 15:25:24]: <0x2401> Arm: tx200-S3-R3 floor
+[02/02/15 15:25:24]: <0x2401> Arm serial number: ? 
+[02/02/15 15:25:24]: <0x2401> Robot name:  
+[02/02/15 15:25:24]: <0x2401> EP: s7.7 Jul 23 2014
+[02/02/15 15:25:24]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/02/15 15:25:24]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/02/15 15:25:24]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/02/15 15:25:24]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/02/15 15:25:24]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/02/15 15:25:24]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/02/15 15:25:24]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/02/15 15:25:24]: <0x2201> New profile : default
+[02/02/15 15:25:24]: <0x2401> End of controller initialization
+[02/02/15 15:25:35]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/02/15 15:25:42]: <0x2402> MCP communication disconnected
+[02/02/15 15:25:43]: <0x2402> Mcp = TSimulated
+[02/02/15 15:25:43]: <0x340A> Mcp communication established
+[02/02/15 15:25:43]: <0x1804> Working mode:remote.
+[02/02/15 15:25:44]: <0x1603> Settling arm power...
+[02/02/15 15:25:44]: <0x1601> Arm power settled.
+[02/02/15 15:33:36]: <0x2402> COM-PC: create session 127.0.0.1 on port 4544 id=#11218056
+[02/02/15 15:41:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 4544 id=#11218056
+[02/02/15 15:43:22]: <0x2402> COM-PC: create session 127.0.0.1 on port 5784 id=#11218056
+[02/02/15 15:46:34]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 5784 id=#11218056
+[02/02/15 15:47:50]: <0x2402> COM-PC: create session 127.0.0.1 on port 5854 id=#11218056
+[02/02/15 15:48:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 5854 id=#11218056
+[02/02/15 15:55:47]: <0x2401> Saving controller context...
+[02/02/15 15:55:48]: <0x2402> Controller temperature: 28°C
+[02/02/15 15:55:48]: <0x2402> CPU temperature: 28°C
+[02/02/15 16:25:51]: <0x2401> Saving controller context...
+[02/02/15 16:37:39]: <0x2402> COM-PC: create session 127.0.0.1 on port 7051 id=#11218056
+[02/02/15 16:38:04]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 7051 id=#11218056
+[02/02/15 16:41:04]: <0x2402> COM-PC: create session 127.0.0.1 on port 7097 id=#11218056
+[02/02/15 16:41:52]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 7097 id=#11218056
+[02/02/15 16:46:40]: <0x2402> COM-PC: create session 127.0.0.1 on port 7195 id=#11218056
+[02/02/15 16:47:18]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 7195 id=#11218056
+[02/02/15 16:47:29]: <0x2402> MCP communication disconnected
+[02/02/15 16:47:29]: <0x1627> Arm power shutdown: working mode change.
+[02/02/15 16:47:29]: <0x1604> Arm power shutdown...
+[02/02/15 16:47:30]: <0x1602> End of arm power shutdown phase.
+[02/02/15 16:47:32]: <0x2401> Saving controller context...
+[02/03/15 10:29:45]: -----------------------------------------------
+[02/03/15 10:29:45]: Logger started
+[02/03/15 10:29:53]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/03/15 10:29:53]: <0x0003> Cycle time set to 0.004s
+[02/03/15 10:29:53]: <0x0003> Simulation cycle time set to 0.1s
+[02/03/15 10:29:53]: <0x0002> Controller IP address could not be updated
+[02/03/15 10:29:53]: <0x0002> Default user payload used.
+[02/03/15 10:29:53]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/03/15 10:29:53]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/03/15 10:29:53]: <0x2401> Power hour count = 10:46:34
+[02/03/15 10:29:53]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/03/15 10:29:53]: <0x1602> End of arm power shutdown phase.
+[02/03/15 10:29:53]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/03/15 10:29:53]: <0x2401> Disk://RobotPolish open.
+[02/03/15 10:29:53]: <0x5402> RobotPolish application started
+[02/03/15 10:29:53]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/03/15 10:29:53]: <0x2401> Configuration Version: c1.026 
+[02/03/15 10:29:53]: <0x2401> CPU: TEKNOR 
+[02/03/15 10:29:53]: <0x2401> Option testMode: enabled 
+[02/03/15 10:29:53]: <0x2401> Option VAL 3: enabled 
+[02/03/15 10:29:53]: <0x2401> Machine Number: ? 
+[02/03/15 10:29:53]: <0x2401> Arm: tx200-S3-R3 floor
+[02/03/15 10:29:53]: <0x2401> Arm serial number: ? 
+[02/03/15 10:29:53]: <0x2401> Robot name:  
+[02/03/15 10:29:53]: <0x2401> EP: s7.7 Jul 23 2014
+[02/03/15 10:29:53]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/03/15 10:29:53]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/03/15 10:29:53]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/03/15 10:29:53]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/03/15 10:29:53]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/03/15 10:29:53]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/03/15 10:29:53]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/03/15 10:29:53]: <0x2201> New profile : default
+[02/03/15 10:29:53]: <0x2401> End of controller initialization
+[02/03/15 10:29:53]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/03/15 10:29:53]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 10 events lost.
+[02/03/15 10:29:53]: <0x2402> COM-PC: create session 127.0.0.1 on port 4529 id=#22950584
+[02/03/15 10:29:58]: <0x2401> Saving controller context...
+[02/03/15 10:29:58]: <0x2402> Controller temperature: 28°C
+[02/03/15 10:29:58]: <0x2402> CPU temperature: 28°C
+[02/03/15 10:30:03]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/03/15 10:30:09]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 4529 id=#22950584
+[02/03/15 10:30:10]: <0x2402> MCP communication disconnected
+[02/03/15 10:30:12]: <0x2402> Mcp = TSimulated
+[02/03/15 10:30:12]: <0x340A> Mcp communication established
+[02/03/15 10:30:12]: <0x1801> Working mode:automatic.
+[02/03/15 10:30:16]: <0x2401> Saving controller context...
+[02/03/15 10:56:14]: <0x5403> RobotPolish application stopped
+[02/03/15 10:56:27]: <0x5402> CircleCenter application started
+[02/03/15 10:56:49]: <0x5404> ERR 165 Cannot link a global frame, point or tool to a local data.. CircleCenter~. 
+[02/03/15 10:58:46]: <0x5403> CircleCenter application stopped
+[02/03/15 10:58:58]: <0x5402> CircleCenter application started
+[02/03/15 10:59:00]: <0x5404> ERR 165 Cannot link a global frame, point or tool to a local data.. CircleCenter~. 
+[02/03/15 11:02:54]: <0x5403> CircleCenter application stopped
+[02/03/15 11:03:04]: <0x5402> CircleCenter application started
+[02/03/15 11:03:31]: <0x5403> CircleCenter application stopped
+[02/03/15 11:04:35]: <0x5402> CircleCenter application started
+[02/03/15 14:35:16]: -----------------------------------------------
+[02/03/15 14:35:16]: Logger started
+[02/03/15 14:35:21]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/03/15 14:35:21]: <0x0003> Cycle time set to 0.004s
+[02/03/15 14:35:21]: <0x0003> Simulation cycle time set to 0.1s
+[02/03/15 14:35:21]: <0x0002> Controller IP address could not be updated
+[02/03/15 14:35:21]: <0x0002> Default user payload used.
+[02/03/15 14:35:21]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/03/15 14:35:21]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/03/15 14:35:21]: <0x2401> Power hour count = 10:46:34
+[02/03/15 14:35:21]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/03/15 14:35:21]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/03/15 14:35:21]: <0x2402> COM-PC: create session 127.0.0.1 on port 6151 id=#39073776
+[02/03/15 14:35:21]: <0x2401> Disk://RobotPolish open.
+[02/03/15 14:35:21]: <0x5402> RobotPolish application started
+[02/03/15 14:35:21]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/03/15 14:35:21]: <0x2401> Configuration Version: c1.026 
+[02/03/15 14:35:21]: <0x2401> CPU: TEKNOR 
+[02/03/15 14:35:21]: <0x2401> Option testMode: enabled 
+[02/03/15 14:35:21]: <0x2401> Option VAL 3: enabled 
+[02/03/15 14:35:21]: <0x2401> Machine Number: ? 
+[02/03/15 14:35:21]: <0x2401> Arm: tx200-S3-R3 floor
+[02/03/15 14:35:21]: <0x2401> Arm serial number: ? 
+[02/03/15 14:35:21]: <0x2401> Robot name:  
+[02/03/15 14:35:21]: <0x2401> EP: s7.7 Jul 23 2014
+[02/03/15 14:35:21]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/03/15 14:35:21]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/03/15 14:35:21]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/03/15 14:35:21]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/03/15 14:35:21]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/03/15 14:35:21]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/03/15 14:35:21]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/03/15 14:35:21]: <0x2201> New profile : default
+[02/03/15 14:35:21]: <0x2401> End of controller initialization
+[02/03/15 14:35:21]: <0x1602> End of arm power shutdown phase.
+[02/03/15 14:35:23]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/03/15 14:35:30]: <0x2402> MCP communication disconnected
+[02/03/15 14:35:31]: <0x2402> Mcp = TSimulated
+[02/03/15 14:35:31]: <0x340A> Mcp communication established
+[02/03/15 14:35:32]: <0x1801> Working mode:automatic.
+[02/03/15 14:35:40]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6151 id=#39073776
+[02/03/15 14:53:10]: <0x5403> RobotPolish application stopped
+[02/03/15 14:53:20]: <0x5402> RobotPolish application started
+[02/03/15 14:59:00]: <0x5403> RobotPolish application stopped
+[02/03/15 14:59:08]: <0x5402> RobotPolish application started
+[02/03/15 15:00:49]: <0x5403> RobotPolish application stopped
+[02/03/15 15:01:02]: <0x5402> RobotPolish application started
+[02/03/15 15:04:25]: <0x2402> COM-PC: create session 127.0.0.1 on port 40894 id=#39075856
+[02/03/15 15:04:52]: <0x5A03> Deadman validated
+[02/03/15 15:04:52]: <0x1603> Settling arm power...
+[02/03/15 15:04:52]: <0x1601> Arm power settled.
+[02/03/15 15:05:07]: <0x5A01> Deadman enabled.
+[02/03/15 15:05:08]: <0x5A02> Deadman disabled.
+[02/03/15 15:05:08]: <0x1627> Arm power shutdown: working mode change.
+[02/03/15 15:05:08]: <0x1604> Arm power shutdown...
+[02/03/15 15:05:09]: <0x1803> Working mode:test.
+[02/03/15 15:05:09]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:05:10]: <0x1804> Working mode:remote.
+[02/03/15 15:05:10]: <0x1603> Settling arm power...
+[02/03/15 15:05:11]: <0x1601> Arm power settled.
+[02/03/15 15:06:26]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/03/15 15:07:56]: <0x1604> Arm power shutdown...
+[02/03/15 15:07:57]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:07:57]: <0x5403> RobotPolish application stopped
+[02/03/15 15:07:58]: <0x2401> Saving controller context...
+[02/03/15 15:07:58]: <0x2402> Controller temperature: 28°C
+[02/03/15 15:07:58]: <0x2402> CPU temperature: 28°C
+[02/03/15 15:08:06]: <0x5402> RobotPolish application started
+[02/03/15 15:08:07]: <0x1603> Settling arm power...
+[02/03/15 15:08:07]: <0x1601> Arm power settled.
+[02/03/15 15:08:53]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/03/15 15:10:42]: <0x1604> Arm power shutdown...
+[02/03/15 15:10:43]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:10:43]: <0x5403> RobotPolish application stopped
+[02/03/15 15:10:44]: <0x2401> Saving controller context...
+[02/03/15 15:16:08]: <0x5402> RobotPolish application started
+[02/03/15 15:16:08]: <0x2402> $delete : File system error
+[02/03/15 15:16:08]: <0x1603> Settling arm power...
+[02/03/15 15:16:09]: <0x1601> Arm power settled.
+[02/03/15 15:16:47]: <0x2402> COM-PC: create session 127.0.0.1 on port 49550 id=#39076376
+[02/03/15 15:27:48]: <0x1604> Arm power shutdown...
+[02/03/15 15:27:49]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:27:49]: <0x5403> RobotPolish application stopped
+[02/03/15 15:27:51]: <0x2401> Saving controller context...
+[02/03/15 15:27:55]: <0x5402> RobotPolish application started
+[02/03/15 15:27:55]: <0x1603> Settling arm power...
+[02/03/15 15:27:56]: <0x1601> Arm power settled.
+[02/03/15 15:38:31]: <0x1604> Arm power shutdown...
+[02/03/15 15:38:32]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:38:32]: <0x5403> RobotPolish application stopped
+[02/03/15 15:38:35]: <0x2401> Saving controller context...
+[02/03/15 15:38:42]: <0x5402> RobotPolish application started
+[02/03/15 15:38:42]: <0x1603> Settling arm power...
+[02/03/15 15:38:43]: <0x1601> Arm power settled.
+[02/03/15 15:44:24]: <0x1604> Arm power shutdown...
+[02/03/15 15:44:25]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:44:25]: <0x5403> RobotPolish application stopped
+[02/03/15 15:44:29]: <0x2401> Saving controller context...
+[02/03/15 15:44:34]: <0x5402> RobotPolish application started
+[02/03/15 15:44:34]: <0x1603> Settling arm power...
+[02/03/15 15:44:35]: <0x1601> Arm power settled.
+[02/03/15 15:50:41]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 40894 id=#39075856
+[02/03/15 15:51:59]: <0x1604> Arm power shutdown...
+[02/03/15 15:52:00]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:52:00]: <0x5403> RobotPolish application stopped
+[02/03/15 15:52:03]: <0x2401> Saving controller context...
+[02/03/15 15:52:07]: <0x5402> RobotPolish application started
+[02/03/15 15:52:07]: <0x1603> Settling arm power...
+[02/03/15 15:52:08]: <0x1601> Arm power settled.
+[02/03/15 15:59:22]: <0x1604> Arm power shutdown...
+[02/03/15 15:59:23]: <0x1602> End of arm power shutdown phase.
+[02/03/15 15:59:23]: <0x5403> RobotPolish application stopped
+[02/03/15 15:59:25]: <0x2401> Saving controller context...
+[02/03/15 16:08:45]: <0x5402> RobotPolish application started
+[02/03/15 16:08:45]: <0x1603> Settling arm power...
+[02/03/15 16:08:45]: <0x1601> Arm power settled.
+[02/03/15 16:09:09]: <0x2402> COM-PC: create session 127.0.0.1 on port 31896 id=#10764248
+[02/03/15 16:09:28]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 31896 id=#10764248
+[02/03/15 16:15:57]: <0x2402> COM-PC: create session 127.0.0.1 on port 40444 id=#10764352
+[02/03/15 16:16:13]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 40444 id=#10764352
+[02/03/15 16:19:30]: <0x2402> COM-PC: create session 127.0.0.1 on port 44890 id=#10764352
+[02/03/15 16:22:11]: <0x2402> COM-PC: create session 127.0.0.1 on port 48048 id=#10764560
+[02/03/15 16:23:43]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/03/15 16:31:14]: <0x1604> Arm power shutdown...
+[02/03/15 16:31:15]: <0x1602> End of arm power shutdown phase.
+[02/03/15 16:31:15]: <0x5403> RobotPolish application stopped
+[02/03/15 16:31:17]: <0x2401> Saving controller context...
+[02/03/15 16:32:22]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 49550 id=#39076376
+[02/04/15 15:36:11]: -----------------------------------------------
+[02/04/15 15:36:11]: Logger started
+[02/04/15 15:36:18]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/04/15 15:36:18]: <0x0003> Cycle time set to 0.004s
+[02/04/15 15:36:18]: <0x0003> Simulation cycle time set to 0.1s
+[02/04/15 15:36:18]: <0x0002> Controller IP address could not be updated
+[02/04/15 15:36:18]: <0x0002> Default user payload used.
+[02/04/15 15:36:18]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/04/15 15:36:18]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/04/15 15:36:18]: <0x2401> Power hour count = 11:55:39
+[02/04/15 15:36:18]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/04/15 15:36:18]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/04/15 15:36:18]: <0x1602> End of arm power shutdown phase.
+[02/04/15 15:36:18]: <0x2402> COM-PC: create session 127.0.0.1 on port 10558 id=#22228440
+[02/04/15 15:36:18]: <0x2401> Disk://RobotPolish open.
+[02/04/15 15:36:18]: <0x5402> RobotPolish application started
+[02/04/15 15:36:18]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/04/15 15:36:18]: <0x2401> Configuration Version: c1.026 
+[02/04/15 15:36:18]: <0x2401> CPU: TEKNOR 
+[02/04/15 15:36:18]: <0x2401> Option testMode: enabled 
+[02/04/15 15:36:18]: <0x2401> Option VAL 3: enabled 
+[02/04/15 15:36:18]: <0x2401> Machine Number: ? 
+[02/04/15 15:36:18]: <0x2401> Arm: tx200-S3-R3 floor
+[02/04/15 15:36:18]: <0x2401> Arm serial number: ? 
+[02/04/15 15:36:18]: <0x2401> Robot name:  
+[02/04/15 15:36:18]: <0x2401> EP: s7.7 Jul 23 2014
+[02/04/15 15:36:18]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/04/15 15:36:18]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/04/15 15:36:18]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/04/15 15:36:18]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/04/15 15:36:18]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/04/15 15:36:18]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/04/15 15:36:18]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/04/15 15:36:18]: <0x2201> New profile : default
+[02/04/15 15:36:18]: <0x2401> End of controller initialization
+[02/04/15 15:36:18]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/04/15 15:36:18]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 12 events lost.
+[02/04/15 15:36:23]: <0x2401> Saving controller context...
+[02/04/15 15:36:23]: <0x2402> Controller temperature: 28°C
+[02/04/15 15:36:23]: <0x2402> CPU temperature: 28°C
+[02/04/15 15:36:29]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/04/15 15:36:36]: <0x2402> MCP communication disconnected
+[02/04/15 15:36:37]: <0x2402> Mcp = TSimulated
+[02/04/15 15:36:37]: <0x340A> Mcp communication established
+[02/04/15 15:36:38]: <0x1804> Working mode:remote.
+[02/04/15 15:36:38]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 10558 id=#22228440
+[02/04/15 15:36:38]: <0x1603> Settling arm power...
+[02/04/15 15:36:39]: <0x1601> Arm power settled.
+[02/04/15 15:37:58]: <0x2402> COM-PC: create session 127.0.0.1 on port 12620 id=#22228440
+[02/04/15 15:40:54]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/04/15 15:45:45]: <0x5404> ERR 102 'decel' field in mdesc is negative, too high, or lower than 'vel' field. motion. 
+[02/04/15 15:49:00]: <0x1604> Arm power shutdown...
+[02/04/15 15:49:01]: <0x1602> End of arm power shutdown phase.
+[02/04/15 15:49:01]: <0x5403> RobotPolish application stopped
+[02/04/15 15:49:04]: <0x2401> Saving controller context...
+[02/04/15 15:49:11]: <0x5402> readText application started
+[02/04/15 15:49:22]: <0x5403> readText application stopped
+[02/04/15 15:49:24]: <0x5402> readText application started
+[02/04/15 15:49:44]: <0x5403> readText application stopped
+[02/04/15 15:49:51]: <0x5402> RobotPolish application started
+[02/04/15 15:49:51]: <0x1603> Settling arm power...
+[02/04/15 15:49:52]: <0x1601> Arm power settled.
+[02/04/15 15:51:48]: <0x5404> ERR 102 'decel' field in mdesc is negative, too high, or lower than 'vel' field. motion. 
+[02/04/15 15:59:15]: <0x1604> ERR 102 'decel' field in mdesc is negative, too high, or lower than 'vel' field. motion.  (1)
+[02/04/15 16:00:57]: <0x1604> Arm power shutdown...
+[02/04/15 16:00:58]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:00:58]: <0x5403> RobotPolish application stopped
+[02/04/15 16:01:02]: <0x2401> Saving controller context...
+[02/04/15 16:01:11]: <0x5402> RobotPolish application started
+[02/04/15 16:01:11]: <0x1603> Settling arm power...
+[02/04/15 16:01:12]: <0x1601> Arm power settled.
+[02/04/15 16:03:33]: <0x5404> ERR 102 'decel' field in mdesc is negative, too high, or lower than 'vel' field. motion. 
+[02/04/15 16:05:36]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[02/04/15 16:05:36]: <0x1604> Arm power shutdown...
+[02/04/15 16:05:37]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[02/04/15 16:05:37]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:05:38]: <0x1603> Settling arm power...
+[02/04/15 16:05:38]: <0x1601> Arm power settled.
+[02/04/15 16:05:39]: <0x3F1B> Manual motion mode:Connect
+[02/04/15 16:05:39]: <0x3F1B> Manual motion mode:Disabled
+[02/04/15 16:05:39]: <0x3F10> End of connection move.
+[02/04/15 16:05:42]: <0x1627> Arm power shutdown: working mode change.
+[02/04/15 16:05:42]: <0x1604> Arm power shutdown...
+[02/04/15 16:05:43]: <0x1801> Working mode:automatic.
+[02/04/15 16:05:44]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:05:47]: <0x2401> Saving controller context...
+[02/04/15 16:05:49]: <0x1802> Working mode:manual.
+[02/04/15 16:05:52]: <0x2401> Saving controller context...
+[02/04/15 16:06:17]: <0x5403> RobotPolish application stopped
+[02/04/15 16:06:19]: <0x5402> RobotPolish application started
+[02/04/15 16:06:31]: <0x1804> Working mode:remote.
+[02/04/15 16:06:32]: <0x1603> Settling arm power...
+[02/04/15 16:06:32]: <0x1601> Arm power settled.
+[02/04/15 16:07:18]: <0x5404> ERR 102 'decel' field in mdesc is negative, too high, or lower than 'vel' field. motion. 
+[02/04/15 16:21:47]: <0x1604> ERR 102 'decel' field in mdesc is negative, too high, or lower than 'vel' field. motion.  (1)
+[02/04/15 16:28:53]: <0x1604> Arm power shutdown...
+[02/04/15 16:28:54]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:28:54]: <0x5403> RobotPolish application stopped
+[02/04/15 16:28:55]: <0x2401> Saving controller context...
+[02/04/15 16:29:51]: <0x5402> RobotPolish application started
+[02/04/15 16:29:51]: <0x1603> Settling arm power...
+[02/04/15 16:29:52]: <0x1601> Arm power settled.
+[02/04/15 16:33:06]: -----------------------------------------------
+[02/04/15 16:33:06]: Logger started
+[02/04/15 16:33:12]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/04/15 16:33:12]: <0x0003> Cycle time set to 0.004s
+[02/04/15 16:33:12]: <0x0003> Simulation cycle time set to 0.1s
+[02/04/15 16:33:12]: <0x0002> Controller IP address could not be updated
+[02/04/15 16:33:12]: <0x0002> Default user payload used.
+[02/04/15 16:33:12]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/04/15 16:33:12]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/04/15 16:33:12]: <0x2401> Power hour count = 12:45:12
+[02/04/15 16:33:12]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/04/15 16:33:12]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:33:12]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/04/15 16:33:12]: <0x2401> Disk://RobotPolish open.
+[02/04/15 16:33:12]: <0x5402> RobotPolish application started
+[02/04/15 16:33:12]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/04/15 16:33:12]: <0x2401> Configuration Version: c1.026 
+[02/04/15 16:33:12]: <0x2401> CPU: TEKNOR 
+[02/04/15 16:33:12]: <0x2401> Option testMode: enabled 
+[02/04/15 16:33:12]: <0x2401> Option VAL 3: enabled 
+[02/04/15 16:33:12]: <0x2401> Machine Number: ? 
+[02/04/15 16:33:12]: <0x2401> Arm: tx200-S3-R3 floor
+[02/04/15 16:33:12]: <0x2401> Arm serial number: ? 
+[02/04/15 16:33:12]: <0x2401> Robot name:  
+[02/04/15 16:33:12]: <0x2401> EP: s7.7 Jul 23 2014
+[02/04/15 16:33:12]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/04/15 16:33:12]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/04/15 16:33:12]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/04/15 16:33:12]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/04/15 16:33:12]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/04/15 16:33:12]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/04/15 16:33:12]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/04/15 16:33:12]: <0x2201> New profile : default
+[02/04/15 16:33:12]: <0x2401> End of controller initialization
+[02/04/15 16:33:12]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/04/15 16:33:12]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 12 events lost.
+[02/04/15 16:33:23]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/04/15 16:33:30]: <0x2402> MCP communication disconnected
+[02/04/15 16:33:31]: <0x2402> Mcp = TSimulated
+[02/04/15 16:33:31]: <0x340A> Mcp communication established
+[02/04/15 16:33:31]: <0x1804> Working mode:remote.
+[02/04/15 16:33:32]: <0x1603> Settling arm power...
+[02/04/15 16:33:33]: <0x1601> Arm power settled.
+[02/04/15 16:34:34]: <0x2402> COM-PC: create session 127.0.0.1 on port 11777 id=#8857640
+[02/04/15 16:40:36]: -----------------------------------------------
+[02/04/15 16:40:36]: Logger started
+[02/04/15 16:40:41]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/04/15 16:40:41]: <0x0003> Cycle time set to 0.004s
+[02/04/15 16:40:41]: <0x0003> Simulation cycle time set to 0.1s
+[02/04/15 16:40:41]: <0x0002> Controller IP address could not be updated
+[02/04/15 16:40:41]: <0x0002> Default user payload used.
+[02/04/15 16:40:41]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/04/15 16:40:41]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/04/15 16:40:41]: <0x2401> Power hour count = 12:45:12
+[02/04/15 16:40:41]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/04/15 16:40:41]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/04/15 16:40:41]: <0x2402> COM-PC: create session 127.0.0.1 on port 14687 id=#36011104
+[02/04/15 16:40:41]: <0x2401> Disk://RobotPolish open.
+[02/04/15 16:40:41]: <0x5402> RobotPolish application started
+[02/04/15 16:40:41]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/04/15 16:40:41]: <0x2401> Configuration Version: c1.026 
+[02/04/15 16:40:41]: <0x2401> CPU: TEKNOR 
+[02/04/15 16:40:41]: <0x2401> Option testMode: enabled 
+[02/04/15 16:40:41]: <0x2401> Option VAL 3: enabled 
+[02/04/15 16:40:41]: <0x2401> Machine Number: ? 
+[02/04/15 16:40:41]: <0x2401> Arm: tx200-S3-R3 floor
+[02/04/15 16:40:41]: <0x2401> Arm serial number: ? 
+[02/04/15 16:40:41]: <0x2401> Robot name:  
+[02/04/15 16:40:41]: <0x2401> EP: s7.7 Jul 23 2014
+[02/04/15 16:40:41]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/04/15 16:40:41]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/04/15 16:40:41]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/04/15 16:40:41]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/04/15 16:40:41]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/04/15 16:40:41]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/04/15 16:40:41]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/04/15 16:40:41]: <0x2201> New profile : default
+[02/04/15 16:40:41]: <0x2401> End of controller initialization
+[02/04/15 16:40:41]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:40:43]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/04/15 16:40:50]: <0x2402> MCP communication disconnected
+[02/04/15 16:40:51]: <0x2402> Mcp = TSimulated
+[02/04/15 16:40:51]: <0x340A> Mcp communication established
+[02/04/15 16:40:51]: <0x1804> Working mode:remote.
+[02/04/15 16:40:51]: <0x1603> Settling arm power...
+[02/04/15 16:40:52]: <0x1601> Arm power settled.
+[02/04/15 16:40:58]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 14687 id=#36011104
+[02/04/15 16:42:38]: <0x1604> Arm power shutdown...
+[02/04/15 16:42:39]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:42:39]: <0x5403> RobotPolish application stopped
+[02/04/15 16:42:40]: <0x2401> Saving controller context...
+[02/04/15 16:42:41]: <0x2402> Controller temperature: 28°C
+[02/04/15 16:42:41]: <0x2402> CPU temperature: 28°C
+[02/04/15 16:42:47]: <0x5402> RobotPolish application started
+[02/04/15 16:42:47]: <0x1603> Settling arm power...
+[02/04/15 16:42:47]: <0x1601> Arm power settled.
+[02/04/15 16:43:01]: <0x1604> Arm power shutdown...
+[02/04/15 16:43:02]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:43:02]: <0x5403> RobotPolish application stopped
+[02/04/15 16:43:03]: <0x2401> Saving controller context...
+[02/04/15 16:43:09]: <0x5402> RobotPolish application started
+[02/04/15 16:43:09]: <0x1603> Settling arm power...
+[02/04/15 16:43:09]: <0x1601> Arm power settled.
+[02/04/15 16:46:29]: <0x2402> COM-PC: create session 127.0.0.1 on port 23622 id=#36013288
+[02/04/15 16:47:05]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/04/15 16:54:10]: <0x1604> Arm power shutdown...
+[02/04/15 16:54:11]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:54:11]: <0x5403> RobotPolish application stopped
+[02/04/15 16:54:14]: <0x2401> Saving controller context...
+[02/04/15 16:54:20]: <0x5402> RobotPolish application started
+[02/04/15 16:54:20]: <0x1603> Settling arm power...
+[02/04/15 16:54:21]: <0x1601> Arm power settled.
+[02/04/15 16:56:04]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 23622 id=#36013288
+[02/04/15 16:59:55]: <0x1604> Arm power shutdown...
+[02/04/15 16:59:56]: <0x1602> End of arm power shutdown phase.
+[02/04/15 16:59:56]: <0x5403> RobotPolish application stopped
+[02/05/15 09:46:43]: -----------------------------------------------
+[02/05/15 09:46:43]: Logger started
+[02/05/15 09:46:59]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/05/15 09:46:59]: <0x0003> Cycle time set to 0.004s
+[02/05/15 09:46:59]: <0x0003> Simulation cycle time set to 0.1s
+[02/05/15 09:46:59]: <0x0002> Controller IP address could not be updated
+[02/05/15 09:46:59]: <0x0002> Default user payload used.
+[02/05/15 09:46:59]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/05/15 09:46:59]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/05/15 09:46:59]: <0x2401> Power hour count = 12:57:29
+[02/05/15 09:46:59]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/05/15 09:46:59]: <0x1602> End of arm power shutdown phase.
+[02/05/15 09:46:59]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/05/15 09:46:59]: <0x2402> COM-PC: create session 127.0.0.1 on port 3195 id=#24588048
+[02/05/15 09:46:59]: <0x2402> COM-PC: create session 127.0.0.1 on port 3197 id=#24965184
+[02/05/15 09:46:59]: <0x2401> Disk://RobotPolish open.
+[02/05/15 09:46:59]: <0x5402> RobotPolish application started
+[02/05/15 09:46:59]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/05/15 09:46:59]: <0x2401> Configuration Version: c1.026 
+[02/05/15 09:46:59]: <0x2401> CPU: TEKNOR 
+[02/05/15 09:46:59]: <0x2401> Option testMode: enabled 
+[02/05/15 09:46:59]: <0x2401> Option VAL 3: enabled 
+[02/05/15 09:46:59]: <0x2401> Machine Number: ? 
+[02/05/15 09:46:59]: <0x2401> Arm: tx200-S3-R3 floor
+[02/05/15 09:46:59]: <0x2401> Arm serial number: ? 
+[02/05/15 09:46:59]: <0x2401> Robot name:  
+[02/05/15 09:46:59]: <0x2401> EP: s7.7 Jul 23 2014
+[02/05/15 09:46:59]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/05/15 09:46:59]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/05/15 09:46:59]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/05/15 09:46:59]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/05/15 09:46:59]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/05/15 09:46:59]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/05/15 09:46:59]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/05/15 09:46:59]: <0x2201> New profile : default
+[02/05/15 09:46:59]: <0x2401> End of controller initialization
+[02/05/15 09:46:59]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/05/15 09:46:59]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 7 events lost.
+[02/05/15 09:47:04]: <0x2401> Saving controller context...
+[02/05/15 09:47:04]: <0x2402> Controller temperature: 28°C
+[02/05/15 09:47:04]: <0x2402> CPU temperature: 28°C
+[02/05/15 09:47:09]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 3197 id=#24965184
+[02/05/15 09:47:10]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/05/15 09:47:17]: <0x2402> MCP communication disconnected
+[02/05/15 09:47:18]: <0x2402> Mcp = TSimulated
+[02/05/15 09:47:18]: <0x340A> Mcp communication established
+[02/05/15 09:47:18]: <0x1804> Working mode:remote.
+[02/05/15 09:47:18]: <0x1603> Settling arm power...
+[02/05/15 09:47:19]: <0x1601> Arm power settled.
+[02/05/15 09:53:26]: <0x1604> Arm power shutdown...
+[02/05/15 09:53:27]: <0x1602> End of arm power shutdown phase.
+[02/05/15 09:53:27]: <0x5403> RobotPolish application stopped
+[02/05/15 09:53:30]: <0x2401> Saving controller context...
+[02/05/15 09:53:43]: <0x5402> RobotPolish application started
+[02/05/15 09:53:44]: <0x1603> Settling arm power...
+[02/05/15 09:53:44]: <0x1601> Arm power settled.
+[02/05/15 10:07:52]: <0x1604> Arm power shutdown...
+[02/05/15 10:07:53]: <0x1602> End of arm power shutdown phase.
+[02/05/15 10:07:53]: <0x5403> RobotPolish application stopped
+[02/05/15 10:07:56]: <0x2401> Saving controller context...
+[02/05/15 10:08:04]: <0x5402> RobotPolish application started
+[02/05/15 10:08:04]: <0x1603> Settling arm power...
+[02/05/15 10:08:05]: <0x1601> Arm power settled.
+[02/05/15 10:08:24]: <0x3B07> Cannot move: cannot cross singularity in this case.
+[02/05/15 10:08:24]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/05/15 10:19:26]: <0x1604> Arm power shutdown...
+[02/05/15 10:19:27]: <0x1602> End of arm power shutdown phase.
+[02/05/15 10:19:27]: <0x5403> RobotPolish application stopped
+[02/05/15 10:19:28]: <0x2401> Saving controller context...
+[02/05/15 10:19:35]: <0x1A03> System event INTERFACE-Stopped  (Task manager)
+[02/05/15 10:19:41]: <0x5402> RobotPolish application started
+[02/05/15 10:19:41]: <0x1603> Settling arm power...
+[02/05/15 10:19:42]: <0x1601> Arm power settled.
+[02/05/15 10:20:48]: <0x5464> USR:错误:关节值都是0
+[02/05/15 10:29:47]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 3195 id=#24588048
+[02/05/15 10:29:57]: <0x2402> COM-PC: create session 127.0.0.1 on port 50335 id=#24965184
+[02/05/15 10:32:13]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 50335 id=#24965184
+[02/05/15 10:32:35]: <0x2402> COM-PC: create session 127.0.0.1 on port 53645 id=#24965184
+[02/05/15 10:33:54]: <0x1A04> System event INTERFACE-Stopped  (Task manager). 1713 events lost.
+[02/05/15 10:45:10]: <0x1604> Arm power shutdown...
+[02/05/15 10:45:11]: <0x1602> End of arm power shutdown phase.
+[02/05/15 10:45:11]: <0x5403> RobotPolish application stopped
+[02/05/15 10:45:12]: <0x2401> Saving controller context...
+[02/05/15 10:45:32]: <0x5402> RobotPolish application started
+[02/05/15 10:45:32]: <0x1603> Settling arm power...
+[02/05/15 10:45:33]: <0x1601> Arm power settled.
+[02/05/15 10:57:36]: <0x1604> Arm power shutdown...
+[02/05/15 10:57:37]: <0x1602> End of arm power shutdown phase.
+[02/05/15 10:57:37]: <0x5403> RobotPolish application stopped
+[02/05/15 10:57:40]: <0x2401> Saving controller context...
+[02/05/15 10:57:49]: <0x5402> RobotPolish application started
+[02/05/15 10:57:49]: <0x1603> Settling arm power...
+[02/05/15 10:57:49]: <0x1601> Arm power settled.
+[02/05/15 11:06:22]: <0x1604> Arm power shutdown...
+[02/05/15 11:06:23]: <0x1602> End of arm power shutdown phase.
+[02/05/15 11:06:23]: <0x5403> RobotPolish application stopped
+[02/05/15 11:06:26]: <0x2401> Saving controller context...
+[02/05/15 11:06:32]: <0x5402> RobotPolish application started
+[02/05/15 11:06:32]: <0x1603> Settling arm power...
+[02/05/15 11:06:33]: <0x1601> Arm power settled.
+[02/05/15 11:21:39]: <0x5464> USR:错误:关节值都是0
+[02/05/15 11:27:36]: <0x1604> Arm power shutdown...
+[02/05/15 11:27:37]: <0x1602> End of arm power shutdown phase.
+[02/05/15 11:27:37]: <0x5403> RobotPolish application stopped
+[02/05/15 11:27:40]: <0x2401> Saving controller context...
+[02/05/15 11:29:11]: <0x5402> RobotPolish application started
+[02/05/15 11:29:12]: <0x1603> Settling arm power...
+[02/05/15 11:29:12]: <0x1601> Arm power settled.
+[02/05/15 12:05:07]: <0x2401> Watchdog occurs in Cs8 priority:75
+[02/05/15 15:35:12]: -----------------------------------------------
+[02/05/15 15:35:12]: Logger started
+[02/05/15 15:35:18]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/05/15 15:35:18]: <0x0003> Cycle time set to 0.004s
+[02/05/15 15:35:18]: <0x0003> Simulation cycle time set to 0.1s
+[02/05/15 15:35:18]: <0x0002> Controller IP address could not be updated
+[02/05/15 15:35:18]: <0x0002> Default user payload used.
+[02/05/15 15:35:18]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/05/15 15:35:18]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/05/15 15:35:18]: <0x2401> Power hour count = 14:34:32
+[02/05/15 15:35:18]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/05/15 15:35:18]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/05/15 15:35:18]: <0x2402> COM-PC: create session 127.0.0.1 on port 63702 id=#10171168
+[02/05/15 15:35:18]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/05/15 15:35:18]: <0x2402> COM-PC: create session 127.0.0.1 on port 63703 id=#125340464
+[02/05/15 15:35:18]: <0x1602> End of arm power shutdown phase.
+[02/05/15 15:35:18]: <0x2401> Disk://RobotPolish open.
+[02/05/15 15:35:18]: <0x5402> RobotPolish application started
+[02/05/15 15:35:18]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/05/15 15:35:18]: <0x2401> Configuration Version: c1.026 
+[02/05/15 15:35:18]: <0x2401> CPU: TEKNOR 
+[02/05/15 15:35:18]: <0x2401> Option testMode: enabled 
+[02/05/15 15:35:18]: <0x2401> Option VAL 3: enabled 
+[02/05/15 15:35:18]: <0x2401> Machine Number: ? 
+[02/05/15 15:35:18]: <0x2401> Arm: tx200-S3-R3 floor
+[02/05/15 15:35:18]: <0x2401> Arm serial number: ? 
+[02/05/15 15:35:18]: <0x2401> Robot name:  
+[02/05/15 15:35:18]: <0x2401> EP: s7.7 Jul 23 2014
+[02/05/15 15:35:18]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/05/15 15:35:18]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/05/15 15:35:18]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/05/15 15:35:18]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/05/15 15:35:18]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/05/15 15:35:18]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/05/15 15:35:18]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/05/15 15:35:18]: <0x2201> New profile : default
+[02/05/15 15:35:18]: <0x2401> End of controller initialization
+[02/05/15 15:35:25]: <0x2402> MCP communication disconnected
+[02/05/15 15:35:26]: <0x2402> Mcp = TSimulated
+[02/05/15 15:35:26]: <0x340A> Mcp communication established
+[02/05/15 15:35:26]: <0x1804> Working mode:remote.
+[02/05/15 15:35:26]: <0x1603> Settling arm power...
+[02/05/15 15:35:27]: <0x1601> Arm power settled.
+[02/05/15 15:35:34]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63702 id=#10171168
+[02/05/15 15:35:45]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63703 id=#125340464
+[02/05/15 15:36:05]: <0x2402> COM-PC: create session 127.0.0.1 on port 64687 id=#125340464
+[02/05/15 15:36:06]: <0x2402> COM-PC: create session 127.0.0.1 on port 64713 id=#125340776
+[02/05/15 15:36:28]: <0x5464> USR:错误:关节值都是0
+[02/05/15 15:40:03]: <0x1604> Arm power shutdown...
+[02/05/15 15:40:04]: <0x1602> End of arm power shutdown phase.
+[02/05/15 15:40:04]: <0x5403> RobotPolish application stopped
+[02/05/15 15:40:06]: <0x2401> Saving controller context...
+[02/05/15 15:40:06]: <0x2402> Controller temperature: 28°C
+[02/05/15 15:40:06]: <0x2402> CPU temperature: 28°C
+[02/05/15 15:40:13]: <0x5402> RobotPolish application started
+[02/05/15 15:40:13]: <0x1603> Settling arm power...
+[02/05/15 15:40:14]: <0x1601> Arm power settled.
+[02/05/15 15:40:27]: <0x5464> USR:错误:关节值都是0
+[02/05/15 15:41:03]: <0x1627> Arm power shutdown: working mode change.
+[02/05/15 15:41:03]: <0x1604> Arm power shutdown...
+[02/05/15 15:41:03]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[02/05/15 15:41:04]: <0x1801> Working mode:automatic.
+[02/05/15 15:41:05]: <0x1602> End of arm power shutdown phase.
+[02/05/15 15:41:09]: <0x2401> Saving controller context...
+[02/05/15 15:42:23]: <0x5A03> Deadman validated
+[02/05/15 15:42:23]: <0x1603> Settling arm power...
+[02/05/15 15:42:23]: <0x1601> Arm power settled.
+[02/05/15 15:42:23]: <0x3F1B> Manual motion mode:Connect
+[02/05/15 15:42:26]: <0x3F16> Turn off arm power or switch to manual mode . Jogging is not possible in this mode
+[02/05/15 15:42:26]: <0x3F1B> Manual motion mode:Disabled
+[02/05/15 15:42:26]: <0x3F10> End of connection move.
+[02/05/15 15:42:26]: <0x3F1B> Manual motion mode:Connect
+[02/05/15 15:42:28]: <0x5A02> Deadman disabled.
+[02/05/15 15:42:28]: <0x1627> Arm power shutdown: working mode change.
+[02/05/15 15:42:28]: <0x1604> Arm power shutdown...
+[02/05/15 15:42:28]: <0x3F1B> Manual motion mode:Disabled
+[02/05/15 15:42:29]: <0x1802> Working mode:manual.
+[02/05/15 15:42:30]: <0x1602> End of arm power shutdown phase.
+[02/05/15 15:42:31]: <0x5A03> Deadman validated
+[02/05/15 15:42:31]: <0x1603> Settling arm power...
+[02/05/15 15:42:31]: <0x1601> Arm power settled.
+[02/05/15 15:42:32]: <0x3F1B> Manual motion mode:Connect
+[02/05/15 15:42:32]: <0x3F1B> Manual motion mode:Joint
+[02/05/15 15:42:44]: <0x3F1B> Manual motion mode:Disabled
+[02/05/15 15:42:44]: <0x3F1B> Manual motion mode:Connect
+[02/05/15 15:42:45]: <0x3F1B> Manual motion mode:Disabled
+[02/05/15 15:42:45]: <0x3F10> End of connection move.
+[02/05/15 15:42:46]: <0x5A01> Deadman enabled.
+[02/05/15 15:43:17]: <0x3F1B> Manual motion mode:Point
+[02/05/15 15:43:19]: <0x3C06> Cannot complete move: destination is out of reach.(out of software joint limits)
+[02/05/15 15:43:55]: <0x3F1B> Manual motion mode:Disabled
+[02/05/15 15:43:55]: <0x3F1B> Manual motion mode:Connect
+[02/05/15 15:43:57]: <0x3F1B> Manual motion mode:Disabled
+[02/05/15 15:43:57]: <0x3F10> End of connection move.
+[02/05/15 15:43:57]: <0x3F1B> Manual motion mode:Connect
+[02/05/15 15:44:02]: <0x3F1B> Manual motion mode:Disabled
+[02/05/15 15:44:02]: <0x3F10> End of connection move.
+[02/05/15 15:44:33]: <0x5A02> Deadman disabled.
+[02/05/15 15:44:33]: <0x1627> Arm power shutdown: working mode change.
+[02/05/15 15:44:33]: <0x1604> Arm power shutdown...
+[02/05/15 15:44:34]: <0x1804> Working mode:remote.
+[02/05/15 15:44:34]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[02/05/15 15:44:35]: <0x1602> End of arm power shutdown phase.
+[02/05/15 15:44:35]: <0x1603> Settling arm power...
+[02/05/15 15:44:36]: <0x1601> Arm power settled.
+[02/05/15 15:44:46]: <0x5464> USR:错误:关节值都是0
+[02/05/15 15:48:26]: <0x2402> USR:错误:关节值都是0 (1)
+[02/05/15 15:50:55]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64687 id=#125340464
+[02/05/15 15:57:53]: -----------------------------------------------
+[02/05/15 15:57:53]: Logger started
+[02/05/15 15:57:58]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/05/15 15:57:58]: <0x0003> Cycle time set to 0.004s
+[02/05/15 15:57:58]: <0x0003> Simulation cycle time set to 0.1s
+[02/05/15 15:57:58]: <0x0002> Controller IP address could not be updated
+[02/05/15 15:57:58]: <0x0002> Default user payload used.
+[02/05/15 15:57:58]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/05/15 15:57:58]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/05/15 15:57:58]: <0x2401> Power hour count = 14:39:57
+[02/05/15 15:57:58]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/05/15 15:57:58]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/05/15 15:57:58]: <0x2402> COM-PC: create session 127.0.0.1 on port 6048 id=#9646232
+[02/05/15 15:57:58]: <0x2402> COM-PC: create session 127.0.0.1 on port 6049 id=#9920720
+[02/05/15 15:57:58]: <0x2401> Disk://RobotPolish open.
+[02/05/15 15:57:58]: <0x5402> RobotPolish application started
+[02/05/15 15:57:58]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/05/15 15:57:58]: <0x2401> Configuration Version: c1.026 
+[02/05/15 15:57:58]: <0x2401> CPU: TEKNOR 
+[02/05/15 15:57:58]: <0x2401> Option testMode: enabled 
+[02/05/15 15:57:58]: <0x2401> Option VAL 3: enabled 
+[02/05/15 15:57:58]: <0x2401> Machine Number: ? 
+[02/05/15 15:57:58]: <0x2401> Arm: tx200-S3-R3 floor
+[02/05/15 15:57:58]: <0x2401> Arm serial number: ? 
+[02/05/15 15:57:58]: <0x2401> Robot name:  
+[02/05/15 15:57:58]: <0x2401> EP: s7.7 Jul 23 2014
+[02/05/15 15:57:58]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/05/15 15:57:58]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/05/15 15:57:58]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/05/15 15:57:58]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/05/15 15:57:58]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/05/15 15:57:58]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/05/15 15:57:58]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/05/15 15:57:58]: <0x2201> New profile : default
+[02/05/15 15:57:58]: <0x2401> End of controller initialization
+[02/05/15 15:57:58]: <0x1602> End of arm power shutdown phase.
+[02/05/15 15:58:00]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/05/15 15:58:07]: <0x2402> MCP communication disconnected
+[02/05/15 15:58:08]: <0x2402> Mcp = TSimulated
+[02/05/15 15:58:08]: <0x340A> Mcp communication established
+[02/05/15 15:58:09]: <0x1801> Working mode:automatic.
+[02/05/15 15:58:16]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 6049 id=#9920720
+[02/05/15 15:58:21]: <0x1803> Working mode:test.
+[02/05/15 15:58:22]: <0x1804> Working mode:remote.
+[02/05/15 15:58:23]: <0x1603> Settling arm power...
+[02/05/15 15:58:23]: <0x1601> Arm power settled.
+[02/05/15 15:59:17]: <0x2402> COM-PC: create session 127.0.0.1 on port 7696 id=#102036176
+[02/05/15 16:03:13]: <0x2401> Watchdog occurs in Cs8 priority:75
+[02/06/15 10:58:32]: -----------------------------------------------
+[02/06/15 10:58:32]: Logger started
+[02/06/15 10:58:41]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/06/15 10:58:41]: <0x0003> Cycle time set to 0.004s
+[02/06/15 10:58:41]: <0x0003> Simulation cycle time set to 0.1s
+[02/06/15 10:58:41]: <0x0002> Controller IP address could not be updated
+[02/06/15 10:58:41]: <0x0002> Default user payload used.
+[02/06/15 10:58:41]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/06/15 10:58:41]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/06/15 10:58:41]: <0x2401> Power hour count = 14:39:57
+[02/06/15 10:58:41]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/06/15 10:58:41]: <0x1602> End of arm power shutdown phase.
+[02/06/15 10:58:41]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/06/15 10:58:41]: <0x2401> Disk://RobotPolish open.
+[02/06/15 10:58:41]: <0x5402> RobotPolish application started
+[02/06/15 10:58:41]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/06/15 10:58:41]: <0x2401> Configuration Version: c1.026 
+[02/06/15 10:58:41]: <0x2401> CPU: TEKNOR 
+[02/06/15 10:58:41]: <0x2401> Option testMode: enabled 
+[02/06/15 10:58:41]: <0x2401> Option VAL 3: enabled 
+[02/06/15 10:58:41]: <0x2401> Machine Number: ? 
+[02/06/15 10:58:41]: <0x2401> Arm: tx200-S3-R3 floor
+[02/06/15 10:58:41]: <0x2401> Arm serial number: ? 
+[02/06/15 10:58:41]: <0x2401> Robot name:  
+[02/06/15 10:58:41]: <0x2401> EP: s7.7 Jul 23 2014
+[02/06/15 10:58:41]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/06/15 10:58:41]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/06/15 10:58:41]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/06/15 10:58:41]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/06/15 10:58:41]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/06/15 10:58:41]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/06/15 10:58:41]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/06/15 10:58:41]: <0x2201> New profile : default
+[02/06/15 10:58:41]: <0x2401> End of controller initialization
+[02/06/15 10:58:41]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/06/15 10:58:41]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 3 events lost.
+[02/06/15 10:58:45]: <0x2402> COM-PC: create session 127.0.0.1 on port 3024 id=#10692648
+[02/06/15 10:58:46]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/06/15 10:58:52]: <0x2402> MCP communication disconnected
+[02/06/15 10:58:55]: <0x2402> Mcp = TSimulated
+[02/06/15 10:58:55]: <0x340A> Mcp communication established
+[02/06/15 10:58:55]: <0x1801> Working mode:automatic.
+[02/06/15 10:59:06]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 3024 id=#10692648
+[02/06/15 10:59:31]: <0x2402> COM-PC: create session 127.0.0.1 on port 3982 id=#10692648
+[02/06/15 11:02:52]: <0x1803> Working mode:test.
+[02/06/15 11:02:53]: <0x1804> Working mode:remote.
+[02/06/15 11:02:53]: <0x1603> Settling arm power...
+[02/06/15 11:02:54]: <0x5A03> Deadman validated
+[02/06/15 11:02:54]: <0x1604> Arm power shutdown...
+[02/06/15 11:02:54]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[02/06/15 11:02:55]: <0x1602> End of arm power shutdown phase.
+[02/06/15 11:02:55]: <0x1603> Settling arm power...
+[02/06/15 11:02:56]: <0x1601> Arm power settled.
+[02/06/15 11:03:09]: <0x5A01> Deadman enabled.
+[02/06/15 11:03:13]: <0x5464> USR:错误:关节值都是0
+[02/06/15 11:05:08]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 3982 id=#10692648
+[02/06/15 11:08:45]: <0x2402> COM-PC: create session 127.0.0.1 on port 5726 id=#10692648
+[02/06/15 11:09:19]: <0x5464> USR:错误:关节值都是0
+[02/06/15 11:14:18]: <0x1604> Arm power shutdown...
+[02/06/15 11:14:19]: <0x1602> End of arm power shutdown phase.
+[02/06/15 11:14:19]: <0x5403> RobotPolish application stopped
+[02/06/15 11:14:22]: <0x2401> Saving controller context...
+[02/06/15 11:14:23]: <0x2402> Controller temperature: 28°C
+[02/06/15 11:14:23]: <0x2402> CPU temperature: 28°C
+[02/06/15 11:14:30]: <0x5402> RobotPolish application started
+[02/06/15 11:14:31]: <0x1603> Settling arm power...
+[02/06/15 11:14:31]: <0x1601> Arm power settled.
+[02/06/15 11:14:49]: <0x5464> USR:错误:关节值都是0
+[02/06/15 11:17:18]: <0x1604> Arm power shutdown...
+[02/06/15 11:17:19]: <0x1602> End of arm power shutdown phase.
+[02/06/15 11:17:19]: <0x5403> RobotPolish application stopped
+[02/06/15 11:17:20]: <0x2401> Saving controller context...
+[02/06/15 11:17:25]: <0x5402> RobotPolish application started
+[02/06/15 11:17:26]: <0x1603> Settling arm power...
+[02/06/15 11:17:26]: <0x1601> Arm power settled.
+[02/06/15 11:17:42]: <0x5464> USR:关节转换出错-0      -0.014  -0    
+[02/06/15 11:17:42]: <0x5464> USR:错误:关节值都是0
+[02/06/15 11:19:14]: <0x2402> fPrdFrame  modified
+[02/06/15 11:20:25]: <0x1604> Arm power shutdown...
+[02/06/15 11:20:26]: <0x1602> End of arm power shutdown phase.
+[02/06/15 11:20:26]: <0x5403> RobotPolish application stopped
+[02/06/15 11:20:27]: <0x2401> Saving controller context...
+[02/06/15 11:20:34]: <0x5402> RobotPolish application started
+[02/06/15 11:20:34]: <0x1603> Settling arm power...
+[02/06/15 11:20:35]: <0x1601> Arm power settled.
+[02/06/15 11:21:04]: <0x3B05> Cannot move: destination is out of software axis limits
+[02/06/15 11:21:04]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 11:29:54]: <0x2402> Point  pPointRead [4]  modified
+[02/06/15 11:31:16]: <0x1604> Arm power shutdown...
+[02/06/15 11:31:17]: <0x1602> End of arm power shutdown phase.
+[02/06/15 11:31:17]: <0x5403> RobotPolish application stopped
+[02/06/15 11:31:20]: <0x2401> Saving controller context...
+[02/06/15 11:31:31]: <0x5402> RobotPolish application started
+[02/06/15 11:31:31]: <0x1603> Settling arm power...
+[02/06/15 11:31:32]: <0x1601> Arm power settled.
+[02/06/15 11:32:40]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[02/06/15 11:35:54]: <0x3B06> Cannot complete move: destination is out of reach.(out of software joint limits)
+[02/06/15 11:35:54]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 11:40:05]: <0x3B05> Cannot move: destination is out of software axis limits
+[02/06/15 11:40:05]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 12:02:00]: <0x2401> Saving controller context...
+[02/06/15 12:23:35]: <0x2402> MCP communication disconnected
+[02/06/15 13:05:47]: -----------------------------------------------
+[02/06/15 13:05:47]: Logger started
+[02/06/15 13:05:53]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/06/15 13:05:53]: <0x0003> Cycle time set to 0.004s
+[02/06/15 13:05:53]: <0x0003> Simulation cycle time set to 0.1s
+[02/06/15 13:05:53]: <0x0002> Controller IP address could not be updated
+[02/06/15 13:05:53]: <0x0002> Default user payload used.
+[02/06/15 13:05:53]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/06/15 13:05:53]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/06/15 13:05:53]: <0x2401> Power hour count = 15:37:12
+[02/06/15 13:05:53]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/06/15 13:05:53]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/06/15 13:05:53]: <0x1602> End of arm power shutdown phase.
+[02/06/15 13:05:53]: <0x2402> COM-PC: create session 127.0.0.1 on port 7076 id=#11022720
+[02/06/15 13:05:53]: <0x2401> Disk://RobotPolish open.
+[02/06/15 13:05:53]: <0x5402> RobotPolish application started
+[02/06/15 13:05:53]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/06/15 13:05:53]: <0x2401> Configuration Version: c1.026 
+[02/06/15 13:05:53]: <0x2401> CPU: TEKNOR 
+[02/06/15 13:05:53]: <0x2401> Option testMode: enabled 
+[02/06/15 13:05:53]: <0x2401> Option VAL 3: enabled 
+[02/06/15 13:05:53]: <0x2401> Machine Number: ? 
+[02/06/15 13:05:53]: <0x2401> Arm: tx200-S3-R3 floor
+[02/06/15 13:05:53]: <0x2401> Arm serial number: ? 
+[02/06/15 13:05:53]: <0x2401> Robot name:  
+[02/06/15 13:05:53]: <0x2401> EP: s7.7 Jul 23 2014
+[02/06/15 13:05:53]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/06/15 13:05:53]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/06/15 13:05:53]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/06/15 13:05:53]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/06/15 13:05:53]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/06/15 13:05:53]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/06/15 13:05:53]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/06/15 13:05:53]: <0x2201> New profile : default
+[02/06/15 13:05:53]: <0x2401> End of controller initialization
+[02/06/15 13:06:01]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/06/15 13:06:08]: <0x2402> MCP communication disconnected
+[02/06/15 13:06:09]: <0x2402> Mcp = TSimulated
+[02/06/15 13:06:09]: <0x340A> Mcp communication established
+[02/06/15 13:06:09]: <0x1804> Working mode:remote.
+[02/06/15 13:06:10]: <0x1603> Settling arm power...
+[02/06/15 13:06:11]: <0x1601> Arm power settled.
+[02/06/15 13:06:40]: -----------------------------------------------
+[02/06/15 13:06:40]: Logger started
+[02/06/15 13:06:45]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[02/06/15 13:06:45]: <0x0003> Cycle time set to 0.004s
+[02/06/15 13:06:45]: <0x0003> Simulation cycle time set to 0.1s
+[02/06/15 13:06:45]: <0x0002> Controller IP address could not be updated
+[02/06/15 13:06:45]: <0x0002> Default user payload used.
+[02/06/15 13:06:45]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[02/06/15 13:06:45]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[02/06/15 13:06:45]: <0x2401> Power hour count = 15:37:12
+[02/06/15 13:06:45]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[02/06/15 13:06:45]: <0x2402> COM-PC: server created on all interfaces [5653]
+[02/06/15 13:06:45]: <0x2401> Disk://RobotPolish open.
+[02/06/15 13:06:45]: <0x5402> RobotPolish application started
+[02/06/15 13:06:45]: <0x2401> System: s7.7.1 Sep 10 2014
+[02/06/15 13:06:45]: <0x2401> Configuration Version: c1.026 
+[02/06/15 13:06:45]: <0x2401> CPU: TEKNOR 
+[02/06/15 13:06:45]: <0x2401> Option testMode: enabled 
+[02/06/15 13:06:45]: <0x2401> Option VAL 3: enabled 
+[02/06/15 13:06:45]: <0x2401> Machine Number: ? 
+[02/06/15 13:06:45]: <0x2401> Arm: tx200-S3-R3 floor
+[02/06/15 13:06:45]: <0x2401> Arm serial number: ? 
+[02/06/15 13:06:45]: <0x2401> Robot name:  
+[02/06/15 13:06:45]: <0x2401> EP: s7.7 Jul 23 2014
+[02/06/15 13:06:45]: <0x2401> SCA: s7.7 Jul 23 2014
+[02/06/15 13:06:45]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[02/06/15 13:06:45]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[02/06/15 13:06:45]: <0x2401> Recorder: s7.7 Jul 23 2014
+[02/06/15 13:06:45]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[02/06/15 13:06:45]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[02/06/15 13:06:45]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[02/06/15 13:06:45]: <0x2201> New profile : default
+[02/06/15 13:06:45]: <0x2401> End of controller initialization
+[02/06/15 13:06:45]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[02/06/15 13:06:45]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 5 events lost.
+[02/06/15 13:06:45]: <0x1602> End of arm power shutdown phase.
+[02/06/15 13:06:47]: <0x3407> Internal error MCP-NoAnswer: char 1
+[02/06/15 13:06:54]: <0x2402> MCP communication disconnected
+[02/06/15 13:06:55]: <0x2402> Mcp = TSimulated
+[02/06/15 13:06:55]: <0x340A> Mcp communication established
+[02/06/15 13:06:56]: <0x1804> Working mode:remote.
+[02/06/15 13:06:56]: <0x1603> Settling arm power...
+[02/06/15 13:06:56]: <0x1601> Arm power settled.
+[02/06/15 13:07:28]: <0x2402> COM-PC: create session 127.0.0.1 on port 8733 id=#23341096
+[02/06/15 13:13:50]: <0x3B06> Cannot complete move: destination is out of reach.(out of software joint limits)
+[02/06/15 13:13:50]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 13:17:35]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 8733 id=#23341096
+[02/06/15 13:19:40]: <0x2402> COM-PC: create session 127.0.0.1 on port 23106 id=#23340784
+[02/06/15 13:24:32]: <0x3B07> Cannot move: cannot cross singularity in this case.
+[02/06/15 13:24:32]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 13:26:56]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 23106 id=#23340784
+[02/06/15 13:38:12]: <0x2401> Saving controller context...
+[02/06/15 13:38:12]: <0x2402> Controller temperature: 28°C
+[02/06/15 13:38:12]: <0x2402> CPU temperature: 28°C
+[02/06/15 13:46:07]: <0x2402> COM-PC: create session 127.0.0.1 on port 55503 id=#23340784
+[02/06/15 13:46:26]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 55503 id=#23340784
+[02/06/15 13:47:25]: <0x2402> COM-PC: create session 127.0.0.1 on port 57102 id=#23340784
+[02/06/15 13:47:43]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 57102 id=#23340784
+[02/06/15 13:53:24]: <0x2402> COM-PC: create session 127.0.0.1 on port 64394 id=#23340992
+[02/06/15 13:55:37]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64394 id=#23340992
+[02/06/15 13:55:56]: <0x2402> COM-PC: create session 127.0.0.1 on port 3037 id=#23340992
+[02/06/15 13:58:02]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 3037 id=#23340992
+[02/06/15 13:58:21]: <0x2402> COM-PC: create session 127.0.0.1 on port 5664 id=#23340992
+[02/06/15 14:02:49]: <0x3B07> Cannot move: cannot cross singularity in this case.
+[02/06/15 14:02:49]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 14:05:34]: <0x3B07> Cannot move: cannot cross singularity in this case.
+[02/06/15 14:05:34]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 14:08:22]: <0x3B07> Cannot move: cannot cross singularity in this case.
+[02/06/15 14:08:22]: <0x5404> ERR 150 Robot stopped on a previous impossible movement (target out of reach, incorrect arm configuration, or singularity). motion. 
+[02/06/15 14:08:49]: <0x2401> Saving controller context...
+[02/06/15 14:09:12]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 5664 id=#23340992
+[02/06/15 14:39:08]: <0x2401> Saving controller context...
+[02/06/15 14:55:56]: <0x2401> Watchdog occurs in Cs8 priority:75
+[02/06/15 15:09:16]: <0x2401> Saving controller context...
+[06/23/15 09:06:22]: -----------------------------------------------
+[06/23/15 09:06:22]: Logger started
+[06/23/15 09:06:29]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[06/23/15 09:06:29]: <0x0003> Cycle time set to 0.004s
+[06/23/15 09:06:29]: <0x0003> Simulation cycle time set to 0.1s
+[06/23/15 09:06:29]: <0x0002> Controller IP address could not be updated
+[06/23/15 09:06:29]: <0x0002> Default user payload used.
+[06/23/15 09:06:29]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[06/23/15 09:06:29]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[06/23/15 09:06:29]: <0x2401> Power hour count = 48:16:35
+[06/23/15 09:06:29]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[06/23/15 09:06:29]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:06:29]: <0x2402> COM-PC: server created on all interfaces [5653]
+[06/23/15 09:06:29]: <0x2401> Disk://RobotPolish open.
+[06/23/15 09:06:29]: <0x5402> RobotPolish application started
+[06/23/15 09:06:29]: <0x2401> System: s7.7.1 Sep 10 2014
+[06/23/15 09:06:29]: <0x2401> Configuration Version: c1.026 
+[06/23/15 09:06:29]: <0x2401> CPU: TEKNOR 
+[06/23/15 09:06:29]: <0x2401> Option testMode: enabled 
+[06/23/15 09:06:29]: <0x2401> Option VAL 3: enabled 
+[06/23/15 09:06:29]: <0x2401> Machine Number: ? 
+[06/23/15 09:06:29]: <0x2401> Arm: tx200-S3-R3 floor
+[06/23/15 09:06:29]: <0x2401> Arm serial number: ? 
+[06/23/15 09:06:29]: <0x2401> Robot name:  
+[06/23/15 09:06:29]: <0x2401> EP: s7.7 Jul 23 2014
+[06/23/15 09:06:29]: <0x2401> SCA: s7.7 Jul 23 2014
+[06/23/15 09:06:29]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[06/23/15 09:06:29]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[06/23/15 09:06:29]: <0x2401> Recorder: s7.7 Jul 23 2014
+[06/23/15 09:06:29]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[06/23/15 09:06:29]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[06/23/15 09:06:29]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[06/23/15 09:06:29]: <0x2201> New profile : default
+[06/23/15 09:06:29]: <0x2401> End of controller initialization
+[06/23/15 09:06:29]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[06/23/15 09:06:29]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 10 events lost.
+[06/23/15 09:06:29]: <0x2402> COM-PC: create session 127.0.0.1 on port 2404 id=#12003024
+[06/23/15 09:06:34]: <0x2401> Saving controller context...
+[06/23/15 09:06:34]: <0x2402> Controller temperature: 28°C
+[06/23/15 09:06:34]: <0x2402> CPU temperature: 28°C
+[06/23/15 09:06:38]: <0x3407> Internal error MCP-NoAnswer: char 1
+[06/23/15 09:06:40]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 2404 id=#12003024
+[06/23/15 09:06:44]: <0x2402> MCP communication disconnected
+[06/23/15 09:06:46]: <0x2402> Mcp = TSimulated
+[06/23/15 09:06:46]: <0x340A> Mcp communication established
+[06/23/15 09:06:46]: <0x1804> Working mode:remote.
+[06/23/15 09:06:47]: <0x1603> Settling arm power...
+[06/23/15 09:06:48]: <0x1601> Arm power settled.
+[06/23/15 09:08:08]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:08:08]: <0x1604> Arm power shutdown...
+[06/23/15 09:08:09]: <0x1801> Working mode:automatic.
+[06/23/15 09:08:09]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:08:10]: <0x1802> Working mode:manual.
+[06/23/15 09:08:14]: <0x2401> Saving controller context...
+[06/23/15 09:08:24]: <0x5A03> Deadman validated
+[06/23/15 09:08:24]: <0x1603> Settling arm power...
+[06/23/15 09:08:24]: <0x1601> Arm power settled.
+[06/23/15 09:08:39]: <0x5A01> Deadman enabled.
+[06/23/15 09:08:57]: <0x5A02> Deadman disabled.
+[06/23/15 09:08:57]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:08:57]: <0x1604> Arm power shutdown...
+[06/23/15 09:08:58]: <0x1804> Working mode:remote.
+[06/23/15 09:08:58]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[06/23/15 09:08:58]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:08:59]: <0x1603> Settling arm power...
+[06/23/15 09:08:59]: <0x1601> Arm power settled.
+[06/23/15 09:17:03]: <0x1604> Arm power shutdown...
+[06/23/15 09:17:04]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:17:04]: <0x5403> RobotPolish application stopped
+[06/23/15 09:17:07]: <0x2401> Saving controller context...
+[06/23/15 09:17:15]: <0x5402> RobotPolish application started
+[06/23/15 09:17:15]: <0x1603> Settling arm power...
+[06/23/15 09:17:16]: <0x1601> Arm power settled.
+[06/23/15 09:18:56]: <0x1604> Arm power shutdown...
+[06/23/15 09:18:57]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:18:57]: <0x5403> RobotPolish application stopped
+[06/23/15 09:18:59]: <0x2401> Saving controller context...
+[06/23/15 09:19:03]: <0x5402> RobotPolish application started
+[06/23/15 09:19:04]: <0x1603> Settling arm power...
+[06/23/15 09:19:04]: <0x1601> Arm power settled.
+[06/23/15 09:27:42]: <0x1604> Arm power shutdown...
+[06/23/15 09:27:43]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:27:44]: <0x5403> RobotPolish application stopped
+[06/23/15 09:27:46]: <0x2401> Saving controller context...
+[06/23/15 09:27:53]: <0x5402> RobotPolish application started
+[06/23/15 09:27:54]: <0x1603> Settling arm power...
+[06/23/15 09:27:54]: <0x1601> Arm power settled.
+[06/23/15 09:29:16]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:29:16]: <0x1604> Arm power shutdown...
+[06/23/15 09:29:17]: <0x1802> Working mode:manual.
+[06/23/15 09:29:17]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:29:19]: <0x5A03> Deadman validated
+[06/23/15 09:29:19]: <0x1603> Settling arm power...
+[06/23/15 09:29:19]: <0x1601> Arm power settled.
+[06/23/15 09:29:34]: <0x5A01> Deadman enabled.
+[06/23/15 09:29:59]: <0x5A02> Deadman disabled.
+[06/23/15 09:29:59]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:29:59]: <0x1604> Arm power shutdown...
+[06/23/15 09:30:00]: <0x1804> Working mode:remote.
+[06/23/15 09:30:00]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[06/23/15 09:30:00]: <0x1A03> Cannot apply arm power: arm power is still in disabling phase. (40)
+[06/23/15 09:30:00]: <0x1A03> System event INTERFACE-Stopped  (Application interface)
+[06/23/15 09:30:00]: <0x1A04> System event INTERFACE-Stopped  (Application interface). 3 events lost.
+[06/23/15 09:30:00]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[06/23/15 09:30:00]: <0x1A03> Cannot apply arm power: arm power is still in disabling phase. (12)
+[06/23/15 09:30:00]: <0x1A03> System event INTERFACE-Stopped  (Application interface)
+[06/23/15 09:30:00]: <0x1A04> System event INTERFACE-Stopped  (Application interface). 15 events lost.
+[06/23/15 09:30:00]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[06/23/15 09:30:01]: <0x1602> Cannot apply arm power: arm power is still in disabling phase. (31)
+[06/23/15 09:30:01]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:30:01]: <0x1603> Settling arm power...
+[06/23/15 09:30:01]: <0x1601> Arm power settled.
+[06/23/15 09:30:02]: <0x3F1B> Manual motion mode:Connect
+[06/23/15 09:30:02]: <0x3F1B> Manual motion mode:Disabled
+[06/23/15 09:30:02]: <0x3F10> End of connection move.
+[06/23/15 09:31:12]: <0x2402> COM-PC: create session 127.0.0.1 on port 51741 id=#12542736
+[06/23/15 09:31:53]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[06/23/15 09:40:38]: <0x2401> Saving controller context...
+[06/23/15 09:40:50]: <0x1604> Arm power shutdown...
+[06/23/15 09:40:51]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:40:51]: <0x1603> Settling arm power...
+[06/23/15 09:40:52]: <0x5403> RobotPolish application stopped
+[06/23/15 09:40:52]: <0x1601> Arm power settled.
+[06/23/15 09:40:58]: <0x5402> RobotPolish application started
+[06/23/15 09:41:53]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:41:53]: <0x1604> Arm power shutdown...
+[06/23/15 09:41:54]: <0x1801> Working mode:automatic.
+[06/23/15 09:41:55]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:41:59]: <0x2401> Saving controller context...
+[06/23/15 09:41:59]: <0x1802> Working mode:manual.
+[06/23/15 09:42:00]: <0x5A03> Deadman validated
+[06/23/15 09:42:00]: <0x1603> Settling arm power...
+[06/23/15 09:42:01]: <0x1601> Arm power settled.
+[06/23/15 09:42:21]: <0x5A01> Deadman enabled.
+[06/23/15 09:42:28]: <0x5A02> Deadman disabled.
+[06/23/15 09:42:28]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:42:28]: <0x1604> Arm power shutdown...
+[06/23/15 09:42:29]: <0x1804> Working mode:remote.
+[06/23/15 09:42:29]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[06/23/15 09:42:30]: <0x1602> Cannot apply arm power: arm power is still in disabling phase. (62)
+[06/23/15 09:42:30]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:42:30]: <0x1603> Settling arm power...
+[06/23/15 09:42:31]: <0x1601> Arm power settled.
+[06/23/15 09:42:36]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:42:36]: <0x1604> Arm power shutdown...
+[06/23/15 09:42:37]: <0x1801> Working mode:automatic.
+[06/23/15 09:42:38]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:42:39]: <0x1802> Working mode:manual.
+[06/23/15 09:42:40]: <0x5A03> Deadman validated
+[06/23/15 09:42:40]: <0x1603> Settling arm power...
+[06/23/15 09:42:41]: <0x1601> Arm power settled.
+[06/23/15 09:43:02]: <0x5A01> Deadman enabled.
+[06/23/15 09:43:20]: <0x5A02> Deadman disabled.
+[06/23/15 09:43:20]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:43:20]: <0x1604> Arm power shutdown...
+[06/23/15 09:43:21]: <0x1804> Working mode:remote.
+[06/23/15 09:43:21]: <0x3F04> Cannot apply arm power: arm power is still in disabling phase.
+[06/23/15 09:43:22]: <0x1602> Cannot apply arm power: arm power is still in disabling phase. (62)
+[06/23/15 09:43:22]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:43:22]: <0x1603> Settling arm power...
+[06/23/15 09:43:23]: <0x1601> Arm power settled.
+[06/23/15 09:43:23]: <0x3F1B> Manual motion mode:Connect
+[06/23/15 09:43:24]: <0x3F1B> Manual motion mode:Disabled
+[06/23/15 09:43:24]: <0x3F10> End of connection move.
+[06/23/15 09:45:56]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[06/23/15 09:50:01]: <0x1627> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion.  (1)
+[06/23/15 09:52:46]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:52:46]: <0x1604> Arm power shutdown...
+[06/23/15 09:52:47]: <0x1801> Working mode:automatic.
+[06/23/15 09:52:48]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:52:48]: <0x1802> Working mode:manual.
+[06/23/15 09:52:51]: <0x5A03> Deadman validated
+[06/23/15 09:52:51]: <0x1603> Settling arm power...
+[06/23/15 09:52:52]: <0x1601> Arm power settled.
+[06/23/15 09:53:13]: <0x5A01> Deadman enabled.
+[06/23/15 09:53:47]: <0x5A02> Deadman disabled.
+[06/23/15 09:53:47]: <0x1627> Arm power shutdown: working mode change.
+[06/23/15 09:53:47]: <0x1604> Arm power shutdown...
+[06/23/15 09:53:48]: <0x1803> Working mode:test.
+[06/23/15 09:53:49]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:53:50]: <0x1804> Working mode:remote.
+[06/23/15 09:53:50]: <0x1603> Settling arm power...
+[06/23/15 09:53:50]: <0x1601> Arm power settled.
+[06/23/15 09:53:51]: <0x3F1B> Manual motion mode:Connect
+[06/23/15 09:53:51]: <0x3F1B> Manual motion mode:Disabled
+[06/23/15 09:53:51]: <0x3F10> End of connection move.
+[06/23/15 09:58:13]: <0x5404> ERR 154 Invalid movement command: invalid destination point or mdesc.. motion. 
+[06/23/15 09:58:41]: <0x2401> Saving controller context...
+[06/23/15 09:59:04]: <0x1604> Arm power shutdown...
+[06/23/15 09:59:05]: <0x1602> End of arm power shutdown phase.
+[06/23/15 09:59:06]: <0x5403> RobotPolish application stopped
+[06/23/15 09:59:07]: <0x2401> Saving controller context...
+[06/23/15 10:14:23]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 51741 id=#12542736
+[06/25/15 14:58:51]: -----------------------------------------------
+[06/25/15 14:58:51]: Logger started
+[06/25/15 14:58:58]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[06/25/15 14:58:58]: <0x0003> Cycle time set to 0.004s
+[06/25/15 14:58:58]: <0x0003> Simulation cycle time set to 0.1s
+[06/25/15 14:58:58]: <0x0002> Controller IP address could not be updated
+[06/25/15 14:58:58]: <0x0002> Default user payload used.
+[06/25/15 14:58:58]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[06/25/15 14:58:58]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[06/25/15 14:58:58]: <0x2401> Power hour count = 48:58:09
+[06/25/15 14:58:58]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[06/25/15 14:58:58]: <0x1602> End of arm power shutdown phase.
+[06/25/15 14:58:58]: <0x2402> COM-PC: server created on all interfaces [5653]
+[06/25/15 14:58:58]: <0x2402> COM-PC: create session 127.0.0.1 on port 52760 id=#20919032
+[06/25/15 14:58:58]: <0x2401> Disk://RobotPolish open.
+[06/25/15 14:58:58]: <0x5402> RobotPolish application started
+[06/25/15 14:58:58]: <0x2401> System: s7.7.1 Sep 10 2014
+[06/25/15 14:58:58]: <0x2401> Configuration Version: c1.026 
+[06/25/15 14:58:58]: <0x2401> CPU: TEKNOR 
+[06/25/15 14:58:58]: <0x2401> Option testMode: enabled 
+[06/25/15 14:58:58]: <0x2401> Option VAL 3: enabled 
+[06/25/15 14:58:58]: <0x2401> Machine Number: ? 
+[06/25/15 14:58:58]: <0x2401> Arm: tx200-S3-R3 floor
+[06/25/15 14:58:58]: <0x2401> Arm serial number: ? 
+[06/25/15 14:58:58]: <0x2401> Robot name:  
+[06/25/15 14:58:58]: <0x2401> EP: s7.7 Jul 23 2014
+[06/25/15 14:58:58]: <0x2401> SCA: s7.7 Jul 23 2014
+[06/25/15 14:58:58]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[06/25/15 14:58:58]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[06/25/15 14:58:58]: <0x2401> Recorder: s7.7 Jul 23 2014
+[06/25/15 14:58:58]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[06/25/15 14:58:58]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[06/25/15 14:58:58]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[06/25/15 14:58:58]: <0x2201> New profile : default
+[06/25/15 14:58:58]: <0x2401> End of controller initialization
+[06/25/15 14:58:59]: <0x3407> Internal error MCP-NoAnswer: char 1
+[06/25/15 14:59:06]: <0x2402> MCP communication disconnected
+[06/25/15 14:59:07]: <0x2402> Mcp = TSimulated
+[06/25/15 14:59:07]: <0x340A> Mcp communication established
+[06/25/15 14:59:08]: <0x1804> Working mode:remote.
+[06/25/15 14:59:08]: <0x1603> Settling arm power...
+[06/25/15 14:59:08]: <0x1601> Arm power settled.
+[06/25/15 14:59:09]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 52760 id=#20919032
+[06/25/15 15:01:30]: <0x2402> COM-PC: create session 127.0.0.1 on port 57965 id=#20916640
+[06/25/15 15:29:11]: <0x2401> Saving controller context...
+[06/25/15 15:29:11]: <0x2402> Controller temperature: 28°C
+[06/25/15 15:29:11]: <0x2402> CPU temperature: 28°C
+[06/25/15 15:29:55]: <0x5464> USR:正在等待从TXT文件读取数据
+[06/25/15 15:45:21]: <0x2401> Saving controller context...
+[06/25/15 15:53:39]: <0x2401> Watchdog occurs in Cs8 priority:75
+[06/25/15 15:53:41]: <0x2401> Saving controller context...
+[06/25/15 17:06:18]: <0x2402> Saving controller context... (3)
+[06/25/15 17:06:25]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 57965 id=#20916640
+[06/25/15 17:06:25]: <0x2402> COM-PC: create session 127.0.0.1 on port 56513 id=#20916536
+[06/25/15 17:07:50]: <0x2401> Saving controller context...
+[06/25/15 17:10:43]: <0x2402> Saving controller context... (1)
+[06/25/15 17:10:48]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 56513 id=#20916536
+[06/25/15 17:10:48]: <0x2401> Saving controller context...
+[06/29/15 10:45:57]: -----------------------------------------------
+[06/29/15 10:45:57]: Logger started
+[06/29/15 10:46:05]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[06/29/15 10:46:05]: <0x0003> Cycle time set to 0.004s
+[06/29/15 10:46:05]: <0x0003> Simulation cycle time set to 0.1s
+[06/29/15 10:46:05]: <0x0002> Controller IP address could not be updated
+[06/29/15 10:46:05]: <0x0002> Default user payload used.
+[06/29/15 10:46:05]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[06/29/15 10:46:05]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[06/29/15 10:46:05]: <0x2401> Power hour count = 50:05:25
+[06/29/15 10:46:05]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[06/29/15 10:46:05]: <0x2402> COM-PC: server created on all interfaces [5653]
+[06/29/15 10:46:05]: <0x2402> COM-PC: create session 127.0.0.1 on port 56073 id=#22818904
+[06/29/15 10:46:05]: <0x3407> Internal error MCP-NoAnswer: char 1
+[06/29/15 10:46:05]: <0x1602> End of arm power shutdown phase.
+[06/29/15 10:46:05]: <0x2402> COM-PC: create session 127.0.0.1 on port 56074 id=#23075544
+[06/29/15 10:46:05]: <0x2401> Disk://RobotPolish open.
+[06/29/15 10:46:05]: <0x5402> RobotPolish application started
+[06/29/15 10:46:05]: <0x2401> System: s7.7.1 Sep 10 2014
+[06/29/15 10:46:05]: <0x2401> Configuration Version: c1.026 
+[06/29/15 10:46:05]: <0x2401> CPU: TEKNOR 
+[06/29/15 10:46:05]: <0x2401> Option testMode: enabled 
+[06/29/15 10:46:05]: <0x2401> Option VAL 3: enabled 
+[06/29/15 10:46:05]: <0x2401> Machine Number: ? 
+[06/29/15 10:46:05]: <0x2401> Arm: tx200-S3-R3 floor
+[06/29/15 10:46:05]: <0x2401> Arm serial number: ? 
+[06/29/15 10:46:05]: <0x2401> Robot name:  
+[06/29/15 10:46:05]: <0x2401> EP: s7.7 Jul 23 2014
+[06/29/15 10:46:05]: <0x2401> SCA: s7.7 Jul 23 2014
+[06/29/15 10:46:05]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[06/29/15 10:46:05]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[06/29/15 10:46:05]: <0x2401> Recorder: s7.7 Jul 23 2014
+[06/29/15 10:46:05]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[06/29/15 10:46:05]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[06/29/15 10:46:05]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[06/29/15 10:46:05]: <0x2201> New profile : default
+[06/29/15 10:46:05]: <0x2401> End of controller initialization
+[06/29/15 10:46:05]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[06/29/15 10:46:05]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 6 events lost.
+[06/29/15 10:46:09]: <0x2402> MCP communication disconnected
+[06/29/15 10:46:11]: <0x2402> Mcp = TSimulated
+[06/29/15 10:46:11]: <0x340A> Mcp communication established
+[06/29/15 10:46:11]: <0x1804> Working mode:remote.
+[06/29/15 10:46:11]: <0x1603> Settling arm power...
+[06/29/15 10:46:12]: <0x1601> Arm power settled.
+[06/29/15 10:46:15]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 56073 id=#22818904
+[06/29/15 10:46:57]: <0x2402> MCP communication disconnected
+[06/29/15 10:46:57]: <0x1627> Arm power shutdown: working mode change.
+[06/29/15 10:46:57]: <0x1604> Arm power shutdown...
+[06/29/15 10:53:24]: -----------------------------------------------
+[06/29/15 10:53:24]: Logger started
+[06/29/15 10:53:28]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[06/29/15 10:53:28]: <0x0003> Cycle time set to 0.004s
+[06/29/15 10:53:28]: <0x0003> Simulation cycle time set to 0.1s
+[06/29/15 10:53:28]: <0x0002> Controller IP address could not be updated
+[06/29/15 10:53:28]: <0x0002> Default user payload used.
+[06/29/15 10:53:28]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[06/29/15 10:53:28]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[06/29/15 10:53:28]: <0x2401> Power hour count = 50:05:25
+[06/29/15 10:53:28]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[06/29/15 10:53:28]: <0x2402> COM-PC: server created on all interfaces [5653]
+[06/29/15 10:53:28]: <0x2402> COM-PC: create session 127.0.0.1 on port 57612 id=#106132256
+[06/29/15 10:53:28]: <0x2401> Disk://RobotPolish open.
+[06/29/15 10:53:28]: <0x5402> RobotPolish application started
+[06/29/15 10:53:28]: <0x2401> System: s7.7.1 Sep 10 2014
+[06/29/15 10:53:28]: <0x2401> Configuration Version: c1.026 
+[06/29/15 10:53:28]: <0x2401> CPU: TEKNOR 
+[06/29/15 10:53:28]: <0x2401> Option testMode: enabled 
+[06/29/15 10:53:28]: <0x2401> Option VAL 3: enabled 
+[06/29/15 10:53:28]: <0x2401> Machine Number: ? 
+[06/29/15 10:53:28]: <0x2401> Arm: tx200-S3-R3 floor
+[06/29/15 10:53:28]: <0x2401> Arm serial number: ? 
+[06/29/15 10:53:28]: <0x2401> Robot name:  
+[06/29/15 10:53:28]: <0x2401> EP: s7.7 Jul 23 2014
+[06/29/15 10:53:28]: <0x2401> SCA: s7.7 Jul 23 2014
+[06/29/15 10:53:28]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[06/29/15 10:53:28]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[06/29/15 10:53:28]: <0x2401> Recorder: s7.7 Jul 23 2014
+[06/29/15 10:53:28]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[06/29/15 10:53:28]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[06/29/15 10:53:28]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[06/29/15 10:53:28]: <0x2201> New profile : default
+[06/29/15 10:53:28]: <0x2401> End of controller initialization
+[06/29/15 10:53:28]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[06/29/15 10:53:28]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 3 events lost.
+[06/29/15 10:53:29]: <0x1602> End of arm power shutdown phase.
+[06/29/15 10:53:31]: <0x3407> Internal error MCP-NoAnswer: char 1
+[06/29/15 10:53:38]: <0x2402> MCP communication disconnected
+[06/29/15 10:53:39]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 57612 id=#106132256
+[06/29/15 10:53:40]: <0x2402> Mcp = TSimulated
+[06/29/15 10:53:40]: <0x340A> Mcp communication established
+[06/29/15 10:53:40]: <0x1804> Working mode:remote.
+[06/29/15 10:53:41]: <0x1603> Settling arm power...
+[06/29/15 10:53:41]: <0x1601> Arm power settled.
+[06/29/15 10:53:50]: <0x2402> MCP communication disconnected
+[06/29/15 10:53:50]: <0x1627> Arm power shutdown: working mode change.
+[06/29/15 10:53:50]: <0x1604> Arm power shutdown...
+[06/29/15 13:11:43]: -----------------------------------------------
+[06/29/15 13:11:43]: Logger started
+[06/29/15 13:11:49]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[06/29/15 13:11:49]: <0x0003> Cycle time set to 0.004s
+[06/29/15 13:11:49]: <0x0003> Simulation cycle time set to 0.1s
+[06/29/15 13:11:49]: <0x0002> Controller IP address could not be updated
+[06/29/15 13:11:49]: <0x0002> Default user payload used.
+[06/29/15 13:11:49]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[06/29/15 13:11:49]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[06/29/15 13:11:49]: <0x2401> Power hour count = 50:05:25
+[06/29/15 13:11:49]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[06/29/15 13:11:49]: <0x1602> End of arm power shutdown phase.
+[06/29/15 13:11:49]: <0x2402> COM-PC: server created on all interfaces [5653]
+[06/29/15 13:11:49]: <0x2402> Mcp = TSimulated
+[06/29/15 13:11:49]: <0x340A> Mcp communication established
+[06/29/15 13:11:49]: <0x1805> Working mode:invalid.
+[06/29/15 13:11:49]: <0x2401> Disk://RobotPolish open.
+[06/29/15 13:11:49]: <0x5402> RobotPolish application started
+[06/29/15 13:11:49]: <0x2401> System: s7.7.1 Sep 10 2014
+[06/29/15 13:11:49]: <0x2401> Configuration Version: c1.026 
+[06/29/15 13:11:49]: <0x2401> CPU: TEKNOR 
+[06/29/15 13:11:49]: <0x2401> Option testMode: enabled 
+[06/29/15 13:11:49]: <0x2401> Option VAL 3: enabled 
+[06/29/15 13:11:49]: <0x2401> Machine Number: ? 
+[06/29/15 13:11:49]: <0x2401> Arm: tx200-S3-R3 floor
+[06/29/15 13:11:49]: <0x2401> Arm serial number: ? 
+[06/29/15 13:11:49]: <0x2401> Robot name:  
+[06/29/15 13:11:49]: <0x2401> EP: s7.7 Jul 23 2014
+[06/29/15 13:11:49]: <0x2401> SCA: s7.7 Jul 23 2014
+[06/29/15 13:11:49]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[06/29/15 13:11:49]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[06/29/15 13:11:49]: <0x2401> Recorder: s7.7 Jul 23 2014
+[06/29/15 13:11:49]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[06/29/15 13:11:49]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[06/29/15 13:11:49]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[06/29/15 13:11:49]: <0x2201> New profile : default
+[06/29/15 13:11:49]: <0x2401> End of controller initialization
+[06/29/15 13:11:50]: <0x1804> Working mode:remote.
+[06/29/15 13:11:50]: <0x1603> Settling arm power...
+[06/29/15 13:11:51]: <0x1601> Arm power settled.
+[06/29/15 13:12:02]: <0x1604> Arm power shutdown...
+[06/29/15 13:12:04]: <0x1602> End of arm power shutdown phase.
+[06/29/15 13:12:04]: <0x1603> Settling arm power...
+[06/29/15 13:12:04]: <0x5403> RobotPolish application stopped
+[06/29/15 13:12:04]: <0x1601> Arm power settled.
+[06/29/15 13:12:04]: <0x2401> Saving controller context...
+[06/29/15 13:12:04]: <0x2402> Controller temperature: 28°C
+[06/29/15 13:12:04]: <0x2402> CPU temperature: 28°C
+[06/29/15 13:12:15]: <0x5402> Demo_CreateTask application started
+[06/29/15 13:23:31]: <0x5403> Demo_CreateTask application stopped
+[06/29/15 13:42:12]: <0x2401> Saving controller context...
+[06/29/15 14:08:18]: -----------------------------------------------
+[06/29/15 14:08:18]: Logger started
+[06/29/15 14:08:22]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[06/29/15 14:08:22]: <0x0003> Cycle time set to 0.004s
+[06/29/15 14:08:22]: <0x0003> Simulation cycle time set to 0.1s
+[06/29/15 14:08:22]: <0x0002> Controller IP address could not be updated
+[06/29/15 14:08:22]: <0x0002> Default user payload used.
+[06/29/15 14:08:22]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[06/29/15 14:08:22]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[06/29/15 14:08:22]: <0x2401> Power hour count = 50:35:39
+[06/29/15 14:08:22]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[06/29/15 14:08:22]: <0x2402> COM-PC: server created on all interfaces [5653]
+[06/29/15 14:08:22]: <0x2401> Disk://RobotPolish open.
+[06/29/15 14:08:22]: <0x5402> RobotPolish application started
+[06/29/15 14:08:22]: <0x2401> System: s7.7.1 Sep 10 2014
+[06/29/15 14:08:22]: <0x2401> Configuration Version: c1.026 
+[06/29/15 14:08:22]: <0x2401> CPU: TEKNOR 
+[06/29/15 14:08:22]: <0x2401> Option testMode: enabled 
+[06/29/15 14:08:22]: <0x2401> Option VAL 3: enabled 
+[06/29/15 14:08:22]: <0x2401> Machine Number: ? 
+[06/29/15 14:08:22]: <0x2401> Arm: tx200-S3-R3 floor
+[06/29/15 14:08:22]: <0x2401> Arm serial number: ? 
+[06/29/15 14:08:22]: <0x2401> Robot name:  
+[06/29/15 14:08:22]: <0x2401> EP: s7.7 Jul 23 2014
+[06/29/15 14:08:22]: <0x2401> SCA: s7.7 Jul 23 2014
+[06/29/15 14:08:22]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[06/29/15 14:08:22]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[06/29/15 14:08:22]: <0x2401> Recorder: s7.7 Jul 23 2014
+[06/29/15 14:08:22]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[06/29/15 14:08:22]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[06/29/15 14:08:22]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[06/29/15 14:08:22]: <0x2201> New profile : default
+[06/29/15 14:08:22]: <0x2401> End of controller initialization
+[06/29/15 14:08:22]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[06/29/15 14:08:22]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 9 events lost.
+[06/29/15 14:08:23]: <0x1602> End of arm power shutdown phase.
+[06/29/15 14:08:25]: <0x3407> Internal error MCP-NoAnswer: char 1
+[06/29/15 14:08:32]: <0x2402> MCP communication disconnected
+[06/29/15 14:08:33]: <0x2402> Mcp = TSimulated
+[06/29/15 14:08:33]: <0x340A> Mcp communication established
+[06/29/15 14:08:33]: <0x1804> Working mode:remote.
+[06/29/15 14:08:34]: <0x1603> Settling arm power...
+[06/29/15 14:08:34]: <0x1601> Arm power settled.
+[06/29/15 14:10:15]: <0x1604> Arm power shutdown...
+[06/29/15 14:10:16]: <0x1602> End of arm power shutdown phase.
+[06/29/15 14:10:16]: <0x5403> RobotPolish application stopped
+[06/29/15 14:10:16]: <0x2401> Saving controller context...
+[06/29/15 14:10:17]: <0x2402> Controller temperature: 28°C
+[06/29/15 14:10:17]: <0x2402> CPU temperature: 28°C
+[06/29/15 14:10:23]: <0x5402> Demo_Collection application started
+[06/29/15 14:10:24]: <0x5403> Demo_Collection application stopped
+[06/29/15 14:10:46]: <0x5402> Demo_Collection application started
+[06/29/15 14:10:46]: <0x5403> Demo_Collection application stopped
+[06/29/15 14:13:57]: <0x5402> Demo_Collection application started
+[06/29/15 14:13:57]: <0x5403> Demo_Collection application stopped
+[06/29/15 15:07:37]: <0x2401> Watchdog occurs in Cs8 priority:75
+[07/27/15 08:42:47]: -----------------------------------------------
+[07/27/15 08:42:47]: Logger started
+[07/27/15 08:42:52]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[07/27/15 08:42:52]: <0x0003> Cycle time set to 0.004s
+[07/27/15 08:42:52]: <0x0003> Simulation cycle time set to 0.1s
+[07/27/15 08:42:52]: <0x0002> Controller IP address could not be updated
+[07/27/15 08:42:52]: <0x0002> Default user payload used.
+[07/27/15 08:42:52]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[07/27/15 08:42:52]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[07/27/15 08:42:52]: <0x2401> Power hour count = 50:37:18
+[07/27/15 08:42:52]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[07/27/15 08:42:52]: <0x2402> COM-PC: server created on all interfaces [5653]
+[07/27/15 08:42:52]: <0x2402> COM-PC: create session 127.0.0.1 on port 50540 id=#37349280
+[07/27/15 08:42:52]: <0x1602> End of arm power shutdown phase.
+[07/27/15 08:42:52]: <0x2401> Disk://RobotPolish open.
+[07/27/15 08:42:52]: <0x5402> RobotPolish application started
+[07/27/15 08:42:52]: <0x2401> System: s7.7.1 Sep 10 2014
+[07/27/15 08:42:52]: <0x2401> Configuration Version: c1.026 
+[07/27/15 08:42:52]: <0x2401> CPU: TEKNOR 
+[07/27/15 08:42:52]: <0x2401> Option testMode: enabled 
+[07/27/15 08:42:52]: <0x2401> Option VAL 3: enabled 
+[07/27/15 08:42:52]: <0x2401> Machine Number: ? 
+[07/27/15 08:42:52]: <0x2401> Arm: tx200-S3-R3 floor
+[07/27/15 08:42:52]: <0x2401> Arm serial number: ? 
+[07/27/15 08:42:52]: <0x2401> Robot name:  
+[07/27/15 08:42:52]: <0x2401> EP: s7.7 Jul 23 2014
+[07/27/15 08:42:52]: <0x2401> SCA: s7.7 Jul 23 2014
+[07/27/15 08:42:52]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[07/27/15 08:42:52]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[07/27/15 08:42:52]: <0x2401> Recorder: s7.7 Jul 23 2014
+[07/27/15 08:42:52]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[07/27/15 08:42:52]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[07/27/15 08:42:52]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[07/27/15 08:42:52]: <0x2201> New profile : default
+[07/27/15 08:42:52]: <0x2401> End of controller initialization
+[07/27/15 08:42:52]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[07/27/15 08:42:52]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 12 events lost.
+[07/27/15 08:42:54]: <0x3407> Internal error MCP-NoAnswer: char 1
+[07/27/15 08:43:00]: <0x2402> MCP communication disconnected
+[07/27/15 08:43:03]: <0x2402> Mcp = TSimulated
+[07/27/15 08:43:03]: <0x340A> Mcp communication established
+[07/27/15 08:43:03]: <0x1804> Working mode:remote.
+[07/27/15 08:43:03]: <0x1603> Settling arm power...
+[07/27/15 08:43:04]: <0x1601> Arm power settled.
+[07/27/15 08:43:08]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 50540 id=#37349280
+[07/27/15 09:11:06]: <0x1604> Arm power shutdown...
+[07/27/15 09:11:07]: <0x1602> End of arm power shutdown phase.
+[07/27/15 09:11:07]: <0x5403> RobotPolish application stopped
+[07/27/15 09:11:09]: <0x2401> Saving controller context...
+[07/27/15 09:11:09]: <0x2402> Controller temperature: 28°C
+[07/27/15 09:11:09]: <0x2402> CPU temperature: 28°C
+[07/27/15 09:31:49]: <0x2401> Watchdog occurs in Cs8 priority:75
+[07/27/15 09:36:02]: <0x5402> RobotPolish application started
+[07/27/15 09:36:02]: <0x1603> Settling arm power...
+[07/27/15 09:36:02]: <0x1601> Arm power settled.
+[07/27/15 10:06:43]: <0x2401> Saving controller context...
+[07/30/15 09:58:37]: -----------------------------------------------
+[07/30/15 09:58:37]: Logger started
+[07/30/15 09:58:43]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[07/30/15 09:58:43]: <0x0003> Cycle time set to 0.004s
+[07/30/15 09:58:43]: <0x0003> Simulation cycle time set to 0.1s
+[07/30/15 09:58:43]: <0x0002> Controller IP address could not be updated
+[07/30/15 09:58:43]: <0x0002> Default user payload used.
+[07/30/15 09:58:43]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[07/30/15 09:58:43]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[07/30/15 09:58:43]: <0x2401> Power hour count = 51:35:11
+[07/30/15 09:58:43]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[07/30/15 09:58:43]: <0x2402> COM-PC: server created on all interfaces [5653]
+[07/30/15 09:58:43]: <0x2402> COM-PC: create session 127.0.0.1 on port 52489 id=#25900264
+[07/30/15 09:58:43]: <0x1602> End of arm power shutdown phase.
+[07/30/15 09:58:43]: <0x2401> Disk://RobotPolish open.
+[07/30/15 09:58:43]: <0x5402> RobotPolish application started
+[07/30/15 09:58:43]: <0x2401> System: s7.7.1 Sep 10 2014
+[07/30/15 09:58:43]: <0x2401> Configuration Version: c1.026 
+[07/30/15 09:58:43]: <0x2401> CPU: TEKNOR 
+[07/30/15 09:58:43]: <0x2401> Option testMode: enabled 
+[07/30/15 09:58:43]: <0x2401> Option VAL 3: enabled 
+[07/30/15 09:58:43]: <0x2401> Machine Number: ? 
+[07/30/15 09:58:43]: <0x2401> Arm: tx200-S3-R3 floor
+[07/30/15 09:58:43]: <0x2401> Arm serial number: ? 
+[07/30/15 09:58:43]: <0x2401> Robot name:  
+[07/30/15 09:58:43]: <0x2401> EP: s7.7 Jul 23 2014
+[07/30/15 09:58:43]: <0x2401> SCA: s7.7 Jul 23 2014
+[07/30/15 09:58:43]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[07/30/15 09:58:43]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[07/30/15 09:58:43]: <0x2401> Recorder: s7.7 Jul 23 2014
+[07/30/15 09:58:43]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[07/30/15 09:58:43]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[07/30/15 09:58:43]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[07/30/15 09:58:43]: <0x2201> New profile : default
+[07/30/15 09:58:43]: <0x2401> End of controller initialization
+[07/30/15 09:58:43]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[07/30/15 09:58:43]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 4 events lost.
+[07/30/15 09:58:44]: <0x3407> Internal error MCP-NoAnswer: char 1
+[07/30/15 09:58:50]: <0x2402> MCP communication disconnected
+[07/30/15 09:58:52]: <0x2402> Mcp = TSimulated
+[07/30/15 09:58:52]: <0x340A> Mcp communication established
+[07/30/15 09:58:53]: <0x1804> Working mode:remote.
+[07/30/15 09:58:53]: <0x1603> Settling arm power...
+[07/30/15 09:58:53]: <0x1601> Arm power settled.
+[07/30/15 09:58:56]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 52489 id=#25900264
+[07/30/15 10:29:04]: <0x2401> Saving controller context...
+[07/30/15 10:29:04]: <0x2402> Controller temperature: 28°C
+[07/30/15 10:29:04]: <0x2402> CPU temperature: 28°C
+[07/30/15 10:59:17]: <0x2401> Saving controller context...
+[07/30/15 15:00:58]: <0x2401> Saving controller context... (8)
+[07/30/15 15:05:00]: <0x2401> Watchdog occurs in Cs8 priority:75
+[07/30/15 15:31:09]: <0x2401> Saving controller context...
+[08/04/15 09:30:50]: -----------------------------------------------
+[08/04/15 09:30:50]: Logger started
+[08/04/15 09:30:59]: -----------------------------------------------
+[08/04/15 09:30:59]: Logger started
+[08/04/15 09:31:05]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[08/04/15 09:31:05]: <0x0003> Cycle time set to 0.004s
+[08/04/15 09:31:05]: <0x0003> Simulation cycle time set to 0.1s
+[08/04/15 09:31:05]: <0x0002> Controller IP address could not be updated
+[08/04/15 09:31:05]: <0x0002> Default user payload used.
+[08/04/15 09:31:05]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[08/04/15 09:31:05]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[08/04/15 09:31:05]: <0x2401> Power hour count = 57:37:18
+[08/04/15 09:31:05]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[08/04/15 09:31:05]: <0x2402> COM-PC: server created on all interfaces [5653]
+[08/04/15 09:31:05]: <0x1602> End of arm power shutdown phase.
+[08/04/15 09:31:05]: <0x2402> COM-PC: create session 127.0.0.1 on port 56410 id=#25047720
+[08/04/15 09:31:05]: <0x2401> Disk://RobotPolish open.
+[08/04/15 09:31:05]: <0x5402> RobotPolish application started
+[08/04/15 09:31:05]: <0x2401> System: s7.7.1 Sep 10 2014
+[08/04/15 09:31:05]: <0x2401> Configuration Version: c1.026 
+[08/04/15 09:31:05]: <0x2401> CPU: TEKNOR 
+[08/04/15 09:31:05]: <0x2401> Option testMode: enabled 
+[08/04/15 09:31:05]: <0x2401> Option VAL 3: enabled 
+[08/04/15 09:31:05]: <0x2401> Machine Number: ? 
+[08/04/15 09:31:05]: <0x2401> Arm: tx200-S3-R3 floor
+[08/04/15 09:31:05]: <0x2401> Arm serial number: ? 
+[08/04/15 09:31:05]: <0x2401> Robot name:  
+[08/04/15 09:31:05]: <0x2401> EP: s7.7 Jul 23 2014
+[08/04/15 09:31:05]: <0x2401> SCA: s7.7 Jul 23 2014
+[08/04/15 09:31:05]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[08/04/15 09:31:05]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[08/04/15 09:31:05]: <0x2401> Recorder: s7.7 Jul 23 2014
+[08/04/15 09:31:05]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[08/04/15 09:31:05]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[08/04/15 09:31:05]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[08/04/15 09:31:05]: <0x2201> New profile : default
+[08/04/15 09:31:05]: <0x2401> End of controller initialization
+[08/04/15 09:31:05]: <0x1A03> System event INTERFACE-Stopped  (Main menu)
+[08/04/15 09:31:05]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 8 events lost.
+[08/04/15 09:31:11]: -----------------------------------------------
+[08/04/15 09:31:11]: Logger started
+[08/04/15 13:34:07]: -----------------------------------------------
+[08/04/15 13:34:07]: Logger started
+[08/04/15 13:34:13]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ?
+[08/04/15 13:34:13]: <0x0003> Cycle time set to 0.004s
+[08/04/15 13:34:13]: <0x0003> Simulation cycle time set to 0.1s
+[08/04/15 13:34:13]: <0x0002> Controller IP address could not be updated
+[08/04/15 13:34:13]: <0x0002> Default user payload used.
+[08/04/15 13:34:13]: <0x0003> Payload default: mass=100 kg, gravity center: x=0 y=0 z=181 mm, diag inertia: xx=6.4224 yy=6.4224 zz=6.1754 kg.m^2
+[08/04/15 13:34:13]: <0x2E0C> Internal error MODBUS-StartServer Channel=0 Status=65534
+[08/04/15 13:34:13]: <0x2401> Power hour count = 57:37:18
+[08/04/15 13:34:13]: <0x2401> Mac Address = c0-18-85-76-a2-bf
+[08/04/15 13:34:13]: <0x2402> COM-PC: server created on all interfaces [5653]
+[08/04/15 13:34:13]: <0x2402> COM-PC: create session 127.0.0.1 on port 63456 id=#24458440
+[08/04/15 13:34:13]: <0x1602> End of arm power shutdown phase.
+[08/04/15 13:34:13]: <0x2401> Disk://RobotPolish open.
+[08/04/15 13:34:13]: <0x5402> RobotPolish application started
+[08/04/15 13:34:13]: <0x2401> System: s7.7.1 Sep 10 2014
+[08/04/15 13:34:13]: <0x2401> Configuration Version: c1.026 
+[08/04/15 13:34:13]: <0x2401> CPU: TEKNOR 
+[08/04/15 13:34:13]: <0x2401> Option testMode: enabled 
+[08/04/15 13:34:13]: <0x2401> Option VAL 3: enabled 
+[08/04/15 13:34:13]: <0x2401> Machine Number: ? 
+[08/04/15 13:34:13]: <0x2401> Arm: tx200-S3-R3 floor
+[08/04/15 13:34:13]: <0x2401> Arm serial number: ? 
+[08/04/15 13:34:13]: <0x2401> Robot name:  
+[08/04/15 13:34:13]: <0x2401> EP: s7.7 Jul 23 2014
+[08/04/15 13:34:13]: <0x2401> SCA: s7.7 Jul 23 2014
+[08/04/15 13:34:13]: <0x2401> Expansion: s7.7.1 Sep 10 2014
+[08/04/15 13:34:13]: <0x2401> Motion: s7.7.1 Sep 10 2014
+[08/04/15 13:34:13]: <0x2401> Recorder: s7.7 Jul 23 2014
+[08/04/15 13:34:13]: <0x2401> Relbo: s7.7.1 Sep 10 2014
+[08/04/15 13:34:13]: <0x2401> Remote: s7.7.1 Sep 10 2014
+[08/04/15 13:34:13]: <0x2401> Velocity: s7.7.1 Sep 10 2014
+[08/04/15 13:34:13]: <0x2201> New profile : default
+[08/04/15 13:34:13]: <0x2401> End of controller initialization

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Main">
+    <Locals>
+      <Local name="l_bOut" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call ListMsg(true,"HMImain")
+
+  while !bFinish
+    l_nKey=getKey()
+    //
+    switch l_nKey
+      case 271
+        call Step1_Mount()
+      break
+      case 272
+        call Step2_Teach()
+      break
+      case 273
+        call Step3_AdjustXY()
+      break
+      case 274
+        call Step4_AdjustZ()
+      break
+      case 275
+        call Step5_Test()
+      break
+      case 278
+        call Control_YesNo("是否需要退出?",l_bRes)
+        if l_bRes
+          call stop()
+        endIf
+      break
+    endSwitch
+
+    if l_nKey>270 and l_nKey<279
+      wait(getKey()==-1)
+      call ListMsg(true,"HMImain")
+    endIf
+
+    delay(0)
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

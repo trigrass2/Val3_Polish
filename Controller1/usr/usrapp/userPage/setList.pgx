@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="setList" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sTitle" type="string" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_sListItem" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="x_bUserRefresh" type="bool" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_bListItemRef" type="bool" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nSelected" type="num" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="x_sItem" type="string" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nKey" type="num" use="reference" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nView" type="num" xsi:type="array" size="1" />
+      <Local name="l_nItem" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  if x_bUserRefresh
+    if x_bListItemRef
+      call setSizeList(20,0,18,11)
+      call listcreate(x_sTitle)
+      if x_sListItem[0]!=""
+        call listadd(x_sListItem)
+      endIf
+    else
+      call setSizeList(20,0,18,11)
+      call listframe(x_sTitle,nTopX,nTopY,nBottomX,nBottomY)
+    endIf
+    call selectNewField(x_nSelected,l_nItem,l_nView)
+  endIf
+  x_nKey=getKey()
+  call listevent(x_nKey,l_nItem,x_sItem)
+  l_nView=nView
+  x_nSelected=l_nItem
+end]]></Code>
+  </Program>
+</Programs>

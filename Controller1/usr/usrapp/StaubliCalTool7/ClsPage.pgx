@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="ClsPage" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_n1x" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_n1y" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_n2x" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_n2y" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+      <Local name="l_nJ" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  for l_nI=x_n1x to x_n2x
+    for l_nJ=x_n1y to x_n2y
+      gotoxy(l_nI,l_nJ)
+      put(" ")
+    endFor
+  endFor
+end]]></Code>
+  </Program>
+</Programs>

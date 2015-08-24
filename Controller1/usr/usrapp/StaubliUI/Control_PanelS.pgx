@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_PanelS" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_nLTopX" type="num" xsi:type="element" />
+      <Parameter name="x_nLTopY" type="num" xsi:type="element" />
+      <Parameter name="x_nWidthX" type="num" xsi:type="element" />
+      <Parameter name="x_nLengthY" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //画有标题的框
+  
+  
+  
+  //设定框的位置与大小
+  call Control_PanelXY(x_nLTopX,x_nLTopY,x_nWidthX,x_nLengthY)
+  
+  //文本显示状况进行设定
+   call Control_Panel(x_sTitle)
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

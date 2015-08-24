@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="ReadHead">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nFileID" type="num" xsi:type="element" />
+      <Parameter name="x_bHeaderOk" type="bool" xsi:type="element" use="reference" />
+      <Parameter name="x_sPrdID" type="string" xsi:type="element" use="reference" />
+      <Parameter name="x_tTool" type="tool" xsi:type="element" use="reference" />
+      <Parameter name="x_jHome" type="joint" xsi:type="element" use="reference" />
+      <Parameter name="x_fFrame" type="frame" xsi:type="element" use="reference" />
+      <Parameter name="x_trOffset" type="trsf" xsi:type="element" use="reference" />
+      <Parameter name="x_nTotalTrajs" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nRead" type="num" xsi:type="array" size="1" />
+      <Local name="l_sRead" type="string" xsi:type="array" size="1" />
+      <Local name="l_nFind" type="num" xsi:type="array" size="1" />
+      <Local name="l_sSplit" type="string" xsi:type="array" size="2" />
+      <Local name="l_sValue" type="string" xsi:type="array" size="6" />
+      <Local name="b" type="bool" xsi:type="array" size="7" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  x_bHeaderOk=false
+  
+  if nFileId>=0 and nFileId<=9
+    bMatlab=false
+    while !x_bHeaderOk
+      l_nRead=$fileGet(nFileId,l_sRead,1)
+      //
+      call split(l_sRead,"=",l_sSplit)
+      call split(l_sSplit[1],",",l_sValue)
+      //
+      switch l_sSplit[0]
+        case "PRODUCTID"
+          x_sPrdID=l_sValue[0]
+        break
+        case "TOOL"
+          l_sValue[0]=toNum(l_sValue[0],x_tTool.trsf.x,b[1])
+          l_sValue[1]=toNum(l_sValue[1],x_tTool.trsf.y,b[2])
+          l_sValue[2]=toNum(l_sValue[2],x_tTool.trsf.z,b[3])
+          l_sValue[3]=toNum(l_sValue[3],x_tTool.trsf.rx,b[4])
+          l_sValue[4]=toNum(l_sValue[4],x_tTool.trsf.ry,b[5])
+          l_sValue[5]=toNum(l_sValue[5],x_tTool.trsf.rz,b[6])
+        break
+        case "HOME"
+          l_sValue[0]=toNum(l_sValue[0],x_jHome.j1,b[1])
+          l_sValue[1]=toNum(l_sValue[1],x_jHome.j2,b[2])
+          l_sValue[2]=toNum(l_sValue[2],x_jHome.j3,b[3])
+          l_sValue[3]=toNum(l_sValue[3],x_jHome.j4,b[4])
+          l_sValue[4]=toNum(l_sValue[4],x_jHome.j5,b[5])
+          l_sValue[5]=toNum(l_sValue[5],x_jHome.j6,b[6])
+        break
+        case "FRAME"
+          l_sValue[0]=toNum(l_sValue[0],x_fFrame.trsf.x,b[1])
+          l_sValue[1]=toNum(l_sValue[1],x_fFrame.trsf.y,b[2])
+          l_sValue[2]=toNum(l_sValue[2],x_fFrame.trsf.z,b[3])
+          l_sValue[3]=toNum(l_sValue[3],x_fFrame.trsf.rx,b[4])
+          l_sValue[4]=toNum(l_sValue[4],x_fFrame.trsf.ry,b[5])
+          l_sValue[5]=toNum(l_sValue[5],x_fFrame.trsf.rz,b[6])
+        break
+        case "OFFSET"
+          l_sValue[0]=toNum(l_sValue[0],x_trOffset.x,b[1])
+          l_sValue[1]=toNum(l_sValue[1],x_trOffset.y,b[2])
+          l_sValue[2]=toNum(l_sValue[2],x_trOffset.z,b[3])
+          l_sValue[3]=toNum(l_sValue[3],x_trOffset.rx,b[4])
+          l_sValue[4]=toNum(l_sValue[4],x_trOffset.ry,b[5])
+          l_sValue[5]=toNum(l_sValue[5],x_trOffset.rz,b[6])
+        break
+        case "TOTALTRAJS"
+          l_sValue[0]=toNum(l_sValue[0],x_nTotalTrajs,b[1])
+        break
+        
+        case "OFFLINE"
+//          bMatlab=true
+//          x_fFrame.trsf={0,0,-13.488,0,0,0}*x_fFrame.trsf
+        break
+        
+      endSwitch
+      //当提取到=后面的"BEGIN"时,头文件读取结束
+      if l_sSplit[1]=="BEGIN"
+        x_bHeaderOk=true
+      endIf
+      delay(0)
+    endWhile
+  else
+    popUpMsg(sFileName+"does not open")
+    logMsg(sFileName+"does not open")
+  endIf
+  
+end
+  ]]></Code>
+  </Program>
+</Programs>

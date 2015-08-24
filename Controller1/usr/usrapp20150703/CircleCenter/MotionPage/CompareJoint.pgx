@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="CompareJoint" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_jJoint1" type="joint" xsi:type="element" />
+      <Parameter name="x_jJoint2" type="joint" xsi:type="element" />
+      <Parameter name="x_bSame" type="bool" xsi:type="element" use="reference" />
+      <Parameter name="x_nAixNum" type="num" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  判断手臂是否在指定关节位置
+  //Input parameters
+  //  joint x_jJoint:关节位置
+  //Output paramaters
+  //  bool x_bHome:是否在指定关节位置
+  //Example
+  //  call TestHome(bOK,joint)
+  //History
+  //  Creation : 2012-06-11 - PF.Zhong
+  //Header end
+  //-----------------------------------------------------------------------
+  switch x_nAixNum
+    //六轴
+    case 6
+      if abs(x_jJoint1.j1-x_jJoint2.j1)<0.02
+        if abs(x_jJoint1.j2-x_jJoint2.j2)<0.02
+          if abs(x_jJoint1.j3-x_jJoint2.j3)<0.02
+            if abs(x_jJoint1.j4-x_jJoint2.j4)<0.02
+              if abs(x_jJoint1.j5-x_jJoint2.j5)<0.02
+                if abs(x_jJoint1.j6-x_jJoint2.j6)<0.02
+                  x_bSame=true
+                else
+                  x_bSame=false
+                endIf
+              else
+                x_bSame=false
+              endIf
+            else
+              x_bSame=false
+            endIf
+          else
+            x_bSame=false
+          endIf
+        else
+          x_bSame=false
+        endIf
+      else
+        x_bSame=false
+      endIf
+    break
+    //四轴
+    case 4
+      if abs(x_jJoint1.j1-x_jJoint2.j1)<0.02
+        if abs(x_jJoint1.j2-x_jJoint2.j2)<0.02
+          if abs(x_jJoint1.j3-x_jJoint2.j3)<0.02
+            if abs(x_jJoint1.j4-x_jJoint2.j4)<0.02
+            else
+              x_bSame=false
+            endIf
+          else
+            x_bSame=false
+          endIf
+        else
+          x_bSame=false
+        endIf
+      else
+        x_bSame=false
+      endIf
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_Welcome" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_bExit" type="bool" xsi:type="element" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //欢迎界面，显示日期和时间
+  userPage()
+  cls()
+  title(x_sTitle)
+  call Control_PanelMd("欢迎使用史陶比尔机器人软件")
+  
+  while !x_bExit
+    gotoxy(1,12)
+    put(left("时间:"+getDate("%H:%M:%S"),30))
+    gotoxy(1,13)
+    put(left("日期:"+getDate("%Y")+"年"+getDate("%m")+"月"+getDate("%d")+"日",30))
+    delay(0)
+  endWhile
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

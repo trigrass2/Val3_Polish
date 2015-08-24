@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="init" access="public">
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum1" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+
+
+  //读取文件初始化
+  bTxtHeadOk=false
+  //  bGetSpeed=false
+  bCycle=false
+  bCycleEnd=false
+  bReadEnd=false
+  if !bResumeCycle
+    nReadPtr=0
+  endIf
+  nWritePtr=0
+  nReadJnt=0
+  nWriteJnt=0
+  nPtBuffer=500
+
+  for l_nNum=0 to 99
+    mSpdOfPt[l_nNum].tvel=date:mGrindingSpd.tvel
+    delay(0)
+  endFor
+  for l_nNum=0 to size(nPtOfTraj)-1
+    nPtOfTraj[l_nNum]=0
+     delay(0)
+  endFor
+  nThousandWrite=0
+  nHundredWrite=0
+  if !bResumeCycle
+    nThousandRead=0
+  endIf
+  nHundredRead=0
+  //路径数
+  nCurrentTraj=0
+  nTotalTrajs=1
+
+  //转台不转动的情形
+  date:bWorTbMoving=false
+  //产品尺寸半径
+  nPrdRadius=0.5*date:nPrdRadius
+  //转台速度代码个数（1-35）
+  K=35
+
+
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="tableSpeed" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_nSpeedCase" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum2" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  l_nNum=roundDown(x_nSpeedCase/16)
+  l_nNum2=x_nSpeedCase%16
+  switch l_nNum
+    //0-15
+    case 0
+      call speedCase0_15(l_nNum2)
+    break
+    //16-31
+    case 1
+      call speedCase0_15(l_nNum2)
+
+      dioSet(doB_4_speed,1)
+    break
+    //32-63
+    //32-47
+    case 2
+      call speedCase0_15(l_nNum2)
+      dioSet(doB_5_speed,1)
+    break
+    //48-63
+    case 3
+      call speedCase0_15(l_nNum2)
+
+      dioSet(doB_4_speed,1)
+      dioSet(doB_5_speed,1)
+    break
+    //    //64-127
+    //    //64-79
+    //    case 4
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_6_speed,1)
+    //    break
+    //    case 5
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_4_speed,1)
+    //      dioSet(doB_6_speed,1)
+    //    break
+    //    //80-95
+    //    case 6
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_5_speed,1)
+    //      dioSet(doB_6_speed,1)
+    //    break
+    //    //96-127
+    //    case 7
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_4_speed,1)
+    //      dioSet(doB_5_speed,1)
+    ////      dioSet(doB_6_speed,1) 
+    //    break
+    //    //128-255
+    //    //128-143
+    //    case 8
+    //      call speedCase0_15(l_nNum2)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+    //      //144-159
+    //    case 9
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_4_speed,1)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+    //      //160-175
+    //    case 10
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_5_speed,1)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+    //      //176-191
+    //    case 11
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_4_speed,1)
+    //      dioSet(doB_5_speed,1)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+    //      //192-207
+    //    case 12
+    //      call speedCase0_15(l_nNum2)
+    ////      dioSet(doB_6_speed,1)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+    //    //208-223
+    //    case 13
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_4_speed,1)
+    ////      dioSet(doB_6_speed,1)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+    //      //224-239
+    //    case 14
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_5_speed,1)
+    ////      dioSet(doB_6_speed,1)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+    //      //240-255
+    //    case 15
+    //      call speedCase0_15(l_nNum2)
+    //      dioSet(doB_4_speed,1)
+    //      dioSet(doB_5_speed,1)
+    ////      dioSet(doB_6_speed,1)
+    ////      dioSet(doB_7_speed,1)
+    //    break
+  endSwitch
+
+
+
+
+
+
+
+
+
+
+
+end]]></Code>
+  </Program>
+</Programs>

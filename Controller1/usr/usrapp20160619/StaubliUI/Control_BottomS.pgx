@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_BottomS" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sBottomList" type="string" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sBottomList" type="string" xsi:type="array" size="8" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+      //说明：
+  //函数功能：对功能键进行说明
+  //x_sBottomList 功能键说明，通过字符串来实现
+  //字符串以,作为分隔符
+  
+  
+  
+  call Str_SplitComma(l_bRes,x_sBottomList,l_sBottomList)
+  if !l_bRes
+    return
+  endIf
+
+call Control_Bottom(l_sBottomList)
+
+end]]></Code>
+  </Program>
+</Programs>

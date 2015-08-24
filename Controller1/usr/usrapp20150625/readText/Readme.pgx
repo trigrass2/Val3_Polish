@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="readme" access="private" >
+    <Code><![CDATA[begin
+  //Title :
+  //
+  //General description :
+  //  This library is used to extract data from text file.
+  //  It can also be used to meneage date and move the arm along resulting trajectory.
+  //  There is a public program, named main()
+  //
+  //Hardware required :
+  //  - Robot system    : any 6 axis Staubli robot
+  //  - Peripherals     : no peripherals required
+  //
+  //VAL3 options :
+  //  - VAL3 version    : 7.3.1
+  //  - VAL3 licenses   : no licenses required
+  //  - VAL3 add-ons    : expansion (VAL3 add-ons are version specific in regards to the version of VAL3)
+  //
+  //Library version     : 7.3.1
+  //
+  //Public variables    : none
+  //
+  //Included libraries  : none
+  //
+  //Keywords            : tool, extraction, text files,
+  //                      
+end]]></Code>
+  </Program>
+</Programs>

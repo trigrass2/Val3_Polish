@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Float_Edit" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nData" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nX" type="num" xsi:type="element" />
+      <Parameter name="x_nY" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nOri" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //说明
+  //对于数字的修改
+  //使用get来实现对数字的修改
+  
+  
+  //参数判断
+  x_nX=min(max(0,x_nX),39) 
+  x_nY=min(max(0,x_nY),13)
+  //x_nLength=min(max(getDisplayLen("")+1,x_nLength),39) 
+  setTextMode(0)
+  //把字符串给打印出来
+  gotoxy(x_nX,x_nY) 
+  l_nNum=x_nData
+  put(left("                       ",nPanelWidthX-x_nX+nPanelLTopX+1))
+  gotoxy(x_nX,x_nY) 
+  setTextMode(0)
+  wait(get(l_nNum)==270)
+  x_nData=l_nNum
+  
+end]]></Code>
+  </Program>
+</Programs>

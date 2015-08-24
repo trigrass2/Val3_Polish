@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="Step1_Mount" access="private" >
+    <Locals>
+      <Local name="l_bOut" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call ListMsg(true,"HMImount")
+  l_bOut=false
+  while !l_bOut
+    do
+      l_nKey=get()-270
+    until l_nKey==1 or l_nKey==2 or l_nKey==7 or l_nKey==-15
+    switch l_nKey
+      case 1
+        nMount=1
+        sMount="floor"
+        call ListMsg(true,"HMImount")
+        call ListPop("Floor")
+      break
+      case 2
+        nMount=-1
+        sMount="ceiling"
+        call ListMsg(true,"HMImount")
+        call ListPop("Ceiling")
+      break
+      case 7,-15
+        wait(getKey()==-1)
+        call ListMsg(true,"HMImain")
+        l_bOut=true
+      break
+    endSwitch
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_PanelD" access="public">
+    <Code><![CDATA[begin
+  
+  //默认两个框
+  call Control_PanelS("",20,0,18,11)
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

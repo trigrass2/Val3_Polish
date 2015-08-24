@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="CheckTraj" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_pStart" type="pointRx" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_pEnd" type="pointRx" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_bTraj" type="bool" use="reference" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bOk" type="bool" xsi:type="array" size="1" />
+      <Local name="l_jEnd" type="joint" xsi:type="array" size="1" />
+      <Local name="l_jStart" type="joint" xsi:type="array" size="1" />
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  for l_nI=0 to 100
+    pTraj.trsf=interpolateL(x_pStart.trsf,x_pEnd.trsf,l_nI/100)
+    if l_nI==0
+      l_jStart=herej()
+    else
+      l_jStart=l_jEnd
+    endIf
+    l_bOk=pointToJoint(tTool,l_jStart,pTraj,l_jEnd)
+
+    if l_bOk==false
+      x_bTraj=false
+      call ListPop("CantMove")
+      return
+    endIf
+  endFor
+  x_bTraj=true
+end]]></Code>
+  </Program>
+</Programs>

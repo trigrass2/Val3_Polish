@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="fileClose">
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  for l_nNum=0 to 9
+    $fileClose(l_nNum)
+  endFor
+  $fileClose(0)
+  $fileClose(1)
+  $fileClose(2)
+  $fileClose(3)
+  $fileClose(4)
+  $fileClose(5)
+  $fileClose(6)
+  $fileClose(7)
+  $fileClose(8)
+  $fileClose(9)
+  
+  
+  
+  
+end
+]]></Code>
+  </Program>
+</Programs>

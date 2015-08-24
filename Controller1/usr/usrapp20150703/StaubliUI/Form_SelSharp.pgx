@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_SelSharp" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nTypeIndex" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_bRes" type="bool" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sList" type="string" xsi:type="array" size="12" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为LasMAN3.0
+  //选择示教产品的类型
+  
+  
+  l_nIndex=0
+  l_sList[0]="不规则图形"
+  l_sList[1]="圆-圆心直径法"
+  l_sList[2]="圆-三点法"
+  l_sList[3]="三角形"
+  l_sList[4]="矩形"
+  l_sList[5]="正五边形"
+  l_sList[6]="正六边形"
+  l_sList[7]="腰形"
+  l_sList[8]="五角星(测)"
+  l_sList[9]="圆管(测)"
+  l_sList[10]="C形-三点法(焊)"
+  l_sList[11]="同步不规则图形"
+  
+  cls()  
+  //title(x_sTitle)
+  
+  call Control_PanelXY(0,0,15,10)
+  call Control_Panel("图形类型")
+  call Control_BottomS("示教,,,,,,,退出")
+  
+  //x_nSelectIndex=0
+  call Control_List(l_sList,l_nIndex)
+  
+  while true
+    l_nKey=getKey()
+    switch l_nKey
+      case 261
+        l_nIndex=l_nIndex-1
+        if l_nIndex<0
+          l_nIndex=11
+        endIf
+       // l_nIndex=max(l_nIndex-1,0)
+      break
+      
+      case 266
+        l_nIndex=l_nIndex+1
+        //l_nIndex=min(l_nIndex+1,11)
+        
+        if l_nIndex>11
+          l_nIndex=0
+        endIf
+        
+        
+      break
+      
+      
+      //示教,F1 和回车键
+      case 271,270
+        x_bRes=true
+        switch l_nIndex
+          case 0
+            x_nTypeIndex=10
+          break
+          
+          case 1
+            x_nTypeIndex=2
+          break
+          
+          case 2
+            x_nTypeIndex=1
+          break
+          
+          case 3
+            x_nTypeIndex=3
+          break
+          
+          case 4
+            x_nTypeIndex=4
+          break
+          
+          case 5
+            x_nTypeIndex=5
+          break
+          
+          case 6
+            x_nTypeIndex=6
+          break
+          
+          
+          case 7
+            x_nTypeIndex=7
+          break
+          
+          
+          
+          case 8
+            x_nTypeIndex=21
+          break
+          
+          
+          case 9
+            x_nTypeIndex=22
+          break
+          
+          
+          case 10
+            x_nTypeIndex=24
+          break
+          case 11
+            x_nTypeIndex=20
+          break
+        endSwitch
+        
+        return
+      break
+      
+      //F8 和ESC键退出
+      case 278,255
+        x_bRes=false
+        return
+        
+      break
+      
+      
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      
+      call Control_List(l_sList,l_nIndex)
+    endIf
+    
+    
+  endWhile
+  
+  
+  
+  
+end
+]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="editStr" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sItem" type="string" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="x_sItemValue" type="string" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nSelect" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sEmpty" type="string" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nPos" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  do
+    call clear(0,13)
+    call findPos(x_sItem,":",l_nPos)
+    gotoxy(nTopX+1,nTopY+x_nSelect+1)
+    setTextMode(0)
+    put(x_sItem)
+    call strlength(l_sEmpty,nBottomX-l_nPos+1)
+    call type(nTopX+l_nPos+2,nTopY+x_nSelect+1,l_sEmpty)
+    gotoxy(nTopX+l_nPos+2,nTopY+x_nSelect+1)
+    l_nKey=get(x_sItemValue)
+    call strfill(x_sItem,l_nPos+1,x_sItem)
+    x_sItem=x_sItem+x_sItemValue
+    call strlength(x_sItem,nBottomX+1)
+    gotoxy(nTopX+1,nTopY+x_nSelect+1)
+    setTextMode(1)
+    call type(nTopX+1,nTopY+x_nSelect+1,x_sItem)
+    setTextMode(0)
+    delay(0)
+  until l_nKey==270 or l_nKey==255
+end]]></Code>
+  </Program>
+</Programs>

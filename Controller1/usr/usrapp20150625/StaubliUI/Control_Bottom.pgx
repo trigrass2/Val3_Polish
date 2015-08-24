@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Bottom" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sBottomList" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //说明：
+  //函数功能：对功能键进行说明
+  //x_sBottomList 功能键说明，通过字符串数组来实现
+  
+  
+  //参数初始化
+  setTextMode(0)
+  l_nNum=min(7,size(x_sBottomList)-1)
+  
+  
+  for l_nIndex=0 to  l_nNum
+    gotoxy(1+l_nIndex*5,13)
+    put(left(x_sBottomList[l_nIndex]+"       ",4+len(x_sBottomList[l_nIndex])-getDisplayLen(x_sBottomList[l_nIndex])))
+  endFor
+  
+  //补全
+  if l_nNum<7
+    for l_nIndex=l_nNum to 7
+      gotoxy(1+l_nIndex*5,13)
+      put("  ")
+    endFor
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_ListCls">
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //说明：
+  //函数功能：把方框中进行清空
+  
+  
+  
+  
+  //对方框的定义进行赋初值
+  if nPanelLengthY<=0 and nPanelLTopX<=0 and nPanelLTopY<=0 and nPanelWidthX<=0
+    call Control_PanelXY(20,0,18,11)
+  endIf
+  
+  //清空列表
+  setTextMode(0)
+  for l_nIndex=0 to nPanelLengthY-1
+    gotoxy(nPanelLTopX+1,nPanelLTopY+l_nIndex+1)
+    put(left("                                               ",nPanelWidthX))
+  endFor
+  
+  //参数判断  对于选择项的判断
+  // x_nSelectItem=min(max(0,x_nSelectItem),nPanelLengthY-1)
+  
+  
+end
+]]></Code>
+  </Program>
+</Programs>

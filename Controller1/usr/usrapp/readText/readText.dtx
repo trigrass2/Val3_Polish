@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Data/2">
+  <Datas>
+    <Data name="bBYPASS" access="public" xsi:type="array" type="bool" size="1">
+    </Data>
+    <Data name="bCycle" access="public" xsi:type="array" type="bool" size="1">
+    </Data>
+    <Data name="bCycleEnd" access="public" xsi:type="array" type="bool" size="1">
+    </Data>
+    <Data name="bGetSpeed" access="private" xsi:type="array" type="bool" size="1">
+      <Value key="0" value="true" />
+    </Data>
+    <Data name="bReadEnd" access="public" xsi:type="array" type="bool" size="1">
+    </Data>
+    <Data name="bResumeCycle" access="public" xsi:type="array" type="bool" size="1">
+    </Data>
+    <Data name="bTxtHeadOk" access="private" xsi:type="array" type="bool" size="1">
+    </Data>
+    <Data name="fPrdFrame" access="private" xsi:type="array" type="frame" size="1">
+      <Value key="0" x="1667.33" y="193.49" z="-170.67" rx="0.01" ry="-0.3" rz="-52.34" fatherId="world[0]" />
+    </Data>
+    <Data name="jJointRead" access="private" xsi:type="array" type="jointRx" size="100">
+      <Value key="0" j1="0.246" j3="50" j4="180" j5="0.014" j6="90" />
+      <Value key="1" j1="8.22" j2="20.1" j3="107.19" j4="-141.77" j5="44.38" j6="150.9" />
+      <Value key="2" j1="10.229" j2="35.494" j3="107.593" j4="-158.624" j5="56.663" j6="165.836" />
+      <Value key="3" j1="10.423" j2="28.404" j3="105.415" j4="-155.608" j5="48.169" j6="161.142" />
+      <Value key="4" j1="-54.223" j2="64.586" j3="41.499" j4="-84.729" j5="-54.881" j6="28.938" />
+      <Value key="5" j1="-45.629" j2="26.921" j3="105.631" j4="-78.314" j5="-77.561" j6="-12.796" />
+      <Value key="6" j3="109.005" j4="80.751" j5="91.42" j6="-238.352" />
+      <Value key="7" j3="63.424" j4="82.395" j5="93.028" j6="-198.425" />
+      <Value key="8" j3="109.358" j4="80.375" j5="92.272" j6="-239.01" />
+      <Value key="9" j3="62.177" j4="82.615" j5="93.831" j6="-197.649" />
+    </Data>
+    <Data name="jPrdHome" access="public" xsi:type="array" type="jointRx" size="1">
+      <Value key="0" j1="40.635" j2="24.616" j3="104.715" j4="-108.663" j5="68.526" j6="132.709" />
+    </Data>
+    <Data name="mNomSpeed" access="private" xsi:type="array" type="mdesc" size="1">
+      <Value key="0" accel="16" vel="40" decel="16" tmax="80" blend="off" leave="20" reach="20" />
+    </Data>
+    <Data name="mSpdOfJnt" access="public" xsi:type="array" type="mdesc" size="100">
+      <Value key="0" accel="40" vel="40" decel="1600" rmax="1000" tmax="40" blend="cartesian" leave="0" reach="2" />
+      <Value key="1" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="2" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="3" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="4" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="5" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="6" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="7" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="8" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="9" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="10" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="11" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="12" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="13" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="14" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="15" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="16" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="17" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="18" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="19" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="20" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="21" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="22" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="23" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="24" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="25" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="26" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="27" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="28" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="29" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="30" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="31" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="32" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="33" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="34" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="35" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="36" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="37" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="38" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="39" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="40" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="41" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="42" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="43" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="44" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="45" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="46" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="47" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="48" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="49" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="50" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="51" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="52" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="53" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="54" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="55" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="56" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="57" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="58" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="59" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="60" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="61" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="62" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="63" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="64" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="65" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="66" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="67" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="68" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="69" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="70" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="71" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="72" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="73" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="74" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="75" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="76" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="77" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="78" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="79" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="80" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="81" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="82" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="83" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="84" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="85" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="86" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="87" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="88" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="89" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="90" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="91" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="92" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="93" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="94" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="95" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="96" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="97" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="98" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+      <Value key="99" accel="16" vel="40" decel="16" rmax="1000" tmax="200" blend="cartesian" leave="2" reach="2" />
+    </Data>
+    <Data name="mSpdOfPt" access="public" xsi:type="array" type="mdesc" size="100">
+      <Value key="0" accel="30" decel="3000" tmax="0.5447" blend="cartesian" leave="0.5" reach="0.005" />
+      <Value key="1" accel="30" decel="3000" tmax="0.5412" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="2" accel="30" decel="3000" tmax="0.5337" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="3" accel="30" decel="3000" tmax="0.535" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="4" accel="30" decel="3000" tmax="0.5344" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="5" accel="30" decel="3000" tmax="0.5451" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="6" accel="30" decel="3000" tmax="0.5477" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="7" accel="30" decel="3000" tmax="0.547" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="8" accel="30" decel="3000" tmax="0.5412" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="9" accel="30" decel="3000" tmax="0.5424" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="10" accel="30" decel="3000" tmax="0.5418" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="11" accel="30" decel="3000" tmax="0.5072" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="12" accel="30" decel="3000" tmax="0.5113" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="13" accel="30" decel="3000" tmax="0.5144" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="14" accel="30" decel="3000" tmax="1.011" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="15" accel="30" decel="3000" tmax="1.0715" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="16" accel="30" decel="3000" tmax="1.1607" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="17" accel="30" decel="3000" tmax="0.6318" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="18" accel="30" decel="3000" tmax="0.6866" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="19" accel="30" decel="3000" tmax="0.7512" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="20" accel="30" decel="3000" tmax="0.8485" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="21" accel="30" decel="3000" tmax="0.9736" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="22" accel="30" decel="3000" tmax="1.1443" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="23" accel="30" decel="3000" tmax="1.4576" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="24" accel="30" decel="3000" tmax="1.899" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="25" accel="30" decel="3000" tmax="2.7075" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="26" accel="30" decel="3000" tmax="5.0502" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="27" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="28" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="29" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="30" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="31" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="32" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="33" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="34" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="35" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="36" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="37" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="38" accel="30" decel="3000" tmax="10" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="39" accel="30" decel="3000" tmax="8.615" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="40" accel="30" decel="3000" tmax="4.0985" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="41" accel="30" decel="3000" tmax="2.641" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="42" accel="30" decel="3000" tmax="1.2503" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="43" accel="30" decel="3000" tmax="0.5812" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="44" accel="30" decel="3000" tmax="0.6224" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="45" accel="30" decel="3000" tmax="0.6786" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="46" accel="30" decel="3000" tmax="0.7516" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="47" accel="30" decel="3000" tmax="0.8199" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="48" accel="30" decel="3000" tmax="0.9259" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="49" accel="30" decel="3000" tmax="1.0268" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="50" accel="30" decel="3000" tmax="1.1037" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="51" accel="30" decel="3000" tmax="1.4511" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="52" accel="30" decel="3000" tmax="1.3318" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="53" accel="30" decel="3000" tmax="1.1796" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="54" accel="30" decel="3000" tmax="1.0329" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="55" accel="30" decel="3000" tmax="0.9474" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="56" accel="30" decel="3000" tmax="0.8584" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="57" accel="30" decel="3000" tmax="0.7987" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="58" accel="30" decel="3000" tmax="0.7629" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="59" accel="30" decel="3000" tmax="0.7417" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="60" accel="30" decel="3000" tmax="0.7703" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="61" accel="30" decel="3000" tmax="0.7695" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="62" accel="30" decel="3000" tmax="0.7816" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="63" accel="30" decel="3000" tmax="0.7718" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="64" accel="30" decel="3000" tmax="0.7775" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="65" accel="30" decel="3000" tmax="0.7857" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="66" accel="30" decel="3000" tmax="0.7843" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="67" accel="30" decel="3000" tmax="0.7559" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="68" accel="30" decel="3000" tmax="0.7326" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="69" accel="30" decel="3000" tmax="0.7124" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="70" accel="30" decel="3000" tmax="0.7423" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="71" accel="30" decel="3000" tmax="0.7766" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="72" accel="30" decel="3000" tmax="0.8342" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="73" accel="30" decel="3000" tmax="0.9325" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="74" accel="30" decel="3000" tmax="1.0577" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="75" accel="30" decel="3000" tmax="1.2978" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="76" accel="30" decel="3000" tmax="1.6549" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="77" accel="30" decel="3000" tmax="2.2071" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="78" accel="30" decel="3000" tmax="3.1208" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="79" accel="30" decel="3000" tmax="4.2286" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="80" accel="30" decel="3000" tmax="5.0869" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="81" accel="30" decel="3000" tmax="3.2098" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="82" accel="30" decel="3000" tmax="3.0149" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="83" accel="30" decel="3000" tmax="2.6427" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="84" accel="30" decel="3000" tmax="2.1399" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="85" accel="30" decel="3000" tmax="1.8395" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="86" accel="30" decel="3000" tmax="1.5695" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="87" accel="30" decel="3000" tmax="2.447" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="88" accel="30" decel="3000" tmax="1.9277" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="89" accel="30" decel="3000" tmax="1.5601" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="90" accel="30" decel="3000" tmax="0.6972" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="91" accel="30" decel="3000" tmax="0.6525" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="92" accel="30" decel="3000" tmax="0.6124" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="93" accel="30" decel="3000" tmax="0.5987" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="94" accel="30" decel="3000" tmax="0.5751" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="95" accel="30" decel="3000" tmax="0.5514" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="96" accel="30" decel="3000" tmax="0.5734" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="97" accel="30" decel="3000" tmax="0.5595" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="98" accel="30" decel="3000" tmax="0.5462" blend="cartesian" leave="0" reach="0.005" />
+      <Value key="99" accel="30" decel="3000" tmax="0.5477" blend="cartesian" leave="0" reach="0.005" />
+    </Data>
+    <Data name="K" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="35" />
+    </Data>
+    <Data name="nAfterCount" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nApproCount" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1" />
+    </Data>
+    <Data name="nCountCycle" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1" />
+    </Data>
+    <Data name="nCurrentTraj" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nCurtRadius" access="private" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nDistToOrign" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="225.000310635" />
+    </Data>
+    <Data name="nFileId" access="private" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nFileId2" access="private" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nHundredRead" access="private" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nHundredWrite" access="private" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nMoveCount" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="44" />
+    </Data>
+    <Data name="nMoveID" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1.034734" />
+    </Data>
+    <Data name="nPrdRadius" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="132.231534" />
+    </Data>
+    <Data name="nPtBuffer" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="500" />
+    </Data>
+    <Data name="nPtOfTraj" access="private" xsi:type="array" type="num" size="16">
+    </Data>
+    <Data name="nReadCount" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="143" />
+    </Data>
+    <Data name="nReadJnt" access="private" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nReadPtr" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nSpdOfTCP" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nTabSpdCode" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nThousandRead" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nThousandWrite" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nTime" access="private" xsi:type="array" type="num" size="2">
+      <Value key="0" value="1611.967" />
+      <Value key="1" value="-4198.782" />
+    </Data>
+    <Data name="nTotalTrajs" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1" />
+    </Data>
+    <Data name="nTrajofRead" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nWriteJnt" access="private" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nWritePtr" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="nZshift" access="public" xsi:type="array" type="num" size="1">
+    </Data>
+    <Data name="pGrinding" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" x="2.82" y="-5.17" z="0.017" rx="179.704" ry="0.162" rz="90" fatherId="fPrdFrame[0]" />
+    </Data>
+    <Data name="pPBuff" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" x="1608.699924" y="46.789413" z="32.099006" rx="0.44739" ry="179.613945" rz="17.423709" shoulder="lefty" elbow="epositive" wrist="wpositive" fatherId="world[0]" />
+    </Data>
+    <Data name="pPointRead" access="private" xsi:type="array" type="pointRx" size="100">
+      <Value key="0" x="-7.364" y="5.207" z="0.041" rx="-179.702" ry="-0.422" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="1" x="-7.921" y="4.367" z="0.041" rx="-179.75" ry="-0.454" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="2" x="-8.37" y="3.477" z="0.041" rx="-179.801" ry="-0.48" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="3" x="-8.717" y="2.539" z="0.041" rx="-179.855" ry="-0.499" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="4" x="-8.957" y="1.571" z="0.041" rx="-179.91" ry="-0.513" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="5" x="-9.087" y="0.565" z="0.041" rx="-179.968" ry="-0.521" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="6" x="-9.104" y="-0.452" z="0.042" rx="179.974" ry="-0.522" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="7" x="-9.008" y="-1.462" z="0.042" rx="179.916" ry="-0.516" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="8" x="-8.806" y="-2.445" z="0.042" rx="179.86" ry="-0.505" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="9" x="-8.505" y="-3.404" z="0.042" rx="179.805" ry="-0.487" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="10" x="-8.107" y="-4.325" z="0.042" rx="179.752" ry="-0.465" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="11" x="-7.649" y="-5.143" z="0.042" rx="179.705" ry="-0.438" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="12" x="-7.111" y="-5.913" z="0.043" rx="179.661" ry="-0.407" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="13" x="-6.501" y="-6.623" z="0.043" rx="179.621" ry="-0.372" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="14" x="-5.137" y="-7.8" z="0.044" rx="179.553" ry="-0.294" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="15" x="-3.565" y="-8.712" z="0.044" rx="179.501" ry="-0.204" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="16" x="-1.867" y="-9.32" z="0.045" rx="179.466" ry="-0.107" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="17" x="-0.987" y="-9.5" z="0.046" rx="179.456" ry="-0.057" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="18" x="-0.09" y="-9.601" z="0.046" rx="179.45" ry="-0.005" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="19" x="0.81" y="-9.618" z="0.047" rx="179.449" ry="0.046" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="20" x="1.719" y="-9.549" z="0.047" rx="179.453" ry="0.098" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="21" x="2.62" y="-9.393" z="0.048" rx="179.462" ry="0.15" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="22" x="3.499" y="-9.152" z="0.048" rx="179.476" ry="0.2" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="23" x="4.383" y="-8.811" z="0.048" rx="179.495" ry="0.251" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="24" x="5.229" y="-8.382" z="0.049" rx="179.52" ry="0.3" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="25" x="6.027" y="-7.872" z="0.049" rx="179.549" ry="0.345" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="26" x="6.822" y="-7.241" z="0.049" rx="179.585" ry="0.391" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="27" x="7.55" y="-6.529" z="0.05" rx="179.626" ry="0.433" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="28" x="8.198" y="-5.749" z="0.05" rx="179.671" ry="0.47" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="29" x="9.18" y="-4.095" z="0.051" rx="179.765" ry="0.526" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="30" x="9.82" y="-2.282" z="0.051" rx="179.869" ry="0.563" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="31" x="10.098" y="-0.379" z="0.051" rx="179.978" ry="0.579" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="32" x="10.042" y="1.188" z="0.051" rx="-179.932" ry="0.575" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="33" x="9.849" y="2.365" z="0.051" rx="-179.864" ry="0.564" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="34" x="9.526" y="3.51" z="0.052" rx="-179.799" ry="0.546" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="35" x="9.103" y="4.544" z="0.052" rx="-179.74" ry="0.522" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="36" x="8.57" y="5.53" z="0.052" rx="-179.683" ry="0.491" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="37" x="7.936" y="6.451" z="0.052" rx="-179.63" ry="0.455" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="38" x="6.623" y="7.855" z="0.053" rx="-179.55" ry="0.379" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="39" x="5.082" y="9.005" z="0.053" rx="-179.484" ry="0.291" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="40" x="3.366" y="9.872" z="0.054" rx="-179.434" ry="0.193" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="41" x="1.584" y="10.403" z="0.055" rx="-179.404" ry="0.091" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="42" x="0.497" y="10.567" z="0.056" rx="-179.395" ry="0.028" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="43" x="1.836" y="-5.508" z="0.017" rx="179.684" ry="0.105" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="44" x="2.82" y="-5.17" z="0.017" rx="179.704" ry="0.162" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="45" x="3.727" y="-4.658" z="0.018" rx="179.733" ry="0.214" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="46" x="4.536" y="-3.988" z="0.018" rx="179.772" ry="0.26" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="47" x="5.204" y="-3.187" z="0.019" rx="179.817" ry="0.298" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="48" x="5.721" y="-2.235" z="0.019" rx="179.872" ry="0.328" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="49" x="6.05" y="-1.161" z="0.019" rx="179.933" ry="0.347" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="50" x="6.162" z="0.019" rx="180" ry="0.353" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="51" x="5.992" y="1.534" z="0.019" rx="-179.912" ry="0.343" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="52" x="5.499" y="2.937" z="0.019" rx="-179.832" ry="0.315" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="53" x="4.731" y="4.149" z="0.02" rx="-179.762" ry="0.271" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="54" x="3.748" y="5.131" z="0.02" rx="-179.706" ry="0.215" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="55" x="2.574" y="5.901" z="0.021" rx="-179.662" ry="0.147" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="56" x="1.283" y="6.417" z="0.021" rx="-179.632" ry="0.074" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="57" x="-0.093" y="6.654" z="0.022" rx="-179.619" ry="-0.005" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="58" x="-1.505" y="6.596" z="0.023" rx="-179.622" ry="-0.086" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="59" x="-2.89" y="6.226" z="0.024" rx="-179.643" ry="-0.166" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="60" x="-4.245" y="5.501" z="0.024" rx="-179.685" ry="-0.243" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="61" x="-5.421" y="4.47" z="0.025" rx="-179.744" ry="-0.311" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="62" x="-6.338" y="3.162" z="0.025" rx="-179.819" ry="-0.363" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="63" x="-6.909" y="1.693" z="0.025" rx="-179.903" ry="-0.396" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="64" x="-7.133" y="0.122" z="0.025" rx="-179.993" ry="-0.409" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="65" x="-7.004" y="-1.476" z="0.026" rx="179.915" ry="-0.401" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="66" x="-6.538" y="-3.005" z="0.026" rx="179.828" ry="-0.375" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="67" x="-5.803" y="-4.357" z="0.026" rx="179.75" ry="-0.332" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="68" x="-4.849" y="-5.492" z="0.027" rx="179.685" ry="-0.278" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="69" x="-3.741" y="-6.374" z="0.027" rx="179.635" ry="-0.214" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="70" x="-2.48" y="-7.041" z="0.028" rx="179.597" ry="-0.142" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="71" x="-1.131" y="-7.468" z="0.029" rx="179.572" ry="-0.065" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="72" x="0.267" y="-7.636" z="0.029" rx="179.562" ry="0.015" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="73" x="1.685" y="-7.553" z="0.03" rx="179.567" ry="0.097" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="74" x="3.052" y="-7.219" z="0.031" rx="179.586" ry="0.175" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="75" x="4.371" y="-6.607" z="0.031" rx="179.621" ry="0.25" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="76" x="5.576" y="-5.721" z="0.032" rx="179.672" ry="0.319" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="77" x="6.611" y="-4.58" z="0.032" rx="179.738" ry="0.379" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="78" x="7.433" y="-3.175" z="0.033" rx="179.818" ry="0.426" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="79" x="7.953" y="-1.615" z="0.033" rx="179.907" ry="0.456" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="80" x="8.134" z="0.033" rx="180" ry="0.466" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="81" x="8.081" y="0.98" z="0.033" rx="-179.944" ry="0.463" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="82" x="7.92" y="1.951" z="0.033" rx="-179.888" ry="0.454" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="83" x="7.652" y="2.894" z="0.033" rx="-179.834" ry="0.438" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="84" x="7.301" y="3.742" z="0.034" rx="-179.786" ry="0.418" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="85" x="6.859" y="4.549" z="0.034" rx="-179.739" ry="0.393" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="86" x="6.334" y="5.301" z="0.034" rx="-179.696" ry="0.363" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="87" x="5.093" y="6.575" z="0.035" rx="-179.623" ry="0.292" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="88" x="3.606" y="7.584" z="0.035" rx="-179.565" ry="0.207" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="89" x="1.966" y="8.273" z="0.036" rx="-179.526" ry="0.113" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="90" x="1.096" y="8.487" z="0.037" rx="-179.514" ry="0.063" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="91" x="0.206" y="8.611" z="0.037" rx="-179.507" ry="0.012" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="92" x="-0.69" y="8.642" z="0.038" rx="-179.505" ry="-0.04" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="93" x="-1.609" y="8.573" z="0.038" rx="-179.509" ry="-0.092" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="94" x="-2.519" y="8.404" z="0.038" rx="-179.518" ry="-0.144" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="95" x="-3.402" y="8.138" z="0.039" rx="-179.534" ry="-0.195" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="96" x="-4.311" y="7.745" z="0.039" rx="-179.556" ry="-0.247" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="97" x="-5.173" y="7.25" z="0.04" rx="-179.585" ry="-0.296" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="98" x="-5.972" y="6.664" z="0.04" rx="-179.618" ry="-0.342" rz="90" fatherId="fPrdFrame[0]" />
+      <Value key="99" x="-6.71" y="5.978" z="0.04" rx="-179.657" ry="-0.384" rz="90" fatherId="fPrdFrame[0]" />
+    </Data>
+    <Data name="sFileName" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value="Disk://txt/12.txt" />
+    </Data>
+    <Data name="sPrdID" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value="12" />
+    </Data>
+    <Data name="sSpeedDate" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value="  1.36" />
+    </Data>
+    <Data name="tPrdTool" access="public" xsi:type="array" type="tool" size="1">
+      <Value key="0" x="350.215" y="-0.767" z="232.539" rx="-89.841" ry="89.729" rz="89.842" fatherId="flange[0]" ioLink="valve1" />
+    </Data>
+    <Data name="trPrdFrmOffset" access="private" xsi:type="array" type="trsf" size="1">
+    </Data>
+  </Datas>
+</Database>

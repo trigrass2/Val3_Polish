@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="ListPopC" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sS" type="string" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  switch x_sS
+    case "OffsetDone"
+      popUpMsg("偏差设置完成")
+    break
+    case "Offset"
+      popUpMsg("填入偏差后请按回车确认")
+    break
+    case "Floor"
+      popUpMsg("当前安装方式已设置成floor")
+    break
+    case "Ceiling"
+      popUpMsg("当前安装方式已设置成ceiling")
+    break
+    case "First"
+      popUpMsg("第1点记录完成")
+    break
+    case "Second"
+      popUpMsg("第2点记录完成")
+    break
+    case "Third"
+      popUpMsg("第3点记录完成")
+    break
+    case "Fourth"
+      popUpMsg("第4点记录完成")
+    break
+    case "FRP"
+      popUpMsg("请先记录点")
+    break
+    case "CantSwitchTool2"
+      popUpMsg("不能切换tTool2!请先标定tTool1!")
+    break
+    case "CantSwitchTool3"
+      popUpMsg("不能切换tTool3!请先标定tTool2!")
+    break
+    case "DeviationIsTooLarge"
+      popUpMsg("偏差过大!请重新记录4点!")
+    break
+    case "SaveInTool1"
+      popUpMsg("工具参数保存在tTool1")
+    break
+    case "SaveInTool2"
+      popUpMsg("工具参数保存在tTool2")
+    break
+    case "SaveInTool3"
+      popUpMsg("工具参数保存在tTool3")
+    break
+    case "SetMounting"
+      popUpMsg("请先设置机器人安装方式")
+    break
+    case "PressMoveHoldToAlign"
+      popUpMsg("请按Move/Hold键对齐")
+    break
+    case "PressMoveHoldToGoBack"
+      popUpMsg("请按Move/Hold键重置")
+    break
+    case "PressMoveHoldToMove"
+      popUpMsg("请按Move/Hold键移动")
+    break
+    case "CompletedAlign"
+      popUpMsg("对齐完成")
+    break
+    case "CompletedGoBack"
+      popUpMsg("重置完成")
+    break
+    case "CompletedMove"
+      popUpMsg("移动完成")
+    break
+    case "CantMove"
+      popUpMsg("不可到达！请重新记录第1点")
+    break
+    case "CantGoBack"
+      popUpMsg("不可重置！请首先记录第1点")
+    break
+    case "CompletedUpLoad"
+      popUpMsg("工具上传完成")
+    break
+    case "EndOfProgram"
+      popUpMsg("欢迎使用史陶比尔软件")
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

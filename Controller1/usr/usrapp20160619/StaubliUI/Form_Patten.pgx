@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_Patten" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sLeftList" type="string" xsi:type="array" use="reference" />
+      <Parameter name="x_sBottomList" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //****************************************************************
+  //***************************************************************
+  //函数名称：pagePatten1
+  //用途：  用于图形显示
+  //创建日期：2013.02.18
+  //作者：
+  //联系方式：
+  //备注：
+  //版本修改说明：
+  //图形类型
+  //                   100%
+  //=========标题================
+  //
+  //F1->文字1
+  //F2->文字2
+  //F3->文字3
+  //F4->文字4
+  //F5->文字5
+  //F6->文字6
+  //F7->文字7  
+  
+  
+  //文字  文字  文字 文字 文字 文字 文字 文字
+  //****************************************************************
+  //*****************************************************************
+  
+  
+  
+  cls()
+  
+  title(x_sTitle)
+
+    
+    //左边标记
+    
+    call Control_Left(x_sLeftList)
+    //底部标记
+    call Control_Bottom(x_sBottomList)
+
+  
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="CalTool" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sCalTool" type="string" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nDistance" type="num" xsi:type="array" size="1" />
+      <Local name="l_trFlange" type="trsf" xsi:type="array" size="1" />
+      <Local name="l_trTCP" type="trsf" xsi:type="array" size="1" />
+      <Local name="l_trZ" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  switch x_sCalTool
+    case "CalTool1"
+      call SplitUp()
+      call CalSphereCenter(nS1[1],nS2[1],nS3[1],nS4[1],nS1[2],nS2[2],nS3[2],nS4[2],nS1[3],nS2[3],nS3[3],nS4[3])
+      if ((nScX==9999.9999) or (nScY==9999.9999) or (nScZ==9999.9999))
+        call InitData()
+        call ListPop("DeviationIsTooLarge")
+      else
+        l_trFlange={0,0,0,0,0,0}
+        l_trTCP={0,0,0,0,0,0}
+        l_trFlange=p1_1.trsf
+        if sMount=="floor"
+          l_trTCP={nScX,nScY,nScZ,0,180,0}
+        elseIf sMount=="ceiling"
+          l_trTCP={nScX,nScY,nScZ,0,0,0}
+        endIf
+        tTool1.trsf=!l_trFlange*l_trTCP
+      endIf
+      call ListPop("SaveInTool1")
+    break
+
+    case "CalTool2_2"
+      l_trFlange={0,0,0,0,0,0}
+      l_trTCP={0,0,0,0,0,0}
+      nScX=(p2_2_1.trsf.x+p2_2_2.trsf.x)/2
+      nScY=(p2_2_1.trsf.y+p2_2_2.trsf.y)/2
+      nScZ=(p2_2_1.trsf.z+p2_2_2.trsf.z)/2
+      //
+      l_trFlange=p2_2_1.trsf*!tTool.trsf
+      if sMount=="floor"
+        l_trTCP={nScX,nScY,nScZ,0,180,0}
+      elseIf sMount=="ceiling"
+        l_trTCP={nScX,nScY,nScZ,0,0,0}
+      endIf
+      tTool2.trsf=!l_trFlange*l_trTCP
+      //
+      tTool2.trsf.rx=tTool1.trsf.rx
+      tTool2.trsf.ry=tTool1.trsf.ry
+      tTool2.trsf.rz=tTool1.trsf.rz
+      call ListPop("SaveInTool2")
+    break
+    case "CalTool2_3"
+      l_trFlange={0,0,0,0,0,0}
+      l_trTCP={0,0,0,0,0,0}
+      nScX=p2_3_2.trsf.x+p2_3_3.trsf.x-p2_3_1.trsf.x
+      nScY=p2_3_2.trsf.y+p2_3_3.trsf.y-p2_3_1.trsf.y
+      nScZ=p2_3_2.trsf.z+p2_3_3.trsf.z-p2_3_1.trsf.z
+      //
+      l_trFlange=p2_3_1.trsf*!tTool.trsf
+      if sMount=="floor"
+        l_trTCP={nScX,nScY,nScZ,0,180,0}
+      elseIf sMount=="ceiling"
+        l_trTCP={nScX,nScY,nScZ,0,0,0}
+      endIf
+      tTool2.trsf=!l_trFlange*l_trTCP
+      //
+      tTool2.trsf.rx=tTool1.trsf.rx
+      tTool2.trsf.ry=tTool1.trsf.ry
+      tTool2.trsf.rz=tTool1.trsf.rz
+      call ListPop("SaveInTool2")
+    break
+    case "CalTool3"
+      l_nDistance=distance(p3_1,p3_2)
+      if nMount==1 or nMount==-1
+        if p3_1.trsf.z<p3_2.trsf.z
+          l_trZ={0,0,-l_nDistance*nMount,0,0,0}
+        else
+          l_trZ={0,0,l_nDistance*nMount,0,0,0}
+        endIf
+        tTool3.trsf=tTool.trsf*l_trZ
+        tTool3.trsf.rx=tTool1.trsf.rx
+        tTool3.trsf.ry=tTool1.trsf.ry
+        tTool3.trsf.rz=tTool1.trsf.rz
+        call ListPop("SaveInTool3")
+      else
+        call ListPop("SetMounting")
+      endIf
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

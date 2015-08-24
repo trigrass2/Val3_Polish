@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="page_setHome" access="private" >
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="6" />
+      <Local name="l_sString" type="string" xsi:type="array" size="6" />
+      <Local name="i" type="num" xsi:type="array" size="1" />
+      <Local name="l_sStr" type="string" xsi:type="array" size="6" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_CurrentJ" type="joint" xsi:type="array" size="1" />
+      <Local name="bHere" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bExit" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  bHere=false
+  l_bExit=false
+  title("RobotPolish-Home示教页面")
+  cls()
+  call use:stringToArray("记录当前位置,移动至记录点,,,,保存并上传数据,,返回上一级",sItems)
+  call use:setMenu(sItems,true,3)
+  l_sString[0]="J1"
+  l_sString[1]="J2"
+  l_sString[2]="J3"
+  l_sString[3]="J4"
+  l_sString[4]="J5"
+  l_sString[5]="J6"
+  l_nNum[0]=jHome.j1
+  l_nNum[1]=jHome.j2
+  l_nNum[2]=jHome.j3
+  l_nNum[3]=jHome.j4
+  l_nNum[4]=jHome.j5
+  l_nNum[5]=jHome.j6
+  //Create the LIST
+  call use:setSizeList(20,3,15,6)
+  call use:listcreate("Home关节位置")
+  //Insert Items
+  for i=0 to 5
+    call use:strlength(l_sString[i],3)
+    l_sString[i]=l_sString[i]+":"+toString("8.3",l_nNum[i])
+    call use:listadd(l_sString[i])
+  endFor
+  call use:listupdate(0)
+  call use:listcursor(nJntList,true)
+  while !l_bExit
+    l_nKey=getKey()
+    switch l_nKey
+      case 261
+        if nJntList>0
+          call use:listcursor(nJntList,false)
+          nJntList=nJntList-1
+          call use:listcursor(nJntList,true)
+        elseIf nJntList==0
+          call use:listcursor(nJntList,false)
+          nJntList=5
+          call use:listcursor(nJntList,true)
+        endIf
+      break
+      case 266
+        if nJntList<5
+          call use:listcursor(nJntList,false)
+          nJntList=nJntList+1
+          call use:listcursor(nJntList,true)
+        elseIf nJntList==5
+          call use:listcursor(nJntList,false)
+          nJntList=0
+          call use:listcursor(nJntList,true)
+        endIf
+      break
+      case 270
+        call use:changeValue(l_nNum[nJntList],-270,270,26,4+nJntList,l_sStr)
+        jHome.j1=l_nNum[0]
+        jHome.j2=l_nNum[1]
+        jHome.j3=l_nNum[2]
+        jHome.j4=l_nNum[3]
+        jHome.j5=l_nNum[4]
+        jHome.j6=l_nNum[5]
+        //Create the LIST
+        call use:setSizeList(20,3,15,6)
+        call use:listcreate("Home关节位置")
+        //Insert Items
+        for i=0 to 5
+          call use:strlength(l_sString[i],3)
+          l_sString[i]=l_sString[i]+":"+toString("8.3",l_nNum[i])
+          call use:listadd(l_sString[i])
+        endFor
+        call use:listupdate(0)
+        call use:listcursor(nJntList,true)
+      break
+      case 271
+        call use:questionDialog("确定记录当前位置?",sButtons,l_nKey)
+        if (l_nKey==0 or l_nKey==1) and herej()!={0,0,0,0,0,0}
+          jHome=herej()
+
+          l_nNum[0]=jHome.j1
+          l_nNum[1]=jHome.j2
+          l_nNum[2]=jHome.j3
+          l_nNum[3]=jHome.j4
+          l_nNum[4]=jHome.j5
+          l_nNum[5]=jHome.j6
+          cls()
+          call use:stringToArray("记录当前位置,移动至记录点,,,,保存并上传数据,,返回上一级",sItems)
+          call use:setMenu(sItems,true,3)
+          //Create the LIST
+          call use:setSizeList(20,3,15,6)
+          call use:listcreate("Home关节位置")
+          //Insert Items
+          for i=0 to 5
+            call use:strlength(l_sString[i],3)
+            l_sString[i]=l_sString[i]+":"+toString("8.3",l_nNum[i])
+            call use:listadd(l_sString[i])
+          endFor
+          call use:listupdate(0)
+          call use:listcursor(nJntList,true)
+          call massage("记录完成!")
+          bHere=true
+        else
+          if herej()=={0,0,0,0,0,0}
+            popUpMsg("安全点不能全为零")
+          endIf
+          cls()
+          call use:stringToArray("记录当前位置,移动至记录点,,,,保存并上传数据,,返回上一级",sItems)
+          call use:setMenu(sItems,true,3)
+          //Create the LIST
+          call use:setSizeList(20,3,15,6)
+          call use:listcreate("Home关节位置")
+          //Insert Items
+          for i=0 to 5
+            call use:strlength(l_sString[i],3)
+            l_sString[i]=l_sString[i]+":"+toString("8.3",l_nNum[i])
+            call use:listadd(l_sString[i])
+          endFor
+          call use:listupdate(0)
+          call use:listcursor(nJntList,true)
+        endIf
+      break
+      case 272
+        l_CurrentJ=herej()
+        if abs(l_CurrentJ.j1-jHome.j1)>1 or abs(l_CurrentJ.j2-jHome.j2)>1 or abs(l_CurrentJ.j3-jHome.j3)>1 or abs(l_CurrentJ.j4-jHome.j4)>1 or abs(l_CurrentJ.j5-jHome.j5)>1 or abs(l_CurrentJ.j6-jHome.j6)>1
+          popUpMsg("按Move-Hold键回零位")
+          resetMotion()
+          movej(jHome,flange,mNomSpeed)
+          waitEndMove()
+          call massage("到达Home位置!")
+        else
+          popUpMsg("手臂已在当前位置")
+        endIf
+      break
+      case 276
+        date:jHome=jHome
+        libSave()
+        date:libSave()
+        bUpload=true
+        call massage("数据上传完成!")
+        bHere=false
+      break
+      case 278
+        if bHere==true
+          call use:questionDialog("为保存修改数据,确定返回?",sButtons,l_nKey)
+          if l_nKey==0 or l_nKey==1
+            l_bExit=true
+          else
+            cls()
+            call use:stringToArray("记录当前位置,移动至记录点,,,,保存并上传数据,,返回上一级",sItems)
+            call use:setMenu(sItems,true,3)
+            //Create the LIST
+            call use:setSizeList(20,3,15,6)
+            call use:listcreate("Home关节位置")
+            //Insert Items
+            for i=0 to 5
+              call use:strlength(l_sString[i],3)
+              l_sString[i]=l_sString[i]+":"+toString("8.3",l_nNum[i])
+              call use:listadd(l_sString[i])
+            endFor
+            call use:listupdate(0)
+            call use:listcursor(nJntList,true)
+          endIf
+        else
+          l_bExit=true
+        endIf
+      break
+    endSwitch
+    delay(0)
+  endWhile
+  call page_main()
+end]]></Code>
+  </Program>
+</Programs>

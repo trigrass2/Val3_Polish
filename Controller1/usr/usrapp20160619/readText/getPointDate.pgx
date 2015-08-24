@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="getPointDate">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sText" type="string" xsi:type="element" />
+      <Parameter name="x_pPoint" type="point" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sPtDate" type="string" xsi:type="array" size="6" />
+      <Local name="l_bBool" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nCurtRadius" type="num" xsi:type="array" size="1" />
+      <Local name="i" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //将字符串值分割，赋值给point
+  call split(x_sText,",",l_sPtDate)
+  l_sPtDate[0]=toNum(l_sPtDate[0],x_pPoint.trsf.x,l_bBool)
+  l_sPtDate[1]=toNum(l_sPtDate[1],x_pPoint.trsf.y,l_bBool)
+  l_sPtDate[2]=toNum(l_sPtDate[2],x_pPoint.trsf.z,l_bBool)
+  l_sPtDate[3]=toNum(l_sPtDate[3],x_pPoint.trsf.rx,l_bBool)
+  l_sPtDate[4]=toNum(l_sPtDate[4],x_pPoint.trsf.ry,l_bBool)
+  l_sPtDate[5]=toNum(l_sPtDate[5],x_pPoint.trsf.rz,l_bBool)
+  if bMatlab
+       call NCVetor(fPrdFrame.trsf,x_pPoint.trsf)
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Poll">
+    <Locals>
+      <Local name="l_nMoveID" type="num" xsi:type="array" size="5" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_bLog" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  bIsPower=isPowered()
+  bIsAlarm=(io:doB_10_systeAlm==true)
+  nWorkingMode=workingMode()
+  pCurrent=here(tTool,fFrame)
+  jCurrentJoint=herej()
+  jJHome=date:jHome
+  tTTool=date:tTCP
+  bBIO[0]=(io:diB_0_UPS==true)
+  bBIO[1]=(io:diB_1_tableAlm==true)
+  bBIO[2]=(io:diB_2_tableOn==true)
+  bBIO[3]=(io:diB_3_toolAlm==true)
+  bBIO[4]=(io:diB_4_tSpeedOk==true)
+  bBIO[5]=(io:diB_5==true)
+  bBIO[6]=(io:diB_6==true)
+  bBIO[7]=(io:diB_7==true)
+  bBIO[8]=(io:diB_8==true)
+  bBIO[9]=(io:diB_9==true)
+  bBIO[10]=(io:diB_10==true)
+  bBIO[11]=(io:diB_11==true)
+  bBIO[12]=(io:diB_12==true)
+  bBIO[13]=(io:diB_13==true)
+  bBIO[14]=(io:diB_14==true)
+  bBIO[15]=(io:diB_15==true)
+
+  //
+  bBIO[16]=(io:doB_0_speed==true)
+  bBIO[17]=(io:doB_1_speed==true)
+  bBIO[18]=(io:doB_2_speed==true)
+  bBIO[19]=(io:doB_3_speed==true)
+  bBIO[20]=(io:doB_4_speed==true)
+  bBIO[21]=(io:doB_5_speed==true)
+  bBIO[22]=(io:doB_6_toolPower==true)
+  bBIO[23]=(io:doB_7_toolOn==true)
+  bBIO[24]=(io:doB_8_toolOff==true)
+  bBIO[25]=(io:doB_9_tableOn==true)
+  bBIO[26]=(io:doB_10_systeAlm==true)
+  bBIO[27]=(io:doB_11==true)
+  bBIO[28]=(io:doB_12==true)
+  bBIO[29]=(io:doB_13==true)
+  bBIO[30]=(io:doB_14==true)
+  bBIO[31]=(io:doB_15==true)
+
+  bZero=ati:bZero
+  trFrame=date:fWorkTable.trsf
+  nMoveID=getMoveId()
+
+
+  //2015.01.28
+  if nATIPress>0 and nWorkingMode==4
+    if ati:nForce[2]>nATIPress
+      io:doB_10_systeAlm=true
+      disablePower()
+      delay(0)
+    endIf
+  endIf
+
+
+
+  //2015.01.29
+  if nATiPressBuff!=nATIPress
+    nATiPressBuff=nATIPress
+    //libSave()
+  endIf
+
+
+
+//2015.07.27
+//判断是否停止
+if l_nIndex>4
+  l_nIndex=0
+endIf
+l_nMoveID[l_nIndex]=getMoveId()
+
+if l_nMoveID[l_nIndex]>200 and workingMode()==4
+  if l_nMoveID[0]==l_nMoveID[1] and l_nMoveID[0]==l_nMoveID[2] and l_nMoveID[0]==l_nMoveID[3] and l_nMoveID[0]==l_nMoveID[4] 
+    dioSet(io:doB_7_toolOn,0)
+    dioSet(io:doB_9_tableOn,0)
+    if !l_bLog
+      l_bLog=true
+      logMsg("不运动了"+toString(".3",getMoveId()))
+    endIf
+  else
+    l_bLog=false
+  endIf
+  
+endIf
+
+l_nIndex=l_nIndex+1
+//
+
+
+
+
+
+end]]></Code>
+  </Program>
+</Programs>

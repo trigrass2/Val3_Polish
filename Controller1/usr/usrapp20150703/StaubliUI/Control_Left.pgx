@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Left">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sLeftList" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //在屏幕左边进行显示
+  //左边的x_sLeftList 是显示的字符串数组
+  
+  setTextMode(0)
+  //左边栏进行显示
+  for l_nIndex=0 to min(7,size(x_sLeftList)-1)
+    gotoxy(1,l_nIndex+4)
+    if size(x_sLeftList)>l_nIndex and x_sLeftList[l_nIndex]!=""
+      put("F"+toString("",l_nIndex+1)+"->"+x_sLeftList[l_nIndex])
+    endIf
+  endFor
+end
+  
+]]></Code>
+  </Program>
+</Programs>

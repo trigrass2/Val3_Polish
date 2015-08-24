@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="setSizeList" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nPx" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="nPy" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="nPBottomX" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="nPBottomY" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  nTopX=nTopX[1]=nPx
+  nTopY=nPy
+  nBottomX=nBottomX[1]=nPBottomX
+  nBottomY=nPBottomY
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_Bye" access="public">
+    <Code><![CDATA[begin
+  
+ //程序结束界面
+ cls()
+ call Control_PanelMd("感谢使用史陶比尔机器人软件")
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

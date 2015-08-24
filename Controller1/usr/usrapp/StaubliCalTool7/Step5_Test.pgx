@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="Step5_Test" access="private" >
+    <Locals>
+      <Local name="l_bOut" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call ListMsg(true,"HMItest")
+  call ListMsg(false,"HMITool")
+  while !l_bOut
+    do
+      l_nKey=get()-270
+    until l_nKey==1 or l_nKey==2 or l_nKey==3 or l_nKey==4 or l_nKey==5 or l_nKey==6 or l_nKey==7 or l_nKey==8 or l_nKey==-15
+    taskKill("m")
+    switch l_nKey
+      case 1
+        call SetTool(tTool1,"tTool1")
+        call ListMsg(true,"HMItest")
+        call ListMsg(false,"HMITool")
+      break
+      case 2
+        call SetTool(tTool2,"tTool2")
+        call ListMsg(true,"HMItest")
+        call ListMsg(false,"HMITool")
+      break
+      case 3
+        call SetTool(tTool3,"tTool3")
+        call ListMsg(true,"HMItest")
+        call ListMsg(false,"HMITool")
+      break
+      case 4
+        call SetTool(flange,"flange")
+        call ListMsg(true,"HMItest")
+      break
+      case 5
+        switch sTool
+          case "tTool1"
+            call AdjustOffset(tTool1)
+          break
+          case "tTool2"
+            call AdjustOffset(tTool2)
+          break
+          case "tTool3"
+            call AdjustOffset(tTool3)
+          break
+        endSwitch
+      break
+      case 6
+        if taskStatus("m")==-1
+          taskCreate "m",100,ListMove("align")
+        endIf
+      break
+      case 7,-15
+        wait(getKey()==-1)
+        call ListMsg(true,"HMImain")
+        l_bOut=true
+      break
+      case 8
+        switch sTool
+          case "flange"
+            tTool=flange
+          break
+          case "tTool1"
+            tTool=tTool1
+          break
+          case "tTool2"
+            tTool=tTool2
+          break
+          case "tTool3"
+            tTool=tTool3
+          break
+        endSwitch
+        bUpLoad=true
+        call ListPop("CompletedUpLoad")
+        l_bOut=true
+      break
+    endSwitch
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

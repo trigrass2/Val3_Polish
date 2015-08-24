@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_BatPara" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nMax" type="num" xsi:type="element" />
+      <Parameter name="x_nFrom" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nTo" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_nValue" type="num" xsi:type="array" use="reference" />
+      <Parameter name="x_bEdit" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sItem" type="string" xsi:type="array" size="4" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="6" />
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_sS" type="string" xsi:type="array" size="5" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  //为lasman3.0进行配置
+  //批处理切割或者焊接点的参数
+  //包括速度，加速度，blend, 工艺，动作
+  
+  
+  
+  
+  x_bEdit[0]=x_bEdit[1]=x_bEdit[2]=x_bEdit[3]=x_bEdit[4]=false
+  l_nData[0]=1
+  l_nData[1]=x_nMax
+  l_nData[2]=0
+  l_nData[3]=1
+  l_sS[0]="速度"
+  l_sS[1]="加速度"
+  l_sS[2]="Blend"
+  l_sS[3]="工艺"
+  l_sS[4]="动作"
+  
+  l_sItem[0]="开始序号:"+toString("",l_nData[0])
+  l_sItem[1]="结束序号:"+toString("",l_nData[1])
+  l_sItem[2]="选项    :"+l_sS[l_nData[2]]
+  l_sItem[3]="值      :"+toString("",l_nData[3])
+  
+  
+  
+  call Control_BottomS(",,,,,,退出,修改")
+  call Control_PanelXY(8,0,15,4)
+  call Control_Panel("批处理参数")
+  call Control_List(l_sItem,l_nSelectIndex)
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        l_nSelectIndex=max(0,l_nSelectIndex-1)
+      break 
+      
+      case 266
+        l_nSelectIndex=min(l_nSelectIndex+1,3)
+      break
+      
+      case 278
+        l_nIndex=round(min(max(0,l_nData[2]),4))
+        x_nFrom[l_nIndex]=l_nData[0]
+        x_nTo[l_nIndex]=l_nData[1]
+      
+        x_nValue[l_nIndex]=l_nData[3]
+        x_bEdit[l_nIndex]=true
+        popUpMsg(l_sS[l_nIndex]+"已修改")
+       // cls()
+        //return
+      break
+      
+      
+      case 277,255
+        
+        cls()
+        //x_bEdit=false
+        return
+      break
+      
+      case 270
+        if l_nSelectIndex==2
+          call Sel_Edit(l_nData[2],nPanelLTopX+10,l_nSelectIndex+nPanelLTopY+1,l_sS)
+        else
+          call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+10,l_nSelectIndex+nPanelLTopY+1)
+          if l_nSelectIndex==0
+            l_nData[l_nSelectIndex]=roundDown(min(l_nData[1],max(1,l_nData[l_nSelectIndex])))
+            
+          endIf
+          if l_nSelectIndex==1
+            l_nData[l_nSelectIndex]=roundDown(min(x_nMax,max(1,l_nData[l_nSelectIndex])))
+            
+          endIf
+        endIf
+      break
+    
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      l_sItem[0]="开始序号:"+toString("",l_nData[0])
+      l_sItem[1]="结束序号:"+toString("",l_nData[1])
+      l_sItem[2]="选项    :"+l_sS[l_nData[2]]
+      l_sItem[3]="值      :"+toString("",l_nData[3])
+      
+      call Control_List(l_sItem,l_nSelectIndex)
+      
+    endIf
+    
+  endWhile
+  
+end
+
+  ]]></Code>
+  </Program>
+</Programs>

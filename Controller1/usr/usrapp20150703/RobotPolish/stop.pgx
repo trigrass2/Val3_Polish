@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="stop">
+    <Code><![CDATA[begin
+  disablePower()
+  resetMotion()
+  $fileClose(0)
+  $fileClose(1)
+  $fileClose(2)
+  $fileClose(3)
+  $fileClose(4)
+  $fileClose(5)
+  $fileClose(6)
+  $fileClose(7)
+  $fileClose(8)
+  libSave()
+
+  
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Scara" access="public">
+    <Locals>
+      <Local name="l_sText" type="string" xsi:type="array" size="20" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //为Scara进行配置
+  
+//   l_sText[0]="       .:i.         "
+//   l_sText[1]="         .:i.       " 
+//   l_sText[2]="       Xzi  iU    , "
+//   l_sText[3]="     .6:     .i   : "
+//   l_sText[4]="    .A    MM .E:,.n."
+//   l_sText[5]="    6     8MvYIZX;v." 
+//   l_sText[6]="   7.     vi;iCCviX " 
+//   l_sText[7]="   7 :.   vtYn7Yci7 " 
+//   l_sText[8]="    .7Co622onU  6t; "
+//   l_sText[9]="  SY7Az      .  .:Q." 
+//   l_sText[10]="  MMMMM           X " 
+//   l_sText[11]="  MM:..    " 
+//   l_sText[12]="  MMt:;  "
+//   l_sText[13]="  MMt:;  " 
+
+
+
+
+   l_sText[0]="         .--.           "
+   l_sText[1]="      :./    \ ..   .     " 
+   l_sText[2]="    .:/    |::::.;:..:   "
+   l_sText[3]="   ../     |::::;;:.:     "
+   l_sText[4]="   ./ . ...:i:;..:::     "
+   l_sText[5]="  . .i;.......  :.;      " 
+   l_sText[6]="   |::|           |:|             " 
+   l_sText[7]=" |::. .|              " 
+   l_sText[8]=" |::.  |               "
+   l_sText[9]=" | .:::|                " 
+   l_sText[10]=" |  .ri|             " 
+   l_sText[11]=" |r72r7|            " 
+   l_sText[12]=" |scara|            "
+   
+   
+for l_nIndex=0 to 9
+  gotoxy(18,l_nIndex+1)
+  put(left(l_sText[l_nIndex],22))
+endFor
+
+
+
+
+
+         
+    
+                    
+  
+  
+  
+  
+  
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

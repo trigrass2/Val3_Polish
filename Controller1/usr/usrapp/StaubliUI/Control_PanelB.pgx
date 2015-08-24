@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_PanelB" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sLeftTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sRightTitle" type="string" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+  
+  //画左右两个方框
+  
+  call Control_PanelS(x_sLeftTitle,0,0,18,11)
+  
+  call Control_PanelS(x_sRightTitle,20,0,18,11)
+  
+end
+]]></Code>
+  </Program>
+</Programs>

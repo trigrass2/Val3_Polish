@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_ListMCD" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_bMC" type="bool" xsi:type="array" use="reference" />
+      <Parameter name="x_nSelectItem" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_nText" type="num" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+      <Local name="l_sText" type="string" xsi:type="array" size="1" />
+      <Local name="l_nFrist" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //赋初值
+  // call Control_ListCls()
+  
+  l_nFrist=0
+  x_nSelectItem=min(max(0,x_nSelectItem),size(x_bMC)-1)
+  if x_nSelectItem>=nPanelLengthY
+    l_nFrist=x_nSelectItem-nPanelLengthY+1
+  endIf
+  
+  
+  //把列表给画出来
+  for l_nIndex=0 to min(nPanelLengthY-1,size(x_bMC)-l_nFrist)
+    gotoxy(nPanelLTopX+1,nPanelLTopY+l_nIndex+1)
+    //选中项变成黑色
+    
+    
+    //MOVEL
+    if !x_bMC[l_nIndex+l_nFrist]
+      if l_nIndex+l_nFrist==x_nSelectItem 
+        if x_nText==0 
+          setTextMode(1)
+        else
+          setTextMode(0)
+        endIf
+        put(left(toString("",l_nIndex+l_nFrist+1)+"       ",5 )+"MOVEL")
+        gotoxy(nPanelLTopX+12,nPanelLTopY+l_nIndex+1)
+        if x_nText==1 
+          
+          setTextMode(1)
+        else
+          setTextMode(0)
+        endIf
+        put("Pl")
+      else
+        setTextMode(0)
+        put(left(toString("",l_nIndex+l_nFrist+1)+"       ",5 )+left("MOVEL Pl             ",nPanelWidthX-5))
+      endIf
+      
+    else
+      
+      //MOVEC
+      setTextMode(0)
+      put(left("                                               ",nPanelWidthX))
+      gotoxy(nPanelLTopX+1,nPanelLTopY+l_nIndex+1)
+      if l_nIndex+l_nFrist!=x_nSelectItem 
+        put(left(toString("",l_nIndex+l_nFrist+1)+"       ",5 )+left("MOVEC Pc Pt              ",nPanelWidthX-5))
+      else
+        if x_nText==0 
+          setTextMode(1)
+        else
+          setTextMode(0)
+        endIf
+        put(left(toString("",l_nIndex+l_nFrist+1)+"       ",5 )+"MOVEC")
+        gotoxy(nPanelLTopX+12,nPanelLTopY+l_nIndex+1)
+        if x_nText==1 
+          
+          setTextMode(1)
+        else
+          setTextMode(0)
+        endIf
+        put("Pc")
+        //目标点
+        gotoxy(nPanelLTopX+15,nPanelLTopY+l_nIndex+1)
+        
+        if x_nText==2  
+          setTextMode(1)
+        else
+          setTextMode(0)
+        endIf
+        put("Pt")
+      endIf
+    endIf
+  endFor
+  
+  setTextMode(0)
+  while l_nIndex< nPanelLengthY
+    gotoxy(nPanelLTopX+1,nPanelLTopY+l_nIndex+1)
+    put(left("                          ",nPanelWidthX-2))
+    l_nIndex=l_nIndex+1
+  endWhile
+  
+end
+]]></Code>
+  </Program>
+</Programs>

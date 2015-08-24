@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="editNum" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sItem" type="string" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="x_sItemValue" type="string" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nValue" type="num" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nSelect" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nMin" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nMax" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sEmpty" type="string" xsi:type="array" size="1" />
+      <Local name="l_nValue" type="num" xsi:type="array" size="1" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nPos" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //
+  do
+    //    call clear(0,13)
+    call findPos(x_sItem,":",l_nPos)
+    gotoxy(nTopX+1,nTopY+nView+1)
+    setTextMode(0)
+    put(x_sItem)
+    call strlength(l_sEmpty,nBottomX-l_nPos+1)
+    call type(nTopX+l_nPos+2,nTopY+nView+1,l_sEmpty)
+    gotoxy(nTopX+l_nPos+2,nTopY+nView+1)
+    toNum(x_sItemValue,l_nValue,l_bRes)
+    l_nKey=get(l_nValue)
+    if l_nKey==270
+      if x_nMin<x_nMax
+        if l_nValue<x_nMin or l_nValue>x_nMax
+          popUpMsg("取值范围:"+toString(".1",x_nMin)+"到"+toString(".1",x_nMax))
+        else
+          x_sItemValue=toString(".3",l_nValue)
+          x_nValue=l_nValue
+        endIf
+      else
+        x_sItemValue=toString(".3",l_nValue)
+        x_nValue=l_nValue
+      endIf
+    endIf
+    call strfill(x_sItem,l_nPos+1,x_sItem)
+    x_sItem=x_sItem+x_sItemValue
+    call strlength(x_sItem,nBottomX+1)
+    gotoxy(nTopX+1,nTopY+nView+1)
+    setTextMode(1)
+    call type(nTopX+1,nTopY+nView+1,x_sItem)
+    setTextMode(0)
+    delay(0)
+  until l_nKey==270 or l_nKey==255
+end]]></Code>
+  </Program>
+</Programs>

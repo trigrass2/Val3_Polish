@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_Panel" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sPanelTitle" type="string" xsi:type="element" />
+      <Parameter name="x_nSelectIndex" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_sBottom" type="string" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+  
+cls()  
+title(x_sTitle)
+call Control_LeftS(x_sBottom)
+call Control_PanelXY(22,0,15,10)
+call Control_Panel(x_sPanelTitle)
+call Control_BottomS(x_sBottom)
+
+
+//call Control_List(x_sList,x_nSelectIndex)
+ 
+
+  
+end]]></Code>
+  </Program>
+</Programs>

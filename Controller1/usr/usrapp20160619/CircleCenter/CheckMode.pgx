@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="CheckMode">
+    <Code><![CDATA[begin
+  while !bExit
+    nWorkingMode=workingMode(nStatus)
+    if nWorkingMode==1
+      if nStatus!=0
+        resetMotion()
+        if taskStatus("Move")==150
+          taskResume("Move",1)
+          resetMotion()
+        endIf
+      endIf
+    else
+      resetMotion()
+    endIf
+    delay(0)
+  endWhile
+  resetMotion()
+end]]></Code>
+  </Program>
+</Programs>

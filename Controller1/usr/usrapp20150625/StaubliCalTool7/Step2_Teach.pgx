@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="Step2_Teach" access="private" >
+    <Locals>
+      <Local name="l_bA" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bOut" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nA" type="num" xsi:type="array" size="1" />
+      <Local name="l_nPage" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  call SetTool(flange,"flange")
+  l_nPage=10
+  while !l_bOut
+    switch l_nPage
+      case 10
+        call ListMsg(true,"HMI1_1")
+        l_bA=false
+        while !l_bA
+          do
+            l_nA=get()-270
+          until l_nA==1 or l_nA==2 or l_nA==7 or l_nA==8 or l_nA==-15
+          taskKill("m")
+          switch l_nA
+            case 1
+              if taskStatus("m")==-1
+                taskCreate "m",100,ListMove("align")
+              endIf
+            break
+            case 2
+              bTeach1_1=true
+              p1_1=here(flange,world)
+              call ListPop("First")
+            break
+            case 8
+              l_bA=true
+              l_nPage=20
+            break
+            case 7,-15
+              wait(getKey()==-1)
+              l_bA=true
+              l_bOut=true
+              call ListMsg(true,"HMImain")
+            break
+          endSwitch
+        endWhile
+      break
+      case 20
+        l_bA=false
+        call ListMsg(true,"HMI1_2")
+        while !l_bA
+          do
+            l_nA=get()-270
+          until l_nA==2 or l_nA==7 or l_nA==8
+          //
+          switch l_nA
+            case 2
+              bTeach1_2=true
+              p1_2=here(flange,world)
+              call ListPop("Second")
+            break
+            case 7
+              l_bA=true
+              l_nPage=10
+            break
+            case 8
+              l_bA=true
+              l_nPage=30
+            break
+          endSwitch
+        endWhile
+      break
+      case 30
+        l_bA=false
+        call ListMsg(true,"HMI1_3")
+        while !l_bA
+          do
+            l_nA=get()-270
+          until l_nA==2 or l_nA==7 or l_nA==8
+          //
+          switch l_nA
+            case 2
+              bTeach1_3=true
+              p1_3=here(flange,world)
+              call ListPop("Third")
+            break
+            case 7
+              l_bA=true
+              l_nPage=20
+            break
+            case 8
+              l_bA=true
+              l_nPage=40
+            break
+          endSwitch
+        endWhile
+      break
+      case 40
+        l_bA=false
+        call ListMsg(true,"HMI1_4")
+        while !l_bA
+          do
+            l_nA=get()-270
+          until l_nA==2 or l_nA==6 or l_nA==7 or l_nA==8
+          //
+          switch l_nA
+            case 2
+              bTeach1_4=true
+              p1_4=here(flange,world)
+              call ListPop("Fourth")
+            break
+            case 6
+              if bTeach1_1==true and bTeach1_2==true and bTeach1_2==true and bTeach1_3==true
+                call CalTool("CalTool1")
+              else
+                call ListPop("FRP")
+              endIf
+            break
+            case 7
+              l_bA=true
+              l_nPage=30
+            break
+            case 8
+
+              wait(getKey()==-1)
+              l_bA=true
+              l_bOut=true
+              call ListMsg(true,"HMImain")
+
+            break
+          endSwitch
+        endWhile
+      break
+    endSwitch
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

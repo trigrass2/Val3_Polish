@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="ComparePoint" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_pPoint1" type="pointRx" xsi:type="element" use="reference" />
+      <Parameter name="x_pPoint2" type="point" xsi:type="element" use="reference" />
+      <Parameter name="x_bSame" type="bool" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_trTrsf1" type="trsf" xsi:type="array" size="1" />
+      <Local name="l_trTrsf2" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //比较两个点
+  l_trTrsf1=position(x_pPoint1,world)
+  l_trTrsf2=position(x_pPoint2,world)
+  if abs(l_trTrsf1.x-l_trTrsf2.x)<0.05
+    if abs(l_trTrsf1.y-l_trTrsf2.y)<0.05
+      if abs(l_trTrsf1.z-l_trTrsf2.z)<0.05
+        if abs(l_trTrsf1.rx-l_trTrsf2.rx)<0.05
+          if abs(l_trTrsf1.ry-l_trTrsf2.ry)<0.05
+            if abs(l_trTrsf1.rz-l_trTrsf2.rz)<0.05
+              x_bSame=true
+              return
+            else
+              x_bSame=false
+              return
+            endIf
+          else
+            x_bSame=false
+            return
+          endIf
+        else
+          x_bSame=false
+          return
+        endIf
+      else
+        x_bSame=false
+        return
+      endIf 
+    else
+      x_bSame=false
+      return
+    endIf
+  else
+    x_bSame=false
+    return
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

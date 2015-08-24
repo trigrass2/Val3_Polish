@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="interpolatePos" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_pStart" type="pointRx" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_pEnd" type="pointRx" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  l_nI=0
+  do
+    pGoBack[l_nI*10].trsf=interpolateL(x_pStart.trsf,x_pEnd.trsf,l_nI)
+    movel(pGoBack[l_nI*10],tTool,mNomSpeed)
+    l_nI=l_nI+0.1
+  until l_nI>1.05
+  waitEndMove()
+end]]></Code>
+  </Program>
+</Programs>

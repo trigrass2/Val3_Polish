@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="page_main" access="private" >
+    <Locals>
+      <Local name="l_sItems" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //启动页面
+  nPage=0
+  cls()
+  title("RobotPolish-主界面")
+  l_sItems="信号,生产,TCP,Frame,Home,速度,,退出"
+  call use:stringToArray(l_sItems,sItems)
+  //  call use:setMenu(sItems,true,3)
+  call UI:Form_Main(sItems)
+
+
+
+  $fileClose(0)
+  $fileClose(1)
+  $fileClose(2)
+  $fileClose(3)
+  $fileClose(4)
+  $fileClose(5)
+  $fileClose(6)
+  $fileClose(7)
+  $fileClose(8)
+  $fileClose(9)
+  nInterfaceType=9
+  resetMotion()
+end]]></Code>
+  </Program>
+</Programs>

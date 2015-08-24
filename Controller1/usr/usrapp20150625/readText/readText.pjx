@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+  <Parameters version="s7.7.1" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="fileClose.pgx" />
+    <Program file="fileRead.pgx" />
+    <Program file="getJointDate.pgx" />
+    <Program file="getPointDate.pgx" />
+    <Program file="getSpeedDate.pgx" />
+    <Program file="getStrDate.pgx" />
+    <Program file="getStrSign.pgx" />
+    <Program file="init.pgx" />
+    <Program file="NCVetor.pgx" />
+    <Program file="ReadHead.pgx" />
+    <Program file="Readme.pgx" />
+    <Program file="split.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+    <Program file="trajGrind.pgx" />
+    <Program file="workTabSpd.pgx" />
+  </Programs>
+  <Database>
+    <Data file="readText.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="io" path="Disk://IO/IO.pjx" />
+    <Library alias="date" path="Disk://dateBase/dateBase.pjx" />
+  </Libraries>
+</Project>

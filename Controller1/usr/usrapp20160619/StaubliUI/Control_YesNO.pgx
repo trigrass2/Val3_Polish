@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_YesNO" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_bRes" type="bool" xsi:type="element" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  
+  //询问框
+  //x_sTitle 是询问内容
+  //x_bRes是询问的答案
+  
+  x_bRes=false
+  call Control_PanelMd(x_sTitle)
+  call Control_BottomS(",,,,,,是,否")
+  
+  while true
+    switch getKey()
+      
+      //F8
+      case 278
+        x_bRes=false
+        cls()
+        return
+      break
+      //F7
+      case  277
+        x_bRes=true
+        cls()
+        return
+      break
+    endSwitch
+    delay(0)
+  endWhile
+end
+    ]]></Code>
+  </Program>
+</Programs>

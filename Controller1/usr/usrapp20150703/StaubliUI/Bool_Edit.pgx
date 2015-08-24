@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Bool_Edit" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_bRes" type="bool" xsi:type="element" use="reference" />
+      <Parameter name="x_nX" type="num" xsi:type="element" />
+      <Parameter name="x_nY" type="num" xsi:type="element" />
+      <Parameter name="x_nLength" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+      <Local name="l_s" type="string" xsi:type="array" size="2" />
+    </Locals>
+    <Code><![CDATA[begin
+
+//在下拉选择框中
+//是否选择
+
+  l_s[1]="是"
+  l_s[0]="否"
+  
+
+   call BoolMess_Edit(x_bRes,x_nX,x_nY,x_nLength,l_s)
+  
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="SplitUp" access="private" >
+    <Code><![CDATA[begin
+  nS1[1]=p1_1.trsf.x
+  nS1[2]=p1_1.trsf.y
+  nS1[3]=p1_1.trsf.z
+  nS2[1]=p1_2.trsf.x
+  nS2[2]=p1_2.trsf.y
+  nS2[3]=p1_2.trsf.z
+  nS3[1]=p1_3.trsf.x
+  nS3[2]=p1_3.trsf.y
+  nS3[3]=p1_3.trsf.z
+  nS4[1]=p1_4.trsf.x
+  nS4[2]=p1_4.trsf.y
+  nS4[3]=p1_4.trsf.z
+end]]></Code>
+  </Program>
+</Programs>

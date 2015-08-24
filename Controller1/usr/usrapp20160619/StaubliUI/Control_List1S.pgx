@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_List1S" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sItemName" type="string" xsi:type="element" />
+      <Parameter name="x_sItemValue" type="string" xsi:type="element" />
+      <Parameter name="x_nSelectItem" type="num" xsi:type="element" />
+      <Parameter name="x_nText" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sBuff" type="string" xsi:type="array" size="10" />
+      <Local name="l_sValue" type="string" xsi:type="array" size="10" />
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //说明：
+  //函数功能：在划定的框内，把选中项给显示出来
+  //l_nFirst  在列表中第一个显示的项的序号
+  //x_nSelectItem  被选中的项的序号
+  //l_nCount 合法列表项的项总数，如何数组中间为空，则可能被截断
+  
+  
+  
+  // 赋初值
+  for l_nIndex=0 to size(l_sBuff)-1
+    l_sBuff[l_nIndex]=""
+  endFor
+  
+  //把项的名字给解析出来
+  call  Str_SplitChar(l_bRes,x_sItemName,",",l_sBuff)
+  if !l_bRes
+    return
+  endIf
+  
+  call  Str_SplitChar(l_bRes,x_sItemValue,",",l_sValue)
+  if !l_bRes
+    return
+  endIf
+  
+  
+  //对方框的定义进行赋初值
+  // call Control_ListBas(x_nSelectItem)
+  
+  
+  //把列表给画出来
+  for l_nIndex=0 to min(min(nPanelLengthY-1,size(l_sBuff)-1),size(l_sValue)-1)
+    if l_sBuff[l_nIndex]==""
+      return
+    endIf
+    setTextMode(0)
+    gotoxy(nPanelLTopX+1,nPanelLTopX+l_nIndex+1)
+    put(left(l_sBuff[l_nIndex]+"              ",nPanelWidthX-getDisplayLen(l_sBuff[l_nIndex])+len(l_sBuff[l_nIndex]))+":")
+    gotoxy(nPanelLTopX+nPanelWidthX/2-getDisplayLen(l_sBuff[l_nIndex])+len(l_sBuff[l_nIndex]),nPanelLTopY+l_nIndex+1)
+    //选中项变成黑色
+    if l_nIndex==x_nSelectItem
+      
+      setTextMode(x_nText)
+    endIf
+    
+    //直接截取+
+    //中文编码与英文编码有点不一样
+    put(left(l_sValue[l_nIndex]+"             ",nPanelWidthX/2-getDisplayLen(l_sValue[l_nIndex])+len(l_sValue[l_nIndex])))
+    
+  endFor
+  
+  
+end
+]]></Code>
+  </Program>
+</Programs>

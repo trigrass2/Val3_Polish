@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="CompareStrArray" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_sFirst" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="x_sSecond" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="x_bRes" type="bool" use="reference" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_i" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //比较两个字符串数组是否相等
+  //相等返回x_bRes=true,否则x_bRes=false
+
+  x_bRes=false
+  //维数不等
+  if size(x_sFirst)!=size(x_sSecond)
+    return
+  endIf
+  //
+  l_i=0
+  for l_i=0 to size(x_sFirst)-1
+    if x_sFirst[l_i]!=x_sSecond[l_i]
+      return
+    endIf
+  endFor
+  x_bRes=true
+end]]></Code>
+  </Program>
+</Programs>

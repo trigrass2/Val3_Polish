@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="CalSphereCenter" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_nX1" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nX2" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nX3" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nX4" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nY1" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nY2" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nY3" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nY4" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nZ1" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nZ2" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nZ3" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_nZ4" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nTemp" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This program calculates the tool to find the X, Y, Z components
+  //
+  //Input parameters
+  //  num x_nX1 to x_nX4
+  //  num x_nY1 to x_nY4
+  //  num x_nZ1 to x_nZ4
+  //
+  //Traceability
+  //  Creation : 07-04-08 - f.Rob
+  //Header end
+  //-----------------------------------------------------------------------
+  nScX=x_nY1*x_nX3*x_nX3*x_nZ2+x_nX1*x_nX1*x_nY2*x_nZ3-x_nX1*x_nX1*x_nY3*x_nZ2-x_nX2*x_nX2*x_nY1*x_nZ3
+  nScX=nScX-x_nX3*x_nX3*x_nY2*x_nZ1-x_nY1*x_nY2*x_nY2*x_nZ3-x_nY1*x_nX4*x_nX4*x_nZ2+x_nY1*x_nY3*x_nY3*x_nZ2
+  nScX=nScX+x_nY2*x_nZ1*x_nX4*x_nX4-x_nY2*x_nZ1*x_nY3*x_nY3-x_nX1*x_nX1*x_nY2*x_nZ4+x_nX1*x_nX1*x_nZ2*x_nY4
+  nScX=nScX+x_nX2*x_nX2*x_nY1*x_nZ4-x_nX2*x_nX2*x_nZ1*x_nY4+x_nY1*x_nY1*x_nY2*x_nZ3-x_nY1*x_nY1*x_nY3*x_nZ2
+  nScX=nScX+x_nY2*x_nY2*x_nZ1*x_nY3-x_nY1*x_nZ2*x_nY4*x_nY4+x_nY1*x_nZ2*x_nZ3*x_nZ3-x_nY1*x_nX3*x_nX3*x_nZ4
+  nScX=nScX+x_nY1*x_nY2*x_nY2*x_nZ4+x_nY1*x_nX4*x_nX4*x_nZ3-x_nY1*x_nZ2*x_nZ2*x_nZ3+x_nY2*x_nZ1*x_nY4*x_nY4
+  nScX=nScX-x_nY2*x_nZ1*x_nZ3*x_nZ3+x_nY2*x_nZ1*x_nZ1*x_nZ3+x_nZ1*x_nY3*x_nZ2*x_nZ2-x_nZ1*x_nX4*x_nX4*x_nY3
+  nScX=nScX+x_nX1*x_nX1*x_nY3*x_nZ4-x_nX1*x_nX1*x_nY4*x_nZ3-x_nY1*x_nY1*x_nY2*x_nZ4+x_nY1*x_nY1*x_nZ2*x_nY4
+  nScX=nScX+x_nX3*x_nX3*x_nZ1*x_nY4-x_nY2*x_nY2*x_nZ1*x_nY4-x_nZ1*x_nZ1*x_nY3*x_nZ2-x_nY1*x_nZ2*x_nZ4*x_nZ4
+  nScX=nScX-x_nY1*x_nY3*x_nY3*x_nZ4+x_nY1*x_nZ2*x_nZ2*x_nZ4+x_nY1*x_nY4*x_nY4*x_nZ3+x_nY2*x_nZ1*x_nZ4*x_nZ4
+  nScX=nScX-x_nY2*x_nZ1*x_nZ1*x_nZ4-x_nY2*x_nX4*x_nX4*x_nZ3-x_nZ1*x_nY3*x_nY4*x_nY4+x_nZ1*x_nY3*x_nY3*x_nY4
+  nScX=nScX-x_nZ1*x_nZ2*x_nZ2*x_nY4-x_nX2*x_nX2*x_nY3*x_nZ4+x_nX2*x_nX2*x_nY4*x_nZ3+x_nY1*x_nY1*x_nY3*x_nZ4
+  nScX=nScX-x_nY1*x_nY1*x_nY4*x_nZ3+x_nX3*x_nX3*x_nY2*x_nZ4-x_nX3*x_nX3*x_nZ2*x_nY4+x_nZ1*x_nZ1*x_nZ2*x_nY4
+  nScX=nScX+x_nX4*x_nX4*x_nY3*x_nZ2+x_nY1*x_nZ3*x_nZ4*x_nZ4-x_nY1*x_nZ3*x_nZ3*x_nZ4+x_nY2*x_nY3*x_nY3*x_nZ4
+  nScX=nScX-x_nY2*x_nY4*x_nY4*x_nZ3-x_nZ1*x_nY3*x_nZ4*x_nZ4+x_nZ1*x_nY4*x_nZ3*x_nZ3+x_nY3*x_nZ2*x_nY4*x_nY4
+  nScX=nScX-x_nY2*x_nY2*x_nY3*x_nZ4+x_nY2*x_nY2*x_nY4*x_nZ3+x_nZ1*x_nZ1*x_nY3*x_nZ4-x_nZ1*x_nZ1*x_nY4*x_nZ3
+  nScX=nScX-x_nY3*x_nY3*x_nZ2*x_nY4-x_nY2*x_nZ3*x_nZ4*x_nZ4+x_nY2*x_nZ3*x_nZ3*x_nZ4+x_nY3*x_nZ2*x_nZ4*x_nZ4
+  nScX=nScX-x_nY3*x_nZ2*x_nZ2*x_nZ4-x_nZ2*x_nY4*x_nZ3*x_nZ3+x_nZ2*x_nZ2*x_nY4*x_nZ3+x_nX2*x_nX2*x_nZ1*x_nY3
+  l_nTemp=2*x_nX1*x_nY2*x_nZ3-2*x_nX1*x_nY3*x_nZ2-2*x_nX2*x_nY1*x_nZ3+2*x_nX2*x_nZ1*x_nY3+2*x_nY1*x_nX3*x_nZ2
+  l_nTemp=l_nTemp-2*x_nX3*x_nY2*x_nZ1-2*x_nX1*x_nY2*x_nZ4+2*x_nX1*x_nZ2*x_nY4+2*x_nX2*x_nY1*x_nZ4-2*x_nX2*x_nZ1*x_nY4-2*x_nY1*x_nX4*x_nZ2
+  l_nTemp=l_nTemp+2*x_nY2*x_nZ1*x_nX4+2*x_nX1*x_nY3*x_nZ4-2*x_nX1*x_nY4*x_nZ3-2*x_nY1*x_nX3*x_nZ4+2*x_nY1*x_nX4*x_nZ3+2*x_nX3*x_nZ1*x_nY4
+  l_nTemp=l_nTemp-2*x_nZ1*x_nX4*x_nY3-2*x_nX2*x_nY3*x_nZ4+2*x_nX2*x_nY4*x_nZ3+2*x_nX3*x_nY2*x_nZ4-2*x_nX3*x_nZ2*x_nY4-2*x_nY2*x_nX4*x_nZ3
+  l_nTemp=l_nTemp+2*x_nX4*x_nY3*x_nZ2
+  if abs(l_nTemp)<0.001
+    nScX=9999.9999
+  else
+    nScX=nScX/l_nTemp
+  endIf
+  nScY=x_nX1*x_nX2*x_nX2*x_nZ3-x_nX1*x_nX3*x_nX3*x_nZ2+x_nX2*x_nX3*x_nX3*x_nZ1-x_nX1*x_nX1*x_nX2*x_nZ3
+  nScY=nScY+x_nX1*x_nX1*x_nX3*x_nZ2-x_nX2*x_nX2*x_nX3*x_nZ1-x_nX1*x_nX2*x_nX2*x_nZ4+x_nX1*x_nY2*x_nY2*x_nZ3
+  nScY=nScY+x_nX1*x_nX4*x_nX4*x_nZ2-x_nX1*x_nY3*x_nY3*x_nZ2-x_nX2*x_nZ1*x_nX4*x_nX4+x_nX2*x_nZ1*x_nY3*x_nY3
+  nScY=nScY-x_nX2*x_nY1*x_nY1*x_nZ3-x_nX3*x_nY2*x_nY2*x_nZ1+x_nX1*x_nX1*x_nX2*x_nZ4-x_nX1*x_nX1*x_nX4*x_nZ2
+  nScY=nScY+x_nX2*x_nX2*x_nZ1*x_nX4+x_nY1*x_nY1*x_nX3*x_nZ2+x_nX1*x_nZ2*x_nY4*x_nY4-x_nX1*x_nZ2*x_nZ3*x_nZ3
+  nScY=nScY+x_nX1*x_nX3*x_nX3*x_nZ4-x_nX1*x_nY2*x_nY2*x_nZ4-x_nX1*x_nX4*x_nX4*x_nZ3+x_nX1*x_nZ2*x_nZ2*x_nZ3
+  nScY=nScY-x_nX2*x_nZ1*x_nY4*x_nY4+x_nX2*x_nZ1*x_nZ3*x_nZ3+x_nX2*x_nY1*x_nY1*x_nZ4-x_nX2*x_nZ1*x_nZ1*x_nZ3
+  nScY=nScY+x_nX3*x_nZ1*x_nX4*x_nX4-x_nX3*x_nZ1*x_nZ2*x_nZ2+x_nX3*x_nZ1*x_nZ1*x_nZ2-x_nX1*x_nX1*x_nX3*x_nZ4
+  nScY=nScY+x_nX1*x_nX1*x_nX4*x_nZ3-x_nY1*x_nY1*x_nX4*x_nZ2-x_nX3*x_nX3*x_nZ1*x_nX4+x_nY2*x_nY2*x_nZ1*x_nX4
+  nScY=nScY+x_nX1*x_nZ2*x_nZ4*x_nZ4+x_nX1*x_nY3*x_nY3*x_nZ4-x_nX1*x_nZ2*x_nZ2*x_nZ4-x_nX1*x_nY4*x_nY4*x_nZ3
+  nScY=nScY-x_nX2*x_nZ1*x_nZ4*x_nZ4-x_nX2*x_nX3*x_nX3*x_nZ4+x_nX2*x_nZ1*x_nZ1*x_nZ4+x_nX2*x_nX4*x_nX4*x_nZ3
+  nScY=nScY+x_nX3*x_nZ1*x_nY4*x_nY4-x_nX3*x_nX4*x_nX4*x_nZ2-x_nZ1*x_nX4*x_nY3*x_nY3+x_nZ1*x_nX4*x_nZ2*x_nZ2
+  nScY=nScY+x_nX2*x_nX2*x_nX3*x_nZ4-x_nX2*x_nX2*x_nX4*x_nZ3-x_nY1*x_nY1*x_nX3*x_nZ4+x_nY1*x_nY1*x_nX4*x_nZ3
+  nScY=nScY+x_nX3*x_nX3*x_nX4*x_nZ2-x_nZ1*x_nZ1*x_nX4*x_nZ2-x_nX1*x_nZ3*x_nZ4*x_nZ4+x_nX1*x_nZ3*x_nZ3*x_nZ4
+  nScY=nScY-x_nX2*x_nY3*x_nY3*x_nZ4+x_nX2*x_nY4*x_nY4*x_nZ3+x_nX3*x_nZ1*x_nZ4*x_nZ4-x_nX3*x_nZ2*x_nY4*x_nY4
+  nScY=nScY+x_nX3*x_nY2*x_nY2*x_nZ4-x_nX3*x_nZ1*x_nZ1*x_nZ4-x_nZ1*x_nX4*x_nZ3*x_nZ3+x_nX4*x_nY3*x_nY3*x_nZ2
+  nScY=nScY-x_nY2*x_nY2*x_nX4*x_nZ3+x_nZ1*x_nZ1*x_nX4*x_nZ3+x_nX2*x_nZ3*x_nZ4*x_nZ4-x_nX2*x_nZ3*x_nZ3*x_nZ4
+  nScY=nScY-x_nX3*x_nZ2*x_nZ4*x_nZ4+x_nX3*x_nZ2*x_nZ2*x_nZ4+x_nX4*x_nZ2*x_nZ3*x_nZ3-x_nX4*x_nZ2*x_nZ2*x_nZ3
+  l_nTemp=2*x_nX1*x_nY2*x_nZ3-2*x_nX1*x_nY3*x_nZ2-2*x_nX2*x_nY1*x_nZ3+2*x_nX2*x_nZ1*x_nY3
+  l_nTemp=l_nTemp+2*x_nY1*x_nX3*x_nZ2-2*x_nX3*x_nY2*x_nZ1-2*x_nX1*x_nY2*x_nZ4+2*x_nX1*x_nZ2*x_nY4+2*x_nX2*x_nY1*x_nZ4-2*x_nX2*x_nZ1*x_nY4
+  l_nTemp=l_nTemp-2*x_nY1*x_nX4*x_nZ2+2*x_nY2*x_nZ1*x_nX4+2*x_nX1*x_nY3*x_nZ4-2*x_nX1*x_nY4*x_nZ3-2*x_nY1*x_nX3*x_nZ4+2*x_nY1*x_nX4*x_nZ3
+  l_nTemp=l_nTemp+2*x_nX3*x_nZ1*x_nY4-2*x_nZ1*x_nX4*x_nY3-2*x_nX2*x_nY3*x_nZ4+2*x_nX2*x_nY4*x_nZ3+2*x_nX3*x_nY2*x_nZ4-2*x_nX3*x_nZ2*x_nY4
+  l_nTemp=l_nTemp-2*x_nY2*x_nX4*x_nZ3+2*x_nX4*x_nY3*x_nZ2
+  if abs(l_nTemp)<0.001
+    nScY=9999.9999
+  else
+    nScY=nScY/l_nTemp
+  endIf
+  nScZ=x_nX1*x_nX3*x_nX3*x_nY2-x_nX1*x_nX2*x_nX2*x_nY3-x_nX2*x_nY1*x_nX3*x_nX3+x_nX1*x_nX1*x_nX2*x_nY3
+  nScZ=nScZ-x_nX1*x_nX1*x_nX3*x_nY2+x_nX2*x_nX2*x_nY1*x_nX3-x_nX1*x_nY2*x_nX4*x_nX4+x_nX1*x_nY2*x_nY3*x_nY3
+  nScZ=nScZ+x_nX1*x_nX2*x_nX2*x_nY4-x_nX1*x_nY2*x_nY2*x_nY3+x_nX2*x_nY1*x_nX4*x_nX4-x_nX2*x_nY1*x_nY3*x_nY3
+  nScZ=nScZ+x_nX2*x_nY1*x_nY1*x_nY3+x_nY1*x_nX3*x_nY2*x_nY2-x_nX1*x_nX1*x_nX2*x_nY4+x_nX1*x_nX1*x_nY2*x_nX4
+  nScZ=nScZ-x_nX2*x_nX2*x_nY1*x_nX4-x_nY1*x_nY1*x_nX3*x_nY2-x_nX1*x_nY2*x_nY4*x_nY4+x_nX1*x_nY2*x_nZ3*x_nZ3
+  nScZ=nScZ-x_nX1*x_nY3*x_nZ2*x_nZ2-x_nX1*x_nX3*x_nX3*x_nY4+x_nX1*x_nY2*x_nY2*x_nY4+x_nX1*x_nX4*x_nX4*x_nY3
+  nScZ=nScZ+x_nX2*x_nY1*x_nY4*x_nY4-x_nX2*x_nY1*x_nZ3*x_nZ3-x_nX2*x_nY1*x_nY1*x_nY4+x_nX2*x_nZ1*x_nZ1*x_nY3
+  nScZ=nScZ-x_nY1*x_nX3*x_nX4*x_nX4+x_nY1*x_nX3*x_nZ2*x_nZ2+x_nY1*x_nX3*x_nX3*x_nX4-x_nY1*x_nY2*x_nY2*x_nX4
+  nScZ=nScZ-x_nX3*x_nY2*x_nZ1*x_nZ1+x_nX1*x_nX1*x_nX3*x_nY4-x_nX1*x_nX1*x_nX4*x_nY3+x_nY1*x_nY1*x_nY2*x_nX4
+  nScZ=nScZ-x_nX1*x_nY2*x_nZ4*x_nZ4+x_nX1*x_nY3*x_nY4*x_nY4-x_nX1*x_nY3*x_nY3*x_nY4+x_nX1*x_nZ2*x_nZ2*x_nY4
+  nScZ=nScZ+x_nX2*x_nY1*x_nZ4*x_nZ4+x_nX2*x_nX3*x_nX3*x_nY4-x_nX2*x_nZ1*x_nZ1*x_nY4-x_nX2*x_nX4*x_nX4*x_nY3
+  nScZ=nScZ-x_nY1*x_nX3*x_nY4*x_nY4+x_nY1*x_nX4*x_nY3*x_nY3-x_nY1*x_nX4*x_nZ2*x_nZ2+x_nX3*x_nY2*x_nX4*x_nX4
+  nScZ=nScZ+x_nY2*x_nZ1*x_nZ1*x_nX4-x_nX2*x_nX2*x_nX3*x_nY4+x_nX2*x_nX2*x_nX4*x_nY3+x_nY1*x_nY1*x_nX3*x_nY4
+  nScZ=nScZ-x_nY1*x_nY1*x_nX4*x_nY3-x_nX3*x_nX3*x_nY2*x_nX4+x_nX1*x_nY3*x_nZ4*x_nZ4-x_nX1*x_nY4*x_nZ3*x_nZ3
+  nScZ=nScZ-x_nX2*x_nY3*x_nY4*x_nY4+x_nX2*x_nY3*x_nY3*x_nY4-x_nY1*x_nX3*x_nZ4*x_nZ4+x_nY1*x_nX4*x_nZ3*x_nZ3
+  nScZ=nScZ+x_nX3*x_nY2*x_nY4*x_nY4-x_nX3*x_nY2*x_nY2*x_nY4+x_nX3*x_nZ1*x_nZ1*x_nY4-x_nY2*x_nX4*x_nY3*x_nY3
+  nScZ=nScZ+x_nY2*x_nY2*x_nX4*x_nY3-x_nZ1*x_nZ1*x_nX4*x_nY3-x_nX2*x_nY3*x_nZ4*x_nZ4+x_nX2*x_nY4*x_nZ3*x_nZ3
+  nScZ=nScZ+x_nX3*x_nY2*x_nZ4*x_nZ4-x_nX3*x_nZ2*x_nZ2*x_nY4-x_nY2*x_nX4*x_nZ3*x_nZ3+x_nX4*x_nY3*x_nZ2*x_nZ2
+  l_nTemp=2*x_nX1*x_nY2*x_nZ3-2*x_nX1*x_nY3*x_nZ2-2*x_nX2*x_nY1*x_nZ3+2*x_nX2*x_nZ1*x_nY3+2*x_nY1*x_nX3*x_nZ2-2*x_nX3*x_nY2*x_nZ1
+  l_nTemp=l_nTemp-2*x_nX1*x_nY2*x_nZ4+2*x_nX1*x_nZ2*x_nY4+2*x_nX2*x_nY1*x_nZ4-2*x_nX2*x_nZ1*x_nY4-2*x_nY1*x_nX4*x_nZ2+2*x_nY2*x_nZ1*x_nX4
+  l_nTemp=l_nTemp+2*x_nX1*x_nY3*x_nZ4-2*x_nX1*x_nY4*x_nZ3-2*x_nY1*x_nX3*x_nZ4+2*x_nY1*x_nX4*x_nZ3+2*x_nX3*x_nZ1*x_nY4-2*x_nZ1*x_nX4*x_nY3
+  l_nTemp=l_nTemp-2*x_nX2*x_nY3*x_nZ4+2*x_nX2*x_nY4*x_nZ3+2*x_nX3*x_nY2*x_nZ4-2*x_nX3*x_nZ2*x_nY4-2*x_nY2*x_nX4*x_nZ3+2*x_nX4*x_nY3*x_nZ2
+  if abs(l_nTemp)<0.001
+    nScZ=9999.9999
+  else
+    nScZ=nScZ/l_nTemp
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

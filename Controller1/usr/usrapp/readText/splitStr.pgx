@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="split">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sSourceStr" type="string" xsi:type="element" />
+      <Parameter name="x_sDestStr" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_sSplitChar" type="string" xsi:type="array" size="3" />
+      <Local name="l_nX" type="num" xsi:type="array" size="1" />
+      <Local name="l_nCount" type="num" xsi:type="array" size="1" />
+      <Local name="l_nFirstIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nMaxIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nBuffIndex" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //
+  
+  
+  
+  //参数初始化
+  l_sSplitChar[0]="/"
+  l_sSplitChar[1]=","
+  l_sSplitChar[2]="="
+  
+  
+  
+  for l_nX=0 to size(x_sDestStr,1)-1
+    x_sDestStr[l_nX]=""
+  endFor
+  
+  
+  //参数合法化判断
+  if x_sSourceStr==""
+    return
+  endIf
+  
+  
+  //进行分解
+  while true
+    
+    l_nMaxIndex=-2000
+    l_nFirstIndex=2000
+    
+    //判断值
+    for l_nX=0 to size(l_sSplitChar,1)-1
+      l_nBuffIndex=find(x_sSourceStr,l_sSplitChar[l_nX])
+      l_nMaxIndex=max(l_nMaxIndex,l_nBuffIndex)
+      if l_nBuffIndex<l_nFirstIndex and l_nBuffIndex>=0
+        l_nFirstIndex=l_nBuffIndex
+      endIf
+    endFor
+    
+    
+    //退出
+    if l_nMaxIndex<0 or l_nCount>=size(x_sDestStr,1)-1
+      x_sDestStr[l_nCount]=x_sSourceStr
+      return
+    endIf
+    
+    
+    
+    //分割
+    x_sDestStr[l_nCount]=left(x_sSourceStr,l_nFirstIndex)
+    x_sSourceStr=right(x_sSourceStr,len(x_sSourceStr)-l_nFirstIndex-1)
+    
+    l_nCount=l_nCount+1
+    
+    
+  endWhile
+  
+  
+  
+end
+  
+
+]]></Code>
+  </Program>
+</Programs>

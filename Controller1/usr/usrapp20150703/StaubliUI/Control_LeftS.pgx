@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_LeftS" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sLeftList" type="string" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bRes" type="bool" xsi:type="array" size="1" />
+      <Local name="l_sBuff" type="string" xsi:type="array" size="20" />
+    </Locals>
+    <Code><![CDATA[begin
+  //在屏幕左边进行显示
+  //左边的x_sLeftList 是显示的字符串数
+  //字符串以,作为分割符
+  call Str_SplitComma(l_bRes,x_sLeftList,l_sBuff)
+  if !l_bRes
+    return
+  endIf
+  
+  call Control_Left(l_sBuff)
+end
+
+  ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Control_Recipe" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_trFrame" type="trsf" xsi:type="element" use="reference" />
+      <Parameter name="x_trOffset" type="trsf" xsi:type="element" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nSelectIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nData" type="num" xsi:type="array" size="30" />
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //产品的参数
+  
+  
+  
+  //主要是用户坐标系和偏移
+  l_nData[0]=x_trFrame.x
+  l_nData[1]=x_trFrame.y
+  l_nData[2]=x_trFrame.z
+  l_nData[3]=x_trFrame.rx
+  l_nData[4]=x_trFrame.ry
+  l_nData[5]=x_trFrame.rz
+  
+  l_nData[6]=x_trOffset.x
+  l_nData[7]=x_trOffset.y
+  l_nData[8]=x_trOffset.z
+  l_nData[9]=x_trOffset.rx
+  l_nData[10]=x_trOffset.ry
+  l_nData[11]=x_trOffset.rz
+  
+  
+  resize(sBuff,1,12)
+  
+  sBuff[0]="坐标系X  :"+toString(".3",l_nData[0])
+  sBuff[1]="坐标系y  :"+toString(".3",l_nData[1])
+  sBuff[2]="坐标系Z  :"+toString(".3",l_nData[2])
+  sBuff[3]="坐标系RX :"+toString(".3",l_nData[3])
+  sBuff[4]="坐标系RY :"+toString(".3",l_nData[4])
+  sBuff[5]="坐标系RZ :"+toString(".3",l_nData[5])
+  
+  
+  sBuff[6]="偏移 X   :"+toString(".3",l_nData[6])
+  sBuff[7]="偏移 y   :"+toString(".3",l_nData[7])
+  sBuff[8]="偏移 Z   :"+toString(".3",l_nData[8])
+  sBuff[9]="偏移 RX  :"+toString(".3",l_nData[9])
+  sBuff[10]="偏移 RY  :"+toString(".3",l_nData[10])
+  sBuff[11]="偏移 RZ  :"+toString(".3",l_nData[11])
+  
+  
+  
+  
+  
+  call Control_BottomS(",,,,,,取消,确定")
+  call Control_PanelXY(8,0,17,12)
+  call Control_Panel("产品参数")
+  call Control_List(sBuff,l_nSelectIndex)
+  while true
+    l_nKey=getKey()
+    
+    switch l_nKey
+      case 261
+        //        l_nSelectIndex=max(0,l_nSelectIndex-1)
+        
+        l_nSelectIndex=l_nSelectIndex-1
+        if l_nSelectIndex<=-1
+          l_nSelectIndex=size(sBuff)-1
+        endIf
+        
+      break 
+      
+      case 266
+        l_nSelectIndex=l_nSelectIndex+1
+        if l_nSelectIndex>=size(sBuff)
+          l_nSelectIndex=0
+        endIf
+        //l_nSelectIndex=min(l_nSelectIndex+1,size(sBuff)-1)
+      break
+      
+      case 278
+        x_trFrame.x=l_nData[0]
+        x_trFrame.y =l_nData[1]
+        x_trFrame.z=l_nData[2]
+        x_trFrame.rx =l_nData[3]
+        x_trFrame.ry =l_nData[4]
+        x_trFrame.rz =l_nData[5]
+        
+        x_trOffset.x=l_nData[6]
+        x_trOffset.y =l_nData[7]
+        x_trOffset.z =l_nData[8]
+        x_trOffset.rx =l_nData[9]
+        x_trOffset.ry =l_nData[10]
+        x_trOffset.rz =l_nData[11]
+        
+        
+        
+        
+        cls()
+        return
+      break
+      
+      
+      case 277
+        cls()
+        return
+      break
+      
+      case 270
+        call Float_Edit(l_nData[l_nSelectIndex],nPanelLTopX+11,l_nSelectIndex+nPanelLTopY+1)
+        
+      break
+      
+      
+    endSwitch
+    
+    if l_nKey!=-1
+      
+      sBuff[0]="坐标系X  :"+toString(".3",l_nData[0])
+      sBuff[1]="坐标系y  :"+toString(".3",l_nData[1])
+      sBuff[2]="坐标系Z  :"+toString(".3",l_nData[2])
+      sBuff[3]="坐标系RX :"+toString(".3",l_nData[3])
+      sBuff[4]="坐标系RY :"+toString(".3",l_nData[4])
+      sBuff[5]="坐标系RZ :"+toString(".3",l_nData[5])
+      
+      
+      sBuff[6]="偏移 X   :"+toString(".3",l_nData[6])
+      sBuff[7]="偏移 y   :"+toString(".3",l_nData[7])
+      sBuff[8]="偏移 Z   :"+toString(".3",l_nData[8])
+      sBuff[9]="偏移 RX  :"+toString(".3",l_nData[9])
+      sBuff[10]="偏移 RY  :"+toString(".3",l_nData[10])
+      sBuff[11]="偏移 RZ  :"+toString(".3",l_nData[11])
+      call Control_List(sBuff,l_nSelectIndex)
+      
+    endIf
+    
+    
+  endWhile
+  
+  
+  
+end
+  ]]></Code>
+  </Program>
+</Programs>

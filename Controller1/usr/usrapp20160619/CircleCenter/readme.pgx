@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="readme" access="private" >
+    <Code><![CDATA[begin
+  //Title:示教坐标系
+
+  //General description:
+  //通过三点示教坐标系；
+
+  //Hardware required:
+
+  //Val3 Option:
+  //Val3 version：s7.1以上；
+  //Val3 license:
+  //Val3 addon：对应val3版本的addon--expansion、motion、recorder、relbo、remote和velocity
+
+  //Variables:
+  //bool:
+  //  bAlignDone:对齐是否完成标识符
+  //  bFrameSave:坐标系示教是否完成标识符
+  //  bPC:是否与上位机通讯标识符
+  //  bSame:字符串是否变化标识符
+
+  //frame
+  //  frame1:坐标系
+
+  //mdesc
+  //  mNomSpeed:默认速度
+
+  //num
+  //  nFrame1Err:建立坐标系返回值
+  //  nItem[6]:储存point类型的6个位置分量
+  //  nMax[6]:输入最大值
+  //  nMin[6]:输入最小
+  //  nSelectedPt:选择点编号
+  //
+
+  //point
+  //  pFrameRefPt[3]:构成frame的三个点
+
+  //string:
+  //  sCutPosStatus:字符串标志符
+  //  sEmptyOrNotC:字符串标志符
+  //  sItem[6]:point的6个分量的字符串形式
+  //  sOffSet[6]:frame的6个分量的字符串形式
+  //  sThreeOffset[3]:构成frame的三个点的字符串形式
+
+
+  //tool
+  //  tTool:工具
+
+  //trsf
+  //  trOffset:frame的trsf值
+  //  trOffsetOut:frame的trsf值的输出变量
+
+
+
+  //Included libraries:
+  //DataBase：与PC交换的公共数据和其他库共同使用的数据
+  //PublicProg:公共函数库
+  //userPage：通用界面函数库
+
+  //Miscellaneous：
+
+  //Keywords:
+
+  //other:
+end]]></Code>
+  </Program>
+</Programs>

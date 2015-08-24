@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="userInterface" access="private" >
+    <Locals>
+      <Local name="l_nKey" type="num" xsi:type="array" size="1" />
+      <Local name="l_sTabSpeed" type="string" xsi:type="array" size="1" />
+      <Local name="l_bBool" type="bool" xsi:type="array" size="1" />
+      <Local name="i" type="num" xsi:type="array" size="1" />
+      <Local name="l_nStatus" type="num" xsi:type="array" size="1" />
+      <Local name="l_nTime" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  userPage()
+  //主页面（启动页面）
+  call page_main()
+
+  nVirtualKey=-1
+  do
+    delay(0)
+    l_nKey=getKey()
+
+
+    //*********************
+    //2015.1.4
+    //添加nFunctionIndex
+    if l_nKey==-1 and nVirtualKey!=-1
+      l_nKey=nVirtualKey
+    endIf
+
+    if l_nKey!=-1 and nVirtualKey!=-1
+      nVirtualKey=-1
+    endIf
+
+    //**********************
+
+    switch nPage
+      //主页面
+      case 0
+        switch l_nKey
+          //F1：进入调试界面
+          case 271
+            if read:bCycle
+              call use:questionDialog("生产中,确定要进入调试界面,Yes/No?",sButtons,l_nKey)
+              if l_nKey==0 or l_nKey==1
+                nInterfaceType=4
+                call page_debug()
+              else
+                call page_main()
+              endIf
+            else
+              call page_debug()
+            endIf
+          break
+          //F2：进入生产页面
+          case 272
+            call page_production()
+          break
+          //进入示教TCP界面
+          case 273
+            if read:bCycle
+              popUpMsg("结束生产,方可进入该页面")
+            else
+              // popUpMsg("请单独运行StaubliCalTool7示教TCP")
+              nInterfaceType=14
+              call CalTool:start()
+              bUpload=true
+              date:tTCP=CalTool:tTool
+              call page_main()
+            endIf
+          break
+          //进入示教转台中心页面
+          //示教Frame点
+
+          case 274
+            if read:bCycle
+              popUpMsg("结束生产,方可进入该页面")
+            else
+              nInterfaceType=10
+              $jogContext(tTool,world,0)
+              call setFrm:OnStart(tTool,date:fWorkTable.trsf)
+              fFrame.trsf=date:fWorkTable.trsf
+              date:libSave()
+              bUpload=true
+              call page_main()
+            endIf
+          break
+          //设置Home位置
+          case 275
+            nInterfaceType=15
+            call page_setHome()
+          break
+          //设置速度参数默认值
+          case 276
+            call page_setSpdVal()
+          break
+          //退出程序
+          case 278
+            call use:questionDialog("退出将终止程序,Yes or No?",sButtons,l_nKey)
+            if l_nKey==0 or l_nKey==1
+              cls()
+              bExit=true
+              bSuspend=true
+              if bPause==true
+                bPause=false
+              endIf
+              read:bCycle=false
+              libSave()
+              read:libSave()
+              stopMove()
+              call Kill()
+            else
+              call page_main()
+            endIf
+          break
+        endSwitch
+      break
+      //调试页面
+      case 1
+        switch l_nKey
+          case 271
+            if dioGet(io:doB_6_toolPower)==1
+              dioSet(io:doB_6_toolPower,0)
+              gotoxy(15,3)
+              put("    ")
+              gotoxy(15,3)
+              put("[关]")
+            else
+              dioSet(io:doB_6_toolPower,1)
+              gotoxy(15,3)
+              put("    ")
+              gotoxy(15,3)
+              put("[开]")
+            endIf
+          break
+          case 272
+            if dioGet(io:doB_7_toolOn)==1
+              dioSet(io:doB_7_toolOn,0)
+              gotoxy(13,4)
+              put("    ")
+              gotoxy(13,4)
+              put("[关]")
+            else
+              dioSet(io:doB_7_toolOn,1)
+              gotoxy(13,4)
+              put("    ")
+              gotoxy(13,4)
+              put("[开]")
+            endIf
+          break
+          case 273
+            if dioGet(io:doB_9_tableOn)==1
+              dioSet(io:doB_9_tableOn,0)
+              gotoxy(13,5)
+              put("    ")
+              gotoxy(13,5)
+              put("[关]")
+            else
+              dioSet(io:doB_9_tableOn,1)
+              gotoxy(13,5)
+              put("    ")
+              gotoxy(13,5)
+              put("[开]")
+              call io:tableSpeed(nTabSpeed)
+            endIf
+          break
+          case 274
+            if nTabSpeed>0
+              nTabSpeed=nTabSpeed-1
+              call io:tableSpeed(nTabSpeed)
+              call use:clear(0,11)
+              gotoxy(0,11)
+              put("转台当前速度："+toString("",nTabSpeed))
+              call massage("                  ")
+            else
+              call massage("转台速度达到最小值")
+            endIf
+          break
+          case 275
+            if nTabSpeed<35
+              nTabSpeed=nTabSpeed+1
+              call io:tableSpeed(nTabSpeed)
+              call use:clear(0,11)
+              gotoxy(0,11)
+              put("转台当前速度："+toString("",nTabSpeed))
+              call massage("                  ")
+            else
+              call massage("转台速度达到最大值")
+            endIf
+          break
+          case 276
+            i=nTabSpeed
+            call use:clear(0,11)
+            gotoxy(0,11)
+            put("请输入转台速度代码（0-35）：")
+            get(l_sTabSpeed)
+            l_sTabSpeed=toNum(l_sTabSpeed,nTabSpeed,l_bBool)
+            if l_bBool and nTabSpeed>=0 and nTabSpeed<=35
+              putln(l_sTabSpeed)
+              call use:clear(0,11)
+              gotoxy(0,11)
+              put("转台当前速度："+toString("",nTabSpeed))
+            else
+              popUpMsg("输入有误!")
+              nTabSpeed=i
+            endIf
+            call io:tableSpeed(nTabSpeed)
+          break
+          case 277
+            if ati:bZero
+              ati:bZero=false
+              gotoxy(16,9)
+              put("    ")
+              gotoxy(16,9)
+              put("[关]")
+            else
+              ati:bZero=true
+              gotoxy(16,9)
+              put("    ")
+              gotoxy(16,9)
+              put("[开]")
+            endIf
+          break
+          case 278,255
+            call page_main()
+          break
+        endSwitch
+        delay(0)
+      break
+      //生产页面
+      case 2
+        call prdStatusList()
+        switch l_nKey
+
+          case 264
+            nPauseTime=max(0,nPauseTime-0.5)
+          break
+
+
+
+          case 268
+            nPauseTime=nPauseTime+0.5
+          break
+
+
+          case 271
+            if read:bCycle
+              popUpMsg("生产中,结束后方可进入该页面")
+            else
+              call page_txtSelect()
+            endIf
+          break
+          case 272
+            if dioGet(io:doB_10_systeAlm)==0
+              if bHome and !read:bCycle
+                if len(sTxtSelected)==0
+                  popUpMsg("请选择Txt文件后,按F2启动生产")
+                else
+                  if workingMode()==4 or workingMode()==3
+                    if !read:bCycle
+                      if bSuspend
+                        call use:questionDialog("是否继续上一次生产，Yes/No?",sButtons,l_nKey)
+                        if l_nKey==0 or l_nKey==1
+                          read:bResumeCycle=true
+                        else
+                          read:bResumeCycle=false
+                        endIf
+                        call page_production()
+                      else
+                        read:bResumeCycle=false
+                      endIf
+                      call prd_action("启动生产")
+                    else
+                      popUpMsg("生产进行中!")
+                    endIf
+                  else
+                    popUpMsg("请切换至自动/远程模式后生产")
+                  endIf
+                endIf
+              else
+                popUpMsg("请先手动回零位")
+              endIf
+            else
+              popUpMsg("报警未清除!")
+            endIf
+          break
+          //暂停/继续生产
+
+          case 273
+            //
+            if read:bCycle
+              if bPause
+                call resumeProduct()
+              else
+                call prd_action("暂停生产")
+              endIf
+            elseIf bSuspend
+              if dioGet(io:doB_10_systeAlm)==0
+                if bHome
+                  //继续生产
+                  call resumeProduct()
+                else
+                  popUpMsg("请先手动回零位")
+                endIf
+              else
+                popUpMsg("报警未清除")
+              endIf
+            else
+              popUpMsg("当前没有生产")
+            endIf
+          break
+          case 274
+            if read:bCycle or bSuspend
+              call use:questionDialog("停止生产后,将无法继续生产,Yes/No?",sButtons,l_nKey)
+              if l_nKey==0 or l_nKey==1
+                call prd_action("停止生产")
+              endIf
+              call page_production()
+            else
+              popUpMsg("当前没有生产")
+            endIf
+          break
+
+          //2015.02.03
+          //××××××××××××××××××××××××××××××××××××××××
+          //          case 275
+          //            if read:bCycle
+          //              l_nTime=nTimeBuff=clock()
+          //              bInterVal=true
+          //              call prd_action("暂停生产")
+          //              while clock()-l_nTime<nPauseTime
+          ////                gotoxy(20,12)
+          ////                put("间断恢复:"+toString(".1",clock()-l_nTime-nPauseTime)+"秒")
+          //                delay(0)
+          //              endWhile
+          //              //delay(nPauseTime)
+          //              call resumeProduct() 
+          //              bInterVal=false
+          //            else
+          //              popUpMsg("当前没有生产")
+          //            endIf
+          //          break
+
+          //×××××××××××××××××××××××××××××××××××××××××××
+          case 276
+            if !read:bCycle
+              if !bHome
+                if workingMode(l_nStatus)==1
+                  if isPowered()
+                    popUpMsg("按住Move-Hold键回零位")
+                    call goHome()
+                  else
+                    popUpMsg("请给手臂上电后,按F5回零位")
+                  endIf
+                else
+                  popUpMsg("请切换至手动模式后,按F5回零")
+                endIf
+              else
+                call massage("到达零位")
+              endIf
+            else
+              popUpMsg("生产中,如需回零,请先停止生产")
+            endIf
+          break
+          //返回
+          case 278
+            if read:bCycle
+              popUpMsg("生产中,结束后方可进入该页面")
+            else
+              call page_main()
+            endIf
+          break
+        endSwitch
+      break
+
+
+      //生产路径选择
+      case 3
+        call use:listevent(l_nKey,nTxtSelseted,sTxtSelected)
+        switch l_nKey
+          case 278,270
+            call page_production()
+          break
+        endSwitch
+      break
+      delay(0.2)
+    endSwitch
+
+
+
+  until bExit
+end]]></Code>
+  </Program>
+</Programs>

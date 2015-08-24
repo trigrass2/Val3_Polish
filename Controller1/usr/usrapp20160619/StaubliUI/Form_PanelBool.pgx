@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="Form_PanelBool" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_sTitle" type="string" xsi:type="element" />
+      <Parameter name="x_sPanelTitle" type="string" xsi:type="element" />
+      <Parameter name="x_bList" type="bool" xsi:type="array" use="reference" />
+      <Parameter name="x_nSelectIndex" type="num" xsi:type="element" use="reference" />
+      <Parameter name="x_sBottom" type="string" xsi:type="element" />
+      <Parameter name="x_sYes" type="string" xsi:type="element" />
+      <Parameter name="x_sNo" type="string" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nNum" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+
+//×××××××××××××××××××××××××××××××××××××××××××××××××
+//×××××××××××××××××××××××××××××××××××××××××××××××××
+resize(sBuff,1,size(x_bList))
+for l_nNum=0 to size(x_bList)-1
+  if x_bList[l_nNum]
+    sBuff[l_nNum]=toString("",l_nNum+1)+"."+x_sYes
+  else
+    sBuff[l_nNum]=toString("",l_nNum+1)+"."+x_sNo
+  endIf
+endFor
+//*************************************************
+call Form_PanelList(x_sTitle,x_sPanelTitle,sBuff,x_nSelectIndex,x_sBottom)
+ 
+
+  
+end]]></Code>
+  </Program>
+</Programs>
